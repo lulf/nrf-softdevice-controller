@@ -13,6 +13,7 @@ pub mod sdc;
 pub enum Error {
     InvalidArg,
     NotPermitted,
+    OpNotSupported,
     Other,
 }
 
@@ -21,6 +22,7 @@ impl From<i32> for Error {
         match val {
             -1 => Self::NotPermitted,
             -22 => Self::InvalidArg,
+            -45 => Self::OpNotSupported,
             _ => Self::Other,
         }
     }

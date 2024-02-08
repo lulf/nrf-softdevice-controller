@@ -19,7 +19,6 @@ pub fn sdc_init(config: Config) -> Result<(), Error> {
 
     /// Initialize msp
     let ret = unsafe { raw::sdc_init(Some(fault_handler)) };
-    info!("[sdc] init return value {}", ret);
     if ret != 0 {
         return Err(ret.into());
     }
@@ -34,7 +33,65 @@ pub fn sdc_init(config: Config) -> Result<(), Error> {
     if ret != 0 {
         return Err(ret.into());
     }
+    info!("[sdc] rand registered");
+
+    let mut memory_usage = 0;
+    let ret = unsafe {
+        raw::sdc_cfg_set(
+            ConfigTag::Default as u8,
+            ConfigType::AdvCount as u8,
+            &raw::sdc_cfg_t {
+                adv_count: raw::sdc_cfg_role_count_t { count: 1 },
+            },
+        )
+    };
+    if ret < 0 {
+        return Err(ret.into());
+    }
+    memory_usage += ret;
+    info!("[sdc] set adv count");
+
+    let ret = unsafe {
+        raw::sdc_cfg_set(
+            ConfigTag::Default as u8,
+            ConfigType::PeripheralCount as u8,
+            &raw::sdc_cfg_t {
+                peripheral_count: raw::sdc_cfg_role_count_t { count: 1 },
+            },
+        )
+    };
+    if ret < 0 {
+        return Err(ret.into());
+    }
+    memory_usage += ret;
+
+    static mut BUFFER: [u8; 8192] = [0; 8192];
+
+    let ret = unsafe { raw::sdc_enable(Some(hci_callback), BUFFER.as_mut_ptr()) };
+    if ret != 0 {
+        return Err(ret.into());
+    }
+
+    info!("[sdc] init done. Required memory {}", memory_usage);
     Ok(())
+}
+
+#[repr(u8)]
+enum ConfigTag {
+    Default = 0,
+}
+
+#[repr(u8)]
+enum ConfigType {
+    None = 0,
+    CentralCount = 1,
+    PeripheralCount = 2,
+    Buffer = 3,
+    AdvCount = 4,
+}
+
+unsafe extern "C" fn hci_callback() {
+    info!("[sdc] hci event!");
 }
 
 unsafe extern "C" fn rng_prio_low(buf: *mut u8, len: u8) -> u8 {
