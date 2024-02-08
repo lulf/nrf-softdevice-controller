@@ -4,7 +4,7 @@
 use defmt::info;
 use embassy_executor::Spawner;
 use embassy_nrf::{bind_interrupts, interrupt, pac::Interrupt::SWI2_EGU2, peripherals, rng};
-use embassy_time::Instant;
+use embassy_time::{Duration, Instant, Timer};
 use {defmt_rtt as _, panic_probe as _};
 
 use bleps::{
@@ -33,13 +33,32 @@ fn SWI2_EGU2() {
     }
 }
 
+#[interrupt]
+fn RADIO() {
+    defmt::info!("IRQ RADIO");
+}
+
+#[interrupt]
+fn TIMER0() {
+    defmt::info!("IRQ TIMER0");
+}
+
+#[interrupt]
+fn RTC0() {
+    defmt::info!("IRQ RTC0");
+}
+
 fn current_millis() -> u64 {
+    info!("GET MILIS");
     Instant::now().as_millis()
 }
 
 #[embassy_executor::main]
 async fn main(_s: Spawner) {
-    let p = embassy_nrf::init(Default::default());
+    let mut config = embassy_nrf::config::Config::default();
+    config.gpiote_interrupt_priority = interrupt::Priority::P2;
+    config.time_interrupt_priority = interrupt::Priority::P2;
+    let p = embassy_nrf::init(config);
 
     let mut rng = rng::Rng::new(p.RNG, Irqs);
     rng.set_bias_correction(true);
@@ -48,12 +67,18 @@ async fn main(_s: Spawner) {
 
     let config = MpslConfig {};
     mpsl_init(config, SWI2_EGU2).unwrap();
-
+    loop {
+        info!("Piung");
+        Timer::after(Duration::from_millis(300)).await;
+    }
+    //
     let config = SdcConfig { seed };
     sdc_init(config).unwrap();
 
     let connector = SdHci;
     info!("Creating connector!");
+    //Timer::after(Duration::from_millis(2000)).await;
+    info!("Waited");
     let hci = HciConnector::new(connector, current_millis);
     info!("New Connector");
     let mut ble = Ble::new(&hci);

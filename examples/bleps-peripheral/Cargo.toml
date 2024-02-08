@@ -5,9 +5,9 @@ edition = "2021"
 resolver = "2"
 
 [dependencies]
-embassy-executor = { version = "0.5", features = ["arch-cortex-m", "executor-thread", "defmt", "integrated-timers", "executor-interrupt"] }
+embassy-executor = { version = "0.5", features = ["task-arena-size-8192", "arch-cortex-m", "executor-thread", "defmt", "integrated-timers", "executor-interrupt"] }
 embassy-time = { version = "0.3", features = ["defmt", "defmt-timestamp-uptime"] }
-embassy-nrf = { version = "0.1", features = ["defmt", "nrf52832", "time-driver-rtc1", "gpiote", "unstable-pac", "time", "nfc-pins-as-gpio"] }
+embassy-nrf = { version = "0.1", features = ["defmt", "nrf52832", "time-driver-rtc1", "gpiote", "unstable-pac", "time", "nfc-pins-as-gpio", "rt"] }
 nrf-softdevice-controller = { path = "../../nrf-softdevice-controller", features = ["defmt"] }
 bleps = { path = "../../../bleps/bleps", features = ["async", "macros"]}
 embedded-io-async = "0.6"
@@ -23,3 +23,12 @@ defmt-rtt = "0.4"
 
 [profile.release]
 debug = 2
+
+[patch.crates-io]
+embassy-executor = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+embassy-nrf = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+embassy-sync = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+embassy-futures = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+embassy-time = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+embassy-time-driver = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
+embassy-embedded-hal = { git = "https://github.com/embassy-rs/embassy.git", branch = "main" }
