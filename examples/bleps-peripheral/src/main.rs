@@ -1,51 +1,65 @@
 #![no_std]
 #![no_main]
 
-use defmt::info;
-use embassy_executor::Spawner;
-use embassy_nrf::{bind_interrupts, interrupt, pac::Interrupt::SWI2_EGU2, peripherals, rng};
-use embassy_time::{Duration, Instant, Timer};
-use {defmt_rtt as _, panic_probe as _};
-
 use bleps::{
     ad_structure::{create_advertising_data, AdStructure, BR_EDR_NOT_SUPPORTED, LE_GENERAL_DISCOVERABLE},
     att::Uuid,
     attribute_server::{AttributeServer, NotificationData, WorkResult},
     Addr, Ble, HciConnector,
 };
+use defmt::info;
+use embassy_executor::Spawner;
+use embassy_nrf::{bind_interrupts, interrupt, pac, pac::Interrupt::SWI5_EGU5, peripherals, rng};
+use embassy_time::{Duration, Instant, Timer};
 use embedded_io_async::{Error, ErrorKind, ErrorType, Read, Write};
+use interrupt::InterruptExt as _;
 use nrf_softdevice_controller::{
     mpsl::{mpsl_init, Config as MpslConfig},
     raw,
     sdc::{sdc_hci_read, sdc_hci_write, sdc_init, Config as SdcConfig},
     Error as SdcError,
 };
+use {defmt_rtt as _, panic_probe as _};
 
 bind_interrupts!(struct Irqs {
     RNG => embassy_nrf::rng::InterruptHandler<peripherals::RNG>;
 });
 
 #[interrupt]
-fn SWI2_EGU2() {
-    defmt::info!("IRQ SWI");
+fn SWI5_EGU5() {
+    defmt::info!("IRQ SWI5_EGU5");
     unsafe {
         raw::mpsl_low_priority_process();
     }
 }
 
+extern "C" {
+    static MPSL_IRQ_RADIO_Handler: extern "C" fn() -> ();
+    static MPSL_IRQ_TIMER0_Handler: extern "C" fn() -> ();
+    static MPSL_IRQ_RTC0_Handler: extern "C" fn() -> ();
+    static MPSL_IRQ_CLOCK_Handler: extern "C" fn() -> ();
+}
+
 #[interrupt]
 fn RADIO() {
-    defmt::info!("IRQ RADIO");
+    unsafe { MPSL_IRQ_RADIO_Handler() };
 }
 
 #[interrupt]
 fn TIMER0() {
-    defmt::info!("IRQ TIMER0");
+    unsafe { MPSL_IRQ_TIMER0_Handler() };
 }
 
 #[interrupt]
 fn RTC0() {
-    defmt::info!("IRQ RTC0");
+    unsafe { MPSL_IRQ_RTC0_Handler() };
+}
+
+#[interrupt]
+fn POWER_CLOCK() {
+    info!("POWER_CLOCK IRQ");
+    unsafe { MPSL_IRQ_CLOCK_Handler() };
+    info!("DONE POWER_CLOCK IRQ");
 }
 
 fn current_millis() -> u64 {
@@ -53,25 +67,49 @@ fn current_millis() -> u64 {
     Instant::now().as_millis()
 }
 
+fn print_regs() {
+    let r = unsafe { &*pac::CLOCK::ptr() };
+    let val = r.lfclkstat.read().bits();
+    info!("LFCLKSTAT: {:x}", val);
+    let val = r.hfclkstat.read().bits();
+    info!("HFCLKSTAT: {:x}", val);
+    let val = r.lfclkrun.read().bits();
+    info!("LFCLKRUN: {:x}", val);
+    let val = r.lfclksrc.read().bits();
+    info!("LFCLKSRC: {:x}", val);
+    let val = r.ctiv.read().bits();
+    info!("CTIV: {:x}", val);
+}
+
 #[embassy_executor::main]
 async fn main(_s: Spawner) {
     let mut config = embassy_nrf::config::Config::default();
     config.gpiote_interrupt_priority = interrupt::Priority::P2;
     config.time_interrupt_priority = interrupt::Priority::P2;
+    interrupt::RTC0.set_priority(interrupt::Priority::P0);
+    interrupt::RADIO.set_priority(interrupt::Priority::P0);
+    interrupt::TIMER0.set_priority(interrupt::Priority::P0);
+    interrupt::POWER_CLOCK.set_priority(interrupt::Priority::P4);
+    interrupt::SWI5_EGU5.set_priority(interrupt::Priority::P4);
+
+    print_regs();
+
     let p = embassy_nrf::init(config);
 
-    let mut rng = rng::Rng::new(p.RNG, Irqs);
-    rng.set_bias_correction(true);
-    let mut seed = [0u8; 32];
-    rng.blocking_fill_bytes(&mut seed);
+    info!("Init mpsl");
 
     let config = MpslConfig {};
-    mpsl_init(config, SWI2_EGU2).unwrap();
+    mpsl_init(config, SWI5_EGU5).unwrap();
+    print_regs();
     loop {
         info!("Piung");
         Timer::after(Duration::from_millis(300)).await;
     }
     //
+    let mut rng = rng::Rng::new(p.RNG, Irqs);
+    rng.set_bias_correction(true);
+    let mut seed = [0u8; 32];
+    rng.blocking_fill_bytes(&mut seed);
     let config = SdcConfig { seed };
     sdc_init(config).unwrap();
 
