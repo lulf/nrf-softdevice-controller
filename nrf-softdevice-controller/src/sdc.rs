@@ -76,6 +76,19 @@ pub fn sdc_init(config: Config) -> Result<(), Error> {
     Ok(())
 }
 
+/// Initialize the softdevice controller. Should only be called once!
+pub fn sdc_hci_write(data: &[u8]) -> Result<(), Error> {
+    let ret = unsafe { raw::sdc_hci_data_put(data.as_ptr()) };
+    if ret != 0 {
+        return Err(ret.into());
+    }
+    Ok(())
+}
+
+pub fn sdc_hci_read(data: &mut [u8]) -> Result<usize, Error> {
+    Ok(0)
+}
+
 #[repr(u8)]
 enum ConfigTag {
     Default = 0,

@@ -11,6 +11,8 @@ embassy-nrf = { version = "0.1", features = ["defmt", "nrf52832", "time-driver-r
 nrf-softdevice-controller = { path = "../../nrf-softdevice-controller", features = ["defmt"] }
 bleps = { path = "../../../bleps/bleps", features = ["async", "macros"]}
 embedded-io-async = "0.6"
+embedded-io = "0.6"
+uuid = { version = "1.7", default-features = false }
 
 cortex-m-rt = "0.7"
 cortex-m = { version = "0.7", features = ["inline-asm", "critical-section-single-core"] }

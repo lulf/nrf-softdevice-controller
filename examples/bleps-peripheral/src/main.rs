@@ -4,18 +4,21 @@
 use defmt::info;
 use embassy_executor::Spawner;
 use embassy_nrf::{bind_interrupts, interrupt, pac::Interrupt::SWI2_EGU2, peripherals, rng};
+use embassy_time::Instant;
 use {defmt_rtt as _, panic_probe as _};
 
 use bleps::{
     ad_structure::{create_advertising_data, AdStructure, BR_EDR_NOT_SUPPORTED, LE_GENERAL_DISCOVERABLE},
+    att::Uuid,
     attribute_server::{AttributeServer, NotificationData, WorkResult},
-    gatt, Addr, Ble, HciConnector,
+    Addr, Ble, HciConnector,
 };
-use embedded_io_async::{Error, ErrorType, Read, Write};
+use embedded_io_async::{Error, ErrorKind, ErrorType, Read, Write};
 use nrf_softdevice_controller::{
     mpsl::{mpsl_init, Config as MpslConfig},
     raw,
-    sdc::{sdc_init, Config as SdcConfig},
+    sdc::{sdc_hci_read, sdc_hci_write, sdc_init, Config as SdcConfig},
+    Error as SdcError,
 };
 
 bind_interrupts!(struct Irqs {
@@ -28,6 +31,10 @@ fn SWI2_EGU2() {
     unsafe {
         raw::mpsl_low_priority_process();
     }
+}
+
+fn current_millis() -> u64 {
+    Instant::now().as_millis()
 }
 
 #[embassy_executor::main]
@@ -45,176 +52,73 @@ async fn main(_s: Spawner) {
     let config = SdcConfig { seed };
     sdc_init(config).unwrap();
 
-    info!("Hello!");
-    //    loop {
-    //        let connector = BleConnector::new(&mut serial);
-    //        let hci = HciConnector::new(connector, current_millis);
-    //        let mut ble = Ble::new(&hci);
-    //
-    //        println!("{:?}", ble.init());
-    //
-    //        let local_addr = Addr::from_le_bytes(false, ble.cmd_read_br_addr().unwrap());
-    //
-    //        println!("{:?}", ble.cmd_set_le_advertising_parameters());
-    //        println!(
-    //            "{:?}",
-    //            ble.cmd_set_le_advertising_data(
-    //                create_advertising_data(&[
-    //                    AdStructure::Flags(LE_GENERAL_DISCOVERABLE | BR_EDR_NOT_SUPPORTED),
-    //                    AdStructure::ServiceUuids16(&[Uuid::Uuid16(0x1809)]),
-    //                    AdStructure::CompleteLocalName("BLEPS"),
-    //                ])
-    //                .unwrap()
-    //            )
-    //        );
-    //        println!("{:?}", ble.cmd_set_le_advertise_enable(true));
-    //
-    //        println!("started advertising");
-    //
-    //        let val = Arc::new(Mutex::new(Vec::from(
-    //            &b"Hello BLE! Hello BLE! 01234567890123456789 ABCDEFG abcdefg"[..],
-    //        )));
-    //
-    //        let mut rf = {
-    //            let val = val.clone();
-    //            move |offset: usize, data: &mut [u8]| {
-    //                let val = val.lock().unwrap();
-    //                let off = offset as usize;
-    //                if off < val.len() {
-    //                    let len = data.len().min(val.len() - off);
-    //                    data[..len].copy_from_slice(&val[off..off + len]);
-    //                    println!("SEND: Offset {}, data {:x?}", offset, &data[..len]);
-    //                    len
-    //                } else {
-    //                    0
-    //                }
-    //            }
-    //        };
-    //        let mut wf = {
-    //            let val = val.clone();
-    //            move |offset: usize, data: &[u8]| {
-    //                println!("RECEIVED: Offset {}, data {:x?}", offset, data);
-    //                let mut val = val.lock().unwrap();
-    //                let off = offset as usize;
-    //                if off < val.len() {
-    //                    let len = val.len() - off;
-    //                    let olen = data.len().min(len);
-    //                    val[off..off + olen].copy_from_slice(&data[..olen]);
-    //                    if data.len() > len {
-    //                        val.extend_from_slice(&data[olen..]);
-    //                    }
-    //                }
-    //            }
-    //        };
-    //
-    //        let mut wf2 = |offset: usize, data: &[u8]| {
-    //            println!("RECEIVED2: Offset {}, data {:x?}", offset, data);
-    //        };
-    //
-    //        let mut rf3 = |_offset: usize, data: &mut [u8]| {
-    //            data[..5].copy_from_slice(&b"Hola!"[..]);
-    //            5
-    //        };
-    //        let mut wf3 = |offset: usize, data: &[u8]| {
-    //            println!("RECEIVED3: Offset {}, data {:x?}", offset, data);
-    //        };
-    //
-    //        gatt!([service {
-    //            uuid: "937312e0-2354-11eb-9f10-fbc30a62cf38",
-    //            characteristics: [
-    //                characteristic {
-    //                    uuid: "937312e0-2354-11eb-9f10-fbc30a62cf38",
-    //                    read: rf,
-    //                    write: wf,
-    //                },
-    //                characteristic {
-    //                    uuid: "957312e0-2354-11eb-9f10-fbc30a62cf38",
-    //                    write: wf2,
-    //                },
-    //                characteristic {
-    //                    name: "my_characteristic",
-    //                    uuid: "987312e0-2354-11eb-9f10-fbc30a62cf38",
-    //                    notify: true,
-    //                    read: rf3,
-    //                    write: wf3,
-    //                },
-    //            ],
-    //        },]);
-    //
-    //        let mut rng = OsRng::default();
-    //        let mut srv = AttributeServer::new_with_ltk(
-    //            &mut ble,
-    //            &mut gatt_attributes,
-    //            local_addr,
-    //            ltk,
-    //            &mut rng,
-    //        );
-    //
-    //        let mut pin_callback = |pin: u32| {
-    //            println!("PIN is {pin}");
-    //        };
-    //
-    //        srv.set_pin_callback(Some(&mut pin_callback));
-    //
-    //        let mut response = [b'H', b'e', b'l', b'l', b'o', b'0'];
-    //
-    //        loop {
-    //            let mut notification = None;
-    //
-    //            if let Ok(true) = crossterm::event::poll(Duration::from_micros(1)) {
-    //                let event = crossterm::event::read().unwrap();
-    //                match event {
-    //                    crossterm::event::Event::Key(key_event) => match key_event.code {
-    //                        crossterm::event::KeyCode::Char('c')
-    //                            if key_event.modifiers == crossterm::event::KeyModifiers::CONTROL =>
-    //                        {
-    //                            exit(0);
-    //                        }
-    //                        crossterm::event::KeyCode::Char('q') => {
-    //                            exit(0);
-    //                        }
-    //                        crossterm::event::KeyCode::Char('n') => {
-    //                            println!("notify if enabled");
-    //                            let mut cccd = [0u8; 1];
-    //                            if let Some(1) = srv.get_characteristic_value(
-    //                                my_characteristic_notify_enable_handle,
-    //                                0,
-    //                                &mut cccd,
-    //                            ) {
-    //                                // if notifications enabled
-    //                                if cccd[0] == 1 {
-    //                                    response[5] = b'0' + ((response[5] + 1) % 10);
-    //                                    notification = Some(NotificationData::new(
-    //                                        my_characteristic_handle,
-    //                                        &response[..],
-    //                                    ));
-    //                                }
-    //                            }
-    //                        }
-    //                        crossterm::event::KeyCode::Char('x') => {
-    //                            srv.disconnect(0x13).unwrap();
-    //                        }
-    //                        _ => (),
-    //                    },
-    //                    _ => (),
-    //                }
-    //            }
-    //
-    //            match srv.do_work_with_notification(notification) {
-    //                Ok(res) => {
-    //                    if let WorkResult::GotDisconnected = res {
-    //                        println!("Received disconnect");
-    //                        break;
-    //                    }
-    //                }
-    //                Err(err) => {
-    //                    println!("{:x?}", err);
-    //                }
-    //            }
-    //        }
-    //
-    //        ltk = srv.get_ltk();
-    //    }
+    let connector = SdHci;
+    info!("Creating connector!");
+    let hci = HciConnector::new(connector, current_millis);
+    info!("New Connector");
+    let mut ble = Ble::new(&hci);
+    info!("New BLE");
+
+    let ret = ble.init();
+    info!("Init {:?}", defmt::Debug2Format(&ret));
+
+    let local_addr = Addr::from_le_bytes(false, ble.cmd_read_br_addr().unwrap());
+
+    let ret = ble.cmd_set_le_advertising_parameters();
+    info!("ADV PARAMS {:?}", defmt::Debug2Format(&ret));
+
+    let ret = ble.cmd_set_le_advertising_data(
+        create_advertising_data(&[
+            AdStructure::Flags(LE_GENERAL_DISCOVERABLE | BR_EDR_NOT_SUPPORTED),
+            AdStructure::ServiceUuids16(&[Uuid::Uuid16(0x1809)]),
+            AdStructure::CompleteLocalName("BLEPS SD"),
+        ])
+        .unwrap(),
+    );
+    info!("CREATE ADV DATA {:?}", defmt::Debug2Format(&ret),);
+    let ret = ble.cmd_set_le_advertise_enable(true);
+    info!("ENABLE ADV {:?}", defmt::Debug2Format(&ret));
+
+    info!("started advertising");
 }
 
-pub struct SdControllerHci {}
+pub struct SdHci;
+
+#[derive(defmt::Format, Debug)]
+pub struct HciError {
+    error: SdcError,
+}
+
+impl From<SdcError> for HciError {
+    fn from(e: SdcError) -> Self {
+        Self { error: e }
+    }
+}
+
+impl embedded_io::Error for HciError {
+    fn kind(&self) -> ErrorKind {
+        ErrorKind::Other
+    }
+}
+
+impl embedded_io::ErrorType for SdHci {
+    type Error = HciError;
+}
+
+impl embedded_io::Read for SdHci {
+    fn read(&mut self, buf: &mut [u8]) -> Result<usize, Self::Error> {
+        let r = sdc_hci_read(buf)?;
+        Ok(r)
+    }
+}
+
+impl embedded_io::Write for SdHci {
+    fn write(&mut self, buf: &[u8]) -> Result<usize, Self::Error> {
+        sdc_hci_write(buf)?;
+        Ok(buf.len())
+    }
+
+    fn flush(&mut self) -> Result<(), Self::Error> {
+        Ok(())
+    }
+}
