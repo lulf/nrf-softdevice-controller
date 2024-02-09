@@ -14,6 +14,7 @@ targets = ["thumbv7em-none-eabi"]
 nrf-sdc-sys = { path = "../nrf-sdc-sys" }
 defmt = { version = "0.3", optional = true }
 embassy-sync = "0.5"
+embassy-nrf = "0.1"
 chacha20 = { version = "0.9", default-features = false }
 rand_core = { version = "0.6", default-features = false }
 rand_chacha = { version = "0.3", default-features = false }

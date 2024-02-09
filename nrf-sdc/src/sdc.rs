@@ -17,8 +17,8 @@ pub fn sdc_init(config: Config) -> Result<(), Error> {
         *rng.borrow_mut() = Some(rand_chacha::ChaCha12Rng::from_seed(config.seed));
     });
 
-    /// Initialize msp
-    let ret = unsafe { raw::sdc_init(Some(fault_handler)) };
+    // Initialize msp
+    let ret = unsafe { raw::sdc_init(Some(sdc_assert_handler)) };
     if ret != 0 {
         return Err(ret.into());
     }
@@ -132,6 +132,7 @@ unsafe extern "C" fn rng_poll(buf: *mut u8, len: u8) {
     })
 }
 
-unsafe extern "C" fn fault_handler(file: *const i8, line: u32) {
-    panic!("sdc fault handler file {:?} line {}", file, line);
+unsafe extern "C" fn sdc_assert_handler(file: *const i8, line: u32) {
+    let file = core::ffi::CStr::from_ptr(file as _).to_str().unwrap();
+    panic!("SDC assertion failed at file {} line {}", file, line);
 }

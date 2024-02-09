@@ -10,12 +10,12 @@ use bleps::{
 use cortex_m::peripheral::NVIC;
 use defmt::info;
 use embassy_executor::Spawner;
-use embassy_nrf::{bind_interrupts, interrupt, pac, pac::Interrupt::SWI5_EGU5, peripherals, rng};
+use embassy_nrf::{bind_interrupts, interrupt, pac, peripherals, rng};
 use embassy_time::{Duration, Instant, Timer};
 use embedded_io_async::{Error, ErrorKind, ErrorType, Read, Write};
 use interrupt::InterruptExt as _;
-use nrf_softdevice_controller::{
-    mpsl::{mpsl_init, Config as MpslConfig},
+use nrf_sdc::{
+    mpsl::{mpsl_init, mpsl_run, Config as MpslConfig, LfClock},
     raw,
     sdc::{sdc_hci_read, sdc_hci_write, sdc_init, Config as SdcConfig},
     Error as SdcError,
@@ -24,15 +24,8 @@ use {defmt_rtt as _, panic_probe as _};
 
 bind_interrupts!(struct Irqs {
     RNG => embassy_nrf::rng::InterruptHandler<peripherals::RNG>;
+    SWI0_EGU0 => nrf_sdc::mpsl::InterruptHandler;
 });
-
-#[interrupt]
-fn SWI5_EGU5() {
-    defmt::info!("IRQ SWI5_EGU5");
-    unsafe {
-        raw::mpsl_low_priority_process();
-    }
-}
 
 extern "C" {
     static MPSL_IRQ_RADIO_Handler: extern "C" fn() -> ();
@@ -68,7 +61,7 @@ fn POWER_CLOCK() {
 
     print_regs();
 
-    //unsafe { MPSL_IRQ_CLOCK_Handler() };
+    unsafe { MPSL_IRQ_CLOCK_Handler() };
     info!("DONE POWER_CLOCK IRQ");
 }
 
@@ -90,28 +83,60 @@ fn print_regs() {
     info!("CTIV: {:x}", val);
 }
 
+#[embassy_executor::task]
+async fn mpsl_task() {
+    loop {
+        mpsl_run().await
+    }
+}
+
 #[embassy_executor::main]
 async fn main(_s: Spawner) {
     let mut config = embassy_nrf::config::Config::default();
-    config.gpiote_interrupt_priority = interrupt::Priority::P2;
-    config.time_interrupt_priority = interrupt::Priority::P2;
-    config.hfclk_source = embassy_nrf::config::HfclkSource::ExternalXtal;
-    interrupt::RTC0.set_priority(interrupt::Priority::P0);
-    interrupt::RADIO.set_priority(interrupt::Priority::P0);
-    interrupt::TIMER0.set_priority(interrupt::Priority::P0);
-    interrupt::POWER_CLOCK.set_priority(interrupt::Priority::P4);
-    interrupt::SWI5_EGU5.set_priority(interrupt::Priority::P4);
+    //config.gpiote_interrupt_priority = interrupt::Priority::P2;
+    //config.time_interrupt_priority = interrupt::Priority::P2;
+    // config.hfclk_source = embassy_nrf::config::HfclkSource::ExternalXtal;
+    //interrupt::RTC0.set_priority(interrupt::Priority::P0);
+    //interrupt::RADIO.set_priority(interrupt::Priority::P0);
+    //interrupt::TIMER0.set_priority(interrupt::Priority::P0);
+    //interrupt::POWER_CLOCK.set_priority(interrupt::Priority::P4);
+    //interrupt::SWI0_EGU0.set_priority(interrupt::Priority::P4);
 
     //print_regs();
 
     let p = embassy_nrf::init(config);
 
+    unsafe {
+        let mut nvic: NVIC = core::mem::transmute(());
+        nvic.set_priority(pac::Interrupt::RADIO, 0 << 5);
+        nvic.set_priority(pac::Interrupt::RTC0, 0 << 5);
+        nvic.set_priority(pac::Interrupt::TIMER0, 0 << 5);
+        nvic.set_priority(pac::Interrupt::POWER_CLOCK, 7 << 5);
+        nvic.set_priority(pac::Interrupt::SWI0_EGU0, 7 << 5);
+    }
+
     info!("Init mpsl");
 
-    let config = MpslConfig {};
-    mpsl_init(config, SWI5_EGU5).unwrap();
+    //let config = MpslConfig {
+    //    source: LfClock::Rc,
+    //    rc_ctiv: 16,
+    //    rc_temp_ctiv: 2,
+    //    accuracy_ppm: 250,
+    //};
+
+    let config = MpslConfig {
+        source: LfClock::Xtal,
+        rc_ctiv: 0,
+        rc_temp_ctiv: 0,
+        accuracy_ppm: 250,
+    };
+    mpsl_init(config, Irqs).unwrap();
     //let i = interrupt::POWER_CLOCK;
     //unsafe { NVIC::mask(i) };
+    // let res = sys::mpsl_clock_hfclk_request(Some(hfclk_callback));
+    // info!("res {}", res);
+
+    Timer::after(Duration::from_millis(10)).await;
     print_regs();
     let mut rng = rng::Rng::new(p.RNG, Irqs);
     rng.set_bias_correction(true);

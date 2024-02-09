@@ -3,7 +3,7 @@
 // Must be a top!
 mod fmt;
 
-pub use nrf_softdevice_controller_sys as raw;
+pub use nrf_sdc_sys as raw;
 
 pub mod mpsl;
 pub mod sdc;
