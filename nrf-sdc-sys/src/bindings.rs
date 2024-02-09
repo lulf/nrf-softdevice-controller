@@ -148,45 +148,24 @@ pub const SDC_DEFAULT_RESOURCE_CFG_TAG: u32 = 0;
 pub const SDC_DEFAULT_ADV_COUNT: u32 = 1;
 pub const SDC_DEFAULT_PERIODIC_ADV_COUNT: u32 = 0;
 pub const SDC_DEFAULT_PERIODIC_SYNC_COUNT: u32 = 0;
-pub const SDC_DEFAULT_PERIODIC_ADV_RSP_COUNT: u32 = 0;
-pub const SDC_DEFAULT_PERIODIC_ADV_RSP_TX_BUFFER_COUNT: u32 = 1;
-pub const SDC_DEFAULT_PERIODIC_ADV_RSP_MAX_TX_DATA: u32 = 73;
-pub const SDC_DEFAULT_PERIODIC_ADV_RSP_RX_BUFFER_COUNT: u32 = 0;
-pub const SDC_DEFAULT_PERIODIC_SYNC_RSP_TX_BUFFER_COUNT: u32 = 1;
 pub const SDC_DEFAULT_PERIPHERAL_COUNT: u32 = 1;
 pub const SDC_DEFAULT_CENTRAL_COUNT: u32 = 1;
 pub const SDC_DEFAULT_TX_PACKET_SIZE: u32 = 27;
 pub const SDC_DEFAULT_RX_PACKET_SIZE: u32 = 27;
 pub const SDC_DEFAULT_TX_PACKET_COUNT: u32 = 3;
 pub const SDC_DEFAULT_RX_PACKET_COUNT: u32 = 2;
-pub const SDC_DEFAULT_FAL_SIZE: u32 = 8;
 pub const SDC_DEFAULT_SCAN_BUFFER_COUNT: u32 = 3;
 pub const SDC_DEFAULT_PERIODIC_SYNC_BUFFER_COUNT: u32 = 2;
 pub const SDC_DEFAULT_ADV_BUF_SIZE: u32 = 31;
 pub const SDC_DEFAULT_PERIODIC_ADV_LIST_SIZE: u32 = 0;
-pub const SDC_DEFAULT_CIG_COUNT: u32 = 0;
-pub const SDC_DEFAULT_CIS_COUNT: u32 = 0;
-pub const SDC_DEFAULT_BIG_COUNT: u32 = 0;
-pub const SDC_DEFAULT_BIS_SINK_COUNT: u32 = 0;
-pub const SDC_DEFAULT_BIS_SOURCE_COUNT: u32 = 0;
-pub const SDC_DEFAULT_ISO_RX_PDU_BUFFER_PER_STREAM_COUNT: u32 = 0;
-pub const SDC_DEFAULT_ISO_RX_SDU_BUFFER_COUNT: u32 = 0;
-pub const SDC_DEFAULT_ISO_RX_SDU_BUFFER_SIZE: u32 = 251;
-pub const SDC_DEFAULT_ISO_TX_HCI_BUFFER_COUNT: u32 = 0;
-pub const SDC_DEFAULT_ISO_TX_HCI_BUFFER_SIZE: u32 = 251;
-pub const SDC_DEFAULT_ISO_TX_PDU_BUFFER_PER_STREAM_COUNT: u32 = 0;
+pub const SDC_DEFAULT_EVENT_LENGTH_US: u32 = 7500;
 pub const SDC_BUILD_REVISION_SIZE: u32 = 20;
-pub const __MEM_MINIMAL_CENTRAL_LINK_SIZE: u32 = 1020;
-pub const __MEM_MINIMAL_PERIPHERAL_LINK_SIZE: u32 = 1156;
+pub const __MEM_MINIMAL_CENTRAL_LINK_SIZE: u32 = 1040;
+pub const __MEM_MINIMAL_PERIPHERAL_LINK_SIZE: u32 = 1152;
 pub const __MEM_TX_BUFFER_OVERHEAD_SIZE: u32 = 15;
 pub const __MEM_RX_BUFFER_OVERHEAD_SIZE: u32 = 14;
-pub const SDC_MEM_CENTRAL_LINKS_SHARED: u32 = 29;
-pub const SDC_MEM_PERIPHERAL_LINKS_SHARED: u32 = 29;
-pub const SDC_MEM_QOS_CHANNEL_SURVEY: u32 = 40;
-pub const __MEM_PER_PERIODIC_ADV_RSP_RX_BUFFER: u32 = 282;
-pub const __MEM_MINIMAL_PERIODIC_ADV_RSP_SET_SIZE_WITH_RX: u32 = 465;
-pub const __MEM_MINIMAL_PERIODIC_ADV_RSP_SET_SIZE_WITHOUT_RX: u32 = 166;
-pub const __MEM_FOR_PERIODIC_ADV_RSP_FAILURE_REPORTING: u32 = 224;
+pub const SDC_MEM_CENTRAL_LINKS_SHARED: u32 = 24;
+pub const SDC_MEM_PERIPHERAL_LINKS_SHARED: u32 = 24;
 pub const HCI_CMD_HEADER_SIZE: u32 = 3;
 pub const HCI_DATA_HEADER_SIZE: u32 = 4;
 pub const HCI_EVENT_HEADER_SIZE: u32 = 2;
@@ -197,7 +176,6 @@ pub const HCI_CMD_PACKET_MAX_SIZE: u32 = 258;
 pub const HCI_DATA_PACKET_MAX_SIZE: u32 = 255;
 pub const HCI_EVENT_PACKET_MAX_SIZE: u32 = 257;
 pub const HCI_MSG_BUFFER_MAX_SIZE: u32 = 258;
-pub const HCI_ISO_TX_SDU_ARRIVAL_MARGIN_US: u32 = 1000;
 pub const MPSL_RECOMMENDED_RC_CTIV: u32 = 16;
 pub const MPSL_RECOMMENDED_RC_TEMP_CTIV: u32 = 2;
 pub const MPSL_DEFAULT_CLOCK_ACCURACY_PPM: u32 = 250;
@@ -231,14 +209,14 @@ pub const sdc_cfg_type_SDC_CFG_TYPE_CENTRAL_COUNT: sdc_cfg_type = 1;
 pub const sdc_cfg_type_SDC_CFG_TYPE_PERIPHERAL_COUNT: sdc_cfg_type = 2;
 #[doc = " See @ref sdc_cfg_t::buffer_cfg."]
 pub const sdc_cfg_type_SDC_CFG_TYPE_BUFFER_CFG: sdc_cfg_type = 3;
+#[doc = " See @ref sdc_cfg_t::event_length."]
+pub const sdc_cfg_type_SDC_CFG_TYPE_EVENT_LENGTH: sdc_cfg_type = 4;
 #[doc = " See @ref sdc_cfg_t::adv_count."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_ADV_COUNT: sdc_cfg_type = 4;
+pub const sdc_cfg_type_SDC_CFG_TYPE_ADV_COUNT: sdc_cfg_type = 5;
 #[doc = " See @ref sdc_cfg_t::scan_buffer_cfg."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_SCAN_BUFFER_CFG: sdc_cfg_type = 5;
+pub const sdc_cfg_type_SDC_CFG_TYPE_SCAN_BUFFER_CFG: sdc_cfg_type = 6;
 #[doc = " See @ref sdc_cfg_t::adv_buffer_cfg."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_ADV_BUFFER_CFG: sdc_cfg_type = 6;
-#[doc = " See @ref sdc_cfg_t::fal_size"]
-pub const sdc_cfg_type_SDC_CFG_TYPE_FAL_SIZE: sdc_cfg_type = 7;
+pub const sdc_cfg_type_SDC_CFG_TYPE_ADV_BUFFER_CFG: sdc_cfg_type = 7;
 #[doc = " See @ref sdc_cfg_t::periodic_adv_count."]
 pub const sdc_cfg_type_SDC_CFG_TYPE_PERIODIC_ADV_COUNT: sdc_cfg_type = 8;
 #[doc = " See @ref sdc_cfg_t::periodic_sync_count."]
@@ -247,32 +225,6 @@ pub const sdc_cfg_type_SDC_CFG_TYPE_PERIODIC_SYNC_COUNT: sdc_cfg_type = 9;
 pub const sdc_cfg_type_SDC_CFG_TYPE_PERIODIC_SYNC_BUFFER_CFG: sdc_cfg_type = 10;
 #[doc = " See @ref sdc_cfg_t::periodic_adv_list_size."]
 pub const sdc_cfg_type_SDC_CFG_TYPE_PERIODIC_ADV_LIST_SIZE: sdc_cfg_type = 11;
-#[doc = " See @ref sdc_cfg_t::periodic_adv_rsp_count."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_PERIODIC_ADV_RSP_COUNT: sdc_cfg_type = 12;
-#[doc = " See @ref sdc_cfg_t::periodic_adv_rsp_buffer_cfg."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_PERIODIC_ADV_RSP_BUFFER_CFG: sdc_cfg_type = 13;
-#[doc = " See @ref sdc_cfg_t::periodic_adv_rsp_failure_reporting_cfg."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_PERIODIC_ADV_RSP_FAILURE_REPORTING_CFG: sdc_cfg_type = 14;
-#[doc = " See @ref sdc_cfg_t::periodic_sync_rsp_tx_buffer_cfg."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_PERIODIC_SYNC_RSP_TX_BUFFER_CFG: sdc_cfg_type = 15;
-#[doc = " See @ref sdc_cfg_t::cig_count."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_CIG_COUNT: sdc_cfg_type = 16;
-#[doc = " See @ref sdc_cfg_t::cis_count."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_CIS_COUNT: sdc_cfg_type = 17;
-#[doc = " See @ref sdc_cfg_t::big_count."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_BIG_COUNT: sdc_cfg_type = 18;
-#[doc = " See @ref sdc_cfg_t::bis_sink_count."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_BIS_SINK_COUNT: sdc_cfg_type = 19;
-#[doc = " See @ref sdc_cfg_t::bis_source_count."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_BIS_SOURCE_COUNT: sdc_cfg_type = 20;
-#[doc = " See @ref sdc_cfg_t::iso_rx_pdu_buffer_per_stream_cfg."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_ISO_RX_PDU_BUFFER_PER_STREAM_CFG: sdc_cfg_type = 21;
-#[doc = " See @ref sdc_cfg_t::iso_rx_sdu_buffer_cfg."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_ISO_RX_SDU_BUFFER_CFG: sdc_cfg_type = 22;
-#[doc = " See @ref sdc_cfg_t::iso_tx_buffer_cfg."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_ISO_TX_BUFFER_CFG: sdc_cfg_type = 23;
-#[doc = " See @ref sdc_cfg_t::iso_buffer_cfg."]
-pub const sdc_cfg_type_SDC_CFG_TYPE_ISO_BUFFER_CFG: sdc_cfg_type = 24;
 pub type sdc_cfg_type = crate::ctypes::c_uint;
 #[doc = "  Role count."]
 #[repr(C)]
@@ -374,6 +326,38 @@ fn bindgen_test_layout_sdc_cfg_buffer_cfg_t() {
         )
     );
 }
+#[doc = "  Connection event length configuration."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct sdc_cfg_event_length_t {
+    #[doc = "< Maximum connection event length"]
+    pub event_length_us: u32,
+}
+#[test]
+fn bindgen_test_layout_sdc_cfg_event_length_t() {
+    const UNINIT: ::core::mem::MaybeUninit<sdc_cfg_event_length_t> = ::core::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::core::mem::size_of::<sdc_cfg_event_length_t>(),
+        4usize,
+        concat!("Size of: ", stringify!(sdc_cfg_event_length_t))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<sdc_cfg_event_length_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(sdc_cfg_event_length_t))
+    );
+    assert_eq!(
+        unsafe { ::core::ptr::addr_of!((*ptr).event_length_us) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(sdc_cfg_event_length_t),
+            "::",
+            stringify!(event_length_us)
+        )
+    );
+}
 #[doc = "  Buffer count configuration."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -437,195 +421,6 @@ fn bindgen_test_layout_sdc_cfg_adv_buffer_cfg_t() {
         )
     );
 }
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_cfg_periodic_adv_rsp_buffer_cfg_t {
-    #[doc = " Configures the size of the buffer pool allocated to each periodic\n advertising set with responses for subevent data.\n\n Default: @ref SDC_DEFAULT_PERIODIC_ADV_RSP_TX_BUFFER_COUNT."]
-    pub tx_buffer_count: u8,
-    #[doc = " Configures the maximum amount of data which can be sent in a PAwR subevent.\n\n Default: @ref SDC_DEFAULT_PERIODIC_ADV_RSP_MAX_TX_DATA."]
-    pub max_tx_data_size: u8,
-    #[doc = " Configures the size of the buffer pool allocated to each periodic\n advertising set with responses for response reports.\n\n The value can be set to 0 to disable listening for responses.\n\n Default: @ref SDC_DEFAULT_PERIODIC_ADV_RSP_RX_BUFFER_COUNT."]
-    pub rx_buffer_count: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_cfg_periodic_adv_rsp_buffer_cfg_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_cfg_periodic_adv_rsp_buffer_cfg_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_cfg_periodic_adv_rsp_buffer_cfg_t>(),
-        3usize,
-        concat!("Size of: ", stringify!(sdc_cfg_periodic_adv_rsp_buffer_cfg_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_cfg_periodic_adv_rsp_buffer_cfg_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_cfg_periodic_adv_rsp_buffer_cfg_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).tx_buffer_count) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_periodic_adv_rsp_buffer_cfg_t),
-            "::",
-            stringify!(tx_buffer_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_tx_data_size) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_periodic_adv_rsp_buffer_cfg_t),
-            "::",
-            stringify!(max_tx_data_size)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).rx_buffer_count) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_periodic_adv_rsp_buffer_cfg_t),
-            "::",
-            stringify!(rx_buffer_count)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_cfg_iso_tx_buffer_cfg_t {
-    #[doc = " Configures the size of the shared HCI TX buffer pool allocated for ISO.\n\n Default: @ref SDC_DEFAULT_ISO_TX_HCI_BUFFER_COUNT."]
-    pub tx_hci_buffer_count: u8,
-    #[doc = " Configures the number of TX buffers allocated per ISO stream.\n\n @note For BIS, this value determines the maximum supported pretransmission offset.\n\n Default: @ref SDC_DEFAULT_ISO_TX_PDU_BUFFER_PER_STREAM_COUNT."]
-    pub tx_pdu_buffer_per_stream_count: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_cfg_iso_tx_buffer_cfg_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_cfg_iso_tx_buffer_cfg_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_cfg_iso_tx_buffer_cfg_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_cfg_iso_tx_buffer_cfg_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_cfg_iso_tx_buffer_cfg_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_cfg_iso_tx_buffer_cfg_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).tx_hci_buffer_count) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_iso_tx_buffer_cfg_t),
-            "::",
-            stringify!(tx_hci_buffer_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).tx_pdu_buffer_per_stream_count) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_iso_tx_buffer_cfg_t),
-            "::",
-            stringify!(tx_pdu_buffer_per_stream_count)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_cfg_iso_buffer_cfg_t {
-    #[doc = " Configures the number of shared HCI TX buffers allocated for ISO.\n\n Default: @ref SDC_DEFAULT_ISO_TX_HCI_BUFFER_COUNT."]
-    pub tx_hci_buffer_count: u8,
-    #[doc = " Configures the size of shared HCI TX buffers allocated for ISO.\n\n Default: @ref SDC_DEFAULT_ISO_TX_HCI_BUFFER_SIZE."]
-    pub tx_hci_buffer_size: u16,
-    #[doc = " Configures the number of TX PDU buffers allocated per ISO stream.\n\n This is the number of maximum size (251 bytes) PDU buffers. When PDU size is smaller\n than the maximum size, the pool will be repartitioned into a larger number of adjusted PDUs.\n\n For BIS, this value is used to determine the furthest PDU that can be stored in the buffers.\n Therefore, limiting the number of pretransmission subevents and maximum pretransmission offset (PTO)\n that the controller can use.\n\n Default: @ref SDC_DEFAULT_ISO_TX_PDU_BUFFER_PER_STREAM_COUNT."]
-    pub tx_pdu_buffer_per_stream_count: u8,
-    #[doc = " Configures the number of RX PDU buffers allocated per ISO stream.\n\n This is the number of maximum size (251 bytes) PDU buffers. When PDU size is smaller\n than the maximum size, the pool will be repartitioned into a larger number of adjusted PDUs.\n\n For BIS, this value determines how many pretransmissions can be stored and utilized.\n\n Default: @ref SDC_DEFAULT_ISO_RX_PDU_BUFFER_PER_STREAM_COUNT."]
-    pub rx_pdu_buffer_per_stream_count: u8,
-    #[doc = " Configures the number of RX SDU buffers allocated for ISO.\n\n Default: @ref SDC_DEFAULT_ISO_RX_SDU_BUFFER_COUNT."]
-    pub rx_sdu_buffer_count: u8,
-    #[doc = " Configures the size of RX SDU buffers allocated for ISO.\n\n Default: @ref SDC_DEFAULT_ISO_RX_SDU_BUFFER_SIZE."]
-    pub rx_sdu_buffer_size: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_cfg_iso_buffer_cfg_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_cfg_iso_buffer_cfg_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_cfg_iso_buffer_cfg_t>(),
-        10usize,
-        concat!("Size of: ", stringify!(sdc_cfg_iso_buffer_cfg_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_cfg_iso_buffer_cfg_t>(),
-        2usize,
-        concat!("Alignment of ", stringify!(sdc_cfg_iso_buffer_cfg_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).tx_hci_buffer_count) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_iso_buffer_cfg_t),
-            "::",
-            stringify!(tx_hci_buffer_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).tx_hci_buffer_size) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_iso_buffer_cfg_t),
-            "::",
-            stringify!(tx_hci_buffer_size)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).tx_pdu_buffer_per_stream_count) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_iso_buffer_cfg_t),
-            "::",
-            stringify!(tx_pdu_buffer_per_stream_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).rx_pdu_buffer_per_stream_count) as usize - ptr as usize },
-        5usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_iso_buffer_cfg_t),
-            "::",
-            stringify!(rx_pdu_buffer_per_stream_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).rx_sdu_buffer_count) as usize - ptr as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_iso_buffer_cfg_t),
-            "::",
-            stringify!(rx_sdu_buffer_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).rx_sdu_buffer_size) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_iso_buffer_cfg_t),
-            "::",
-            stringify!(rx_sdu_buffer_size)
-        )
-    );
-}
 #[doc = "  SoftDevice Controller configuration."]
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -636,48 +431,22 @@ pub union sdc_cfg_t {
     pub peripheral_count: sdc_cfg_role_count_t,
     #[doc = " Configures the number and size of the data buffers available per link.\n  Default: See @ref sdc_cfg_buffer_cfg_t."]
     pub buffer_cfg: sdc_cfg_buffer_cfg_t,
+    #[doc = " Max connection event length.\n   Default: @ref SDC_DEFAULT_EVENT_LENGTH_US."]
+    pub event_length: sdc_cfg_event_length_t,
     #[doc = " Max number of concurrent advertisers.\n  Must be more than or equal to @ref sdc_cfg_t::periodic_adv_count.\n  Default: @ref SDC_DEFAULT_ADV_COUNT."]
     pub adv_count: sdc_cfg_role_count_t,
     #[doc = " Configures the maximum number of advertising reports available in the scanner.\n\n  The minimum allowed number of buffers is 2.\n\n  It is recommended to support at least three buffers,\n  otherwise the scan response report will likely not be generated.\n\n  Default: @ref SDC_DEFAULT_SCAN_BUFFER_COUNT."]
     pub scan_buffer_cfg: sdc_cfg_buffer_count_t,
     #[doc = " Configures the maximum advertising data per advertising set.\n  Default: See @ref sdc_cfg_adv_buffer_cfg_t."]
     pub adv_buffer_cfg: sdc_cfg_adv_buffer_cfg_t,
-    #[doc = " Configures the maximum size of the Filter Accept List.\n\n Default: @ref SDC_DEFAULT_FAL_SIZE."]
-    pub fal_size: u16,
     #[doc = " Configures the maximum number of concurrent periodic advertisers.\n  Must be less than or equal to @ref sdc_cfg_t::adv_count.\n  Default: @ref SDC_DEFAULT_PERIODIC_ADV_COUNT."]
     pub periodic_adv_count: sdc_cfg_role_count_t,
     #[doc = " Configures the maximum number of concurrent synchronizations\n  to periodic advertisers.\n  Default: @ref SDC_DEFAULT_PERIODIC_SYNC_COUNT."]
     pub periodic_sync_count: sdc_cfg_role_count_t,
-    #[doc = " Configures the maximum number of periodic advertising reports available\n  for each synchronization to a periodic advertiser.\n\n  Each synchronization to a periodic advertiser allocates its own buffer\n  pool.\n\n  When periodic sync with responses is not supported,\n  the minimum allowed number of buffers is 2.\n\n  When periodic sync with responses is supported,\n  the minimum allowed number of buffers is 1.\n\n  No reports for a new advertising event containing chained PDUs will be\n  enqueued until the host has emptied the previous event's buffers.\n\n  Default: @ref SDC_DEFAULT_PERIODIC_SYNC_BUFFER_COUNT."]
+    #[doc = " Configures the maximum number of periodic advertising reports available\n  for each synchronization to a periodic advertiser.\n\n  Each synchronization to a periodic advertiser allocates its own buffer\n  pool.\n\n  The minimum allowed number of buffers is 2.\n\n  No reports for a new advertising event containing chained PDUs will be\n  enqueued until the host has emptied the previous event's buffers.\n\n  Default: @ref SDC_DEFAULT_PERIODIC_SYNC_BUFFER_COUNT."]
     pub periodic_sync_buffer_cfg: sdc_cfg_buffer_count_t,
     #[doc = " Configures the size of the periodic advertiser list.\n\n The maximum number of supported devices is 8.\n\n Default: @ref SDC_DEFAULT_PERIODIC_ADV_LIST_SIZE."]
     pub periodic_adv_list_size: u8,
-    #[doc = " Configures the maximum number of concurrent periodic advertising sets with responses.\n\n Default: @ref SDC_DEFAULT_PERIODIC_ADV_RSP_COUNT."]
-    pub periodic_adv_rsp_count: sdc_cfg_role_count_t,
-    #[doc = " Configures the number and size of the data buffers available per periodic advertising set with responses.\n  Default: See @ref sdc_cfg_periodic_adv_rsp_buffer_cfg_t."]
-    pub periodic_adv_rsp_buffer_cfg: sdc_cfg_periodic_adv_rsp_buffer_cfg_t,
-    #[doc = " Enables/disables failure response reports for Periodic Advertising with Responses - Advertiser.\n\n Set to 1 to enable RX failure reporting, 0 to disable.\n\n Default: disabled."]
-    pub periodic_adv_rsp_failure_reporting_cfg: u8,
-    #[doc = " Configures the maximum number of responses that can be stored in the controller\n  when synchronized to a periodic advertiser with responses.\n\n The minimum number of buffers is 1.\n\n Default: @ref SDC_DEFAULT_PERIODIC_SYNC_RSP_TX_BUFFER_COUNT."]
-    pub periodic_sync_rsp_tx_buffer_cfg: sdc_cfg_buffer_count_t,
-    #[doc = " Configures the maximum number of concurrent CIGs.\n\n Default: @ref SDC_DEFAULT_CIG_COUNT."]
-    pub cig_count: sdc_cfg_role_count_t,
-    #[doc = " Configures the maximum number of concurrent CISs.\n\n Default: @ref SDC_DEFAULT_CIS_COUNT."]
-    pub cis_count: sdc_cfg_role_count_t,
-    #[doc = " Configures the maximum number of concurrent BIGs.\n\n Default: @ref SDC_DEFAULT_BIG_COUNT."]
-    pub big_count: sdc_cfg_role_count_t,
-    #[doc = " Configures the maximum number of concurrent sink BISs.\n\n Default: @ref SDC_DEFAULT_BIS_SINK_COUNT."]
-    pub bis_sink_count: sdc_cfg_role_count_t,
-    #[doc = " Configures the maximum number of concurrent source BISs.\n\n Default: @ref SDC_DEFAULT_BIS_SOURCE_COUNT."]
-    pub bis_source_count: sdc_cfg_role_count_t,
-    #[doc = " Configures the size of the per stream RX PDU buffer pool allocated for ISO streams.\n\n Default: @ref SDC_DEFAULT_ISO_RX_PDU_BUFFER_PER_STREAM_COUNT."]
-    pub iso_rx_pdu_buffer_per_stream_cfg: sdc_cfg_buffer_count_t,
-    #[doc = " Configures the RX SDU buffer count allocated for ISO.\n\n Default: @ref SDC_DEFAULT_ISO_RX_SDU_BUFFER_COUNT."]
-    pub iso_rx_sdu_buffer_cfg: sdc_cfg_buffer_count_t,
-    #[doc = " Configures the size and number of TX buffer pools allocated for ISO.\n\n Default: See @ref sdc_cfg_iso_tx_buffer_cfg_t."]
-    pub iso_tx_buffer_cfg: sdc_cfg_iso_tx_buffer_cfg_t,
-    #[doc = " Configures the number and size of buffers allocated for ISO.\n\n Default: See @ref sdc_cfg_iso_buffer_cfg_t."]
-    pub iso_buffer_cfg: sdc_cfg_iso_buffer_cfg_t,
 }
 #[test]
 fn bindgen_test_layout_sdc_cfg_t() {
@@ -685,12 +454,12 @@ fn bindgen_test_layout_sdc_cfg_t() {
     let ptr = UNINIT.as_ptr();
     assert_eq!(
         ::core::mem::size_of::<sdc_cfg_t>(),
-        10usize,
+        4usize,
         concat!("Size of: ", stringify!(sdc_cfg_t))
     );
     assert_eq!(
         ::core::mem::align_of::<sdc_cfg_t>(),
-        2usize,
+        4usize,
         concat!("Alignment of ", stringify!(sdc_cfg_t))
     );
     assert_eq!(
@@ -719,6 +488,16 @@ fn bindgen_test_layout_sdc_cfg_t() {
         concat!("Offset of field: ", stringify!(sdc_cfg_t), "::", stringify!(buffer_cfg))
     );
     assert_eq!(
+        unsafe { ::core::ptr::addr_of!((*ptr).event_length) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(sdc_cfg_t),
+            "::",
+            stringify!(event_length)
+        )
+    );
+    assert_eq!(
         unsafe { ::core::ptr::addr_of!((*ptr).adv_count) as usize - ptr as usize },
         0usize,
         concat!("Offset of field: ", stringify!(sdc_cfg_t), "::", stringify!(adv_count))
@@ -742,11 +521,6 @@ fn bindgen_test_layout_sdc_cfg_t() {
             "::",
             stringify!(adv_buffer_cfg)
         )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).fal_size) as usize - ptr as usize },
-        0usize,
-        concat!("Offset of field: ", stringify!(sdc_cfg_t), "::", stringify!(fal_size))
     );
     assert_eq!(
         unsafe { ::core::ptr::addr_of!((*ptr).periodic_adv_count) as usize - ptr as usize },
@@ -788,121 +562,6 @@ fn bindgen_test_layout_sdc_cfg_t() {
             stringify!(periodic_adv_list_size)
         )
     );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).periodic_adv_rsp_count) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_t),
-            "::",
-            stringify!(periodic_adv_rsp_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).periodic_adv_rsp_buffer_cfg) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_t),
-            "::",
-            stringify!(periodic_adv_rsp_buffer_cfg)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).periodic_adv_rsp_failure_reporting_cfg) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_t),
-            "::",
-            stringify!(periodic_adv_rsp_failure_reporting_cfg)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).periodic_sync_rsp_tx_buffer_cfg) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_t),
-            "::",
-            stringify!(periodic_sync_rsp_tx_buffer_cfg)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cig_count) as usize - ptr as usize },
-        0usize,
-        concat!("Offset of field: ", stringify!(sdc_cfg_t), "::", stringify!(cig_count))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cis_count) as usize - ptr as usize },
-        0usize,
-        concat!("Offset of field: ", stringify!(sdc_cfg_t), "::", stringify!(cis_count))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).big_count) as usize - ptr as usize },
-        0usize,
-        concat!("Offset of field: ", stringify!(sdc_cfg_t), "::", stringify!(big_count))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).bis_sink_count) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_t),
-            "::",
-            stringify!(bis_sink_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).bis_source_count) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_t),
-            "::",
-            stringify!(bis_source_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).iso_rx_pdu_buffer_per_stream_cfg) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_t),
-            "::",
-            stringify!(iso_rx_pdu_buffer_per_stream_cfg)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).iso_rx_sdu_buffer_cfg) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_t),
-            "::",
-            stringify!(iso_rx_sdu_buffer_cfg)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).iso_tx_buffer_cfg) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_t),
-            "::",
-            stringify!(iso_tx_buffer_cfg)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).iso_buffer_cfg) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_cfg_t),
-            "::",
-            stringify!(iso_buffer_cfg)
-        )
-    );
 }
 extern "C" {
     #[doc = "  Initialize the SoftDevice Controller\n\n After this function is called, the application may use SoC APIs.\n\n * `fault_handler` - The fault handler will be executed when there is an\n                            internal error in the SoftDevice Controller.\n\n Returns 0            Success\n Returns -NRF_EINVAL  Invalid argument provided\n Returns -NRF_EPERM   Unable to initialize because\n                        - MPSL is not initialized\n                        - MPSL needs to be configured with a LFCLK accuracy\n                          of 500 ppm or better."]
@@ -913,7 +572,7 @@ extern "C" {
     pub fn sdc_cfg_set(config_tag: u8, config_type: u8, p_resource_cfg: *const sdc_cfg_t) -> i32;
 }
 extern "C" {
-    #[doc = "  Enable the SoftDevice Controller\n\n After this function is called, the application may utilize HCI APIs.\n\n * `callback` - The callback will be executed when HCI data or and HCI\n                      event is available. The callback will be executed in\n                      the same context as @ref mpsl_low_priority_process.\n                      See also @ref sdc_hci_get().\n * `p_mem` - Provide memory for the current resource configuration.\n                      To obtain the required memory size, use the value\n                      returned from @ref sdc_cfg_set().\n                      The pointer must be 8 bytes aligned.\n\n Returns 0            Success\n Returns -NRF_EINVAL  Invalid argument provided\n Returns -NRF_EPERM   The entropy source is not configured. Call @ref sdc_rand_source_register() first."]
+    #[doc = "  Enable the SoftDevice Controller\n\n After this function is called, the application may utilize HCI APIs.\n\n * `callback` - The callback will be executed when HCI data or and HCI\n                      event is available. The callback will be executed in\n                      the same context as @ref mpsl_low_priority_process.\n                      See also @ref sdc_hci_get().\n * `p_mem` - Provide memory for the current resource configuration. If\n                      custom resource configurations are used, use the value\n                      returned from @ref sdc_cfg_set().\n\n Returns 0            Success\n Returns -NRF_EINVAL  Invalid argument provided\n Returns -NRF_EPERM   The entropy source is not configured. Call @ref sdc_rand_source_register() first."]
     pub fn sdc_enable(callback: sdc_callback_t, p_mem: *mut u8) -> i32;
 }
 extern "C" {
@@ -985,28 +644,12 @@ extern "C" {
     pub fn sdc_support_le_periodic_sync() -> i32;
 }
 extern "C" {
-    #[doc = "  Support LE Periodic Advertising with Responses in the Advertising state\n\n After this API is called, the controller will support the HCI commands\n related to Periodic Advertising with Responses.\n\n The application shall also call @ref sdc_support_ext_adv(), @ref sdc_support_le_periodic_adv(),\n and at least one of @ref sdc_support_periodic_adv_sync_transfer_sender_central()\n and @ref sdc_support_periodic_adv_sync_transfer_sender_peripheral()\n to enable support for the extended advertising, periodic advertising,\n and sync transfer sender features before enabling support for\n Periodic Advertising with Responses.\n\n Returns 0                Success\n Returns -NRF_EPERM       This API must be called before @ref sdc_cfg_set() or @ref sdc_enable().\n Returns -NRF_EOPNOTSUPP  LE Periodic Advertising with Responses is not supported."]
-    pub fn sdc_support_le_periodic_adv_with_rsp() -> i32;
-}
-extern "C" {
-    #[doc = "  Support LE Periodic Advertising with Responses in the Synchronization state\n\n After this API is called, the controller will support the HCI commands\n related to Periodic Sync with Responses.\n\n The application shall also call @ref sdc_support_ext_adv(), @ref sdc_support_le_periodic_sync(),\n and at least one of @ref sdc_support_periodic_adv_sync_transfer_receiver_central and\n @ref sdc_support_periodic_adv_sync_transfer_receiver_peripheral to enable support for extended\n advertising, periodic advertising, and the sync transfer receiver features before enabling\n support for Periodic Sync with Responses.\n\n Returns 0                Success\n Returns -NRF_EPERM       This API must be called before @ref sdc_cfg_set() or @ref sdc_enable().\n Returns -NRF_EOPNOTSUPP  LE Periodic Sync with Responses is not supported."]
-    pub fn sdc_support_le_periodic_sync_with_rsp() -> i32;
-}
-extern "C" {
     #[doc = "  Support LE Power Control for central role\n\n After this API is called, the controller will support the HCI commands\n related to the LE Power Control.\n\n @note The application is required to call both @ref sdc_support_le_power_control_central() and @ref sdc_support_le_power_control_peripheral()\n       if both central and peripheral roles are supported.\n\n Returns 0                Success\n Returns -NRF_EPERM       This API must be called before @ref sdc_cfg_set() or @ref sdc_enable().\n Returns -NRF_EOPNOTSUPP  LE Power Control is not supported."]
     pub fn sdc_support_le_power_control_central() -> i32;
 }
 extern "C" {
     #[doc = "  Support LE Power Control for peripheral role\n\n After this API is called, the controller will support the HCI commands\n related to the LE Power Control.\n\n @note The application is required to call both @ref sdc_support_le_power_control_central() and @ref sdc_support_le_power_control_peripheral()\n       if both central and peripheral roles are supported.\n\n Returns 0                Success\n Returns -NRF_EPERM       This API must be called before @ref sdc_cfg_set() or @ref sdc_enable().\n Returns -NRF_EOPNOTSUPP  LE Power Control is not supported."]
     pub fn sdc_support_le_power_control_peripheral() -> i32;
-}
-extern "C" {
-    #[doc = "  Support Sleep Clock Accuracy (SCA) Update procedure for central role\n\n @note The application is required to call both @ref sdc_support_sca_central() and @ref sdc_support_sca_peripheral()\n       if both central and peripheral roles are supported.\n\n Returns 0                Success\n Returns -NRF_EPERM       This API must be called before @ref sdc_cfg_set() or @ref sdc_enable().\n Returns -NRF_EOPNOTSUPP  SCA Update procedure is not supported."]
-    pub fn sdc_support_sca_central() -> i32;
-}
-extern "C" {
-    #[doc = "  Support Sleep Clock Accuracy (SCA) Update procedure for peripheral role\n\n @note The application is required to call both @ref sdc_support_sca_central() and @ref sdc_support_sca_peripheral()\n       if both central and peripheral roles are supported.\n\n Returns 0                Success\n Returns -NRF_EPERM       This API must be called before @ref sdc_cfg_set() or @ref sdc_enable().\n Returns -NRF_EOPNOTSUPP  SCA Update procedure is not supported."]
-    pub fn sdc_support_sca_peripheral() -> i32;
 }
 extern "C" {
     #[doc = "  Support LE Connection CTE response for central role\n\n After this API is called, the controller will support the HCI commands\n related to the LE Connection CTE Response.\n\n @note The application is required to call both @ref sdc_support_le_conn_cte_rsp_central() and @ref sdc_support_le_conn_cte_rsp_peripheral()\n       if both central and peripheral roles are supported.\n\n Returns 0                Success\n Returns -NRF_EPERM       This API must be called before @ref sdc_cfg_set() or @ref sdc_enable().\n Returns -NRF_EOPNOTSUPP  LE Connection CTE Response is not supported."]
@@ -1033,26 +676,6 @@ extern "C" {
     pub fn sdc_support_periodic_adv_sync_transfer_receiver_peripheral() -> i32;
 }
 extern "C" {
-    #[doc = "  Support Connected Isochronous streams in the peripheral role\n\n After this API is called, the controller will support the HCI commands\n related to Connected Isochronous channels in the peripheral role\n\n Returns 0                Success\n Returns -NRF_EPERM       This API must be called before @ref sdc_cfg_set() or @ref sdc_enable().\n Returns -NRF_EOPNOTSUPP  Connected Isochronous streams in the peripheral role is not supported."]
-    pub fn sdc_support_cis_peripheral() -> i32;
-}
-extern "C" {
-    #[doc = "  Support Connected Isochronous streams in the central role\n\n After this API is called, the controller will support the HCI commands\n related to Connected Isochronous channels in the central role\n\n Returns 0                Success\n Returns -NRF_EPERM       This API must be called before @ref sdc_cfg_set() or @ref sdc_enable().\n Returns -NRF_EOPNOTSUPP  Connected Isochronous streams in the central role is not supported."]
-    pub fn sdc_support_cis_central() -> i32;
-}
-extern "C" {
-    #[doc = "  Support Broadcast Isochronous streams as a source\n\n After this API is called, the controller will support the HCI commands\n related to Broadcast Isochronous channels as a source\n\n Returns 0                Success\n Returns -NRF_EPERM       This API must be called before @ref sdc_cfg_set() or @ref sdc_enable().\n Returns -NRF_EOPNOTSUPP  Broadcast Isochronous streams as a source is not supported."]
-    pub fn sdc_support_bis_source() -> i32;
-}
-extern "C" {
-    #[doc = "  Support Broadcast Isochronous streams as a sink\n\n After this API is called, the controller will support the HCI commands\n related to Broadcast Isochronous channels as a sink\n\n Returns 0                Success\n Returns -NRF_EPERM       This API must be called before @ref sdc_cfg_set() or @ref sdc_enable().\n Returns -NRF_EOPNOTSUPP  Broadcast Isochronous streams as a sink is not supported."]
-    pub fn sdc_support_bis_sink() -> i32;
-}
-extern "C" {
-    #[doc = "  Support for Quality of Service (QoS) channel survey module\n\n After this API is called, the controller will support the @ref sdc_hci_cmd_vs_qos_channel_survey_enable HCI command\n\n Returns 0               Success\n Returns -NRF_EPERM      This API must be called before @ref sdc_cfg_set() or @ref sdc_enable().\n Returns -NRF_EOPNOTSUPP QoS channel survey is not supported."]
-    pub fn sdc_support_qos_channel_survey() -> i32;
-}
-extern "C" {
     #[doc = "  Configure the coex advertising mode\n\n Configure how the advertiser behaves on denial of an advertising packet.\n The advertiser can be configured to carry on with the advertisement after the denial or\n to abort the advertising event, once an advertising packet gets denied.\n\n The default behavior is that the advertiser tries to carry on with the advertising event\n after the denial.\n\n @note Setting  * `adv_cont_on_denial` -  to True is not supported for the\n       @ref MPSL_COEX_1WIRE_GPIOTE_ID coex interface type.\n       Using the @ref MPSL_COEX_1WIRE_GPIOTE_ID coex interface without using this\n       API call with  * `adv_cont_on_denial` -  set to False will result in unexpected behavior.\n\n Returns 0                Success\n Returns -NRF_EOPNOTSUPP  The coexistence feature is not supported."]
     pub fn sdc_coex_adv_mode_configure(adv_cont_on_denial: bool_) -> i32;
 }
@@ -1064,10 +687,6 @@ extern "C" {
 pub const sdc_hci_opcode_cb_SDC_HCI_OPCODE_CMD_CB_SET_EVENT_MASK: sdc_hci_opcode_cb = 3073;
 #[doc = "  See @ref sdc_hci_cmd_cb_reset()."]
 pub const sdc_hci_opcode_cb_SDC_HCI_OPCODE_CMD_CB_RESET: sdc_hci_opcode_cb = 3075;
-#[doc = "  See @ref sdc_hci_cmd_cb_read_conn_accept_timeout()."]
-pub const sdc_hci_opcode_cb_SDC_HCI_OPCODE_CMD_CB_READ_CONN_ACCEPT_TIMEOUT: sdc_hci_opcode_cb = 3093;
-#[doc = "  See @ref sdc_hci_cmd_cb_write_conn_accept_timeout()."]
-pub const sdc_hci_opcode_cb_SDC_HCI_OPCODE_CMD_CB_WRITE_CONN_ACCEPT_TIMEOUT: sdc_hci_opcode_cb = 3094;
 #[doc = "  See @ref sdc_hci_cmd_cb_read_transmit_power_level()."]
 pub const sdc_hci_opcode_cb_SDC_HCI_OPCODE_CMD_CB_READ_TRANSMIT_POWER_LEVEL: sdc_hci_opcode_cb = 3117;
 #[doc = "  See @ref sdc_hci_cmd_cb_set_controller_to_host_flow_control()."]
@@ -2454,74 +2073,6 @@ fn bindgen_test_layout_sdc_hci_cmd_cb_set_event_mask_t() {
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_cb_read_conn_accept_timeout_return_t {
-    pub conn_accept_timeout: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_cb_read_conn_accept_timeout_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_cb_read_conn_accept_timeout_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_cb_read_conn_accept_timeout_return_t>(),
-        2usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_cb_read_conn_accept_timeout_return_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_cb_read_conn_accept_timeout_return_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_cb_read_conn_accept_timeout_return_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_accept_timeout) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_cb_read_conn_accept_timeout_return_t),
-            "::",
-            stringify!(conn_accept_timeout)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_cb_write_conn_accept_timeout_t {
-    pub conn_accept_timeout: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_cb_write_conn_accept_timeout_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_cb_write_conn_accept_timeout_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_cb_write_conn_accept_timeout_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_cb_write_conn_accept_timeout_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_cb_write_conn_accept_timeout_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_cb_write_conn_accept_timeout_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_accept_timeout) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_cb_write_conn_accept_timeout_t),
-            "::",
-            stringify!(conn_accept_timeout)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_cmd_cb_read_transmit_power_level_t {
     pub conn_handle: u16,
     pub type_: u8,
@@ -2969,59 +2520,49 @@ fn bindgen_test_layout_sdc_hci_cmd_cb_write_authenticated_payload_timeout_return
     );
 }
 extern "C" {
-    #[doc = " @defgroup HCI_VS_API API\n @{\n/\n/** @brief Set Event Mask.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.3.1\n\n The HCI_Set_Event_Mask command is used to control which events are\n generated by the HCI for the Host. If the bit in the Event_Mask is set to a one,\n then the event associated with that bit will be enabled. For an LE Controller, the\n “LE Meta event” bit in the event_Mask shall enable or disable all LE events in\n the LE Meta event (see Section 7.7.65). The event mask allows the Host to\n control how much it is interrupted.\n\n The Controller shall ignore those bits which are reserved for future use or\n represent events which it does not support. If the Host sets any of these bits to\n 1, the Controller shall act as if they were set to 0.\n\n Event(s) generated (unless masked away):\n When the HCI_Set_Event_Mask command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = " @defgroup HCI_VS_API API\n @{\n/\n/** @brief Set Event Mask.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.3.1\n\n The HCI_Set_Event_Mask command is used to control which events are\n generated by the HCI for the Host. If the bit in the Event_Mask is set to a one,\n then the event associated with that bit will be enabled. For an LE Controller, the\n “LE Meta event” bit in the event_Mask shall enable or disable all LE events in\n the LE Meta event (see Section 7.7.65). The event mask allows the Host to\n control how much it is interrupted.\n\n The Controller shall ignore those bits which are reserved for future use or\n represent events which it does not support. If the Host sets any of these bits to\n 1, the Controller shall act as if they were set to 0.\n\n Event(s) generated (unless masked away):\n When the HCI_Set_Event_Mask command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_cb_set_event_mask(p_params: *const sdc_hci_cmd_cb_set_event_mask_t) -> u8;
 }
 extern "C" {
-    #[doc = "  Reset.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.3.2\n\n The HCI_Reset command will reset the Controller and the Link Manager on the\n BR/EDR Controller or the Link Layer on an LE Controller. If the Controller\n supports both BR/EDR and LE then the HCI_Reset command shall reset the\n Link Manager, Baseband and Link Layer. The HCI_Reset command shall not\n affect the used HCI transport layer since the HCI transport layers may have\n reset mechanisms of their own. After the reset is completed, the current\n operational state will be lost, the Controller will enter standby mode and the\n Controller will automatically revert to the default values for the parameters for\n which default values are defined in the specification.\n\n Note: The HCI_Reset command will not necessarily perform a hardware reset.\n This is implementation defined.\n\n The Host shall not send additional HCI commands before the\n HCI_Command_Complete event related to the HCI_Reset command has been\n received.\n\n Event(s) generated (unless masked away):\n When the reset has been performed, an HCI_Command_Complete event shall\n be generated.\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Reset.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.3.2\n\n The HCI_Reset command will reset the Controller and the Link Manager on the\n BR/EDR Controller or the Link Layer on an LE Controller. If the Controller\n supports both BR/EDR and LE then the HCI_Reset command shall reset the\n Link Manager, Baseband and Link Layer. The HCI_Reset command shall not\n affect the used HCI transport layer since the HCI transport layers may have\n reset mechanisms of their own. After the reset is completed, the current\n operational state will be lost, the Controller will enter standby mode and the\n Controller will automatically revert to the default values for the parameters for\n which default values are defined in the specification.\n\n Note: The HCI_Reset command will not necessarily perform a hardware reset.\n This is implementation defined.\n\n The Host shall not send additional HCI commands before the\n HCI_Command_Complete event related to the HCI_Reset command has been\n received.\n\n Event(s) generated (unless masked away):\n When the reset has been performed, an HCI_Command_Complete event shall\n be generated.\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_cb_reset() -> u8;
 }
 extern "C" {
-    #[doc = "  Read Connection Accept Timeout.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.3.13\n\n This command reads the value for the Connection_Accept_Timeout\n configuration parameter. See Section 6.7.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_Connection_Timeout command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_cb_read_conn_accept_timeout(
-        p_return: *mut sdc_hci_cmd_cb_read_conn_accept_timeout_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  Write Connection Accept Timeout.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.3.14\n\n This command writes the value for the Connection_Accept_Timeout\n configuration parameter. See Section 6.7.\n\n Event(s) generated (unless masked away):\n When the HCI_Write_Connection_Accept_Timeout command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_cb_write_conn_accept_timeout(p_params: *const sdc_hci_cmd_cb_write_conn_accept_timeout_t) -> u8;
-}
-extern "C" {
-    #[doc = "  Read Transmit Power Level.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.3.35\n\n This command reads the values for the TX_Power_Level parameter for the\n specified Connection_Handle. The Connection_Handle shall be a\n Connection_Handle for an ACL connection.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_Transmit_Power_Level command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Read Transmit Power Level.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.3.35\n\n This command reads the values for the TX_Power_Level parameter for the\n specified Connection_Handle. The Connection_Handle shall be a\n Connection_Handle for an ACL connection.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_Transmit_Power_Level command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_cb_read_transmit_power_level(
         p_params: *const sdc_hci_cmd_cb_read_transmit_power_level_t,
         p_return: *mut sdc_hci_cmd_cb_read_transmit_power_level_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  Set Controller To Host Flow Control.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.3.38\n\n This command is used by the Host to turn flow control on or off for data and/or\n voice sent in the direction from the Controller to the Host. If flow control is turned\n off, the Host should not send the HCI_Host_Number_Of_Completed_Packets\n command. That command will be ignored by the Controller if it is sent by the\n Host and flow control is off. If flow control is turned on for HCI ACL Data packets\n and off for HCI Synchronous Data packets, HCI_Host_Number_Of_Completed_-\n Packets commands sent by the Host should only contain Connection_Handles\n for ACL connections. If flow control is turned off for HCI ACL Data packets and\n on for HCI Synchronous Data packets, HCI_Host_Number_Of_Completed_-\n Packets commands sent by the Host should only contain Connection_Handles\n for synchronous connections. If flow control is turned on for HCI ACL Data\n packets and HCI Synchronous Data packets, the Host will send HCI_Host_-\n Number_Of_Completed_Packets commands both for ACL connections and\n synchronous connections.\n\n The Flow_Control_Enable parameter shall only be changed if no connections\n exist.\n\n Event(s) generated (unless masked away):\n When the HCI_Set_Controller_To_Host_Flow_Control command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Set Controller To Host Flow Control.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.3.38\n\n This command is used by the Host to turn flow control on or off for data and/or\n voice sent in the direction from the Controller to the Host. If flow control is turned\n off, the Host should not send the HCI_Host_Number_Of_Completed_Packets\n command. That command will be ignored by the Controller if it is sent by the\n Host and flow control is off. If flow control is turned on for HCI ACL Data packets\n and off for HCI Synchronous Data packets, HCI_Host_Number_Of_Completed_-\n Packets commands sent by the Host should only contain Connection_Handles\n for ACL connections. If flow control is turned off for HCI ACL Data packets and\n on for HCI Synchronous Data packets, HCI_Host_Number_Of_Completed_-\n Packets commands sent by the Host should only contain Connection_Handles\n for synchronous connections. If flow control is turned on for HCI ACL Data\n packets and HCI Synchronous Data packets, the Host will send HCI_Host_-\n Number_Of_Completed_Packets commands both for ACL connections and\n synchronous connections.\n\n The Flow_Control_Enable parameter shall only be changed if no connections\n exist.\n\n Event(s) generated (unless masked away):\n When the HCI_Set_Controller_To_Host_Flow_Control command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_cb_set_controller_to_host_flow_control(
         p_params: *const sdc_hci_cmd_cb_set_controller_to_host_flow_control_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  Host Buffer Size.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.3.39\n\n The HCI_Host_Buffer_Size command is used by the Host to notify the\n Controller about the maximum size of the data portion of HCI ACL and\n Synchronous Data packets sent from the Controller to the Host. The Controller\n shall segment the data to be transmitted from the Controller to the Host\n according to these sizes, so that the HCI Data packets will contain data with up\n to these sizes. The HCI_Host_Buffer_Size command also notifies the\n Controller about the total number of HCI ACL and Synchronous Data packets\n that can be stored in the data buffers of the Host. If flow control from the\n Controller to the Host is turned off, and the HCI_Host_Buffer_Size command\n has not been issued by the Host, this means that the Controller will send HCI\n Data packets to the Host with any lengths the Controller wants to use, and it is\n assumed that the data buffer sizes of the Host are unlimited. If flow control from\n the Controller to the Host is turned on, the HCI_Host_Buffer_Size command\n shall after a power-on or a reset always be sent by the Host before the first\n HCI_Host_Number_Of_Completed_Packets command is sent.\n\n The Set Controller To Host Flow Control command is used to turn flow control\n on or off. The Host_ACL_Data_Packet_Length command parameter will be\n used to determine the size of the L2CAP segments contained in ACL Data\n packets, which are transferred from the Controller to the Host. The\n Host_Synchronous_Data_Packet_Length command parameter is used to\n determine the maximum size of HCI Synchronous Data packets. Both the Host\n and the Controller shall support command and event packets, where the data\n portion (excluding header) contained in the packets is 255 octets in size.\n\n The Host_Total_Num_ACL_Data_Packets command parameter contains the\n total number of HCI ACL Data packets that can be stored in the data buffers of\n the Host. The Controller will determine how the buffers are to be divided\n between different Connection_Handles. The Host_Total_Num_Synchronous_-\n Data_Packets command parameter gives the same information for HCI\n Synchronous Data packets. If the Host does not support SCO or eSCO over\n HCI, then it shall set Host_Total_Num_Synchronous_Data_Packets to zero, in\n which case the Controller shall ignore the Host_Synchronous_Data_Packet_-\n Length parameter.\n Note: The Host_ACL_Data_Packet_Length and Host_Synchronous_Data_-\n Packet_Length command parameters do not include the length of the HCI ACL\n Data packet header or the HCI Synchronous Data packet header respectively.\n\n Event(s) generated (unless masked away):\n When the HCI_Host_Buffer_Size command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Host Buffer Size.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.3.39\n\n The HCI_Host_Buffer_Size command is used by the Host to notify the\n Controller about the maximum size of the data portion of HCI ACL and\n Synchronous Data packets sent from the Controller to the Host. The Controller\n shall segment the data to be transmitted from the Controller to the Host\n according to these sizes, so that the HCI Data packets will contain data with up\n to these sizes. The HCI_Host_Buffer_Size command also notifies the\n Controller about the total number of HCI ACL and Synchronous Data packets\n that can be stored in the data buffers of the Host. If flow control from the\n Controller to the Host is turned off, and the HCI_Host_Buffer_Size command\n has not been issued by the Host, this means that the Controller will send HCI\n Data packets to the Host with any lengths the Controller wants to use, and it is\n assumed that the data buffer sizes of the Host are unlimited. If flow control from\n the Controller to the Host is turned on, the HCI_Host_Buffer_Size command\n shall after a power-on or a reset always be sent by the Host before the first\n HCI_Host_Number_Of_Completed_Packets command is sent.\n\n The Set Controller To Host Flow Control command is used to turn flow control\n on or off. The Host_ACL_Data_Packet_Length command parameter will be\n used to determine the size of the L2CAP segments contained in ACL Data\n packets, which are transferred from the Controller to the Host. The\n Host_Synchronous_Data_Packet_Length command parameter is used to\n determine the maximum size of HCI Synchronous Data packets. Both the Host\n and the Controller shall support command and event packets, where the data\n portion (excluding header) contained in the packets is 255 octets in size.\n\n The Host_Total_Num_ACL_Data_Packets command parameter contains the\n total number of HCI ACL Data packets that can be stored in the data buffers of\n the Host. The Controller will determine how the buffers are to be divided\n between different Connection_Handles. The Host_Total_Num_Synchronous_\n Data_Packets command parameter gives the same information for HCI\n Synchronous Data packets.\n\n Note: The Host_ACL_Data_Packet_Length and Host_Synchronous_Data_-\n Packet_Length command parameters do not include the length of the HCI ACL\n Data packet header or the HCI Synchronous Data packet header respectively.\n\n Event(s) generated (unless masked away):\n When the HCI_Host_Buffer_Size command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_cb_host_buffer_size(p_params: *const sdc_hci_cmd_cb_host_buffer_size_t) -> u8;
 }
 extern "C" {
-    #[doc = "  Host Number Of Completed Packets.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.3.40\n\n The HCI_Host_Number_Of_Completed_Packets command is used by the\n Host to indicate to the Controller the number of HCI Data packets that have\n been completed for each Connection_Handle since the previous HCI_Host_-\n Number_Of_Completed_Packets command was sent to the Controller. This\n means that the corresponding buffer space has been freed in the Host and is\n available for new packets to be sent. Based on this information, and the\n Host_Total_Num_ACL_Data_Packets and Host_Total_Num_Synchronous_-\n Data_Packets command parameters of the HCI_Host_Buffer_Size command,\n the Controller can determine for which Connection_Handles the following HCI\n Data packets should be sent to the Host. When the Host has completed one or\n more HCI Data packet(s) it shall send an HCI_Host_Number_Of_Completed_-\n Packets command to the Controller, until it finally reports that all pending HCI\n Data packets have been completed. The frequency at which this command is\n sent is manufacturer specific.\n\n The Set Controller To Host Flow Control command is used to turn flow control on\n or off. If flow control from the Controller to the Host is turned on, the HCI_Host_-\n Buffer_Size command shall always be sent by the Host after a power-on or a\n reset before the first HCI_Host_Number_Of_Completed_Packets command is\n sent.\n\n The HCI_Host_Number_Of_Completed_Packets command may be sent at\n any time by the Host when there is at least one connection, or if the Controller\n is in local loopback mode, independent of other commands. If the Host issues\n this command when neither of these cases applies, the Controller shall ignore\n it.\n\n Event(s) generated (unless masked away):\n Normally, no event is generated after the HCI_Host_Number_Of_Completed_-\n Packets command has completed. However, if the HCI_Host_Number_Of_-\n Completed_Packets command contains one or more invalid parameters, the\n Controller shall return an HCI_Command_Complete event containing the error\n code Invalid HCI Command Parameters (0x12). The normal flow control for\n commands is not used for this command.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Host Number Of Completed Packets.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.3.40\n\n The HCI_Host_Number_Of_Completed_Packets command is used by the\n Host to indicate to the Controller the number of HCI Data packets that have\n been completed for each Connection_Handle since the previous HCI_Host_-\n Number_Of_Completed_Packets command was sent to the Controller. This\n means that the corresponding buffer space has been freed in the Host and is\n available for new packets to be sent. Based on this information, and the\n Host_Total_Num_ACL_Data_Packets and Host_Total_Num_Synchronous_-\n Data_Packets command parameters of the HCI_Host_Buffer_Size command,\n the Controller can determine for which Connection_Handles the following HCI\n Data packets should be sent to the Host. When the Host has completed one or\n more HCI Data packet(s) it shall send an HCI_Host_Number_Of_Completed_-\n Packets command to the Controller, until it finally reports that all pending HCI\n Data packets have been completed. The frequency at which this command is\n sent is manufacturer specific.\n\n The Set Controller To Host Flow Control command is used to turn flow control on\n or off. If flow control from the Controller to the Host is turned on, the HCI_Host_-\n Buffer_Size command shall always be sent by the Host after a power-on or a\n reset before the first HCI_Host_Number_Of_Completed_Packets command is\n sent.\n\n The HCI_Host_Number_Of_Completed_Packets command may be sent at\n any time by the Host when there is at least one connection, or if the Controller\n is in local loopback mode, independent of other commands. If the Host issues\n this command when neither of these cases applies, the Controller shall ignore\n it.\n\n Event(s) generated (unless masked away):\n Normally, no event is generated after the HCI_Host_Number_Of_Completed_-\n Packets command has completed. However, if the HCI_Host_Number_Of_-\n Completed_Packets command contains one or more invalid parameters, the\n Controller shall return an HCI_Command_Complete event containing the error\n code Invalid HCI Command Parameters (0x12). The normal flow control for\n commands is not used for this command.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_cb_host_number_of_completed_packets(
         p_params: *const sdc_hci_cmd_cb_host_number_of_completed_packets_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  Set Event Mask Page 2.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.3.69\n\n The HCI_Set_Event_Mask_Page_2 command is used to control which events\n are generated by the HCI for the Host. The Event_Mask_Page_2 is a logical\n extension to the Event_Mask parameter of the HCI_Set_Event_Mask\n command. If the bit in the Event_Mask_Page_2 is set to a one, then the event\n associated with that bit shall be enabled. The event mask allows the Host to\n control how much it is interrupted.\n\n The Controller shall ignore those bits which are reserved for future use or\n represent events which it does not support. If the Host sets any of these bits to\n 1, the Controller shall act as if they were set to 0.\n\n Event(s) generated (unless masked away):\n When the HCI_Set_Event_Mask_Page_2 command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Set Event Mask Page 2.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.3.69\n\n The HCI_Set_Event_Mask_Page_2 command is used to control which events\n are generated by the HCI for the Host. The Event_Mask_Page_2 is a logical\n extension to the Event_Mask parameter of the HCI_Set_Event_Mask\n command. If the bit in the Event_Mask_Page_2 is set to a one, then the event\n associated with that bit shall be enabled. The event mask allows the Host to\n control how much it is interrupted.\n\n The Controller shall ignore those bits which are reserved for future use or\n represent events which it does not support. If the Host sets any of these bits to\n 1, the Controller shall act as if they were set to 0.\n\n Event(s) generated (unless masked away):\n When the HCI_Set_Event_Mask_Page_2 command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_cb_set_event_mask_page_2(p_params: *const sdc_hci_cmd_cb_set_event_mask_page_2_t) -> u8;
 }
 extern "C" {
-    #[doc = "  Read Authenticated Payload Timeout.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.3.93\n\n This command reads the Authenticated_Payload_Timeout\n (authenticatedPayloadTO, see [Vol 2] Part B, Appendix B for BR/EDR\n connections and [Vol 6] Part B, Section 5.4 for LE connections) parameter in\n the Controller on the specified Connection_Handle.\n\n When the Connection_Handle identifies a BR/EDR synchronous connection,\n the Controller shall return the error code Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_Read_Authenticated_Payload_Timeout command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Read Authenticated Payload Timeout.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.3.93\n\n This command reads the Authenticated_Payload_Timeout\n (authenticatedPayloadTO, see [Vol 2] Part B, Appendix B for BR/EDR\n connections and [Vol 6] Part B, Section 5.4 for LE connections) parameter in\n the Controller on the specified Connection_Handle.\n\n When the Connection_Handle identifies a BR/EDR synchronous connection,\n the Controller shall return the error code Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_Read_Authenticated_Payload_Timeout command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_cb_read_authenticated_payload_timeout(
         p_params: *const sdc_hci_cmd_cb_read_authenticated_payload_timeout_t,
         p_return: *mut sdc_hci_cmd_cb_read_authenticated_payload_timeout_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  Write Authenticated Payload Timeout.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.3.94\n\n This command writes the Authenticated_Payload_Timeout\n (authenticatedPayloadTO, see [Vol 2] Part B, Appendix B and [Vol 6] Part B,\n Section 5.4 for the LE connection) parameter in the Controller for the specified\n Connection_Handle.\n\n When the Connection_Handle identifies a BR/EDR ACL connection:\n • If the connection is in Sniff mode, the Authenticated_Payload_Timeout shall\n   be equal to or greater than Tsniff.\n • If the connection is in Sniff Subrating mode, the\n   Authenticated_Payload_Timeout shall be equal to or greater than\n   (max subrate)xTsniff.\n • If the connection is in Hold mode, the Authenticated_Payload_Timeout shall\n   be equal to or greater than the holdTO value.\n\n When the Connection_Handle identifies a BR/EDR synchronous connection,\n this command shall be rejected with the error code Command Disallowed\n (0x0C).\n\n When the Connection_Handle identifies an LE connection, the\n Authenticated_Payload_Timeout shall be equal to or greater than\n connInterval × connSubrateFactor × (1 + connPeripheralLatency).\n\n When the Connection_Handle is associated with an ACL connection, the Link\n Manager will use this parameter to determine when to use the LMP ping\n sequence.\n\n When the Connection_Handle is associated with an LE connection, the Link\n Layer will use this parameter to determine when to use the LE ping sequence.\n\n Event(s) generated (unless masked away):\n When the HCI_Write_Authenticated_Payload_Timeout command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Write Authenticated Payload Timeout.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.3.94\n\n This command writes the Authenticated_Payload_Timeout\n (authenticatedPayloadTO, see [Vol 2] Part B, Appendix B and [Vol 6] Part B,\n Section 5.4 for the LE connection) parameter in the Controller for the specified\n Connection_Handle.\n\n When the Connection_Handle identifies a BR/EDR ACL connection:\n • If the connection is in Sniff mode, the Authenticated_Payload_Timeout shall\n   be equal to or greater than Tsniff.\n • If the connection is in Sniff Subrating mode, the\n   Authenticated_Payload_Timeout shall be equal to or greater than\n   (max subrate)xTsniff.\n • If the connection is in Hold mode, the Authenticated_Payload_Timeout shall\n   be equal to or greater than the holdTO value.\n\n When the Connection_Handle identifies a BR/EDR synchronous connection,\n this command shall be rejected with the error code Command Disallowed\n (0x0C).\n\n When the Connection_Handle identifies an LE connection, the\n Authenticated_Payload_Timeout shall be equal to or greater than\n connInterval × connSubrateFactor × (1 + connPeripheralLatency).\n\n When the Connection_Handle is associated with an ACL connection, the Link\n Manager will use this parameter to determine when to use the LMP ping\n sequence.\n\n When the Connection_Handle is associated with an LE connection, the Link\n Layer will use this parameter to determine when to use the LE ping sequence.\n\n Event(s) generated (unless masked away):\n When the HCI_Write_Authenticated_Payload_Timeout command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_cb_write_authenticated_payload_timeout(
         p_params: *const sdc_hci_cmd_cb_write_authenticated_payload_timeout_t,
         p_return: *mut sdc_hci_cmd_cb_write_authenticated_payload_timeout_return_t,
@@ -4066,13 +3607,13 @@ impl sdc_hci_ip_lmp_features_t {
 #[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_ip_supported_commands_t {
     pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 48usize]>,
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 47usize]>,
 }
 #[test]
 fn bindgen_test_layout_sdc_hci_ip_supported_commands_t() {
     assert_eq!(
         ::core::mem::size_of::<sdc_hci_ip_supported_commands_t>(),
-        48usize,
+        47usize,
         concat!("Size of: ", stringify!(sdc_hci_ip_supported_commands_t))
     );
     assert_eq!(
@@ -8153,11 +7694,11 @@ impl sdc_hci_ip_supported_commands_t {
         }
     }
     #[inline]
-    pub fn hci_le_set_extended_advertising_parameters_v2(&self) -> u8 {
+    pub fn rfu_46_2(&self) -> u8 {
         unsafe { ::core::mem::transmute(self._bitfield_1.get(370usize, 1u8) as u8) }
     }
     #[inline]
-    pub fn set_hci_le_set_extended_advertising_parameters_v2(&mut self, val: u8) {
+    pub fn set_rfu_46_2(&mut self, val: u8) {
         unsafe {
             let val: u8 = ::core::mem::transmute(val);
             self._bitfield_1.set(370usize, 1u8, val as u64)
@@ -8186,124 +7727,36 @@ impl sdc_hci_ip_supported_commands_t {
         }
     }
     #[inline]
-    pub fn hci_le_set_periodic_advertising_subevent_data(&self) -> u8 {
+    pub fn rfu_46_5(&self) -> u8 {
         unsafe { ::core::mem::transmute(self._bitfield_1.get(373usize, 1u8) as u8) }
     }
     #[inline]
-    pub fn set_hci_le_set_periodic_advertising_subevent_data(&mut self, val: u8) {
+    pub fn set_rfu_46_5(&mut self, val: u8) {
         unsafe {
             let val: u8 = ::core::mem::transmute(val);
             self._bitfield_1.set(373usize, 1u8, val as u64)
         }
     }
     #[inline]
-    pub fn hci_le_set_periodic_advertising_response_data(&self) -> u8 {
+    pub fn rfu_46_6(&self) -> u8 {
         unsafe { ::core::mem::transmute(self._bitfield_1.get(374usize, 1u8) as u8) }
     }
     #[inline]
-    pub fn set_hci_le_set_periodic_advertising_response_data(&mut self, val: u8) {
+    pub fn set_rfu_46_6(&mut self, val: u8) {
         unsafe {
             let val: u8 = ::core::mem::transmute(val);
             self._bitfield_1.set(374usize, 1u8, val as u64)
         }
     }
     #[inline]
-    pub fn hci_le_set_periodic_sync_subevent(&self) -> u8 {
+    pub fn rfu_46_7(&self) -> u8 {
         unsafe { ::core::mem::transmute(self._bitfield_1.get(375usize, 1u8) as u8) }
     }
     #[inline]
-    pub fn set_hci_le_set_periodic_sync_subevent(&mut self, val: u8) {
+    pub fn set_rfu_46_7(&mut self, val: u8) {
         unsafe {
             let val: u8 = ::core::mem::transmute(val);
             self._bitfield_1.set(375usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn hci_le_extended_create_connection_v2(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(376usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_hci_le_extended_create_connection_v2(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(376usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn hci_le_set_periodic_advertising_parameters_v2(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(377usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_hci_le_set_periodic_advertising_parameters_v2(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(377usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn rfu_47_2(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(378usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_rfu_47_2(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(378usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn rfu_47_3(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(379usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_rfu_47_3(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(379usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn rfu_47_4(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(380usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_rfu_47_4(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(380usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn rfu_47_5(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(381usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_rfu_47_5(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(381usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn rfu_47_6(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(382usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_rfu_47_6(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(382usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn rfu_47_7(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(383usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_rfu_47_7(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(383usize, 1u8, val as u64)
         }
     }
 }
@@ -8515,25 +7968,25 @@ fn bindgen_test_layout_sdc_hci_cmd_ip_read_bd_addr_return_t() {
     );
 }
 extern "C" {
-    #[doc = " @defgroup HCI_VS_API API\n @{\n/\n/** @brief Read Local Version Information.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.4.1\n\n This command reads the values for the version information for the local\n Controller.\n\n The HCI_Version information defines the version information of the HCI layer.\n The LMP_Version information defines the version of the LMP. The\n Company_Identifier information indicates the manufacturer of the local device.\n\n The HCI_Subversion and LMP_Subversion are vendor-specific.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_Local_Version_Information command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = " @defgroup HCI_VS_API API\n @{\n/\n/** @brief Read Local Version Information.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.4.1\n\n This command reads the values for the version information for the local\n Controller.\n\n The HCI_Version information defines the version information of the HCI layer.\n The LMP_Version information defines the version of the LMP. The\n Company_Identifier information indicates the manufacturer of the local device.\n\n The HCI_Subversion and LMP_Subversion are vendor-specific.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_Local_Version_Information command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_ip_read_local_version_information(
         p_return: *mut sdc_hci_cmd_ip_read_local_version_information_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  Read Local Supported Commands.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.4.2\n\n This command reads the list of HCI commands supported for the local\n Controller.\n\n This command shall return the Supported_Commands configuration\n parameter.\n\n See Section 6.27 for more information.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_Local_Supported_Commands command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Read Local Supported Commands.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.4.2\n\n This command reads the list of HCI commands supported for the local\n Controller.\n\n This command shall return the Supported_Commands configuration\n parameter.\n\n See Section 6.27 for more information.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_Local_Supported_Commands command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_ip_read_local_supported_commands(
         p_return: *mut sdc_hci_cmd_ip_read_local_supported_commands_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  Read Local Supported Features.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.4.3\n\n This command requests a list of the supported features for the local BR/EDR\n Controller. This command will return a list of the LMP features. For details see\n [Vol 2] Part C, Link Manager Protocol Specification.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_Local_Supported_Features command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Read Local Supported Features.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.4.3\n\n This command requests a list of the supported features for the local BR/EDR\n Controller. This command will return a list of the LMP features. For details see\n [Vol 2] Part C, Link Manager Protocol Specification.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_Local_Supported_Features command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_ip_read_local_supported_features(
         p_return: *mut sdc_hci_cmd_ip_read_local_supported_features_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  Read BD_ADDR.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.4.6\n\n On a BR/EDR Controller, this command reads the Bluetooth Controller address\n (BD_ADDR). (See [Vol 2] Part B, Section 1.2 and [Vol 3] Part C, Section 3.2.1).\n\n On an LE Controller, this command shall read the Public Device Address as\n defined in [Vol 6] Part B, Section 1.3. If this Controller does not have a Public\n Device Address, the value 0x000000000000 shall be returned.\n\n On a BR/EDR/LE Controller, the public address shall be the same as the\n BD_ADDR.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_BD_ADDR command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Read BD_ADDR.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.4.6\n\n On a BR/EDR Controller, this command reads the Bluetooth Controller address\n (BD_ADDR). (See [Vol 2] Part B, Section 1.2 and [Vol 3] Part C, Section 3.2.1).\n\n On an LE Controller, this command shall read the Public Device Address as\n defined in [Vol 6] Part B, Section 1.3. If this Controller does not have a Public\n Device Address, the value 0x000000000000 shall be returned.\n\n On a BR/EDR/LE Controller, the public address shall be the same as the\n BD_ADDR.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_BD_ADDR command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_ip_read_bd_addr(p_return: *mut sdc_hci_cmd_ip_read_bd_addr_return_t) -> u8;
 }
 #[doc = "  See @ref sdc_hci_cmd_le_set_event_mask()."]
@@ -8691,50 +8144,6 @@ pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SET_PERIODIC_ADV_SYNC_TRANSFER
 #[doc = "  See @ref sdc_hci_cmd_le_set_default_periodic_adv_sync_transfer_params()."]
 pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SET_DEFAULT_PERIODIC_ADV_SYNC_TRANSFER_PARAMS: sdc_hci_opcode_le =
     8285;
-#[doc = "  See @ref sdc_hci_cmd_le_read_buffer_size_v2()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_READ_BUFFER_SIZE_V2: sdc_hci_opcode_le = 8288;
-#[doc = "  See @ref sdc_hci_cmd_le_read_iso_tx_sync()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_READ_ISO_TX_SYNC: sdc_hci_opcode_le = 8289;
-#[doc = "  See @ref sdc_hci_cmd_le_set_cig_params()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SET_CIG_PARAMS: sdc_hci_opcode_le = 8290;
-#[doc = "  See @ref sdc_hci_cmd_le_set_cig_params_test()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SET_CIG_PARAMS_TEST: sdc_hci_opcode_le = 8291;
-#[doc = "  See @ref sdc_hci_cmd_le_create_cis()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_CREATE_CIS: sdc_hci_opcode_le = 8292;
-#[doc = "  See @ref sdc_hci_cmd_le_remove_cig()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_REMOVE_CIG: sdc_hci_opcode_le = 8293;
-#[doc = "  See @ref sdc_hci_cmd_le_accept_cis_request()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_ACCEPT_CIS_REQUEST: sdc_hci_opcode_le = 8294;
-#[doc = "  See @ref sdc_hci_cmd_le_reject_cis_request()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_REJECT_CIS_REQUEST: sdc_hci_opcode_le = 8295;
-#[doc = "  See @ref sdc_hci_cmd_le_create_big()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_CREATE_BIG: sdc_hci_opcode_le = 8296;
-#[doc = "  See @ref sdc_hci_cmd_le_create_big_test()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_CREATE_BIG_TEST: sdc_hci_opcode_le = 8297;
-#[doc = "  See @ref sdc_hci_cmd_le_terminate_big()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_TERMINATE_BIG: sdc_hci_opcode_le = 8298;
-#[doc = "  See @ref sdc_hci_cmd_le_big_create_sync()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_BIG_CREATE_SYNC: sdc_hci_opcode_le = 8299;
-#[doc = "  See @ref sdc_hci_cmd_le_big_terminate_sync()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_BIG_TERMINATE_SYNC: sdc_hci_opcode_le = 8300;
-#[doc = "  See @ref sdc_hci_cmd_le_request_peer_sca()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_REQUEST_PEER_SCA: sdc_hci_opcode_le = 8301;
-#[doc = "  See @ref sdc_hci_cmd_le_setup_iso_data_path()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SETUP_ISO_DATA_PATH: sdc_hci_opcode_le = 8302;
-#[doc = "  See @ref sdc_hci_cmd_le_remove_iso_data_path()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_REMOVE_ISO_DATA_PATH: sdc_hci_opcode_le = 8303;
-#[doc = "  See @ref sdc_hci_cmd_le_iso_transmit_test()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_ISO_TRANSMIT_TEST: sdc_hci_opcode_le = 8304;
-#[doc = "  See @ref sdc_hci_cmd_le_iso_receive_test()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_ISO_RECEIVE_TEST: sdc_hci_opcode_le = 8305;
-#[doc = "  See @ref sdc_hci_cmd_le_iso_read_test_counters()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_ISO_READ_TEST_COUNTERS: sdc_hci_opcode_le = 8306;
-#[doc = "  See @ref sdc_hci_cmd_le_iso_test_end()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_ISO_TEST_END: sdc_hci_opcode_le = 8307;
-#[doc = "  See @ref sdc_hci_cmd_le_set_host_feature()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SET_HOST_FEATURE: sdc_hci_opcode_le = 8308;
-#[doc = "  See @ref sdc_hci_cmd_le_read_iso_link_quality()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_READ_ISO_LINK_QUALITY: sdc_hci_opcode_le = 8309;
 #[doc = "  See @ref sdc_hci_cmd_le_enhanced_read_transmit_power_level()."]
 pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_ENHANCED_READ_TRANSMIT_POWER_LEVEL: sdc_hci_opcode_le = 8310;
 #[doc = "  See @ref sdc_hci_cmd_le_read_remote_transmit_power_level()."]
@@ -8747,245 +8156,8 @@ pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SET_PATH_LOSS_REPORTING_ENABLE
 pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SET_TRANSMIT_POWER_REPORTING_ENABLE: sdc_hci_opcode_le = 8314;
 #[doc = "  See @ref sdc_hci_cmd_le_set_data_related_address_changes()."]
 pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SET_DATA_RELATED_ADDRESS_CHANGES: sdc_hci_opcode_le = 8316;
-#[doc = "  See @ref sdc_hci_cmd_le_set_periodic_adv_subevent_data()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SET_PERIODIC_ADV_SUBEVENT_DATA: sdc_hci_opcode_le = 8322;
-#[doc = "  See @ref sdc_hci_cmd_le_set_periodic_adv_response_data()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SET_PERIODIC_ADV_RESPONSE_DATA: sdc_hci_opcode_le = 8323;
-#[doc = "  See @ref sdc_hci_cmd_le_set_periodic_sync_subevent()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SET_PERIODIC_SYNC_SUBEVENT: sdc_hci_opcode_le = 8324;
-#[doc = "  See @ref sdc_hci_cmd_le_ext_create_conn_v2()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_EXT_CREATE_CONN_V2: sdc_hci_opcode_le = 8325;
-#[doc = "  See @ref sdc_hci_cmd_le_set_periodic_adv_params_v2()."]
-pub const sdc_hci_opcode_le_SDC_HCI_OPCODE_CMD_LE_SET_PERIODIC_ADV_PARAMS_V2: sdc_hci_opcode_le = 8326;
 #[doc = "  HCI LE OpCode Field values."]
 pub type sdc_hci_opcode_le = crate::ctypes::c_uint;
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_le_adv_event_properties_params_t {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize]>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_adv_event_properties_params_t() {
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_adv_event_properties_params_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_le_adv_event_properties_params_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_adv_event_properties_params_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_le_adv_event_properties_params_t))
-    );
-}
-impl sdc_hci_le_adv_event_properties_params_t {
-    #[inline]
-    pub fn connectable_adv(&self) -> u16 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_connectable_adv(&mut self, val: u16) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn scannable_adv(&self) -> u16 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_scannable_adv(&mut self, val: u16) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn directed_adv(&self) -> u16 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_directed_adv(&mut self, val: u16) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn high_duty_cycle_adv(&self) -> u16 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(3usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_high_duty_cycle_adv(&mut self, val: u16) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(3usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn legacy_adv_packets(&self) -> u16 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(4usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_legacy_adv_packets(&mut self, val: u16) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(4usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn omit_adv_address(&self) -> u16 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(5usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_omit_adv_address(&mut self, val: u16) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(5usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn include_tx_power(&self) -> u16 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(6usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_include_tx_power(&mut self, val: u16) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(6usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn rfu(&self) -> u16 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(7usize, 9u8) as u16) }
-    }
-    #[inline]
-    pub fn set_rfu(&mut self, val: u16) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(7usize, 9u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        connectable_adv: u16,
-        scannable_adv: u16,
-        directed_adv: u16,
-        high_duty_cycle_adv: u16,
-        legacy_adv_packets: u16,
-        omit_adv_address: u16,
-        include_tx_power: u16,
-        rfu: u16,
-    ) -> __BindgenBitfieldUnit<[u8; 2usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 2usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let connectable_adv: u16 = unsafe { ::core::mem::transmute(connectable_adv) };
-            connectable_adv as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let scannable_adv: u16 = unsafe { ::core::mem::transmute(scannable_adv) };
-            scannable_adv as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 1u8, {
-            let directed_adv: u16 = unsafe { ::core::mem::transmute(directed_adv) };
-            directed_adv as u64
-        });
-        __bindgen_bitfield_unit.set(3usize, 1u8, {
-            let high_duty_cycle_adv: u16 = unsafe { ::core::mem::transmute(high_duty_cycle_adv) };
-            high_duty_cycle_adv as u64
-        });
-        __bindgen_bitfield_unit.set(4usize, 1u8, {
-            let legacy_adv_packets: u16 = unsafe { ::core::mem::transmute(legacy_adv_packets) };
-            legacy_adv_packets as u64
-        });
-        __bindgen_bitfield_unit.set(5usize, 1u8, {
-            let omit_adv_address: u16 = unsafe { ::core::mem::transmute(omit_adv_address) };
-            omit_adv_address as u64
-        });
-        __bindgen_bitfield_unit.set(6usize, 1u8, {
-            let include_tx_power: u16 = unsafe { ::core::mem::transmute(include_tx_power) };
-            include_tx_power as u64
-        });
-        __bindgen_bitfield_unit.set(7usize, 9u8, {
-            let rfu: u16 = unsafe { ::core::mem::transmute(rfu) };
-            rfu as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_le_big_create_sync_array_params_t {
-    pub bis: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_big_create_sync_array_params_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_le_big_create_sync_array_params_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_big_create_sync_array_params_t>(),
-        1usize,
-        concat!("Size of: ", stringify!(sdc_hci_le_big_create_sync_array_params_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_big_create_sync_array_params_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_le_big_create_sync_array_params_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).bis) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_big_create_sync_array_params_t),
-            "::",
-            stringify!(bis)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_le_create_cis_array_params_t {
-    pub cis_conn_handle: u16,
-    pub acl_conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_create_cis_array_params_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_le_create_cis_array_params_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_create_cis_array_params_t>(),
-        4usize,
-        concat!("Size of: ", stringify!(sdc_hci_le_create_cis_array_params_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_create_cis_array_params_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_le_create_cis_array_params_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cis_conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_create_cis_array_params_t),
-            "::",
-            stringify!(cis_conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).acl_conn_handle) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_create_cis_array_params_t),
-            "::",
-            stringify!(acl_conn_handle)
-        )
-    );
-}
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_le_ext_create_conn_array_params_t {
@@ -9096,126 +8268,15 @@ fn bindgen_test_layout_sdc_hci_le_ext_create_conn_array_params_t() {
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_le_ext_create_conn_v2_array_params_t {
-    pub scan_interval: u16,
-    pub scan_window: u16,
-    pub conn_interval_min: u16,
-    pub conn_interval_max: u16,
-    pub max_latency: u16,
-    pub supervision_timeout: u16,
-    pub min_ce_length: u16,
-    pub max_ce_length: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_ext_create_conn_v2_array_params_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_le_ext_create_conn_v2_array_params_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_ext_create_conn_v2_array_params_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(sdc_hci_le_ext_create_conn_v2_array_params_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_ext_create_conn_v2_array_params_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_le_ext_create_conn_v2_array_params_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).scan_interval) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_ext_create_conn_v2_array_params_t),
-            "::",
-            stringify!(scan_interval)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).scan_window) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_ext_create_conn_v2_array_params_t),
-            "::",
-            stringify!(scan_window)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_interval_min) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_ext_create_conn_v2_array_params_t),
-            "::",
-            stringify!(conn_interval_min)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_interval_max) as usize - ptr as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_ext_create_conn_v2_array_params_t),
-            "::",
-            stringify!(conn_interval_max)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_latency) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_ext_create_conn_v2_array_params_t),
-            "::",
-            stringify!(max_latency)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).supervision_timeout) as usize - ptr as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_ext_create_conn_v2_array_params_t),
-            "::",
-            stringify!(supervision_timeout)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).min_ce_length) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_ext_create_conn_v2_array_params_t),
-            "::",
-            stringify!(min_ce_length)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_ce_length) as usize - ptr as usize },
-        14usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_ext_create_conn_v2_array_params_t),
-            "::",
-            stringify!(max_ce_length)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_le_le_event_mask_t {
     pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 6usize]>,
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 5usize]>,
 }
 #[test]
 fn bindgen_test_layout_sdc_hci_le_le_event_mask_t() {
     assert_eq!(
         ::core::mem::size_of::<sdc_hci_le_le_event_mask_t>(),
-        6usize,
+        5usize,
         concat!("Size of: ", stringify!(sdc_hci_le_le_event_mask_t))
     );
     assert_eq!(
@@ -9611,72 +8672,6 @@ impl sdc_hci_le_le_event_mask_t {
         }
     }
     #[inline]
-    pub fn le_periodic_advertising_sync_established_event_v2(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(35usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_le_periodic_advertising_sync_established_event_v2(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(35usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn le_periodic_advertising_report_event_v2(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(36usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_le_periodic_advertising_report_event_v2(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(36usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn le_periodic_advertising_sync_transfer_received_event_v2(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(37usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_le_periodic_advertising_sync_transfer_received_event_v2(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(37usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn le_periodic_advertising_subevent_data_request_event(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(38usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_le_periodic_advertising_subevent_data_request_event(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(38usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn le_periodic_advertising_response_report_event(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(39usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_le_periodic_advertising_response_report_event(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(39usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn le_enhanced_connection_complete_event_v2(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(40usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_le_enhanced_connection_complete_event_v2(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(40usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
     pub fn new_bitfield_1(
         le_connection_complete_event: u8,
         le_advertising_report_event: u8,
@@ -9713,14 +8708,8 @@ impl sdc_hci_le_le_event_mask_t {
         le_transmit_power_reporting_event: u8,
         le_biginfo_advertising_report_event: u8,
         le_subrate_change_event: u8,
-        le_periodic_advertising_sync_established_event_v2: u8,
-        le_periodic_advertising_report_event_v2: u8,
-        le_periodic_advertising_sync_transfer_received_event_v2: u8,
-        le_periodic_advertising_subevent_data_request_event: u8,
-        le_periodic_advertising_response_report_event: u8,
-        le_enhanced_connection_complete_event_v2: u8,
-    ) -> __BindgenBitfieldUnit<[u8; 6usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 6usize]> = Default::default();
+    ) -> __BindgenBitfieldUnit<[u8; 5usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 5usize]> = Default::default();
         __bindgen_bitfield_unit.set(0usize, 1u8, {
             let le_connection_complete_event: u8 = unsafe { ::core::mem::transmute(le_connection_complete_event) };
             le_connection_complete_event as u64
@@ -9880,36 +8869,6 @@ impl sdc_hci_le_le_event_mask_t {
             let le_subrate_change_event: u8 = unsafe { ::core::mem::transmute(le_subrate_change_event) };
             le_subrate_change_event as u64
         });
-        __bindgen_bitfield_unit.set(35usize, 1u8, {
-            let le_periodic_advertising_sync_established_event_v2: u8 =
-                unsafe { ::core::mem::transmute(le_periodic_advertising_sync_established_event_v2) };
-            le_periodic_advertising_sync_established_event_v2 as u64
-        });
-        __bindgen_bitfield_unit.set(36usize, 1u8, {
-            let le_periodic_advertising_report_event_v2: u8 =
-                unsafe { ::core::mem::transmute(le_periodic_advertising_report_event_v2) };
-            le_periodic_advertising_report_event_v2 as u64
-        });
-        __bindgen_bitfield_unit.set(37usize, 1u8, {
-            let le_periodic_advertising_sync_transfer_received_event_v2: u8 =
-                unsafe { ::core::mem::transmute(le_periodic_advertising_sync_transfer_received_event_v2) };
-            le_periodic_advertising_sync_transfer_received_event_v2 as u64
-        });
-        __bindgen_bitfield_unit.set(38usize, 1u8, {
-            let le_periodic_advertising_subevent_data_request_event: u8 =
-                unsafe { ::core::mem::transmute(le_periodic_advertising_subevent_data_request_event) };
-            le_periodic_advertising_subevent_data_request_event as u64
-        });
-        __bindgen_bitfield_unit.set(39usize, 1u8, {
-            let le_periodic_advertising_response_report_event: u8 =
-                unsafe { ::core::mem::transmute(le_periodic_advertising_response_report_event) };
-            le_periodic_advertising_response_report_event as u64
-        });
-        __bindgen_bitfield_unit.set(40usize, 1u8, {
-            let le_enhanced_connection_complete_event_v2: u8 =
-                unsafe { ::core::mem::transmute(le_enhanced_connection_complete_event_v2) };
-            le_enhanced_connection_complete_event_v2 as u64
-        });
         __bindgen_bitfield_unit
     }
 }
@@ -9917,13 +8876,13 @@ impl sdc_hci_le_le_event_mask_t {
 #[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_le_le_features_t {
     pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 6usize]>,
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 5usize]>,
 }
 #[test]
 fn bindgen_test_layout_sdc_hci_le_le_features_t() {
     assert_eq!(
         ::core::mem::size_of::<sdc_hci_le_le_features_t>(),
-        6usize,
+        5usize,
         concat!("Size of: ", stringify!(sdc_hci_le_le_features_t))
     );
     assert_eq!(
@@ -10374,61 +9333,6 @@ impl sdc_hci_le_le_features_t {
         }
     }
     #[inline]
-    pub fn advertising_coding_selection(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(40usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_advertising_coding_selection(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(40usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn advertising_coding_selection_host_support(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(41usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_advertising_coding_selection_host_support(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(41usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn rfu42(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(42usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_rfu42(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(42usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn periodic_advertising_with_responses_advertiser(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(43usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_periodic_advertising_with_responses_advertiser(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(43usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn periodic_advertising_with_responses_scanner(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(44usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_periodic_advertising_with_responses_scanner(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(44usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
     pub fn new_bitfield_1(
         le_encryption: u8,
         connection_parameters_request: u8,
@@ -10470,13 +9374,8 @@ impl sdc_hci_le_le_features_t {
         connection_subrating: u8,
         connection_subrating_host_support: u8,
         channel_classification: u8,
-        advertising_coding_selection: u8,
-        advertising_coding_selection_host_support: u8,
-        rfu42: u8,
-        periodic_advertising_with_responses_advertiser: u8,
-        periodic_advertising_with_responses_scanner: u8,
-    ) -> __BindgenBitfieldUnit<[u8; 6usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 6usize]> = Default::default();
+    ) -> __BindgenBitfieldUnit<[u8; 5usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 5usize]> = Default::default();
         __bindgen_bitfield_unit.set(0usize, 1u8, {
             let le_encryption: u8 = unsafe { ::core::mem::transmute(le_encryption) };
             le_encryption as u64
@@ -10653,430 +9552,8 @@ impl sdc_hci_le_le_features_t {
             let channel_classification: u8 = unsafe { ::core::mem::transmute(channel_classification) };
             channel_classification as u64
         });
-        __bindgen_bitfield_unit.set(40usize, 1u8, {
-            let advertising_coding_selection: u8 = unsafe { ::core::mem::transmute(advertising_coding_selection) };
-            advertising_coding_selection as u64
-        });
-        __bindgen_bitfield_unit.set(41usize, 1u8, {
-            let advertising_coding_selection_host_support: u8 =
-                unsafe { ::core::mem::transmute(advertising_coding_selection_host_support) };
-            advertising_coding_selection_host_support as u64
-        });
-        __bindgen_bitfield_unit.set(42usize, 1u8, {
-            let rfu42: u8 = unsafe { ::core::mem::transmute(rfu42) };
-            rfu42 as u64
-        });
-        __bindgen_bitfield_unit.set(43usize, 1u8, {
-            let periodic_advertising_with_responses_advertiser: u8 =
-                unsafe { ::core::mem::transmute(periodic_advertising_with_responses_advertiser) };
-            periodic_advertising_with_responses_advertiser as u64
-        });
-        __bindgen_bitfield_unit.set(44usize, 1u8, {
-            let periodic_advertising_with_responses_scanner: u8 =
-                unsafe { ::core::mem::transmute(periodic_advertising_with_responses_scanner) };
-            periodic_advertising_with_responses_scanner as u64
-        });
         __bindgen_bitfield_unit
     }
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_le_periodic_adv_create_sync_options_params_t {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_periodic_adv_create_sync_options_params_t() {
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_periodic_adv_create_sync_options_params_t>(),
-        1usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_le_periodic_adv_create_sync_options_params_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_periodic_adv_create_sync_options_params_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_le_periodic_adv_create_sync_options_params_t)
-        )
-    );
-}
-impl sdc_hci_le_periodic_adv_create_sync_options_params_t {
-    #[inline]
-    pub fn use_periodic_adv_list(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_use_periodic_adv_list(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn disable_reporting(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_disable_reporting(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn duplicate_filter_initially_enabled(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_duplicate_filter_initially_enabled(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn rfu(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(3usize, 5u8) as u8) }
-    }
-    #[inline]
-    pub fn set_rfu(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(3usize, 5u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        use_periodic_adv_list: u8,
-        disable_reporting: u8,
-        duplicate_filter_initially_enabled: u8,
-        rfu: u8,
-    ) -> __BindgenBitfieldUnit<[u8; 1usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let use_periodic_adv_list: u8 = unsafe { ::core::mem::transmute(use_periodic_adv_list) };
-            use_periodic_adv_list as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let disable_reporting: u8 = unsafe { ::core::mem::transmute(disable_reporting) };
-            disable_reporting as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 1u8, {
-            let duplicate_filter_initially_enabled: u8 =
-                unsafe { ::core::mem::transmute(duplicate_filter_initially_enabled) };
-            duplicate_filter_initially_enabled as u64
-        });
-        __bindgen_bitfield_unit.set(3usize, 5u8, {
-            let rfu: u8 = unsafe { ::core::mem::transmute(rfu) };
-            rfu as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_le_set_cig_params_array_params_t {
-    pub cis_id: u8,
-    pub max_sdu_c_to_p: u16,
-    pub max_sdu_p_to_c: u16,
-    pub phy_c_to_p: u8,
-    pub phy_p_to_c: u8,
-    pub rtn_c_to_p: u8,
-    pub rtn_p_to_c: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_set_cig_params_array_params_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_le_set_cig_params_array_params_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_set_cig_params_array_params_t>(),
-        9usize,
-        concat!("Size of: ", stringify!(sdc_hci_le_set_cig_params_array_params_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_set_cig_params_array_params_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_le_set_cig_params_array_params_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cis_id) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_array_params_t),
-            "::",
-            stringify!(cis_id)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_sdu_c_to_p) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_array_params_t),
-            "::",
-            stringify!(max_sdu_c_to_p)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_sdu_p_to_c) as usize - ptr as usize },
-        3usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_array_params_t),
-            "::",
-            stringify!(max_sdu_p_to_c)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).phy_c_to_p) as usize - ptr as usize },
-        5usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_array_params_t),
-            "::",
-            stringify!(phy_c_to_p)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).phy_p_to_c) as usize - ptr as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_array_params_t),
-            "::",
-            stringify!(phy_p_to_c)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).rtn_c_to_p) as usize - ptr as usize },
-        7usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_array_params_t),
-            "::",
-            stringify!(rtn_c_to_p)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).rtn_p_to_c) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_array_params_t),
-            "::",
-            stringify!(rtn_p_to_c)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_le_set_cig_params_output_array_params_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_set_cig_params_output_array_params_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_le_set_cig_params_output_array_params_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_set_cig_params_output_array_params_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_le_set_cig_params_output_array_params_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_set_cig_params_output_array_params_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_le_set_cig_params_output_array_params_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_output_array_params_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_le_set_cig_params_test_array_params_t {
-    pub cis_id: u8,
-    pub nse: u8,
-    pub max_sdu_c_to_p: u16,
-    pub max_sdu_p_to_c: u16,
-    pub max_pdu_c_to_p: u16,
-    pub max_pdu_p_to_c: u16,
-    pub phy_c_to_p: u8,
-    pub phy_p_to_c: u8,
-    pub bn_c_to_p: u8,
-    pub bn_p_to_c: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_set_cig_params_test_array_params_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_le_set_cig_params_test_array_params_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_set_cig_params_test_array_params_t>(),
-        14usize,
-        concat!("Size of: ", stringify!(sdc_hci_le_set_cig_params_test_array_params_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_set_cig_params_test_array_params_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_le_set_cig_params_test_array_params_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cis_id) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_test_array_params_t),
-            "::",
-            stringify!(cis_id)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).nse) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_test_array_params_t),
-            "::",
-            stringify!(nse)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_sdu_c_to_p) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_test_array_params_t),
-            "::",
-            stringify!(max_sdu_c_to_p)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_sdu_p_to_c) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_test_array_params_t),
-            "::",
-            stringify!(max_sdu_p_to_c)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_pdu_c_to_p) as usize - ptr as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_test_array_params_t),
-            "::",
-            stringify!(max_pdu_c_to_p)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_pdu_p_to_c) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_test_array_params_t),
-            "::",
-            stringify!(max_pdu_p_to_c)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).phy_c_to_p) as usize - ptr as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_test_array_params_t),
-            "::",
-            stringify!(phy_c_to_p)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).phy_p_to_c) as usize - ptr as usize },
-        11usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_test_array_params_t),
-            "::",
-            stringify!(phy_p_to_c)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).bn_c_to_p) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_test_array_params_t),
-            "::",
-            stringify!(bn_c_to_p)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).bn_p_to_c) as usize - ptr as usize },
-        13usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_test_array_params_t),
-            "::",
-            stringify!(bn_p_to_c)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_le_set_cig_params_test_output_array_params_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_set_cig_params_test_output_array_params_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_le_set_cig_params_test_output_array_params_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_set_cig_params_test_output_array_params_t>(),
-        2usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_le_set_cig_params_test_output_array_params_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_set_cig_params_test_output_array_params_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_le_set_cig_params_test_output_array_params_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_cig_params_test_output_array_params_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
@@ -11151,88 +9628,6 @@ fn bindgen_test_layout_sdc_hci_le_set_connless_cte_transmit_params_array_params_
             stringify!(antenna_ids)
         )
     );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_le_set_data_related_address_changes_reasons_params_t {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_set_data_related_address_changes_reasons_params_t() {
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_set_data_related_address_changes_reasons_params_t>(),
-        1usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_le_set_data_related_address_changes_reasons_params_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_set_data_related_address_changes_reasons_params_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_le_set_data_related_address_changes_reasons_params_t)
-        )
-    );
-}
-impl sdc_hci_le_set_data_related_address_changes_reasons_params_t {
-    #[inline]
-    pub fn change_on_adv_data_change(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_change_on_adv_data_change(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn change_on_scan_response_data_change(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_change_on_scan_response_data_change(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn rfu(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 6u8) as u8) }
-    }
-    #[inline]
-    pub fn set_rfu(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 6u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        change_on_adv_data_change: u8,
-        change_on_scan_response_data_change: u8,
-        rfu: u8,
-    ) -> __BindgenBitfieldUnit<[u8; 1usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let change_on_adv_data_change: u8 = unsafe { ::core::mem::transmute(change_on_adv_data_change) };
-            change_on_adv_data_change as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let change_on_scan_response_data_change: u8 =
-                unsafe { ::core::mem::transmute(change_on_scan_response_data_change) };
-            change_on_scan_response_data_change as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 6u8, {
-            let rfu: u8 = unsafe { ::core::mem::transmute(rfu) };
-            rfu as u64
-        });
-        __bindgen_bitfield_unit
-    }
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
@@ -11343,238 +9738,6 @@ fn bindgen_test_layout_sdc_hci_le_set_ext_scan_params_array_params_t() {
             stringify!(sdc_hci_le_set_ext_scan_params_array_params_t),
             "::",
             stringify!(scan_window)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_le_set_periodic_adv_enable_params_t {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_set_periodic_adv_enable_params_t() {
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_set_periodic_adv_enable_params_t>(),
-        1usize,
-        concat!("Size of: ", stringify!(sdc_hci_le_set_periodic_adv_enable_params_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_set_periodic_adv_enable_params_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_le_set_periodic_adv_enable_params_t))
-    );
-}
-impl sdc_hci_le_set_periodic_adv_enable_params_t {
-    #[inline]
-    pub fn enable(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_enable(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn include_adi(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_include_adi(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn rfu(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 6u8) as u8) }
-    }
-    #[inline]
-    pub fn set_rfu(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 6u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(enable: u8, include_adi: u8, rfu: u8) -> __BindgenBitfieldUnit<[u8; 1usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let enable: u8 = unsafe { ::core::mem::transmute(enable) };
-            enable as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let include_adi: u8 = unsafe { ::core::mem::transmute(include_adi) };
-            include_adi as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 6u8, {
-            let rfu: u8 = unsafe { ::core::mem::transmute(rfu) };
-            rfu as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_le_set_periodic_adv_receive_enable_params_t {
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_set_periodic_adv_receive_enable_params_t() {
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_set_periodic_adv_receive_enable_params_t>(),
-        1usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_le_set_periodic_adv_receive_enable_params_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_set_periodic_adv_receive_enable_params_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_le_set_periodic_adv_receive_enable_params_t)
-        )
-    );
-}
-impl sdc_hci_le_set_periodic_adv_receive_enable_params_t {
-    #[inline]
-    pub fn enable_reporting(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_enable_reporting(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn enable_duplicate_filtering(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_enable_duplicate_filtering(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn rfu(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 6u8) as u8) }
-    }
-    #[inline]
-    pub fn set_rfu(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 6u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        enable_reporting: u8,
-        enable_duplicate_filtering: u8,
-        rfu: u8,
-    ) -> __BindgenBitfieldUnit<[u8; 1usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let enable_reporting: u8 = unsafe { ::core::mem::transmute(enable_reporting) };
-            enable_reporting as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let enable_duplicate_filtering: u8 = unsafe { ::core::mem::transmute(enable_duplicate_filtering) };
-            enable_duplicate_filtering as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 6u8, {
-            let rfu: u8 = unsafe { ::core::mem::transmute(rfu) };
-            rfu as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C, packed)]
-pub struct sdc_hci_le_set_periodic_adv_subevent_data_array_params_t {
-    pub subevent: u8,
-    pub response_slot_start: u8,
-    pub response_slot_count: u8,
-    pub subevent_data_length: u8,
-    pub subevent_data: __IncompleteArrayField<u8>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_le_set_periodic_adv_subevent_data_array_params_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_le_set_periodic_adv_subevent_data_array_params_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_le_set_periodic_adv_subevent_data_array_params_t>(),
-        4usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_le_set_periodic_adv_subevent_data_array_params_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_le_set_periodic_adv_subevent_data_array_params_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_le_set_periodic_adv_subevent_data_array_params_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).subevent) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_periodic_adv_subevent_data_array_params_t),
-            "::",
-            stringify!(subevent)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).response_slot_start) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_periodic_adv_subevent_data_array_params_t),
-            "::",
-            stringify!(response_slot_start)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).response_slot_count) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_periodic_adv_subevent_data_array_params_t),
-            "::",
-            stringify!(response_slot_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).subevent_data_length) as usize - ptr as usize },
-        3usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_periodic_adv_subevent_data_array_params_t),
-            "::",
-            stringify!(subevent_data_length)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).subevent_data) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_le_set_periodic_adv_subevent_data_array_params_t),
-            "::",
-            stringify!(subevent_data)
         )
     );
 }
@@ -12953,7 +11116,7 @@ fn bindgen_test_layout_sdc_hci_cmd_le_long_term_key_request_negative_reply_retur
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_cmd_le_read_supported_states_return_t {
-    #[doc = "  See the table in Core v5.4, Vol 4, Part E, Section 7.8.27."]
+    #[doc = "  See the table in Core_v5.3, Vol 4, Part E, Section 7.8.27."]
     pub le_states: [u8; 8usize],
 }
 #[test]
@@ -13735,12 +11898,12 @@ fn bindgen_test_layout_sdc_hci_cmd_le_set_adv_set_random_address_t() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_cmd_le_set_ext_adv_params_t {
     pub adv_handle: u8,
-    pub adv_event_properties: sdc_hci_cmd_le_set_ext_adv_params_t__bindgen_ty_1,
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 6usize]>,
+    pub adv_event_properties: u16,
+    pub primary_adv_interval_min: [u8; 3usize],
+    pub primary_adv_interval_max: [u8; 3usize],
     pub primary_adv_channel_map: u8,
     pub own_address_type: u8,
     pub peer_address_type: u8,
@@ -13752,54 +11915,6 @@ pub struct sdc_hci_cmd_le_set_ext_adv_params_t {
     pub secondary_adv_phy: u8,
     pub adv_sid: u8,
     pub scan_request_notification_enable: u8,
-}
-#[repr(C, packed)]
-#[derive(Copy, Clone)]
-pub union sdc_hci_cmd_le_set_ext_adv_params_t__bindgen_ty_1 {
-    pub params: sdc_hci_le_adv_event_properties_params_t,
-    pub raw: [u8; 2usize],
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_ext_adv_params_t__bindgen_ty_1() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_ext_adv_params_t__bindgen_ty_1> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_ext_adv_params_t__bindgen_ty_1>(),
-        2usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_le_set_ext_adv_params_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_ext_adv_params_t__bindgen_ty_1>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_set_ext_adv_params_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).params) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_ext_adv_params_t__bindgen_ty_1),
-            "::",
-            stringify!(params)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).raw) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_ext_adv_params_t__bindgen_ty_1),
-            "::",
-            stringify!(raw)
-        )
-    );
 }
 #[test]
 fn bindgen_test_layout_sdc_hci_cmd_le_set_ext_adv_params_t() {
@@ -13833,6 +11948,26 @@ fn bindgen_test_layout_sdc_hci_cmd_le_set_ext_adv_params_t() {
             stringify!(sdc_hci_cmd_le_set_ext_adv_params_t),
             "::",
             stringify!(adv_event_properties)
+        )
+    );
+    assert_eq!(
+        unsafe { ::core::ptr::addr_of!((*ptr).primary_adv_interval_min) as usize - ptr as usize },
+        3usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(sdc_hci_cmd_le_set_ext_adv_params_t),
+            "::",
+            stringify!(primary_adv_interval_min)
+        )
+    );
+    assert_eq!(
+        unsafe { ::core::ptr::addr_of!((*ptr).primary_adv_interval_max) as usize - ptr as usize },
+        6usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(sdc_hci_cmd_le_set_ext_adv_params_t),
+            "::",
+            stringify!(primary_adv_interval_max)
         )
     );
     assert_eq!(
@@ -13945,46 +12080,6 @@ fn bindgen_test_layout_sdc_hci_cmd_le_set_ext_adv_params_t() {
             stringify!(scan_request_notification_enable)
         )
     );
-}
-impl sdc_hci_cmd_le_set_ext_adv_params_t {
-    #[inline]
-    pub fn primary_adv_interval_min(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 24u8) as u32) }
-    }
-    #[inline]
-    pub fn set_primary_adv_interval_min(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 24u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn primary_adv_interval_max(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(24usize, 24u8) as u32) }
-    }
-    #[inline]
-    pub fn set_primary_adv_interval_max(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(24usize, 24u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        primary_adv_interval_min: u32,
-        primary_adv_interval_max: u32,
-    ) -> __BindgenBitfieldUnit<[u8; 6usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 6usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 24u8, {
-            let primary_adv_interval_min: u32 = unsafe { ::core::mem::transmute(primary_adv_interval_min) };
-            primary_adv_interval_min as u64
-        });
-        __bindgen_bitfield_unit.set(24usize, 24u8, {
-            let primary_adv_interval_max: u32 = unsafe { ::core::mem::transmute(primary_adv_interval_max) };
-            primary_adv_interval_max as u64
-        });
-        __bindgen_bitfield_unit
-    }
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
@@ -14446,58 +12541,10 @@ fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_adv_data_t() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_cmd_le_set_periodic_adv_enable_t {
-    pub enable: sdc_hci_cmd_le_set_periodic_adv_enable_t__bindgen_ty_1,
+    pub enable: u8,
     pub adv_handle: u8,
-}
-#[repr(C, packed)]
-#[derive(Copy, Clone)]
-pub union sdc_hci_cmd_le_set_periodic_adv_enable_t__bindgen_ty_1 {
-    pub params: sdc_hci_le_set_periodic_adv_enable_params_t,
-    pub raw: [u8; 1usize],
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_adv_enable_t__bindgen_ty_1() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_periodic_adv_enable_t__bindgen_ty_1> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_periodic_adv_enable_t__bindgen_ty_1>(),
-        1usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_enable_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_periodic_adv_enable_t__bindgen_ty_1>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_enable_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).params) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_enable_t__bindgen_ty_1),
-            "::",
-            stringify!(params)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).raw) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_enable_t__bindgen_ty_1),
-            "::",
-            stringify!(raw)
-        )
-    );
 }
 #[test]
 fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_adv_enable_t() {
@@ -14745,63 +12792,15 @@ fn bindgen_test_layout_sdc_hci_cmd_le_ext_create_conn_t() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_cmd_le_periodic_adv_create_sync_t {
-    pub options: sdc_hci_cmd_le_periodic_adv_create_sync_t__bindgen_ty_1,
+    pub options: u8,
     pub adv_sid: u8,
     pub adv_address_type: u8,
     pub adv_address: [u8; 6usize],
     pub skip: u16,
     pub sync_timeout: u16,
     pub sync_cte_type: u8,
-}
-#[repr(C, packed)]
-#[derive(Copy, Clone)]
-pub union sdc_hci_cmd_le_periodic_adv_create_sync_t__bindgen_ty_1 {
-    pub params: sdc_hci_le_periodic_adv_create_sync_options_params_t,
-    pub raw: [u8; 1usize],
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_periodic_adv_create_sync_t__bindgen_ty_1() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_periodic_adv_create_sync_t__bindgen_ty_1> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_periodic_adv_create_sync_t__bindgen_ty_1>(),
-        1usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_le_periodic_adv_create_sync_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_periodic_adv_create_sync_t__bindgen_ty_1>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_periodic_adv_create_sync_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).params) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_periodic_adv_create_sync_t__bindgen_ty_1),
-            "::",
-            stringify!(params)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).raw) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_periodic_adv_create_sync_t__bindgen_ty_1),
-            "::",
-            stringify!(raw)
-        )
-    );
 }
 #[test]
 fn bindgen_test_layout_sdc_hci_cmd_le_periodic_adv_create_sync_t() {
@@ -15654,58 +13653,10 @@ fn bindgen_test_layout_sdc_hci_cmd_le_read_antenna_information_return_t() {
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_cmd_le_set_periodic_adv_receive_enable_t {
     pub sync_handle: u16,
-    pub enable: sdc_hci_cmd_le_set_periodic_adv_receive_enable_t__bindgen_ty_1,
-}
-#[repr(C, packed)]
-#[derive(Copy, Clone)]
-pub union sdc_hci_cmd_le_set_periodic_adv_receive_enable_t__bindgen_ty_1 {
-    pub params: sdc_hci_le_set_periodic_adv_receive_enable_params_t,
-    pub raw: [u8; 1usize],
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_adv_receive_enable_t__bindgen_ty_1() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_periodic_adv_receive_enable_t__bindgen_ty_1> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_periodic_adv_receive_enable_t__bindgen_ty_1>(),
-        1usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_receive_enable_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_periodic_adv_receive_enable_t__bindgen_ty_1>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_receive_enable_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).params) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_receive_enable_t__bindgen_ty_1),
-            "::",
-            stringify!(params)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).raw) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_receive_enable_t__bindgen_ty_1),
-            "::",
-            stringify!(raw)
-        )
-    );
+    pub enable: u8,
 }
 #[test]
 fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_adv_receive_enable_t() {
@@ -15844,7 +13795,7 @@ fn bindgen_test_layout_sdc_hci_cmd_le_periodic_adv_sync_transfer_return_t() {
 pub struct sdc_hci_cmd_le_periodic_adv_set_info_transfer_t {
     pub conn_handle: u16,
     pub service_data: u16,
-    pub adv_handle: u8,
+    pub advertising_handle: u8,
 }
 #[test]
 fn bindgen_test_layout_sdc_hci_cmd_le_periodic_adv_set_info_transfer_t() {
@@ -15885,13 +13836,13 @@ fn bindgen_test_layout_sdc_hci_cmd_le_periodic_adv_set_info_transfer_t() {
         )
     );
     assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).adv_handle) as usize - ptr as usize },
+        unsafe { ::core::ptr::addr_of!((*ptr).advertising_handle) as usize - ptr as usize },
         4usize,
         concat!(
             "Offset of field: ",
             stringify!(sdc_hci_cmd_le_periodic_adv_set_info_transfer_t),
             "::",
-            stringify!(adv_handle)
+            stringify!(advertising_handle)
         )
     );
 }
@@ -16117,2124 +14068,6 @@ fn bindgen_test_layout_sdc_hci_cmd_le_set_default_periodic_adv_sync_transfer_par
             stringify!(sdc_hci_cmd_le_set_default_periodic_adv_sync_transfer_params_t),
             "::",
             stringify!(cte_type)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_read_buffer_size_v2_return_t {
-    pub le_acl_data_packet_length: u16,
-    pub total_num_le_acl_data_packets: u8,
-    pub iso_data_packet_length: u16,
-    pub total_num_iso_data_packets: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_read_buffer_size_v2_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_read_buffer_size_v2_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_read_buffer_size_v2_return_t>(),
-        6usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_read_buffer_size_v2_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_read_buffer_size_v2_return_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_read_buffer_size_v2_return_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).le_acl_data_packet_length) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_buffer_size_v2_return_t),
-            "::",
-            stringify!(le_acl_data_packet_length)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).total_num_le_acl_data_packets) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_buffer_size_v2_return_t),
-            "::",
-            stringify!(total_num_le_acl_data_packets)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).iso_data_packet_length) as usize - ptr as usize },
-        3usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_buffer_size_v2_return_t),
-            "::",
-            stringify!(iso_data_packet_length)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).total_num_iso_data_packets) as usize - ptr as usize },
-        5usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_buffer_size_v2_return_t),
-            "::",
-            stringify!(total_num_iso_data_packets)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_read_iso_tx_sync_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_read_iso_tx_sync_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_read_iso_tx_sync_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_read_iso_tx_sync_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_read_iso_tx_sync_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_read_iso_tx_sync_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_read_iso_tx_sync_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_tx_sync_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_read_iso_tx_sync_return_t {
-    pub conn_handle: u16,
-    pub packet_sequence_number: u16,
-    pub tx_time_stamp: u32,
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 3usize]>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_read_iso_tx_sync_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_read_iso_tx_sync_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_read_iso_tx_sync_return_t>(),
-        11usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_read_iso_tx_sync_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_read_iso_tx_sync_return_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_read_iso_tx_sync_return_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_tx_sync_return_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).packet_sequence_number) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_tx_sync_return_t),
-            "::",
-            stringify!(packet_sequence_number)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).tx_time_stamp) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_tx_sync_return_t),
-            "::",
-            stringify!(tx_time_stamp)
-        )
-    );
-}
-impl sdc_hci_cmd_le_read_iso_tx_sync_return_t {
-    #[inline]
-    pub fn time_offset(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 24u8) as u32) }
-    }
-    #[inline]
-    pub fn set_time_offset(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 24u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(time_offset: u32) -> __BindgenBitfieldUnit<[u8; 3usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 3usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 24u8, {
-            let time_offset: u32 = unsafe { ::core::mem::transmute(time_offset) };
-            time_offset as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C, packed)]
-pub struct sdc_hci_cmd_le_set_cig_params_t {
-    pub cig_id: u8,
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 6usize]>,
-    pub worst_case_sca: u8,
-    pub packing: u8,
-    pub framing: u8,
-    pub max_transport_latency_c_to_p: u16,
-    pub max_transport_latency_p_to_c: u16,
-    pub cis_count: u8,
-    pub array_params: __IncompleteArrayField<sdc_hci_le_set_cig_params_array_params_t>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_cig_params_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_cig_params_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_cig_params_t>(),
-        15usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_set_cig_params_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_cig_params_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_set_cig_params_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cig_id) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_t),
-            "::",
-            stringify!(cig_id)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).worst_case_sca) as usize - ptr as usize },
-        7usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_t),
-            "::",
-            stringify!(worst_case_sca)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).packing) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_t),
-            "::",
-            stringify!(packing)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).framing) as usize - ptr as usize },
-        9usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_t),
-            "::",
-            stringify!(framing)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_transport_latency_c_to_p) as usize - ptr as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_t),
-            "::",
-            stringify!(max_transport_latency_c_to_p)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_transport_latency_p_to_c) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_t),
-            "::",
-            stringify!(max_transport_latency_p_to_c)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cis_count) as usize - ptr as usize },
-        14usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_t),
-            "::",
-            stringify!(cis_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).array_params) as usize - ptr as usize },
-        15usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_t),
-            "::",
-            stringify!(array_params)
-        )
-    );
-}
-impl sdc_hci_cmd_le_set_cig_params_t {
-    #[inline]
-    pub fn sdu_interval_c_to_p(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 24u8) as u32) }
-    }
-    #[inline]
-    pub fn set_sdu_interval_c_to_p(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 24u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn sdu_interval_p_to_c(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(24usize, 24u8) as u32) }
-    }
-    #[inline]
-    pub fn set_sdu_interval_p_to_c(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(24usize, 24u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(sdu_interval_c_to_p: u32, sdu_interval_p_to_c: u32) -> __BindgenBitfieldUnit<[u8; 6usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 6usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 24u8, {
-            let sdu_interval_c_to_p: u32 = unsafe { ::core::mem::transmute(sdu_interval_c_to_p) };
-            sdu_interval_c_to_p as u64
-        });
-        __bindgen_bitfield_unit.set(24usize, 24u8, {
-            let sdu_interval_p_to_c: u32 = unsafe { ::core::mem::transmute(sdu_interval_p_to_c) };
-            sdu_interval_p_to_c as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C, packed)]
-pub struct sdc_hci_cmd_le_set_cig_params_return_t {
-    pub cig_id: u8,
-    pub cis_count: u8,
-    pub array_params: __IncompleteArrayField<sdc_hci_le_set_cig_params_output_array_params_t>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_cig_params_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_cig_params_return_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_cig_params_return_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_set_cig_params_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_cig_params_return_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_set_cig_params_return_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cig_id) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_return_t),
-            "::",
-            stringify!(cig_id)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cis_count) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_return_t),
-            "::",
-            stringify!(cis_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).array_params) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_return_t),
-            "::",
-            stringify!(array_params)
-        )
-    );
-}
-#[repr(C, packed)]
-pub struct sdc_hci_cmd_le_set_cig_params_test_t {
-    pub cig_id: u8,
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 6usize]>,
-    pub ft_c_to_p: u8,
-    pub ft_p_to_c: u8,
-    pub iso_interval: u16,
-    pub worst_case_sca: u8,
-    pub packing: u8,
-    pub framing: u8,
-    pub cis_count: u8,
-    pub array_params: __IncompleteArrayField<sdc_hci_le_set_cig_params_test_array_params_t>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_cig_params_test_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_cig_params_test_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_cig_params_test_t>(),
-        15usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_set_cig_params_test_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_cig_params_test_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_set_cig_params_test_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cig_id) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_test_t),
-            "::",
-            stringify!(cig_id)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ft_c_to_p) as usize - ptr as usize },
-        7usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_test_t),
-            "::",
-            stringify!(ft_c_to_p)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ft_p_to_c) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_test_t),
-            "::",
-            stringify!(ft_p_to_c)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).iso_interval) as usize - ptr as usize },
-        9usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_test_t),
-            "::",
-            stringify!(iso_interval)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).worst_case_sca) as usize - ptr as usize },
-        11usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_test_t),
-            "::",
-            stringify!(worst_case_sca)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).packing) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_test_t),
-            "::",
-            stringify!(packing)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).framing) as usize - ptr as usize },
-        13usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_test_t),
-            "::",
-            stringify!(framing)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cis_count) as usize - ptr as usize },
-        14usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_test_t),
-            "::",
-            stringify!(cis_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).array_params) as usize - ptr as usize },
-        15usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_test_t),
-            "::",
-            stringify!(array_params)
-        )
-    );
-}
-impl sdc_hci_cmd_le_set_cig_params_test_t {
-    #[inline]
-    pub fn sdu_interval_c_to_p(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 24u8) as u32) }
-    }
-    #[inline]
-    pub fn set_sdu_interval_c_to_p(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 24u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn sdu_interval_p_to_c(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(24usize, 24u8) as u32) }
-    }
-    #[inline]
-    pub fn set_sdu_interval_p_to_c(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(24usize, 24u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(sdu_interval_c_to_p: u32, sdu_interval_p_to_c: u32) -> __BindgenBitfieldUnit<[u8; 6usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 6usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 24u8, {
-            let sdu_interval_c_to_p: u32 = unsafe { ::core::mem::transmute(sdu_interval_c_to_p) };
-            sdu_interval_c_to_p as u64
-        });
-        __bindgen_bitfield_unit.set(24usize, 24u8, {
-            let sdu_interval_p_to_c: u32 = unsafe { ::core::mem::transmute(sdu_interval_p_to_c) };
-            sdu_interval_p_to_c as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C, packed)]
-pub struct sdc_hci_cmd_le_set_cig_params_test_return_t {
-    pub cig_id: u8,
-    pub cis_count: u8,
-    pub array_params: __IncompleteArrayField<sdc_hci_le_set_cig_params_test_output_array_params_t>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_cig_params_test_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_cig_params_test_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_cig_params_test_return_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_set_cig_params_test_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_cig_params_test_return_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_set_cig_params_test_return_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cig_id) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_test_return_t),
-            "::",
-            stringify!(cig_id)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cis_count) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_test_return_t),
-            "::",
-            stringify!(cis_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).array_params) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_cig_params_test_return_t),
-            "::",
-            stringify!(array_params)
-        )
-    );
-}
-#[repr(C, packed)]
-pub struct sdc_hci_cmd_le_create_cis_t {
-    pub cis_count: u8,
-    pub array_params: __IncompleteArrayField<sdc_hci_le_create_cis_array_params_t>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_create_cis_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_create_cis_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_create_cis_t>(),
-        1usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_create_cis_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_create_cis_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_create_cis_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cis_count) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_cis_t),
-            "::",
-            stringify!(cis_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).array_params) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_cis_t),
-            "::",
-            stringify!(array_params)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_remove_cig_t {
-    pub cig_id: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_remove_cig_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_remove_cig_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_remove_cig_t>(),
-        1usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_remove_cig_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_remove_cig_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_remove_cig_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cig_id) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_remove_cig_t),
-            "::",
-            stringify!(cig_id)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_remove_cig_return_t {
-    pub cig_id: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_remove_cig_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_remove_cig_return_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_remove_cig_return_t>(),
-        1usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_remove_cig_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_remove_cig_return_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_remove_cig_return_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).cig_id) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_remove_cig_return_t),
-            "::",
-            stringify!(cig_id)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_accept_cis_request_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_accept_cis_request_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_accept_cis_request_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_accept_cis_request_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_accept_cis_request_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_accept_cis_request_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_accept_cis_request_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_accept_cis_request_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_reject_cis_request_t {
-    pub conn_handle: u16,
-    pub reason: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_reject_cis_request_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_reject_cis_request_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_reject_cis_request_t>(),
-        3usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_reject_cis_request_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_reject_cis_request_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_reject_cis_request_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_reject_cis_request_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).reason) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_reject_cis_request_t),
-            "::",
-            stringify!(reason)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_reject_cis_request_return_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_reject_cis_request_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_reject_cis_request_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_reject_cis_request_return_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_reject_cis_request_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_reject_cis_request_return_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_reject_cis_request_return_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_reject_cis_request_return_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_create_big_t {
-    pub big_handle: u8,
-    pub adv_handle: u8,
-    pub num_bis: u8,
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 3usize]>,
-    pub max_sdu: u16,
-    pub max_transport_latency: u16,
-    pub rtn: u8,
-    pub phy: u8,
-    pub packing: u8,
-    pub framing: u8,
-    pub encryption: u8,
-    pub broadcast_code: [u8; 16usize],
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_create_big_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_create_big_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_create_big_t>(),
-        31usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_create_big_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_create_big_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_create_big_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).big_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_t),
-            "::",
-            stringify!(big_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).adv_handle) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_t),
-            "::",
-            stringify!(adv_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).num_bis) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_t),
-            "::",
-            stringify!(num_bis)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_sdu) as usize - ptr as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_t),
-            "::",
-            stringify!(max_sdu)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_transport_latency) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_t),
-            "::",
-            stringify!(max_transport_latency)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).rtn) as usize - ptr as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_t),
-            "::",
-            stringify!(rtn)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).phy) as usize - ptr as usize },
-        11usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_t),
-            "::",
-            stringify!(phy)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).packing) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_t),
-            "::",
-            stringify!(packing)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).framing) as usize - ptr as usize },
-        13usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_t),
-            "::",
-            stringify!(framing)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).encryption) as usize - ptr as usize },
-        14usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_t),
-            "::",
-            stringify!(encryption)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).broadcast_code) as usize - ptr as usize },
-        15usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_t),
-            "::",
-            stringify!(broadcast_code)
-        )
-    );
-}
-impl sdc_hci_cmd_le_create_big_t {
-    #[inline]
-    pub fn sdu_interval(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 24u8) as u32) }
-    }
-    #[inline]
-    pub fn set_sdu_interval(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 24u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(sdu_interval: u32) -> __BindgenBitfieldUnit<[u8; 3usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 3usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 24u8, {
-            let sdu_interval: u32 = unsafe { ::core::mem::transmute(sdu_interval) };
-            sdu_interval as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_create_big_test_t {
-    pub big_handle: u8,
-    pub adv_handle: u8,
-    pub num_bis: u8,
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 3usize]>,
-    pub iso_interval: u16,
-    pub nse: u8,
-    pub max_sdu: u16,
-    pub max_pdu: u16,
-    pub phy: u8,
-    pub packing: u8,
-    pub framing: u8,
-    pub bn: u8,
-    pub irc: u8,
-    pub pto: u8,
-    pub encryption: u8,
-    pub broadcast_code: [u8; 16usize],
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_create_big_test_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_create_big_test_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_create_big_test_t>(),
-        36usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_create_big_test_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_create_big_test_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_create_big_test_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).big_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(big_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).adv_handle) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(adv_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).num_bis) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(num_bis)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).iso_interval) as usize - ptr as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(iso_interval)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).nse) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(nse)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_sdu) as usize - ptr as usize },
-        9usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(max_sdu)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).max_pdu) as usize - ptr as usize },
-        11usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(max_pdu)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).phy) as usize - ptr as usize },
-        13usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(phy)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).packing) as usize - ptr as usize },
-        14usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(packing)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).framing) as usize - ptr as usize },
-        15usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(framing)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).bn) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(bn)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).irc) as usize - ptr as usize },
-        17usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(irc)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).pto) as usize - ptr as usize },
-        18usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(pto)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).encryption) as usize - ptr as usize },
-        19usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(encryption)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).broadcast_code) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_create_big_test_t),
-            "::",
-            stringify!(broadcast_code)
-        )
-    );
-}
-impl sdc_hci_cmd_le_create_big_test_t {
-    #[inline]
-    pub fn sdu_interval(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 24u8) as u32) }
-    }
-    #[inline]
-    pub fn set_sdu_interval(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 24u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(sdu_interval: u32) -> __BindgenBitfieldUnit<[u8; 3usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 3usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 24u8, {
-            let sdu_interval: u32 = unsafe { ::core::mem::transmute(sdu_interval) };
-            sdu_interval as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_terminate_big_t {
-    pub big_handle: u8,
-    pub reason: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_terminate_big_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_terminate_big_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_terminate_big_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_terminate_big_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_terminate_big_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_terminate_big_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).big_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_terminate_big_t),
-            "::",
-            stringify!(big_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).reason) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_terminate_big_t),
-            "::",
-            stringify!(reason)
-        )
-    );
-}
-#[repr(C, packed)]
-pub struct sdc_hci_cmd_le_big_create_sync_t {
-    pub big_handle: u8,
-    pub sync_handle: u16,
-    pub encryption: u8,
-    pub broadcast_code: [u8; 16usize],
-    pub mse: u8,
-    pub big_sync_timeout: u16,
-    pub num_bis: u8,
-    pub array_params: __IncompleteArrayField<sdc_hci_le_big_create_sync_array_params_t>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_big_create_sync_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_big_create_sync_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_big_create_sync_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_big_create_sync_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_big_create_sync_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_big_create_sync_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).big_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_big_create_sync_t),
-            "::",
-            stringify!(big_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).sync_handle) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_big_create_sync_t),
-            "::",
-            stringify!(sync_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).encryption) as usize - ptr as usize },
-        3usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_big_create_sync_t),
-            "::",
-            stringify!(encryption)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).broadcast_code) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_big_create_sync_t),
-            "::",
-            stringify!(broadcast_code)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).mse) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_big_create_sync_t),
-            "::",
-            stringify!(mse)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).big_sync_timeout) as usize - ptr as usize },
-        21usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_big_create_sync_t),
-            "::",
-            stringify!(big_sync_timeout)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).num_bis) as usize - ptr as usize },
-        23usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_big_create_sync_t),
-            "::",
-            stringify!(num_bis)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).array_params) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_big_create_sync_t),
-            "::",
-            stringify!(array_params)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_big_terminate_sync_t {
-    pub big_handle: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_big_terminate_sync_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_big_terminate_sync_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_big_terminate_sync_t>(),
-        1usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_big_terminate_sync_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_big_terminate_sync_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_big_terminate_sync_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).big_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_big_terminate_sync_t),
-            "::",
-            stringify!(big_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_big_terminate_sync_return_t {
-    pub big_handle: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_big_terminate_sync_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_big_terminate_sync_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_big_terminate_sync_return_t>(),
-        1usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_big_terminate_sync_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_big_terminate_sync_return_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_big_terminate_sync_return_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).big_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_big_terminate_sync_return_t),
-            "::",
-            stringify!(big_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_request_peer_sca_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_request_peer_sca_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_request_peer_sca_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_request_peer_sca_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_request_peer_sca_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_request_peer_sca_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_request_peer_sca_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_request_peer_sca_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-pub struct sdc_hci_cmd_le_setup_iso_data_path_t {
-    pub conn_handle: u16,
-    pub data_path_direction: u8,
-    pub data_path_id: u8,
-    pub codec_id: [u8; 5usize],
-    pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 3usize]>,
-    pub codec_config_length: u8,
-    pub codec_config: __IncompleteArrayField<u8>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_setup_iso_data_path_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_setup_iso_data_path_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_setup_iso_data_path_t>(),
-        13usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_setup_iso_data_path_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_setup_iso_data_path_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_setup_iso_data_path_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_setup_iso_data_path_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).data_path_direction) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_setup_iso_data_path_t),
-            "::",
-            stringify!(data_path_direction)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).data_path_id) as usize - ptr as usize },
-        3usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_setup_iso_data_path_t),
-            "::",
-            stringify!(data_path_id)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).codec_id) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_setup_iso_data_path_t),
-            "::",
-            stringify!(codec_id)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).codec_config_length) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_setup_iso_data_path_t),
-            "::",
-            stringify!(codec_config_length)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).codec_config) as usize - ptr as usize },
-        13usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_setup_iso_data_path_t),
-            "::",
-            stringify!(codec_config)
-        )
-    );
-}
-impl sdc_hci_cmd_le_setup_iso_data_path_t {
-    #[inline]
-    pub fn controller_delay(&self) -> u32 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 24u8) as u32) }
-    }
-    #[inline]
-    pub fn set_controller_delay(&mut self, val: u32) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 24u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(controller_delay: u32) -> __BindgenBitfieldUnit<[u8; 3usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 3usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 24u8, {
-            let controller_delay: u32 = unsafe { ::core::mem::transmute(controller_delay) };
-            controller_delay as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_setup_iso_data_path_return_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_setup_iso_data_path_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_setup_iso_data_path_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_setup_iso_data_path_return_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_setup_iso_data_path_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_setup_iso_data_path_return_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_setup_iso_data_path_return_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_setup_iso_data_path_return_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_remove_iso_data_path_t {
-    pub conn_handle: u16,
-    pub data_path_direction: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_remove_iso_data_path_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_remove_iso_data_path_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_remove_iso_data_path_t>(),
-        3usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_remove_iso_data_path_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_remove_iso_data_path_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_remove_iso_data_path_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_remove_iso_data_path_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).data_path_direction) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_remove_iso_data_path_t),
-            "::",
-            stringify!(data_path_direction)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_remove_iso_data_path_return_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_remove_iso_data_path_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_remove_iso_data_path_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_remove_iso_data_path_return_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_remove_iso_data_path_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_remove_iso_data_path_return_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_remove_iso_data_path_return_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_remove_iso_data_path_return_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_iso_transmit_test_t {
-    pub conn_handle: u16,
-    pub payload_type: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_iso_transmit_test_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_iso_transmit_test_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_iso_transmit_test_t>(),
-        3usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_iso_transmit_test_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_iso_transmit_test_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_iso_transmit_test_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_transmit_test_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).payload_type) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_transmit_test_t),
-            "::",
-            stringify!(payload_type)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_iso_transmit_test_return_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_iso_transmit_test_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_iso_transmit_test_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_iso_transmit_test_return_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_iso_transmit_test_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_iso_transmit_test_return_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_iso_transmit_test_return_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_transmit_test_return_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_iso_receive_test_t {
-    pub conn_handle: u16,
-    pub payload_type: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_iso_receive_test_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_iso_receive_test_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_iso_receive_test_t>(),
-        3usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_iso_receive_test_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_iso_receive_test_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_iso_receive_test_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_receive_test_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).payload_type) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_receive_test_t),
-            "::",
-            stringify!(payload_type)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_iso_receive_test_return_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_iso_receive_test_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_iso_receive_test_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_iso_receive_test_return_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_iso_receive_test_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_iso_receive_test_return_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_iso_receive_test_return_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_receive_test_return_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_iso_read_test_counters_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_iso_read_test_counters_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_iso_read_test_counters_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_iso_read_test_counters_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_iso_read_test_counters_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_iso_read_test_counters_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_iso_read_test_counters_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_read_test_counters_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_iso_read_test_counters_return_t {
-    pub conn_handle: u16,
-    pub received_sdu_count: u32,
-    pub missed_sdu_count: u32,
-    pub failed_sdu_count: u32,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_iso_read_test_counters_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_iso_read_test_counters_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_iso_read_test_counters_return_t>(),
-        14usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_iso_read_test_counters_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_iso_read_test_counters_return_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_iso_read_test_counters_return_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_read_test_counters_return_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).received_sdu_count) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_read_test_counters_return_t),
-            "::",
-            stringify!(received_sdu_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).missed_sdu_count) as usize - ptr as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_read_test_counters_return_t),
-            "::",
-            stringify!(missed_sdu_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).failed_sdu_count) as usize - ptr as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_read_test_counters_return_t),
-            "::",
-            stringify!(failed_sdu_count)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_iso_test_end_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_iso_test_end_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_iso_test_end_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_iso_test_end_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_iso_test_end_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_iso_test_end_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_iso_test_end_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_test_end_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_iso_test_end_return_t {
-    pub conn_handle: u16,
-    pub received_sdu_count: u32,
-    pub missed_sdu_count: u32,
-    pub failed_sdu_count: u32,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_iso_test_end_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_iso_test_end_return_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_iso_test_end_return_t>(),
-        14usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_iso_test_end_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_iso_test_end_return_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_iso_test_end_return_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_test_end_return_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).received_sdu_count) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_test_end_return_t),
-            "::",
-            stringify!(received_sdu_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).missed_sdu_count) as usize - ptr as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_test_end_return_t),
-            "::",
-            stringify!(missed_sdu_count)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).failed_sdu_count) as usize - ptr as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_iso_test_end_return_t),
-            "::",
-            stringify!(failed_sdu_count)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_set_host_feature_t {
-    pub bit_number: u8,
-    pub bit_value: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_host_feature_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_host_feature_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_host_feature_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_set_host_feature_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_host_feature_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_set_host_feature_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).bit_number) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_host_feature_t),
-            "::",
-            stringify!(bit_number)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).bit_value) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_host_feature_t),
-            "::",
-            stringify!(bit_value)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_read_iso_link_quality_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_read_iso_link_quality_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_read_iso_link_quality_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_read_iso_link_quality_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_read_iso_link_quality_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_read_iso_link_quality_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_read_iso_link_quality_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_link_quality_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_read_iso_link_quality_return_t {
-    pub conn_handle: u16,
-    pub tx_unacked_packets: u32,
-    pub tx_flushed_packets: u32,
-    pub tx_last_subevent_packets: u32,
-    pub retransmitted_packets: u32,
-    pub crc_error_packets: u32,
-    pub rx_unreceived_packets: u32,
-    pub duplicate_packets: u32,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_read_iso_link_quality_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_read_iso_link_quality_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_read_iso_link_quality_return_t>(),
-        30usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_read_iso_link_quality_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_read_iso_link_quality_return_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_read_iso_link_quality_return_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_link_quality_return_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).tx_unacked_packets) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_link_quality_return_t),
-            "::",
-            stringify!(tx_unacked_packets)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).tx_flushed_packets) as usize - ptr as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_link_quality_return_t),
-            "::",
-            stringify!(tx_flushed_packets)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).tx_last_subevent_packets) as usize - ptr as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_link_quality_return_t),
-            "::",
-            stringify!(tx_last_subevent_packets)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).retransmitted_packets) as usize - ptr as usize },
-        14usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_link_quality_return_t),
-            "::",
-            stringify!(retransmitted_packets)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).crc_error_packets) as usize - ptr as usize },
-        18usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_link_quality_return_t),
-            "::",
-            stringify!(crc_error_packets)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).rx_unreceived_packets) as usize - ptr as usize },
-        22usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_link_quality_return_t),
-            "::",
-            stringify!(rx_unreceived_packets)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).duplicate_packets) as usize - ptr as usize },
-        26usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_read_iso_link_quality_return_t),
-            "::",
-            stringify!(duplicate_packets)
         )
     );
 }
@@ -18709,58 +14542,10 @@ fn bindgen_test_layout_sdc_hci_cmd_le_set_transmit_power_reporting_enable_return
     );
 }
 #[repr(C, packed)]
-#[derive(Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_cmd_le_set_data_related_address_changes_t {
     pub adv_handle: u8,
-    pub change_reasons: sdc_hci_cmd_le_set_data_related_address_changes_t__bindgen_ty_1,
-}
-#[repr(C, packed)]
-#[derive(Copy, Clone)]
-pub union sdc_hci_cmd_le_set_data_related_address_changes_t__bindgen_ty_1 {
-    pub params: sdc_hci_le_set_data_related_address_changes_reasons_params_t,
-    pub raw: [u8; 1usize],
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_data_related_address_changes_t__bindgen_ty_1() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_data_related_address_changes_t__bindgen_ty_1> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_data_related_address_changes_t__bindgen_ty_1>(),
-        1usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_le_set_data_related_address_changes_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_data_related_address_changes_t__bindgen_ty_1>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_set_data_related_address_changes_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).params) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_data_related_address_changes_t__bindgen_ty_1),
-            "::",
-            stringify!(params)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).raw) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_data_related_address_changes_t__bindgen_ty_1),
-            "::",
-            stringify!(raw)
-        )
-    );
+    pub change_reasons: u8,
 }
 #[test]
 fn bindgen_test_layout_sdc_hci_cmd_le_set_data_related_address_changes_t() {
@@ -18804,1193 +14589,444 @@ fn bindgen_test_layout_sdc_hci_cmd_le_set_data_related_address_changes_t() {
         )
     );
 }
-#[repr(C, packed)]
-pub struct sdc_hci_cmd_le_set_periodic_adv_subevent_data_t {
-    pub adv_handle: u8,
-    pub num_subevents: u8,
-    pub array_params: __IncompleteArrayField<u8>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_adv_subevent_data_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_periodic_adv_subevent_data_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_periodic_adv_subevent_data_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_set_periodic_adv_subevent_data_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_periodic_adv_subevent_data_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_subevent_data_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).adv_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_subevent_data_t),
-            "::",
-            stringify!(adv_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).num_subevents) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_subevent_data_t),
-            "::",
-            stringify!(num_subevents)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).array_params) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_subevent_data_t),
-            "::",
-            stringify!(array_params)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_set_periodic_adv_subevent_data_return_t {
-    pub adv_handle: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_adv_subevent_data_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_periodic_adv_subevent_data_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_periodic_adv_subevent_data_return_t>(),
-        1usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_subevent_data_return_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_periodic_adv_subevent_data_return_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_subevent_data_return_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).adv_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_subevent_data_return_t),
-            "::",
-            stringify!(adv_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-pub struct sdc_hci_cmd_le_set_periodic_adv_response_data_t {
-    pub sync_handle: u16,
-    pub request_event: u16,
-    pub request_subevent: u8,
-    pub response_subevent: u8,
-    pub response_slot: u8,
-    pub response_data_length: u8,
-    pub response_data: __IncompleteArrayField<u8>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_adv_response_data_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_periodic_adv_response_data_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_periodic_adv_response_data_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_set_periodic_adv_response_data_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_periodic_adv_response_data_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_response_data_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).sync_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_response_data_t),
-            "::",
-            stringify!(sync_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).request_event) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_response_data_t),
-            "::",
-            stringify!(request_event)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).request_subevent) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_response_data_t),
-            "::",
-            stringify!(request_subevent)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).response_subevent) as usize - ptr as usize },
-        5usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_response_data_t),
-            "::",
-            stringify!(response_subevent)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).response_slot) as usize - ptr as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_response_data_t),
-            "::",
-            stringify!(response_slot)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).response_data_length) as usize - ptr as usize },
-        7usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_response_data_t),
-            "::",
-            stringify!(response_data_length)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).response_data) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_response_data_t),
-            "::",
-            stringify!(response_data)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_set_periodic_adv_response_data_return_t {
-    pub sync_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_adv_response_data_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_periodic_adv_response_data_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_periodic_adv_response_data_return_t>(),
-        2usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_response_data_return_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_periodic_adv_response_data_return_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_response_data_return_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).sync_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_response_data_return_t),
-            "::",
-            stringify!(sync_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-pub struct sdc_hci_cmd_le_set_periodic_sync_subevent_t {
-    pub sync_handle: u16,
-    pub periodic_adv_properties: u16,
-    pub num_subevents: u8,
-    pub subevents: __IncompleteArrayField<u8>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_sync_subevent_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_periodic_sync_subevent_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_periodic_sync_subevent_t>(),
-        5usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_set_periodic_sync_subevent_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_periodic_sync_subevent_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_set_periodic_sync_subevent_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).sync_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_sync_subevent_t),
-            "::",
-            stringify!(sync_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).periodic_adv_properties) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_sync_subevent_t),
-            "::",
-            stringify!(periodic_adv_properties)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).num_subevents) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_sync_subevent_t),
-            "::",
-            stringify!(num_subevents)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).subevents) as usize - ptr as usize },
-        5usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_sync_subevent_t),
-            "::",
-            stringify!(subevents)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_set_periodic_sync_subevent_return_t {
-    pub sync_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_sync_subevent_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_periodic_sync_subevent_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_periodic_sync_subevent_return_t>(),
-        2usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_sync_subevent_return_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_periodic_sync_subevent_return_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_set_periodic_sync_subevent_return_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).sync_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_sync_subevent_return_t),
-            "::",
-            stringify!(sync_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-pub struct sdc_hci_cmd_le_ext_create_conn_v2_t {
-    pub adv_handle: u8,
-    pub subevent: u8,
-    pub initiator_filter_policy: u8,
-    pub own_address_type: u8,
-    pub peer_address_type: u8,
-    pub peer_address: [u8; 6usize],
-    pub initiating_phys: u8,
-    pub array_params: __IncompleteArrayField<sdc_hci_le_ext_create_conn_v2_array_params_t>,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_ext_create_conn_v2_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_ext_create_conn_v2_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_ext_create_conn_v2_t>(),
-        12usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_ext_create_conn_v2_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_ext_create_conn_v2_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_ext_create_conn_v2_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).adv_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_ext_create_conn_v2_t),
-            "::",
-            stringify!(adv_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).subevent) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_ext_create_conn_v2_t),
-            "::",
-            stringify!(subevent)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).initiator_filter_policy) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_ext_create_conn_v2_t),
-            "::",
-            stringify!(initiator_filter_policy)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).own_address_type) as usize - ptr as usize },
-        3usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_ext_create_conn_v2_t),
-            "::",
-            stringify!(own_address_type)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).peer_address_type) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_ext_create_conn_v2_t),
-            "::",
-            stringify!(peer_address_type)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).peer_address) as usize - ptr as usize },
-        5usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_ext_create_conn_v2_t),
-            "::",
-            stringify!(peer_address)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).initiating_phys) as usize - ptr as usize },
-        11usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_ext_create_conn_v2_t),
-            "::",
-            stringify!(initiating_phys)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).array_params) as usize - ptr as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_ext_create_conn_v2_t),
-            "::",
-            stringify!(array_params)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_set_periodic_adv_params_v2_t {
-    pub adv_handle: u8,
-    pub periodic_adv_interval_min: u16,
-    pub periodic_adv_interval_max: u16,
-    pub periodic_adv_properties: u16,
-    pub num_subevents: u8,
-    pub subevent_interval: u8,
-    pub response_slot_delay: u8,
-    pub response_slot_spacing: u8,
-    pub num_response_slots: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_adv_params_v2_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_periodic_adv_params_v2_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_periodic_adv_params_v2_t>(),
-        12usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_periodic_adv_params_v2_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).adv_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_t),
-            "::",
-            stringify!(adv_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).periodic_adv_interval_min) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_t),
-            "::",
-            stringify!(periodic_adv_interval_min)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).periodic_adv_interval_max) as usize - ptr as usize },
-        3usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_t),
-            "::",
-            stringify!(periodic_adv_interval_max)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).periodic_adv_properties) as usize - ptr as usize },
-        5usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_t),
-            "::",
-            stringify!(periodic_adv_properties)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).num_subevents) as usize - ptr as usize },
-        7usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_t),
-            "::",
-            stringify!(num_subevents)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).subevent_interval) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_t),
-            "::",
-            stringify!(subevent_interval)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).response_slot_delay) as usize - ptr as usize },
-        9usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_t),
-            "::",
-            stringify!(response_slot_delay)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).response_slot_spacing) as usize - ptr as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_t),
-            "::",
-            stringify!(response_slot_spacing)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).num_response_slots) as usize - ptr as usize },
-        11usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_t),
-            "::",
-            stringify!(num_response_slots)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_le_set_periodic_adv_params_v2_return_t {
-    pub adv_handle: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_le_set_periodic_adv_params_v2_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_le_set_periodic_adv_params_v2_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_le_set_periodic_adv_params_v2_return_t>(),
-        1usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_return_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_le_set_periodic_adv_params_v2_return_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_return_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).adv_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_le_set_periodic_adv_params_v2_return_t),
-            "::",
-            stringify!(adv_handle)
-        )
-    );
-}
 extern "C" {
-    #[doc = " @defgroup HCI_VS_API API\n @{\n/\n/** @brief LE Set Event Mask.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.1\n\n The HCI_LE_Set_Event_Mask command is used to control which LE events\n are generated by the HCI for the Host. If the bit in the LE_Event_Mask is set to\n a one, then the event associated with that bit will be enabled. The event mask\n allows the Host to control which events will interrupt it.\n\n The Controller shall ignore those bits which are reserved for future use or\n represent events which it does not support. If the Host sets any of these bits to\n 1, the Controller shall act as if they were set to 0.\n\n For LE events to be generated, the LE Meta event bit in the Event_Mask shall\n also be set. If that bit is not set, then LE events shall not be generated,\n regardless of how the LE_Event_Mask is set.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Event_Mask command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = " @defgroup HCI_VS_API API\n @{\n/\n/** @brief LE Set Event Mask.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.1\n\n The HCI_LE_Set_Event_Mask command is used to control which LE events\n are generated by the HCI for the Host. If the bit in the LE_Event_Mask is set to\n a one, then the event associated with that bit will be enabled. The event mask\n allows the Host to control which events will interrupt it.\n\n The Controller shall ignore those bits which are reserved for future use or\n represent events which it does not support. If the Host sets any of these bits to\n 1, the Controller shall act as if they were set to 0.\n\n For LE events to be generated, the LE Meta event bit in the Event_Mask shall\n also be set. If that bit is not set, then LE events shall not be generated,\n regardless of how the LE_Event_Mask is set.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Event_Mask command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_event_mask(p_params: *const sdc_hci_cmd_le_set_event_mask_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Buffer Size [v1].\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.2\n\n This command is used to read the maximum size of the data portion of ACL\n data packets and isochronous data packets sent from the Host to the Control-\n ler. The Host shall segment the data transmitted to the Controller according to\n these values so that the HCI ACL Data packets and HCI ISO Data packets will\n contain data up to this size (“data” includes optional fields in the HCI ISO Data\n packet, such as ISO_SDU_Length). The HCI_LE_Read_Buffer_Size\n command also returns the total number of HCI LE ACL Data packets and iso-\n chronous data packets that can be stored in the data buffers of the Controller.\n The HCI_LE_Read_Buffer_Size command shall be issued by the Host before it\n sends any data to an LE Controller (see Section 4.1.1). If the Controller sup-\n ports HCI ISO Data packets, it shall return non-zero values for the ISO_Data_-\n Packet_Length and Total_Num_ISO_Data_Packets parameters.\n\n If the Controller returns a length value of zero for ACL data packets, the Host\n shall use the HCI_Read_Buffer_Size command to determine the size of the\n data buffers (shared between BR/EDR and LE transports).\n\n Note: Both the HCI_Read_Buffer_Size command and the HCI_LE_Read_-\n Buffer_Size command may return buffer length and number of packets param-\n eter values that are nonzero. This allows a Controller to offer different buffers\n and number of buffers for BR/EDR data packets and LE data packets.\n\n The LE_ACL_Data_Packet_Length return parameter shall be used to deter-\n mine the maximum size of the L2CAP PDU segments that are contained in\n ACL data packets, and which are transferred from the Host to the Controller to\n be broken up into packets by the Link Layer. The Total_Num_LE_ACL_Data_-\n Packets return parameter contains the total number of HCI ACL Data packets\n that can be stored in the data buffers of the Controller. The Host determines\n how to divide the buffers between different connection handles.\n\n The ISO_Data_Packet_Length return parameter shall be used to determine the\n maximum size of the SDU segments that are contained in isochronous data\n packets, and which are transferred from the Host to the Controller. The\n Total_Num_ISO_Data_Packets return parameter contains the total number of\n isochronous data packets that can be stored in the data buffers of the\n Controller. The Host determines how to divide the buffers between different\n connection handle(s).\n\n Note: The LE_ACL_Data_Packet_Length and ISO_Data_Packet_Length\n return parameters do not include the length of the HCI ACL Data packet header\n or the HCI ISO Data packet header respectively.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Buffer_Size command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Buffer Size [v1].\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.2\n\n This command is used to read the maximum size of the data portion of ACL\n data packets and isochronous data packets sent from the Host to the Control-\n ler. The Host shall segment the data transmitted to the Controller according to\n these values so that the HCI ACL Data packets and HCI ISO Data packets will\n contain data up to this size. The HCI_LE_Read_Buffer_Size command also\n returns the total number of HCI LE ACL Data packets and isochronous data\n packets that can be stored in the data buffers of the Controller. The HCI_LE_-\n Read_Buffer_Size command shall be issued by the Host before it sends any\n data to an LE Controller (see Section 4.1.1). If the Controller supports HCI ISO\n Data packets, it shall return non-zero values for the ISO_Data_Packet_Length\n and Total_Num_ISO_Data_Packets parameters.\n\n If the Controller returns a length value of zero for ACL data packets, the Host\n shall use the HCI_Read_Buffer_Size command to determine the size of the\n data buffers (shared between BR/EDR and LE transports).\n\n Note: Both the HCI_Read_Buffer_Size command and the HCI_LE_Read_-\n Buffer_Size command may return buffer length and number of packets param-\n eter values that are nonzero. This allows a Controller to offer different buffers\n and number of buffers for BR/EDR data packets and LE data packets.\n\n The LE_ACL_Data_Packet_Length return parameter shall be used to deter-\n mine the maximum size of the L2CAP PDU segments that are contained in\n ACL data packets, and which are transferred from the Host to the Controller to\n be broken up into packets by the Link Layer. The Total_Num_LE_ACL_Data_-\n Packets return parameter contains the total number of HCI ACL Data packets\n that can be stored in the data buffers of the Controller. The Host determines\n how to divide the buffers between different connection handles.\n\n The ISO_Data_Packet_Length return parameter shall be used to determine the\n maximum size of the SDU segments that are contained in isochronous data\n packets, and which are transferred from the Host to the Controller. The\n Total_Num_ISO_Data_Packets return parameter contains the total number of\n isochronous data packets that can be stored in the data buffers of the\n Controller. The Host determines how to divide the buffers between different\n connection handle(s).\n\n Note: The LE_ACL_Data_Packet_Length and ISO_Data_Packet_Length\n return parameters do not include the length of the HCI ACL Data packet header\n or the HCI ISO Data packet header respectively.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Buffer_Size command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_buffer_size(p_return: *mut sdc_hci_cmd_le_read_buffer_size_return_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Local Supported Features.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.3\n\n This command requests the list of the supported LE features for the Controller.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Local_Supported_Features command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Local Supported Features.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.3\n\n This command requests the list of the supported LE features for the Controller.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Local_Supported_Features command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_local_supported_features(
         p_return: *mut sdc_hci_cmd_le_read_local_supported_features_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Random Address.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.4\n\n The HCI_LE_Set_Random_Address command is used by the Host to set the\n LE Random Device Address in the Controller (see [Vol 6] Part B, Section 1.3).\n\n If this command is used to change the address, the new random address shall\n take effect for advertising no later than the next successful HCI_LE_Set_-\n Advertising_Enable command, for scanning no later than the next successful\n HCI_LE_Set_Scan_Enable command or HCI_LE_Set_Extended_Scan_-\n Enable command, and for initiating no later than the next successful HCI_LE_-\n Create_Connection command or HCI_LE_Extended_Create_Connection\n command.\n\n Note: If the extended advertising commands are in use, this command only\n affects the address used for scanning and initiating. The addresses used for\n advertising are set by the HCI_LE_Set_Advertising_Set_Random_Address\n command (see Section 7.8.52).\n\n If the Host issues this command when any of advertising (created using legacy\n advertising commands), scanning, or initiating are enabled, the Controller shall\n return the error code Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Random_Address command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Random Address.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.4\n\n The HCI_LE_Set_Random_Address command is used by the Host to set the\n LE Random Device Address in the Controller (see [Vol 6] Part B, Section 1.3).\n\n If this command is used to change the address, the new random address shall\n take effect for advertising no later than the next successful HCI_LE_Set_-\n Advertising_Enable command, for scanning no later than the next successful\n HCI_LE_Set_Scan_Enable command or HCI_LE_Set_Extended_Scan_-\n Enable command, and for initiating no later than the next successful HCI_LE_-\n Create_Connection command or HCI_LE_Extended_Create_Connection\n command.\n\n Note: If the extended advertising commands are in use, this command only\n affects the address used for scanning and initiating. The addresses used for\n advertising are set by the HCI_LE_Set_Advertising_Set_Random_Address\n command (see Section 7.8.52).\n\n If the Host issues this command when any of advertising (created using legacy\n advertising commands), scanning, or initiating are enabled, the Controller shall\n return the error code Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Random_Address command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_random_address(p_params: *const sdc_hci_cmd_le_set_random_address_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Advertising Parameters.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.5\n\n The HCI_LE_Set_Advertising_Parameters command is used by the Host to set\n the advertising parameters.\n\n The Advertising_Interval_Min shall be less than or equal to the\n Advertising_Interval_Max. The Advertising_Interval_Min and\n Advertising_Interval_Max should not be the same value to enable the\n Controller to determine the best advertising interval given other activities.\n\n For high duty cycle directed advertising, i.e. when Advertising_Type is 0x01\n (ADV_DIRECT_IND, high duty cycle), the Advertising_Interval_Min and\n Advertising_Interval_Max parameters are not used and shall be ignored.\n\n The Advertising_Type is used to determine the packet type that is used for\n advertising when advertising is enabled.\n\n Own_Address_Type parameter indicates the type of address being used in the\n advertising packets.\n\n If Own_Address_Type equals 0x02 or 0x03, the Peer_Address parameter\n contains the peer’s Identity Address and the Peer_Address_Type parameter\n contains the Peer’s Identity Type (i.e. 0x00 or 0x01). These parameters are\n used to locate the corresponding local IRK in the resolving list; this IRK is used\n to generate the own address used in the advertisement.\n\n If directed advertising is performed, i.e. when Advertising_Type is set to 0x01\n (ADV_DIRECT_IND, high duty cycle) or 0x04 (ADV_DIRECT_IND, low duty\n cycle mode), then the Peer_Address_Type and Peer_Address shall be valid.\n\n If Own_Address_Type equals 0x02 or 0x03, the Controller generates the\n peer’s Resolvable Private Address using the peer’s IRK corresponding to the\n peer’s Identity Address contained in the Peer_Address parameter and peer’s\n Identity Address Type (i.e. 0x00 or 0x01) contained in the Peer_Address_Type\n parameter.\n The Advertising_Channel_Map is a bit field that indicates the advertising\n channel indices that shall be used when transmitting advertising packets. At\n least one channel bit shall be set in the Advertising_Channel_Map parameter.\n\n The Advertising_Filter_Policy parameter shall be ignored when directed\n advertising is enabled.\n\n The Host shall not issue this command when advertising is enabled in the\n Controller; if it is the Command Disallowed error code shall be used.\n\n If the advertising interval range provided by the Host (Advertising_Interval_Min,\n Advertising_Interval_Max) does not overlap with the advertising interval range\n supported by the Controller, then the Controller shall return the Unsupported\n Feature or Parameter Value (0x11) error code.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Advertising_Parameters command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Advertising Parameters.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.5\n\n The HCI_LE_Set_Advertising_Parameters command is used by the Host to set\n the advertising parameters.\n\n The Advertising_Interval_Min shall be less than or equal to the\n Advertising_Interval_Max. The Advertising_Interval_Min and\n Advertising_Interval_Max should not be the same value to enable the\n Controller to determine the best advertising interval given other activities.\n\n For high duty cycle directed advertising, i.e. when Advertising_Type is 0x01\n (ADV_DIRECT_IND, high duty cycle), the Advertising_Interval_Min and\n Advertising_Interval_Max parameters are not used and shall be ignored.\n\n The Advertising_Type is used to determine the packet type that is used for\n advertising when advertising is enabled.\n\n Own_Address_Type parameter indicates the type of address being used in the\n advertising packets.\n\n If Own_Address_Type equals 0x02 or 0x03, the Peer_Address parameter\n contains the peer’s Identity Address and the Peer_Address_Type parameter\n contains the Peer’s Identity Type (i.e. 0x00 or 0x01). These parameters are\n used to locate the corresponding local IRK in the resolving list; this IRK is used\n to generate the own address used in the advertisement.\n\n If directed advertising is performed, i.e. when Advertising_Type is set to 0x01\n (ADV_DIRECT_IND, high duty cycle) or 0x04 (ADV_DIRECT_IND, low duty\n cycle mode), then the Peer_Address_Type and Peer_Address shall be valid.\n\n If Own_Address_Type equals 0x02 or 0x03, the Controller generates the\n peer’s Resolvable Private Address using the peer’s IRK corresponding to the\n peer’s Identity Address contained in the Peer_Address parameter and peer’s\n Identity Address Type (i.e. 0x00 or 0x01) contained in the Peer_Address_Type\n parameter.\n The Advertising_Channel_Map is a bit field that indicates the advertising\n channel indices that shall be used when transmitting advertising packets. At\n least one channel bit shall be set in the Advertising_Channel_Map parameter.\n\n The Advertising_Filter_Policy parameter shall be ignored when directed\n advertising is enabled.\n\n The Host shall not issue this command when advertising is enabled in the\n Controller; if it is the Command Disallowed error code shall be used.\n\n If the advertising interval range provided by the Host (Advertising_Interval_Min,\n Advertising_Interval_Max) is outside the advertising interval range supported\n by the Controller, then the Controller shall return the Unsupported Feature or\n Parameter Value (0x11) error code.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Advertising_Parameters command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_adv_params(p_params: *const sdc_hci_cmd_le_set_adv_params_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Advertising Physical Channel Tx Power.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.6\n\n The HCI_LE_Read_Advertising_Physical_Channel_Tx_Power command is\n used by the Host to read the transmit power level used for LE advertising\n physical channel packets.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Advertising_Physical_Channel_Tx_Power command\n has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Advertising Physical Channel Tx Power.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.6\n\n The HCI_LE_Read_Advertising_Physical_Channel_Tx_Power command is\n used by the Host to read the transmit power level used for LE advertising\n physical channel packets.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Advertising_Physical_Channel_Tx_Power command\n has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_adv_physical_channel_tx_power(
         p_return: *mut sdc_hci_cmd_le_read_adv_physical_channel_tx_power_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Advertising Data.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.7\n\n The HCI_LE_Set_Advertising_Data command is used to set the data used in\n advertising packets that have a data field.\n Only the significant part of the Advertising_Data should be transmitted in the\n advertising packets, as defined in [Vol 3] Part C, Section 11.\n If advertising is currently enabled, the Controller shall use the new data in\n subsequent advertising events. If an advertising event is in progress when this\n command is issued, the Controller may use the old or new data for that event.\n If advertising is currently disabled, the data shall be kept by the Controller and\n used once advertising is enabled.\n The default Advertising_Data_Length shall be zero and the default\n Advertising_Data shall be 31 zero octets.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Advertising_Data command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Advertising Data.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.7\n\n The HCI_LE_Set_Advertising_Data command is used to set the data used in\n advertising packets that have a data field.\n Only the significant part of the Advertising_Data should be transmitted in the\n advertising packets, as defined in [Vol 3] Part C, Section 11.\n If advertising is currently enabled, the Controller shall use the new data in\n subsequent advertising events. If an advertising event is in progress when this\n command is issued, the Controller may use the old or new data for that event.\n If advertising is currently disabled, the data shall be kept by the Controller and\n used once advertising is enabled.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Advertising_Data command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_adv_data(p_params: *const sdc_hci_cmd_le_set_adv_data_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Scan Response Data.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.8\n\n This command is used to provide data used in Scanning Packets that have a\n data field.\n\n Only the significant part of the Scan_Response_Data should be transmitted in\n the Scanning Packets, as defined in [Vol 3] Part C, Section 11.\n\n If advertising is currently enabled, the Controller shall use the new data in\n subsequent advertising events. If an advertising event is in progress when this\n command is issued, the Controller may use the old or new data for that event.\n If advertising is currently disabled, the data shall be kept by the Controller and\n used once advertising is enabled.\n\n The default Scan_Response_Data_Length shall be zero and the default\n Scan_Response_Data shall be 31 zero octets.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Scan_Response_Data command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Scan Response Data.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.8\n\n This command is used to provide data used in Scanning Packets that have a\n data field.\n\n Only the significant part of the Scan_Response_Data should be transmitted in\n the Scanning Packets, as defined in [Vol 3] Part C, Section 11.\n\n If advertising is currently enabled, the Controller shall use the new data in\n subsequent advertising events. If an advertising event is in progress when this\n command is issued, the Controller may use the old or new data for that event.\n If advertising is currently disabled, the data shall be kept by the Controller and\n used once advertising is enabled.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Scan_Response_Data command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_scan_response_data(p_params: *const sdc_hci_cmd_le_set_scan_response_data_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Advertising Enable.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.9\n\n The HCI_LE_Set_Advertising_Enable command is used to request the\n Controller to start or stop advertising. The Controller manages the timing of\n advertisements as per the advertising parameters given in the\n HCI_LE_Set_Advertising_Parameters command.\n\n The Controller shall continue advertising until the Host issues an HCI_LE_-\n Set_Advertising_Enable command with Advertising_Enable set to 0x00\n (Advertising is disabled). a connection is created using the advertising, or the\n Advertising is timed out due to high duty cycle Directed Advertising. In these\n cases, advertising is then disabled.\n\n If Advertising_Enable is set to 0x01, the advertising parameters' Own_-\n Address_Type parameter is set to 0x00, and the device does not have a public\n address, the Controller should return an error code which should be Invalid HCI\n Command Parameters (0x12).\n\n If Advertising_Enable is set to 0x01, the advertising parameters' Own_-\n Address_Type parameter is set to 0x01, and the random address for the device\n has not been initialized using the HCI_LE_Set_Random_Address command,\n the Controller shall return the error code Invalid HCI Command Parameters\n (0x12).\n\n If Advertising_Enable is set to 0x01, the advertising parameters' Own_-\n Address_Type parameter is set to 0x02, the Controller's resolving list did not\n contain a matching entry, and the device does not have a public address, the\n Controller should return an error code which should be Invalid HCI Command\n Parameters (0x12).\n\n If Advertising_Enable is set to 0x01, the advertising parameters' Own_-\n Address_Type parameter is set to 0x03, the Controller's resolving list did not\n contain a matching entry, and the random address for the device has not been\n initialized using the HCI_LE_Set_Random_Address command, the Controller\n shall return the error code Invalid HCI Command Parameters.(0x12).\n\n Enabling advertising when it is already enabled can cause the random address\n to change. Disabling advertising when it is already disabled has no effect.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Advertising_Enable command has completed, an\n HCI_Command_Complete event shall be generated.\n\n If the Advertising_Type parameter is 0x01 (ADV_DIRECT_IND, high duty\n cycle) and the directed advertising fails to create a connection, an\n HCI_LE_Connection_Complete or HCI_LE_Enhanced_Connection_Complete\n event shall be generated with the Status code set to Advertising Timeout\n (0x3C).\n\n If the Advertising_Type parameter is 0x00 (ADV_IND), 0x01 (ADV_DIRECT_-\n IND, high duty cycle), or 0x04 (ADV_DIRECT_IND, low duty cycle) and a\n connection is created, an HCI_LE_Connection_Complete or HCI_LE_-\n Enhanced_Connection_Complete event shall be generated.\n\n Note: There is a possible race condition if the Advertising_Enable parameter is\n set to 0x00 (Disable) and the Advertising_Type parameter is 0x00, 0x01, or\n 0x04. The advertisements might not be stopped before a connection is\n created, and therefore both the HCI_Command_Complete event and either an\n HCI_LE_Connection_Complete event or an HCI_LE_Enhanced_Connection_-\n Complete event could be generated. This can also occur when high duty cycle\n directed advertising is timed out and this command disables advertising.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Advertising Enable.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.9\n\n The HCI_LE_Set_Advertising_Enable command is used to request the Con-\n troller to start or stop advertising. The Controller manages the timing of adver-\n tisements as per the advertising parameters given in the\n HCI_LE_Set_Advertising_Parameters command.\n\n The Controller shall continue advertising until the Host issues an HCI_LE_-\n Set_Advertising_Enable command with Advertising_Enable set to 0x00\n (Advertising is disabled). a connection is created using the advertising, or the\n Advertising is timed out due to high duty cycle Directed Advertising. In these\n cases, advertising is then disabled.\n\n If Advertising_Enable is set to 0x01, the advertising parameters' Own_-\n Address_Type parameter is set to 0x00, and the device does not have a public\n address, the Controller should return an error code which should be Invalid HCI\n Command Parameters (0x12).\n\n If Advertising_Enable is set to 0x01, the advertising parameters' Own_-\n Address_Type parameter is set to 0x01, and the random address for the device\n has not been initialized using the HCI_LE_Set_Random_Address command,\n the Controller shall return the error code Invalid HCI Command Parameters\n (0x12).\n\n If Advertising_Enable is set to 0x01, the advertising parameters' Own_-\n Address_Type parameter is set to 0x02, the Controller's resolving list did not\n contain a matching entry, and the device does not have a public address, the\n Controller should return an error code which should be Invalid HCI Command\n Parameters (0x12).\n\n If Advertising_Enable is set to 0x01, the advertising parameters' Own_-\n Address_Type parameter is set to 0x03, the controller's resolving list did not\n contain a matching entry, and the random address for the device has not been\n initialized using the HCI_LE_Set_Random_Address command, the Controller\n shall return the error code Invalid HCI Command Parameters.(0x12).\n\n Enabling advertising when it is already enabled can cause the random address\n to change. Disabling advertising when it is already disabled has no effect.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Advertising_Enable command has completed, an\n HCI_Command_Complete event shall be generated.\n\n If the Advertising_Type parameter is 0x01 (ADV_DIRECT_IND, high duty\n cycle) and the directed advertising fails to create a connection, an\n HCI_LE_Connection_Complete or HCI_LE_Enhanced_Connection_Complete\n event shall be generated with the Status code set to Advertising Timeout\n (0x3C).\n\n If the Advertising_Type parameter is 0x00 (ADV_IND), 0x01 (ADV_DIRECT_-\n IND, high duty cycle), or 0x04 (ADV_DIRECT_IND, low duty cycle) and a\n connection is created, an HCI_LE_Connection_Complete or HCI_LE_-\n Enhanced_Connection_Complete event shall be generated.\n\n Note: There is a possible race condition if the Advertising_Enable parameter is\n set to 0x00 (Disable) and the Advertising_Type parameter is 0x00, 0x01, or\n 0x04. The advertisements might not be stopped before a connection is\n created, and therefore both the HCI_Command_Complete event and either an\n HCI_LE_Connection_Complete event or an HCI_LE_Enhanced_Connection_-\n Complete event could be generated. This can also occur when high duty cycle\n directed advertising is timed out and this command disables advertising.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_adv_enable(p_params: *const sdc_hci_cmd_le_set_adv_enable_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Scan Parameters.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.10\n\n The HCI_LE_Set_Scan_Parameters command is used to set the scan\n parameters.\n\n The LE_Scan_Type parameter controls the type of scan to perform.\n\n The LE_Scan_Interval and LE_Scan_Window parameters are recommenda-\n tions from the Host on how long (LE_Scan_Window) and how frequently\n (LE_Scan_Interval) the Controller should scan (See [Vol 6] Part B, Section\n 4.4.3). The LE_Scan_Window parameter shall always be set to a value smaller\n or equal to the value set for the LE_Scan_Interval parameter. If they are set to\n the same value scanning should be run continuously.\n\n Own_Address_Type parameter indicates the type of address being used in the\n scan request packets.\n\n The Host shall not issue this command when scanning is enabled in the\n Controller; if it is the Command Disallowed error code shall be used.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Scan_Parameters command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Scan Parameters.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.10\n\n The HCI_LE_Set_Scan_Parameters command is used to set the scan\n parameters.\n\n The LE_Scan_Type parameter controls the type of scan to perform.\n\n The LE_Scan_Interval and LE_Scan_Window parameters are recommenda-\n tions from the Host on how long (LE_Scan_Window) and how frequently\n (LE_Scan_Interval) the Controller should scan (See [Vol 6] Part B, Section\n 4.4.3). The LE_Scan_Window parameter shall always be set to a value smaller\n or equal to the value set for the LE_Scan_Interval parameter. If they are set to\n the same value scanning should be run continuously.\n\n Own_Address_Type parameter indicates the type of address being used in the\n scan request packets.\n\n The Host shall not issue this command when scanning is enabled in the\n Controller; if it is the Command Disallowed error code shall be used.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Scan_Parameters command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_scan_params(p_params: *const sdc_hci_cmd_le_set_scan_params_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Scan Enable.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.11\n\n The HCI_LE_Set_Scan_Enable command is used to start and stop scanning\n for legacy PDUs (but not extended PDUs, even if the device supports extended\n advertising). Scanning is used to discover advertising devices nearby.\n\n The Filter_Duplicates parameter controls whether the Link Layer should filter\n out duplicate advertising reports (Filtering_Enabled) to the Host, or if the Link\n Layer should generate advertising reports for each packet received\n (Filtering_Disabled). See [Vol 6] Part B, Section 4.4.3.5. If LE_Scan_Enable is\n set to 0x00 then Filter_Duplicates shall be ignored.\n\n If LE_Scan_Enable is set to 0x01, the scanning parameters' Own_Address_-\n Type parameter is set to 0x00 or 0x02, and the device does not have a public\n address, the Controller should return an error code which should be Invalid HCI\n Command Parameters (0x12).\n\n If LE_Scan_Enable is set to 0x01, the scanning parameters' Own_Address_-\n Type parameter is set to 0x01 or 0x03, and the random address for the device\n has not been initialized using the HCI_LE_Set_Random_Address command,\n the Controller shall return the error code Invalid HCI Command Parameters\n (0x12).\n\n If the LE_Scan_Enable parameter is set to 0x01 and scanning is already\n enabled, any change to the Filter_Duplicates setting shall take effect.\n\n Disabling scanning when it is disabled has no effect.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Scan_Enable command has completed, an\n HCI_Command_Complete event shall be generated.\n\n Zero or more HCI_LE_Advertising_Report events are generated by the\n Controller based on legacy advertising packets received and the duplicate\n filtering. More than one advertising packet may be reported in each\n HCI_LE_Advertising_Report event. No report shall be issued for extended\n advertising PDUs.\n\n When the Scanning_Filter_Policy is set to 0x02 or 0x03 (see Section 7.8.10)\n and a directed advertisement was received where the advertiser used a\n resolvable private address which the Controller is unable to resolve, an\n HCI_LE_Directed_Advertising_Report event shall be generated instead of an\n HCI_LE_Advertising_Report event.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Scan Enable.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.11\n\n The HCI_LE_Set_Scan_Enable command is used to start and stop scanning\n for legacy PDUs (but not extended PDUs, even if the device supports extended\n advertising). Scanning is used to discover advertising devices nearby.\n\n The Filter_Duplicates parameter controls whether the Link Layer should filter\n out duplicate advertising reports (Filtering_Enabled) to the Host, or if the Link\n Layer should generate advertising reports for each packet received\n (Filtering_Disabled). See [Vol 6] Part B, Section 4.4.3.5. If LE_Scan_Enable is\n set to 0x00 then Filter_Duplicates shall be ignored.\n\n If LE_Scan_Enable is set to 0x01, the scanning parameters' Own_Address_-\n Type parameter is set to 0x00 or 0x02, and the device does not have a public\n address, the Controller should return an error code which should be Invalid HCI\n Command Parameters (0x12).\n\n If LE_Scan_Enable is set to 0x01, the scanning parameters' Own_Address_-\n Type parameter is set to 0x01 or 0x03, and the random address for the device\n has not been initialized using the HCI_LE_Set_Random_Address command,\n the Controller shall return the error code Invalid HCI Command Parameters\n (0x12).\n\n If the LE_Scan_Enable parameter is set to 0x01 and scanning is already\n enabled, any change to the Filter_Duplicates setting shall take effect.\n\n Disabling scanning when it is disabled has no effect.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Scan_Enable command has completed, an\n HCI_Command_Complete event shall be generated.\n\n Zero or more HCI_LE_Advertising_Report events are generated by the\n Controller based on legacy advertising packets received and the duplicate\n filtering. More than one advertising packet may be reported in each\n HCI_LE_Advertising_Report event. No report shall be issued for extended\n advertising PDUs.\n\n When the Scanning_Filter_Policy is set to 0x02 or 0x03 (see Section 7.8.10)\n and a directed advertisement was received where the advertiser used a\n resolvable private address which the Controller is unable to resolve, an\n HCI_LE_Directed_Advertising_Report event shall be generated instead of an\n HCI_LE_Advertising_Report event.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_scan_enable(p_params: *const sdc_hci_cmd_le_set_scan_enable_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Create Connection.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.12\n\n The HCI_LE_Create_Connection command is used to create an ACL\n connection, with the local device in the Central role, to a connectable\n advertiser.\n If a connection is created with the local device in the Peripheral role while this\n command is pending, then this command remains pending.\n\n The LE_Scan_Interval and LE_Scan_Window parameters are recommenda-\n tions from the Host on how long (LE_Scan_Window) and how frequently\n (LE_Scan_Interval) the Controller should scan. The LE_Scan_Window param-\n eter shall be set to a value smaller or equal to the value set for the LE_Scan_-\n Interval parameter. If both are set to the same value, scanning should run\n continuously.\n The Initiator_Filter_Policy is used to determine whether the Filter Accept List is\n used. If the Filter Accept List is not used, the Peer_Address_Type and the\n Peer_Address parameters specify the address type and address of the\n advertising device to connect to.\n Peer_Address_Type parameter indicates the type of address used in the\n connectable advertisement sent by the peer. The Host shall not set\n Peer_Address_Type to either 0x02 or 0x03 if both the Host and the Controller\n support the HCI_LE_Set_Privacy_Mode command. If a Controller that\n supports the HCI_LE_Set_Privacy_Mode command receives the\n HCI_LE_Create_Connection command with Peer_Address_Type set to either\n 0x02 or 0x03, it may use either device privacy mode or network privacy mode\n for that peer device.\n Peer_Address parameter indicates the Peer’s Public Device Address, Random\n (static) Device Address, Non-Resolvable Private Address or Resolvable\n Private Address depending on the Peer_Address_Type parameter.\n Own_Address_Type parameter indicates the type of address being used in the\n connection request packets.\n The Connection_Interval_Min and Connection_Interval_Max parameters\n define the minimum and maximum allowed connection interval. The\n Connection_Interval_Min parameter shall not be greater than the\n Connection_Interval_Max parameter.\n The Max_Latency parameter defines the maximum allowed Peripheral latency\n (see [Vol 6] Part B, Section 4.5.1).\n The Supervision_Timeout parameter defines the link supervision timeout for\n the connection. The Supervision_Timeout in milliseconds shall be larger than\n (1 + Max_Latency) × Connection_Interval_Max × 2, where\n Connection_Interval_Max is given in milliseconds. (See [Vol 6] Part B, Section\n 4.5.2).\n The Min_CE_Length and Max_CE_Length parameters provide the Controller\n with the expected minimum and maximum length of the connection events.\n The Min_CE_Length parameter shall be less than or equal to the\n Max_CE_Length parameter. The Controller is not required to use these values.\n If the Host issues this command when another HCI_LE_Create_Connection\n command is pending in the Controller, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n If the Own_Address_Type parameter is set to 0x00 and the device does not\n have a public address, the Controller should return an error code which should\n be Invalid HCI Command Parameters (0x12).\n If the Own_Address_Type parameter is set to 0x01 and the random address for\n the device has not been initialized using the HCI_LE_Set_Random_Address\n command, the Controller shall return the error code Invalid HCI Command\n Parameters (0x12).\n If the Own_Address_Type parameter is set to 0x02, the Initiator_Filter_Policy\n parameter is set to 0x00, the Controller's resolving list did not contain a\n matching entry, and the device does not have a public address, the Controller\n should return an error code which should be Invalid HCI Command Parameters\n (0x12).\n If the Own_Address_Type parameter is set to 0x02, the Initiator_Filter_Policy\n parameter is set to 0x01, and the device does not have a public address, the\n Controller should return an error code which should be Invalid HCI Command\n Parameters (0x12).\n If the Own_Address_Type parameter is set to 0x03, the Initiator_Filter_Policy\n parameter is set to 0x00, the Controller's resolving list did not contain a\n matching entry, and the random address for the device has not been initialized\n using the HCI_LE_Set_Random_Address command, the Controller shall return\n the error code Invalid HCI Command Parameters (0x12).\n If the Own_Address_Type parameter is set to 0x03, the Initiator_Filter_Policy\n parameter is set to 0x01, and the random address for the device has not been\n initialized using the HCI_LE_Set_Random_Address command, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Create_Connection command, the\n Controller sends the HCI_Command_Status event to the Host. An HCI_LE_-\n Connection_Complete or HCI_LE_Enhanced_Connection_Complete event\n shall be generated when a connection is created because of this command or\n the connection creation procedure is cancelled; until one of these events is\n generated, the command is considered pending. If a connection is created and\n the Controller supports the LE Channel Selection Algorithm #2 feature, this\n event shall be immediately followed by an HCI_LE_Channel_Selection_-\n Algorithm event.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Create Connection.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.12\n\n The HCI_LE_Create_Connection command is used to create an ACL\n connection, with the local device in the Central role, to a connectable\n advertiser.\n If a connection is created with the local device in the Peripheral role while this\n command is pending, then this command remains pending.\n\n The LE_Scan_Interval and LE_Scan_Window parameters are recommenda-\n tions from the Host on how long (LE_Scan_Window) and how frequently\n (LE_Scan_Interval) the Controller should scan. The LE_Scan_Window param-\n eter shall be set to a value smaller or equal to the value set for the LE_Scan_-\n Interval parameter. If both are set to the same value, scanning should run\n continuously.\n The Initiator_Filter_Policy is used to determine whether the Filter Accept List is\n used. If the Filter Accept List is not used, the Peer_Address_Type and the\n Peer_Address parameters specify the address type and address of the\n advertising device to connect to.\n Peer_Address_Type parameter indicates the type of address used in the\n connectable advertisement sent by the peer. The Host shall not set\n Peer_Address_Type to either 0x02 or 0x03 if both the Host and the Controller\n support the HCI_LE_Set_Privacy_Mode command. If a Controller that\n supports the HCI_LE_Set_Privacy_Mode command receives the\n HCI_LE_Create_Connection command with Peer_Address_Type set to either\n 0x02 or 0x03, it may use either device privacy mode or network privacy mode\n for that peer device.\n Peer_Address parameter indicates the Peer’s Public Device Address, Random\n (static) Device Address, Non-Resolvable Private Address or Resolvable\n Private Address depending on the Peer_Address_Type parameter.\n Own_Address_Type parameter indicates the type of address being used in the\n connection request packets.\n The Connection_Interval_Min and Connection_Interval_Max parameters\n define the minimum and maximum allowed connection interval. The\n Connection_Interval_Min parameter shall not be greater than the\n Connection_Interval_Max parameter.\n The Max_Latency parameter defines the maximum allowed Peripheral latency\n (see [Vol 6] Part B, Section 4.5.1).\n The Supervision_Timeout parameter defines the link supervision timeout for\n the connection. The Supervision_Timeout in milliseconds shall be larger than\n (1 + Max_Latency) * Connection_Interval_Max * 2, where\n Connection_Interval_Max is given in milliseconds. (See [Vol 6] Part B, Section\n 4.5.2).\n The Min_CE_Length and Max_CE_Length parameters provide the Controller\n with the expected minimum and maximum length of the connection events.\n The Min_CE_Length parameter shall be less than or equal to the\n Max_CE_Length parameter. The Controller is not required to use these values.\n If the Host issues this command when another HCI_LE_Create_Connection\n command is pending in the Controller, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n If the Own_Address_Type parameter is set to 0x00 and the device does not\n have a public address, the Controller should return an error code which should\n be Invalid HCI Command Parameters (0x12).\n If the Own_Address_Type parameter is set to 0x01 and the random address for\n the device has not been initialized using the HCI_LE_Set_Random_Address\n command, the Controller shall return the error code Invalid HCI Command\n Parameters (0x12).\n If the Own_Address_Type parameter is set to 0x02, the Initiator_Filter_Policy\n parameter is set to 0x00, the Controller's resolving list did not contain a\n matching entry, and the device does not have a public address, the Controller\n should return an error code which should be Invalid HCI Command Parameters\n (0x12).\n If the Own_Address_Type parameter is set to 0x02, the Initiator_Filter_Policy\n parameter is set to 0x01, and the device does not have a public address, the\n Controller should return an error code which should be Invalid HCI Command\n Parameters (0x12).\n If the Own_Address_Type parameter is set to 0x03, the Initiator_Filter_Policy\n parameter is set to 0x00, the controller's resolving list did not contain a\n matching entry, and the random address for the device has not been initialized\n using the HCI_LE_Set_Random_Address command, the Controller shall return\n the error code Invalid HCI Command Parameters (0x12).\n If the Own_Address_Type parameter is set to 0x03, the Initiator_Filter_Policy\n parameter is set to 0x01, and the random address for the device has not been\n initialized using the HCI_LE_Set_Random_Address command, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Create_Connection command, the\n Controller sends the HCI_Command_Status event to the Host. An HCI_LE_-\n Connection_Complete or HCI_LE_Enhanced_Connection_Complete event\n shall be generated when a connection is created because of this command or\n the connection creation procedure is cancelled; until one of these events is\n generated, the command is considered pending. If a connection is created and\n the Controller supports the LE Channel Selection Algorithm #2 feature, this\n event shall be immediately followed by an HCI_LE_Channel_Selection_-\n Algorithm event.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_create_conn(p_params: *const sdc_hci_cmd_le_create_conn_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Create Connection Cancel.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.13\n\n The HCI_LE_Create_Connection_Cancel command is used to cancel the\n HCI_LE_Create_Connection or HCI_LE_Extended_Create_Connection\n commands.\n\n If no HCI_LE_Create_Connection or HCI_LE_Extended_Create_Connection\n command is pending, then the Controller shall return the error code Command\n Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Create_Connection_Cancel command has completed, an\n HCI_Command_Complete event shall be generated.\n\n If the cancellation was successful then, after the HCI_Command_Complete\n event for the HCI_LE_Create_Connection_Cancel command, either an\n HCI_LE_Connection_Complete or an HCI_LE_Enhanced_Connection_-\n Complete event shall be generated. In either case, the event shall be sent with\n the error code Unknown Connection Identifier (0x02).\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Create Connection Cancel.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.13\n\n The HCI_LE_Create_Connection_Cancel command is used to cancel the\n HCI_LE_Create_Connection or HCI_LE_Extended_Create_Connection\n commands.\n\n If no HCI_LE_Create_Connection or HCI_LE_Extended_Create_Connection\n command is pending, then the Controller shall return the error code Command\n Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Create_Connection_Cancel command has completed, an\n HCI_Command_Complete event shall be generated.\n\n If the cancellation was successful then, after the HCI_Command_Complete\n event for the HCI_LE_Create_Connection_Cancel command, either an LE\n Connection Complete or an HCI_LE_Enhanced_Connection_Complete event\n shall be generated. In either case, the event shall be sent with the error code\n Unknown Connection Identifier (0x02).\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_create_conn_cancel() -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Filter Accept List Size.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.14\n\n The HCI_LE_Read_Filter_Accept_List_Size command is used to read the total\n number of Filter Accept List entries that can be stored in the Controller.\n\n Note: The number of entries that can be stored is not fixed and the Controller\n can change it at any time (e.g. because the memory used to store the Filter\n Accept List can also be used for other purposes).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Filter_Accept_List_Size command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Filter Accept List Size.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.14\n\n The HCI_LE_Read_Filter_Accept_List_Size command is used to read the total\n number of Filter Accept List entries that can be stored in the Controller.\n\n Note: The number of entries that can be stored is not fixed and the Controller\n can change it at any time (e.g. because the memory used to store the Filter\n Accept List can also be used for other purposes).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Filter_Accept_List_Size command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_filter_accept_list_size(
         p_return: *mut sdc_hci_cmd_le_read_filter_accept_list_size_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Clear Filter Accept List.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.15\n\n The HCI_LE_Clear_Filter_Accept_List command is used to clear the Filter\n Accept List stored in the Controller.\n\n This command shall not be used when:\n • any advertising filter policy uses the Filter Accept List and advertising is\n   enabled,\n • the scanning filter policy uses the Filter Accept List and scanning is enabled,\n   or\n • the initiator filter policy uses the Filter Accept List and an\n   HCI_LE_Create_Connection or HCI_LE_Extended_Create_Connection\n   command is pending.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Clear_Filter_Accept_List command has completed, an\n HCI_Command_Complete event shall be generated.\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Clear Filter Accept List.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.15\n\n The HCI_LE_Clear_Filter_Accept_List command is used to clear the Filter\n Accept List stored in the Controller.\n\n This command shall not be used when:\n • any advertising filter policy uses the Filter Accept List and advertising is\n   enabled,\n • the scanning filter policy uses the Filter Accept List and scanning is enabled,\n   or\n • the initiator filter policy uses the Filter Accept List and an\n   HCI_LE_Create_Connection or HCI_LE_Extended_Create_Connection\n   command is pending.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Clear_Filter_Accept_List command has completed, an\n HCI_Command_Complete event shall be generated.\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_clear_filter_accept_list() -> u8;
 }
 extern "C" {
-    #[doc = "  LE Add Device To Filter Accept List.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.16\n\n The HCI_LE_Add_Device_To_Filter_Accept_List command is used to add a\n single device to the Filter Accept List stored in the Controller.\n\n This command shall not be used when:\n • any advertising filter policy uses the Filter Accept List and advertising is\n   enabled,\n • the scanning filter policy uses the Filter Accept List and scanning is enabled,\n   or\n • the initiator filter policy uses the Filter Accept List and an\n   HCI_LE_Create_Connection or HCI_LE_Extended_Create_Connection\n   command is pending.\n\n When a Controller cannot add a device to the Filter Accept List because there\n is no space available, it shall return the error code Memory Capacity Exceeded\n (0x07).\n\n If the device is already in the Filter Accept List, the Controller should not add\n the device to the Filter Accept List again and should return success.\n\n Address shall be ignored when Address_Type is set to 0xFF.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Add_Device_To_Filter_Accept_List command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Add Device To Filter Accept List.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.16\n\n The HCI_LE_Add_Device_To_Filter_Accept_List command is used to add a\n single device to the Filter Accept List stored in the Controller.\n\n This command shall not be used when:\n • any advertising filter policy uses the Filter Accept List and advertising is\n   enabled,\n • the scanning filter policy uses the Filter Accept List and scanning is enabled,\n   or\n • the initiator filter policy uses the Filter Accept List and an\n   HCI_LE_Create_Connection or HCI_LE_Extended_Create_Connection\n   command is pending.\n\n When a Controller cannot add a device to the Filter Accept List because there\n is no space available, it shall return the error code Memory Capacity Exceeded\n (0x07).\n\n If the device is already in the Filter Accept List, the Controller should not add\n the device to the Filter Accept List again and should return success.\n\n Address shall be ignored when Address_Type is set to 0xFF.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Add_Device_To_Filter_Accept_List command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_add_device_to_filter_accept_list(
         p_params: *const sdc_hci_cmd_le_add_device_to_filter_accept_list_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Remove Device From Filter Accept List.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.17\n\n The HCI_LE_Remove_Device_From_Filter_Accept_List command is used to\n remove a single device from the Filter Accept List stored in the Controller.\n This command shall not be used when:\n • any advertising filter policy uses the Filter Accept List and advertising is\n   enabled,\n • the scanning filter policy uses the Filter Accept List and scanning is enabled,\n   or\n • the initiator filter policy uses the Filter Accept List and an HCI_LE_-\n   Create_Connection or HCI_LE_Extended_Create_Connection command is\n   pending.\n\n Address shall be ignored when Address_Type is set to 0xFF.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Remove_Device_From_Filter_Accept_List command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Remove Device From Filter Accept List.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.17\n\n The HCI_LE_Remove_Device_From_Filter_Accept_List command is used to\n remove a single device from the Filter Accept List stored in the Controller.\n This command shall not be used when:\n • any advertising filter policy uses the Filter Accept List and advertising is\n   enabled,\n • the scanning filter policy uses the Filter Accept List and scanning is enabled,\n   or\n • the initiator filter policy uses the Filter Accept List and an HCI_LE_-\n   Create_Connection or HCI_LE_Extended_Create_Connection command is\n   pending.\n\n Address shall be ignored when Address_Type is set to 0xFF.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Remove_Device_From_Filter_Accept_List command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_remove_device_from_filter_accept_list(
         p_params: *const sdc_hci_cmd_le_remove_device_from_filter_accept_list_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Connection Update.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.18\n\n The HCI_LE_Connection_Update command is used to change the ACL\n connection parameters. This command may be issued on both the Central and\n Peripheral.\n\n The Connection_Interval_Min and Connection_Interval_Max parameters are\n used to define the minimum and maximum allowed connection interval. The\n Connection_Interval_Min parameter shall not be greater than the\n Connection_Interval_Max parameter.\n\n The Max_Latency parameter shall define the maximum allowed Peripheral\n latency.\n\n The Supervision_Timeout parameter shall define the link supervision timeout\n for the LE link. The Supervision_Timeout in milliseconds shall be larger than\n (1 + Max_Latency) × Subrate_Factor × Connection_Interval_Max × 2, where\n Connection_Interval_Max is given in milliseconds and Subrate_Factor is the\n current subrate factor of the connection.\n\n The Min_CE_Length and Max_CE_Length are information parameters\n providing the Controller with a hint about the expected minimum and maximum\n length of the connection events. The Min_CE_Length shall be less than or\n equal to the Max_CE_Length.\n\n The actual parameter values selected by the Link Layer may be different from\n the parameter values provided by the Host through this command.\n\n If this command completes successfully and the connection interval has\n changed, then the subrating factor shall be set to 1 and the continuation\n number to 0. In this case, Max_Latency must be interpreted in underlying\n connection events. Otherwise the subrating factor and continuation number\n shall be unchanged and Max_Latency must be interpreted in subrated events.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Connection_Update command, the\n Controller sends the HCI_Command_Status event to the Host. The HCI_LE_-\n Connection_Update_Complete event shall be generated after the connection\n parameters have been applied by the Controller or if the command\n subsequently fails.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Connection Update.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.18\n\n The HCI_LE_Connection_Update command is used to change the ACL\n connection parameters. This command may be issued on both the Central and\n Peripheral.\n\n The Connection_Interval_Min and Connection_Interval_Max parameters are\n used to define the minimum and maximum allowed connection interval. The\n Connection_Interval_Min parameter shall not be greater than the\n Connection_Interval_Max parameter.\n\n The Max_Latency parameter shall define the maximum allowed Peripheral\n latency.\n\n The Supervision_Timeout parameter shall define the link supervision timeout\n for the LE link. The Supervision_Timeout in milliseconds shall be larger than (1\n + Max_Latency) × Subrate_Factor × Connection_Interval_Max × 2, where\n Connection_Interval_Max is given in milliseconds and Subrate_Factor is the\n current subrate factor of the connection.\n\n The Min_CE_Length and Max_CE_Length are information parameters\n providing the Controller with a hint about the expected minimum and maximum\n length of the connection events. The Min_CE_Length shall be less than or\n equal to the Max_CE_Length.\n\n The actual parameter values selected by the Link Layer may be different from\n the parameter values provided by the Host through this command.\n\n If this command completes successfully and the connection interval has\n changed, then the subrating factor shall be set to 1 and the continuation\n number to 0. In this case, Max_Latency must be interpreted in underlying\n connection events. Otherwise the subrating factor and continuation number\n shall be unchanged and Max_Latency must be interpreted in subrated events.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Connection_Update command, the\n Controller sends the HCI_Command_Status event to the Host. The HCI_LE_-\n Connection_Update_Complete event shall be generated after the connection\n parameters have been applied by the Controller or if the command\n subsequently fails.\n\n Note: An HCI_Command_Complete event is not sent by the Controller to\n indicate that this command has been completed. Instead, the HCI_LE_-\n Connection_Update_Complete event indicates that this command has been\n completed.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_conn_update(p_params: *const sdc_hci_cmd_le_conn_update_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Host Channel Classification.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.19\n\n The HCI_LE_Set_Host_Channel_Classification command allows the Host to\n specify a channel classification for the data, secondary advertising, periodic,\n and isochronous physical channels based on its “local information”. This\n classification persists until overwritten with a subsequent\n HCI_LE_Set_Host_Channel_Classification command or until the Controller is\n reset using the HCI_Reset command (see [Vol 6] Part B, Section 4.5.8.1).\n\n If this command is used, the Host should send it within 10 seconds of knowing\n that the channel classification has changed. The interval between two\n successive commands sent shall be at least one second.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Host_Channel_Classification command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Host Channel Classification.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.19\n\n The HCI_LE_Set_Host_Channel_Classification command allows the Host to\n specify a channel classification for the data, secondary advertising, periodic,\n and isochronous physical channels based on its “local information”. This\n classification persists until overwritten with a subsequent\n HCI_LE_Set_Host_Channel_Classification command or until the Controller is\n reset using the HCI_Reset command (see [Vol 6] Part B, Section 4.5.8.1).\n\n If this command is used, the Host should send it within 10 seconds of knowing\n that the channel classification has changed. The interval between two\n successive commands sent shall be at least one second.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Host_Channel_Classification command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_host_channel_classification(
         p_params: *const sdc_hci_cmd_le_set_host_channel_classification_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Channel Map.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.20\n\n The HCI_LE_Read_Channel_Map command returns the current Channel_Map\n for the specified Connection_Handle. The returned value indicates the state of\n the Channel_Map specified by the last transmitted or received Channel_Map\n (in a CONNECT_IND or LL_CHANNEL_MAP_IND message) for the specified\n Connection_Handle, regardless of whether the Central has received an\n acknowledgment. If the connection handle does not identify an ACL\n connection, the Controller shall reject the command and should return the error\n code Unknown Connection Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Channel_Map command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Channel Map.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.20\n\n The HCI_LE_Read_Channel_Map command returns the current Channel_Map\n for the specified Connection_Handle. The returned value indicates the state of\n the Channel_Map specified by the last transmitted or received Channel_Map\n (in a CONNECT_IND or LL_CHANNEL_MAP_IND message) for the specified\n Connection_Handle, regardless of whether the Central has received an\n acknowledgment. If the connection handle does not identify an ACL\n connection, the Controller shall reject the command and should return the error\n code Unknown Connection Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Channel_Map command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_channel_map(
         p_params: *const sdc_hci_cmd_le_read_channel_map_t,
         p_return: *mut sdc_hci_cmd_le_read_channel_map_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Remote Features.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.21\n\n This command requests, from the remote device identified by the\n Connection_Handle, the features used on the connection and the features\n supported by the remote device. For details see [Vol 6] Part B, Section 4.6.\n\n This command may be issued on both the Central and Peripheral.\n\n Note: If a connection already exists between the two devices and the features\n have already been fetched on that connection, the Controller may use a\n cached copy of the features.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Read_Remote_Features command,\n the Controller shall send the HCI_Command_Status event to the Host. When\n the Controller has completed the procedure to determine the remote features\n or has determined that it will be using a cached copy, the Controller shall send\n an HCI_LE_Read_Remote_Features_Complete event to the Host.\n\n The HCI_LE_Read_Remote_Features_Complete event contains the status of\n this command and the parameter describing the features used on the\n connection and the features supported by the remote device.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Remote Features.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.21\n\n This command requests, from the remote device identified by the\n Connection_Handle, the features used on the connection and the features\n supported by the remote device. For details see [Vol 6] Part B, Section 4.6.\n\n This command may be issued on both the Central and Peripheral.\n\n Note: If a connection already exists between the two devices and the features\n have already been fetched on that connection, the Controller may use a\n cached copy of the features.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Read_Remote_Features command,\n the Controller shall send the HCI_Command_Status event to the Host. When\n the Controller has completed the procedure to determine the remote features\n or has determined that it will be using a cached copy, the Controller shall send\n an HCI_LE_Read_Remote_Features_Complete event to the Host.\n\n The HCI_LE_Read_Remote_Features_Complete event contains the status of\n this command and the parameter describing the features used on the\n connection and the features supported by the remote device.\n\n Note: An HCI_Command_Complete event is not sent by the Controller to\n indicate that this command has been completed. Instead, the HCI_LE_Read_-\n Remote_Features_Complete event indicates that this command has been\n completed.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_remote_features(p_params: *const sdc_hci_cmd_le_read_remote_features_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Encrypt.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.22\n\n The HCI_LE_Encrypt command is used to request the Controller to encrypt the\n Plaintext_Data in the command using the Key given in the command and\n returns the Encrypted_Data to the Host. The AES-128 bit block cypher is\n defined in NIST Publication FIPS-197 (http://csrc.nist.gov/publications/fips/\n fips197/fips-197.pdf).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Encrypt command has completed, an HCI_Command_-\n Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Encrypt.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.22\n\n The HCI_LE_Encrypt command is used to request the Controller to encrypt the\n Plaintext_Data in the command using the Key given in the command and\n returns the Encrypted_Data to the Host. The AES-128 bit block cypher is\n defined in NIST Publication FIPS-197 (http://csrc.nist.gov/publications/fips/\n fips197/fips-197.pdf).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Encrypt command has completed, an HCI_Command_-\n Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_encrypt(
         p_params: *const sdc_hci_cmd_le_encrypt_t,
         p_return: *mut sdc_hci_cmd_le_encrypt_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Rand.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.23\n\n The HCI_LE_Rand command is used to request the Controller to generate 8\n octets of random data to be sent to the Host. The Random_Number shall be\n generated according to [Vol 2] Part H, Section 2 if the LE Feature (LE\n Encryption) is supported.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Rand command has completed, an HCI_Command_-\n Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Rand.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.23\n\n The HCI_LE_Rand command is used to request the Controller to generate 8\n octets of random data to be sent to the Host. The Random_Number shall be\n generated according to [Vol 2] Part H, Section 2 if the LE Feature (LE\n Encryption) is supported.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Rand command has completed, an HCI_Command_-\n Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_rand(p_return: *mut sdc_hci_cmd_le_rand_return_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Enable Encryption.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.24\n\n The HCI_LE_Enable_Encryption command is used to authenticate the given\n encryption key associated with the remote device specified by the\n Connection_Handle, and once authenticated will encrypt the connection. The\n parameters are as defined in [Vol 3] Part H, Section 2.4.4.\n\n If the connection is already encrypted then the Controller shall pause\n connection encryption before attempting to authenticate the given encryption\n key, and then re-encrypt the connection. While encryption is paused no user\n data shall be transmitted.\n\n If the Connection_Handle parameter identifies an ACL with an associated CIS\n that has been created, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n On an authentication failure, the connection shall be automatically\n disconnected by the Link Layer. If this command succeeds, then the\n connection shall be encrypted.\n This command shall only be used when the local device’s role is Central.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Enable_Encryption command it\n shall send the HCI_Command_Status event to the Host. If the connection is not\n encrypted when this command is issued, an HCI_Encryption_Change event\n shall occur when encryption has been started for the connection. If the connec-\n tion is encrypted when this command is issued, an HCI_Encryption_Key_-\n Refresh_Complete event shall occur when encryption has been resumed.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Enable Encryption.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.27.\n\n The HCI_LE_Enable_Encryption command is used to authenticate the given\n encryption key associated with the remote device specified by the\n Connection_Handle, and once authenticated will encrypt the connection. The\n parameters are as defined in [Vol 3] Part H, Section 2.4.4.\n\n If the connection is already encrypted then the Controller shall pause\n connection encryption before attempting to authenticate the given encryption\n key, and then re-encrypt the connection. While encryption is paused no user\n data shall be transmitted.\n\n If the Connection_Handle parameter identifies an ACL with an associated CIS\n that has been created, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n On an authentication failure, the connection shall be automatically\n disconnected by the Link Layer. If this command succeeds, then the\n connection shall be encrypted.\n\n This command shall only be used when the local device's role is Central.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Enable_Encryption command it\n shall send the HCI_Command_Status event to the Host. If the connection is not\n encrypted when this command is issued, an HCI_Encryption_Change event\n shall occur when encryption has been started for the connection. If the connec-\n tion is encrypted when this command is issued, an HCI_Encryption_Key_-\n Refresh_Complete event shall occur when encryption has been resumed.\n\n Note: An HCI_Command_Complete event is not sent by the Controller to\n indicate that this command has been completed. Instead, the\n HCI_Encryption_Change or HCI_Encryption_Key_Refresh_Complete events\n indicate that this command has been completed.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_enable_encryption(p_params: *const sdc_hci_cmd_le_enable_encryption_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Long Term Key Request Reply.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.25\n\n The HCI_LE_Long_Term_Key_Request_Reply command is used to reply to an\n HCI_LE_Long_Term_Key_Request event from the Controller, and specifies the\n Long_Term_Key parameter that shall be used for this Connection_Handle. The\n Long_Term_Key is used as defined in [Vol 6] Part B, Section 5.1.3.\n This command shall only be used when the local device’s role is Peripheral.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Long_Term_Key_Request_Reply command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Long Term Key Request Reply.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.25\n\n The HCI_LE_Long_Term_Key_Request_Reply command is used to reply to an\n HCI_LE_Long_Term_Key_Request event from the Controller, and specifies the\n Long_Term_Key parameter that shall be used for this Connection_Handle. The\n Long_Term_Key is used as defined in [Vol 6] Part B, Section 5.1.3.\n This command shall only be used when the local device’s role is Peripheral.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Long_Term_Key_Request_Reply command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_long_term_key_request_reply(
         p_params: *const sdc_hci_cmd_le_long_term_key_request_reply_t,
         p_return: *mut sdc_hci_cmd_le_long_term_key_request_reply_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Long Term Key Request Negative Reply.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.26\n\n The HCI_LE_Long_Term_Key_Request_Negative_Reply command is used to\n reply to an HCI_LE_Long_Term_Key_Request event from the Controller if the\n Host cannot provide a Long Term Key for this Connection_Handle.\n\n This command shall only be used when the local device’s role is Peripheral.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Long_Term_Key_Request_Negative_Reply command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Long Term Key Request Negative Reply.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.26\n\n The HCI_LE_Long_Term_Key_Request_Negative_Reply command is used to\n reply to an HCI_LE_Long_Term_Key_Request event from the Controller if the\n Host cannot provide a Long Term Key for this Connection_Handle.\n\n This command shall only be used when the local device’s role is Peripheral.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Long_Term_Key_Request_Negative_Reply command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_long_term_key_request_negative_reply(
         p_params: *const sdc_hci_cmd_le_long_term_key_request_negative_reply_t,
         p_return: *mut sdc_hci_cmd_le_long_term_key_request_negative_reply_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Supported States.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.27\n\n The HCI_LE_Read_Supported_States command reads the states and state\n combinations that the Link Layer supports. See [Vol 6] Part B, Section 1.1.1.\n\n LE_States is an 8-octet bit field. If a bit is set to 1 then this state or state\n combination is supported by the Controller. Multiple bits in LE_States may be\n set to 1 to indicate support for multiple state and state combinations.\n\n Note: This command only provides information about the supported states that\n can be used with legacy advertising. It does not provide information about\n states, and combinations of states, that can only be used with the extended\n advertising commands (see Section 3.1.1).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Supported_States command has completed, an\n HCI_Command_Complete event will be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Supported States.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.27\n\n The HCI_LE_Read_Supported_States command reads the states and state\n combinations that the Link Layer supports. See [Vol 6] Part B, Section 1.1.1.\n\n LE_States is an 8-octet bit field. If a bit is set to 1 then this state or state\n combination is supported by the Controller. Multiple bits in LE_States may be\n set to 1 to indicate support for multiple state and state combinations.\n\n Note: This command only provides information about the supported states that\n can be used with legacy advertising. It does not provide information about\n states, and combinations of states, that can only be used with the extended\n advertising commands (see Section 3.1.1).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Supported_States command has completed, an\n HCI_Command_Complete event will be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_supported_states(p_return: *mut sdc_hci_cmd_le_read_supported_states_return_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Test End.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.30\n\n This command is used to stop any test which is in progress. The Num_Packets\n for a transmitter test shall be reported as 0x0000. The Num_Packets is an\n unsigned number and contains the number of received packets.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Test_End command has completed, an HCI_Command_-\n Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Test End.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.30\n\n This command is used to stop any test which is in progress. The Num_Packets\n for a transmitter test shall be reported as 0x0000. The Num_Packets is an\n unsigned number and contains the number of received packets.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Test_End command has completed, an HCI_Command_-\n Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_test_end(p_return: *mut sdc_hci_cmd_le_test_end_return_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Data Length.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.33\n\n The HCI_LE_Set_Data_Length command allows the Host to suggest the\n maximum transmission payload size and maximum packet transmission time\n (connMaxTxOctets and connMaxTxTime - see [Vol 6] Part B, Section 4.5.10) to\n be used for LL Data PDUs on a given connection. The Controller may use\n smaller or larger values based on local information.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Data_Length command has completed, an\n HCI_Command_Complete event shall be generated.\n\n If the command causes the maximum transmission packet size or maximum\n packet transmission time to change, an HCI_LE_Data_Length_Change event\n shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Data Length.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.33\n\n The HCI_LE_Set_Data_Length command allows the Host to suggest the\n maximum transmission payload size and maximum packet transmission time\n (connMaxTxOctets and connMaxTxTime - see [Vol 6] Part B, Section 4.5.10) to\n be used for LL Data PDUs on a given connection. The Controller may use\n smaller or larger values based on local information.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Data_Length command has completed, an\n HCI_Command_Complete event shall be generated.\n\n If the command causes the maximum transmission packet size or maximum\n packet transmission time to change, an HCI_LE_Data_Length_Change event\n shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_data_length(
         p_params: *const sdc_hci_cmd_le_set_data_length_t,
         p_return: *mut sdc_hci_cmd_le_set_data_length_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Suggested Default Data Length.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.34\n\n The HCI_LE_Read_Suggested_Default_Data_Length command allows the\n Host to read the Host's suggested values (Suggested_Max_TX_Octets and\n Suggested_Max_TX_Time) for the Controller's maximum transmitted number\n of payload octets and maximum packet transmission time for packets\n containing LL Data PDUs to be used for new connections (see [Vol 6] Part B,\n Section 4.5.10).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Suggested_Default_Data_Length command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Suggested Default Data Length.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.34\n\n The HCI_LE_Read_Suggested_Default_Data_Length command allows the\n Host to read the Host's suggested values (Suggested_Max_TX_Octets and\n Suggested_Max_TX_Time) for the Controller's maximum transmitted number\n of payload octets and maximum packet transmission time for packets\n containing LL Data PDUs to be used for new connections (see [Vol 6] Part B,\n Section 4.5.10).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Suggested_Default_Data_Length command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_suggested_default_data_length(
         p_return: *mut sdc_hci_cmd_le_read_suggested_default_data_length_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Write Suggested Default Data Length.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.35\n\n The HCI_LE_Write_Suggested_Default_Data_Length command allows the\n Host to specify its suggested values for the Controller's maximum transmission\n number of payload octets and maximum packet transmission time for packets\n containing LL Data PDUs to be used for new connections. The Controller may\n use smaller or larger values for connInitialMaxTxOctets and\n connInitialMaxTxTime based on local information. (See [Vol 6] Part B, Section\n 4.5.10).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Write_Suggested_Default_Data_Length command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Write Suggested Default Data Length.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.35\n\n The HCI_LE_Write_Suggested_Default_Data_Length command allows the\n Host to specify its suggested values for the Controller's maximum transmission\n number of payload octets and maximum packet transmission time for packets\n containing LL Data PDUs to be used for new connections. The Controller may\n use smaller or larger values for connInitialMaxTxOctets and\n connInitialMaxTxTime based on local information. (See [Vol 6] Part B, Section\n 4.5.10).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Write_Suggested_Default_Data_Length command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_write_suggested_default_data_length(
         p_params: *const sdc_hci_cmd_le_write_suggested_default_data_length_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Add Device To Resolving List.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.38\n\n The HCI_LE_Add_Device_To_Resolving_List command is used to add one\n device to the resolving list used to generate and resolve Resolvable Private\n Addresses in the Controller.\n\n This command shall not be used when address resolution is enabled in the\n Controller and:\n • Advertising (other than periodic advertising) is enabled,\n • Scanning is enabled, or\n • an HCI_LE_Create_Connection, HCI_LE_Extended_Create_Connection, or\n   HCI_LE_Periodic_Advertising_Create_Sync command is pending.\n\n This command may be used at any time when address resolution is disabled in\n the Controller.\n\n The added device shall be set to Network Privacy mode.\n\n If Peer_Identity_Address_Type is 0x01 and Peer_Identity_Address is not a\n static address, then the Controller should return the error code Invalid HCI\n Command Parameters (0x12).\n\n When a Controller cannot add a device to the list because there is no space\n available, it shall return the error code Memory Capacity Exceeded (0x07).\n\n If an entry already exists in the resolving list with the same four parameter\n values, the Controller shall either reject the command or not add the device to\n the resolving list again and return success. If the command is rejected then the\n error code Invalid HCI Command Parameters (0x12) should be used.\n\n If there is an existing entry in the resolving list with the same Peer_Identity_-\n Address and Peer_Identity_Address_Type, or with the same non-zero\n Peer_IRK, the Controller should return the error code Invalid HCI Command\n Parameters (0x12).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Add_Device_To_Resolving_List command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Add Device To Resolving List.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.38\n\n The HCI_LE_Add_Device_To_Resolving_List command is used to add one\n device to the resolving list used to generate and resolve Resolvable Private\n Addresses in the Controller.\n\n This command shall not be used when address resolution is enabled in the\n Controller and:\n • Advertising (other than periodic advertising) is enabled,\n • Scanning is enabled, or\n • an HCI_LE_Create_Connection, HCI_LE_Extended_Create_Connection, or\n   HCI_LE_Periodic_Advertising_Create_Sync command is pending.\n\n This command may be used at any time when address resolution is disabled in\n the Controller.\n\n The added device shall be set to Network Privacy mode.\n\n When a Controller cannot add a device to the list because there is no space\n available, it shall return the error code Memory Capacity Exceeded (0x07).\n\n If an entry already exists in the resolving list with the same four parameter\n values, the Controller shall either reject the command or not add the device to\n the resolving list again and return success. If the command is rejected then the\n error code Invalid HCI Command Parameters (0x12) should be used.\n\n If there is an existing entry in the resolving list with the same\n Peer_Identity_Address and Peer_Identity_Address_Type, or with the same\n Peer_IRK, the Controller should return the error code Invalid HCI Command\n Parameters (0x12).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Add_Device_To_Resolving_List command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_add_device_to_resolving_list(
         p_params: *const sdc_hci_cmd_le_add_device_to_resolving_list_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Remove Device From Resolving List.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.39\n\n The HCI_LE_Remove_Device_From_Resolving_List command is used to\n remove one device from the resolving list used to resolve Resolvable Private\n Addresses in the Controller.\n\n This command shall not be used when address resolution is enabled in the\n Controller and:\n • Advertising (other than periodic advertising) is enabled,\n • Scanning is enabled, or\n • an HCI_LE_Create_Connection, HCI_LE_Extended_Create_Connection, or\n   HCI_LE_Periodic_Advertising_Create_Sync command is pending.\n\n This command may be used at any time when address resolution is disabled in\n the Controller.\n\n When a Controller cannot remove a device from the resolving list because it is\n not found, it shall return the error code Unknown Connection Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Remove_Device_From_Resolving_List command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Remove Device From Resolving List.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.39\n\n The HCI_LE_Remove_Device_From_Resolving_List command is used to\n remove one device from the resolving list used to resolve Resolvable Private\n Addresses in the Controller.\n\n This command shall not be used when address resolution is enabled in the\n Controller and:\n • Advertising (other than periodic advertising) is enabled,\n • Scanning is enabled, or\n • an HCI_LE_Create_Connection, HCI_LE_Extended_Create_Connection, or\n   HCI_LE_Periodic_Advertising_Create_Sync command is pending.\n\n This command may be used at any time when address resolution is disabled in\n the Controller.\n\n When a Controller cannot remove a device from the resolving list because it is\n not found, it shall return the error code Unknown Connection Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Remove_Device_From_Resolving_List command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_remove_device_from_resolving_list(
         p_params: *const sdc_hci_cmd_le_remove_device_from_resolving_list_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Clear Resolving List.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.40\n\n The HCI_LE_Clear_Resolving_List command is used to remove all devices\n from the resolving list used to resolve Resolvable Private Addresses in the\n Controller.\n\n This command shall not be used when address resolution is enabled in the\n Controller and:\n • Advertising (other than periodic advertising) is enabled,\n • Scanning is enabled, or\n • an HCI_LE_Create_Connection, HCI_LE_Extended_Create_Connection, or\n   HCI_LE_Periodic_Advertising_Create_Sync command is pending.\n\n This command may be used at any time when address resolution is disabled in\n the Controller.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Clear_Resolving_List command has completed, an\n HCI_Command_Complete event shall be generated.\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Clear Resolving List.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.40\n\n The HCI_LE_Clear_Resolving_List command is used to remove all devices\n from the resolving list used to resolve Resolvable Private Addresses in the\n Controller.\n\n This command shall not be used when address resolution is enabled in the\n Controller and:\n • Advertising (other than periodic advertising) is enabled,\n • Scanning is enabled, or\n • an HCI_LE_Create_Connection, HCI_LE_Extended_Create_Connection, or\n   HCI_LE_Periodic_Advertising_Create_Sync command is pending.\n\n This command may be used at any time when address resolution is disabled in\n the Controller.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Clear_Resolving_List command has completed, an\n HCI_Command_Complete event shall be generated.\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_clear_resolving_list() -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Resolving List Size.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.41\n\n The HCI_LE_Read_Resolving_List_Size command is used to read the total\n number of entries in the resolving list that can be stored in the Controller.\n\n Note: The number of entries that can be stored is not fixed and the Controller\n can change it at any time (e.g. because the memory used to store the list can\n also be used for other purposes).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Resolving_List_Size command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Resolving List Size.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.41\n\n The HCI_LE_Read_Resolving_List_Size command is used to read the total\n number of entries in the resolving list that can be stored in the Controller.\n\n Note: The number of entries that can be stored is not fixed and the Controller\n can change it at any time (e.g. because the memory used to store the list can\n also be used for other purposes).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Resolving_List_Size command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_resolving_list_size(
         p_return: *mut sdc_hci_cmd_le_read_resolving_list_size_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Address Resolution Enable.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.44\n\n The HCI_LE_Set_Address_Resolution_Enable command is used to enable\n resolution of Resolvable Private Addresses in the Controller. This causes the\n Controller to use the resolving list whenever the Controller receives a local or\n peer Resolvable Private Address.\n\n This command shall not be used when:\n • Advertising (other than periodic advertising) is enabled,\n • Scanning is enabled, or\n • an HCI_LE_Create_Connection, HCI_LE_Extended_Create_Connection, or\n   HCI_LE_Periodic_Advertising_Create_Sync command is pending.\n\n Enabling address resolution when it is already enabled, or disabling it when it is\n already disabled, has no effect.\n\n The requirements in [Vol 6] Part B, Section 6 related to the generation of\n Resolvable Private Addresses and the privacy of the device are independent of\n this command.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Address_Resolution_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Address Resolution Enable.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.44\n\n The HCI_LE_Set_Address_Resolution_Enable command is used to enable\n resolution of Resolvable Private Addresses in the Controller. This causes the\n Controller to use the resolving list whenever the Controller receives a local or\n peer Resolvable Private Address.\n\n This command shall not be used when:\n • Advertising (other than periodic advertising) is enabled,\n • Scanning is enabled, or\n • an HCI_LE_Create_Connection, HCI_LE_Extended_Create_Connection, or\n   HCI_LE_Periodic_Advertising_Create_Sync command is pending.\n\n Enabling address resolution when it is already enabled, or disabling it when it is\n already disabled, has no effect.\n\n The requirements in [Vol 6] Part B, Section 6 related to the generation of\n Resolvable Private Addresses and the privacy of the device are independent of\n this command.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Address_Resolution_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_address_resolution_enable(
         p_params: *const sdc_hci_cmd_le_set_address_resolution_enable_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Resolvable Private Address Timeout.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.45\n\n The HCI_LE_Set_Resolvable_Private_Address_Timeout command set the\n length of time the Controller uses a Resolvable Private Address before a new\n resolvable private address is generated and starts being used.\n\n This timeout applies to all resolvable private addresses generated by the\n Controller.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Resolvable_Private_Address_Timeout command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Resolvable Private Address Timeout.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.45\n\n The HCI_LE_Set_Resolvable_Private_Address_Timeout command set the\n length of time the Controller uses a Resolvable Private Address before a new\n resolvable private address is generated and starts being used.\n\n This timeout applies to all resolvable private addresses generated by the\n Controller.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Resolvable_Private_Address_Timeout command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_resolvable_private_address_timeout(
         p_params: *const sdc_hci_cmd_le_set_resolvable_private_address_timeout_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Maximum Data Length.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.46\n\n The HCI_LE_Read_Maximum_Data_Length command allows the Host to read\n the Controller’s maximum supported payload octets and packet duration times\n for transmission and reception (Supported_Max_TX_Octets, Supported_Max_-\n TX_Time, Supported_Max_RX_Octets, and Supported_Max_RX_Time, see\n [Vol 6] Part B, Section 4.5.10).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Maximum_Data_Length command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Maximum Data Length.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.46\n\n The HCI_LE_Read_Maximum_Data_Length command allows the Host to read\n the Controller’s maximum supported payload octets and packet duration times\n for transmission and reception (Supported_Max_TX_Octets, Supported_Max_-\n TX_Time, Supported_Max_RX_Octets, and Supported_Max_RX_Time, see\n [Vol 6] Part B, Section 4.5.10).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Maximum_Data_Length command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_max_data_length(p_return: *mut sdc_hci_cmd_le_read_max_data_length_return_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read PHY.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.47\n\n The HCI_LE_Read_PHY command is used to read the current transmitter PHY\n and receiver PHY on the connection identified by the Connection_Handle.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_PHY command has completed, an HCI_Command_-\n Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read PHY.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.47\n\n The HCI_LE_Read_PHY command is used to read the current transmitter PHY\n and receiver PHY on the connection identified by the Connection_Handle.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_PHY command has completed, an HCI_Command_-\n Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_phy(
         p_params: *const sdc_hci_cmd_le_read_phy_t,
         p_return: *mut sdc_hci_cmd_le_read_phy_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Default PHY.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.48\n\n The HCI_LE_Set_Default_PHY command allows the Host to specify its\n preferred values for the transmitter PHY and receiver PHY to be used for all\n subsequent connections over the LE transport.\n\n The All_PHYs parameter is a bit field that allows the Host to specify, for each\n direction, whether it has no preference among the PHYs that the Controller\n supports in a given direction or whether it has specified particular PHYs that it\n prefers in the TX_PHYs or RX_PHYs parameter.\n\n The TX_PHYs parameter is a bit field that indicates the transmitter PHYs that\n the Host prefers the Controller to use. If the All_PHYs parameter specifies that\n the Host has no preference, the TX_PHYs parameter shall be ignored;\n otherwise at least one bit shall be set to 1.\n\n The RX_PHYs parameter is a bit field that indicates the receiver PHYs that the\n Host prefers the Controller to use. If the All_PHYs parameter specifies that the\n Host has no preference, the RX_PHYs parameter shall be ignored; otherwise\n at least one bit shall be set to 1.\n\n If the Host sets, in the TX_PHYs or RX_PHYs parameter, a bit for a PHY that\n the Controller does not support, including a bit that is reserved for future use,\n the Controller shall return the error code Unsupported Feature or Parameter\n Value (0x11).\n\n If the Controller does not support asymmetric connections (see [Vol 6] Part B,\n Section 4.6.9.1) and the Host sets All_PHYs to 0x00 and TX_PHYs to a\n different value than RX_PHYs, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Default_PHY command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Default PHY.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.48\n\n The HCI_LE_Set_Default_PHY command allows the Host to specify its\n preferred values for the transmitter PHY and receiver PHY to be used for all\n subsequent connections over the LE transport.\n\n The All_PHYs parameter is a bit field that allows the Host to specify, for each\n direction, whether it has no preference among the PHYs that the Controller\n supports in a given direction or whether it has specified particular PHYs that it\n prefers in the TX_PHYs or RX_PHYs parameter.\n\n The TX_PHYs parameter is a bit field that indicates the transmitter PHYs that\n the Host prefers the Controller to use. If the All_PHYs parameter specifies that\n the Host has no preference, the TX_PHYs parameter shall be ignored;\n otherwise at least one bit shall be set to 1.\n\n The RX_PHYs parameter is a bit field that indicates the receiver PHYs that the\n Host prefers the Controller to use. If the All_PHYs parameter specifies that the\n Host has no preference, the RX_PHYs parameter shall be ignored; otherwise\n at least one bit shall be set to 1.\n\n If the Host sets, in the TX_PHYs or RX_PHYs parameter, a bit for a PHY that\n the Controller does not support, including a bit that is reserved for future use,\n the Controller shall return the error code Unsupported Feature or Parameter\n Value (0x11).\n\n If the Controller does not support asymmetric connections (see [Vol 6] Part B,\n Section 4.6.9.1) and the Host sets All_PHYs to 0x00 and TX_PHYs to a\n different value than RX_PHYs, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Default_PHY command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_default_phy(p_params: *const sdc_hci_cmd_le_set_default_phy_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set PHY.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.49\n\n The HCI_LE_Set_PHY command is used to set the PHY preferences for the\n connection identified by the Connection_Handle. The Controller might not be\n able to make the change (e.g. because the peer does not support the\n requested PHY) or may decide that the current PHY is preferable (e.g.,\n because it could not schedule other activities if the requested PHY was used or\n because it requires a PHY that supports Constant Tone Extensions).\n\n The All_PHYs parameter is a bit field that allows the Host to specify, for each\n direction, whether it has no preference among the PHYs that the Controller\n supports in a given direction or whether it has specified particular PHYs that it\n prefers in the TX_PHYs or RX_PHYs parameter.\n\n The TX_PHYs parameter is a bit field that indicates the transmitter PHYs that\n the Host prefers the Controller to use. If the All_PHYs parameter specifies that\n the Host has no preference, the TX_PHYs parameter shall be ignored;\n otherwise at least one bit shall be set to 1.\n\n The RX_PHYs parameter is a bit field that indicates the receiver PHYs that the\n Host prefers the Controller to use. If the All_PHYs parameter specifies that the\n Host has no preference, the RX_PHYs parameter shall be ignored; otherwise\n at least one bit shall be set to 1.\n\n The Controller shall request a change unless it determines that this is\n unnecessary or that the current PHY is preferable, in which case it may, but\n need not, request a change.\n\n The PHY preferences provided by the HCI_LE_Set_PHY command override\n those provided via the HCI_LE_Set_Default_PHY command (Section 7.8.48)\n or any preferences previously set using the HCI_LE_Set_PHY command on\n the same connection.\n\n The PHY_Options parameter is a bit field that allows the Host to specify\n options for PHYs. The default value for a new connection shall be all zero bits.\n The Controller may override any preferred coding for transmitting on the LE\n Coded PHY.\n The Host may specify a preferred coding even if it prefers not to use the LE\n Coded transmitter PHY since the Controller may override the PHY preference.\n\n If the Host sets, in the TX_PHYs or RX_PHYs parameter, a bit for a PHY that\n the Controller does not support, including a bit that is reserved for future use,\n the Controller shall return the error code Unsupported Feature or Parameter\n Value (0x11).\n\n If the Controller does not support asymmetric connections (see [Vol 6] Part B,\n Section 4.6.9.1) and the Host sets All_PHYs to 0x00 and TX_PHYs to a\n different value than RX_PHYs, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Set_PHY command, the Controller\n shall send the HCI_Command_Status event to the Host. The HCI_LE_PHY_-\n Update_Complete event shall be generated either when one or both PHY\n changes or when the Controller determines that neither PHY will change\n immediately.\n\n Note: If the peer negotiation resulted in no change to either PHY, this is not an\n error and the HCI_LE_PHY_Update_Complete event will contain a status\n indicating success.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set PHY.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.49\n\n The HCI_LE_Set_PHY command is used to set the PHY preferences for the\n connection identified by the Connection_Handle. The Controller might not be\n able to make the change (e.g. because the peer does not support the\n requested PHY) or may decide that the current PHY is preferable (e.g.,\n because it could not schedule other activities if the requested PHY was used or\n because it requires a PHY that supports Constant Tone Extensions).\n\n The All_PHYs parameter is a bit field that allows the Host to specify, for each\n direction, whether it has no preference among the PHYs that the Controller\n supports in a given direction or whether it has specified particular PHYs that it\n prefers in the TX_PHYs or RX_PHYs parameter.\n\n The TX_PHYs parameter is a bit field that indicates the transmitter PHYs that\n the Host prefers the Controller to use. If the All_PHYs parameter specifies that\n the Host has no preference, the TX_PHYs parameter shall be ignored;\n otherwise at least one bit shall be set to 1.\n\n The RX_PHYs parameter is a bit field that indicates the receiver PHYs that the\n Host prefers the Controller to use. If the All_PHYs parameter specifies that the\n Host has no preference, the RX_PHYs parameter shall be ignored; otherwise\n at least one bit shall be set to 1.\n\n If, for at least one direction, the Host has specified a preference and the current\n PHY is not one of those preferred, the Controller shall request a change.\n Otherwise the Controller may, but need not, request a change.\n\n The PHY preferences provided by the HCI_LE_Set_PHY command override\n those provided via the HCI_LE_Set_Default_PHY command (Section 7.8.48)\n or any preferences previously set using the HCI_LE_Set_PHY command on\n the same connection.\n\n The PHY_Options parameter is a bit field that allows the Host to specify\n options for PHYs. The default value for a new connection shall be all zero bits.\n The Controller may override any preferred coding for transmitting on the LE\n Coded PHY.\n The Host may specify a preferred coding even if it prefers not to use the LE\n Coded transmitter PHY since the Controller may override the PHY preference.\n\n If the Host sets, in the TX_PHYs or RX_PHYs parameter, a bit for a PHY that\n the Controller does not support, including a bit that is reserved for future use,\n the Controller shall return the error code Unsupported Feature or Parameter\n Value (0x11).\n\n If the Controller does not support asymmetric connections (see [Vol 6] Part B,\n Section 4.6.9.1) and the Host sets All_PHYs to 0x00 and TX_PHYs to a\n different value than RX_PHYs, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Set_PHY command, the Controller\n shall send the HCI_Command_Status event to the Host. The HCI_LE_PHY_-\n Update_Complete event shall be generated either when one or both PHY\n changes or when the Controller determines that neither PHY will change\n immediately.\n\n Note: If the peer negotiation resulted in no change to either PHY, this is not an\n error and the HCI_LE_PHY_Update_Complete event will contain a status\n indicating success.\n\n Note: An HCI_Command_Complete event is not sent by the Controller to\n indicate that this command has been completed. Instead, the HCI_LE_PHY_-\n Update_Complete event indicates that this command has been completed.\n The HCI_LE_PHY_Update_Complete event may also be issued autonomously\n by the Link Layer.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_phy(p_params: *const sdc_hci_cmd_le_set_phy_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Advertising Set Random Address.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.52\n\n The HCI_LE_Set_Advertising_Set_Random_Address command is used by the\n Host to set the random device address specified by the Random_Address\n parameter. This address is used in the Controller (see [Vol 6] Part B, Section\n 1.3.2) for the advertiser's address contained in the advertising PDUs for the\n advertising set specified by the Advertising_Handle parameter.\n\n This command may be issued at any time after an advertising set identified by\n the Advertising_Handle parameter has been created using the HCI_LE_Set_-\n Extended_Advertising_Parameters command (see Section 7.8.53). However, if\n the Host issues this command while the advertising set identified by the\n Advertising_Handle parameter is using connectable advertising and is\n enabled, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n If this command is used to change the address, the new random address shall\n take effect for advertising no later than the next successful HCI_LE_Set_-\n Extended_Advertising_Enable command and for periodic advertising no later\n than the next successful HCI_LE_Periodic_Advertising_Enable command.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Advertising_Set_Random_Address command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Advertising Set Random Address.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.52\n\n The HCI_LE_Set_Advertising_Set_Random_Address command is used by the\n Host to set the random device address specified by the Random_Address\n parameter. This address is used in the Controller (see [Vol 6] Part B, Section\n 1.3.2) for the advertiser's address contained in the advertising PDUs for the\n advertising set specified by the Advertising_Handle parameter.\n\n This command may be issued at any time after an advertising set identified by\n the Advertising_Handle parameter has been created using the HCI_LE_Set_-\n Extended_Advertising_Parameters command (see Section 7.8.53). However, if\n the Host issues this command while the advertising set identified by the\n Advertising_Handle parameter is using connectable advertising and is\n enabled, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n If this command is used to change the address, the new random address shall\n take effect for advertising no later than the next successful HCI_LE_-\n Extended_Set_Advertising_Enable command and for periodic advertising no\n later than the next successful HCI_LE_Periodic_Advertising_Enable\n command.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Advertising_Set_Random_Address command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_adv_set_random_address(
         p_params: *const sdc_hci_cmd_le_set_adv_set_random_address_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Extended Advertising Parameters [v1].\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.53\n\n The HCI_LE_Set_Extended_Advertising_Parameters command is used by the\n Host to set the advertising parameters.\n The Advertising_Handle parameter identifies the advertising set whose\n parameters are being configured.\n\n The Advertising_Event_Properties parameter describes the type of advertising\n event that is being configured and its basic properties. The type shall be one\n supported by the Controller. In particular, the following restrictions apply to this\n parameter:\n • If legacy advertising PDU types are being used, then the parameter value\n   shall be one of those specified in Table 7.2. If the advertising set already\n   contains data, the type shall be one that supports advertising data and the\n   amount of data shall not exceed 31 octets.\n\n                                                            Advertising\n                                                            Event         Advertising\n  Event Type                      PDU Type                  Properties    Data\n\n  Connectable and scannable       ADV_IND                   0b00010011    Supported\n  undirected\n\n  Connectable directed            ADV_DIRECT_IND            0b00010101    Not allowed\n  (low duty cycle)\n\n  Connectable directed            ADV_DIRECT_IND            0b00011101    Not allowed\n  (high duty cycle)\n\n  Scannable undirected            ADV_SCAN_IND              0b00010010    Supported\n\n  Non-connectable and non-        ADV_NONCONN_IND           0b00010000    Supported\n  scannable undirected\n\n Table 7.2: Advertising_Event_Properties values for legacy PDUs\n\n • If extended advertising PDU types are being used (bit 4 = 0) then:\n           The advertisement shall not be both connectable and scannable.\n           High duty cycle directed connectable advertising (≤ 3.75 ms\n           advertising interval) shall not be used (bit 3 = 0).\n\n If the Advertising_Event_Properties parameter does not describe an event type\n supported by the Controller, contains an invalid bit combination, or specifies a\n type that does not support advertising data when the advertising set already\n contains some, the Controller shall return the error code Invalid HCI Command\n Parameters (0x12).\n\n The parameters beginning with “Secondary” are only valid when extended\n advertising PDU types are being used (bit 4 = 0).\n\n The Own_Address_Type parameter shall be ignored for undirected\n anonymous advertising (bit 2 = 0 and bit 5 = 1).\n\n If Directed advertising is selected, the Peer_Address_Type and Peer_Address\n shall be valid and the Advertising_Filter_Policy parameter shall be ignored.\n The Primary_Advertising_Interval_Min parameter shall be less than or equal to\n the Primary_Advertising_Interval_Max parameter. The Primary_Advertising_-\n Interval_Min and Primary_Advertising_Interval_Max parameters should not be\n the same value so that the Controller can choose the best advertising interval\n given other activities.\n\n For high duty cycle connectable directed advertising event type\n (ADV_DIRECT_IND), the Primary_Advertising_Interval_Min and\n Primary_Advertising_Interval_Max parameters are not used and shall be\n ignored.\n\n If the primary advertising interval range provided by the Host\n (Primary_Advertising_Interval_Min, Primary_Advertising_Interval_Max) does\n not overlap with the advertising interval range supported by the Controller, then\n the Controller shall return the error code Unsupported Feature or Parameter\n Value (0x11).\n\n The Primary_Advertising_Channel_Map is a bit field that indicates the advertis-\n ing channel indices that shall be used when transmitting advertising packets. At\n least one channel bit shall be set in the Primary_Advertising_Channel_Map\n parameter.\n\n The Own_Address_Type parameter specifies the type of address being used in\n the advertising packets. For random addresses, the address is specified by the\n HCI_LE_Set_Advertising_Set_Random_Address command.\n\n If Own_Address_Type equals 0x02 or 0x03, the Peer_Address parameter\n contains the peer’s Identity Address and the Peer_Address_Type parameter\n contains the peer’s Identity Type (i.e., 0x00 or 0x01). These parameters are\n used to locate the corresponding local IRK in the resolving list; this IRK is used\n to generate their own address used in the advertisement.\n\n The Advertising_TX_Power parameter indicates the maximum power level at\n which the advertising packets are to be transmitted on the advertising physical\n channels. The Controller shall choose a power level lower than or equal to the\n one specified by the Host.\n\n The Primary_Advertising_PHY parameter indicates the PHY on which the\n advertising packets are transmitted on the primary advertising physical chan-\n nel. If legacy advertising PDUs are being used, the Primary_Advertising_PHY\n shall indicate the LE 1M PHY. The Secondary_Advertising_PHY parameter\n indicates the PHY on which the advertising packets are be transmitted on the\n secondary advertising physical channel. If the Host specifies a PHY that is not\n supported by the Controller, including a value that is reserved for future use, it\n should return the error code Unsupported Feature or Parameter Value (0x11).\n If Constant Tone Extensions are enabled for the advertising set and\n Secondary_Advertising_PHY specifies a PHY that does not allow Constant\n Tone Extensions, the Controller shall return the error code Command Disal-\n lowed (0x0C).\n If the Primary_Advertising_PHY indicates the LE Coded PHY, then the\n Primary_Advertising_PHY_Options shall indicate the Host's preference or\n requirement concerning coding scheme. Otherwise, Primary_Advertising_-\n PHY_Options shall be ignored. If the Secondary_Advertising_PHY indicates\n the LE Coded PHY, then the Secondary_Advertising_PHY_Options shall indi-\n cate the Host's preference or requirement concerning coding scheme (includ-\n ing for periodic advertising). Otherwise, Secondary_Advertising_PHY_Options\n shall be ignored. If the Host specifies that it requires a specific coding (i.e.,\n value 0x03 or 0x04) in the Primary_Advertising_PHY_Options or\n Secondary_Advertising_PHY_Options and the Controller supports the LE Fea-\n ture (Advertising Coding Selection) but is currently unable to provide all the\n required settings, then the Controller shall return the error code Command Dis-\n allowed (0x0C).\n\n The Secondary_Advertising_Max_Skip parameter is the maximum number of\n advertising events that can be skipped before the AUX_ADV_IND can be sent.\n\n The Advertising_SID parameter specifies the value to be transmitted in the\n Advertising SID subfield of the ADI field of the Extended Header of those\n advertising physical channel PDUs that have an ADI field. If the advertising set\n only uses PDUs that do not contain an ADI field, Advertising_SID shall be\n ignored.\n\n The Scan_Request_Notification_Enable parameter indicates whether the\n Controller shall send notifications upon the receipt of a scan request PDU that\n is in response to an advertisement from the specified advertising set that\n contains its device address and is from a scanner that is allowed by the\n advertising filter policy.\n\n The Controller shall set the Selected_TX_Power return parameter to the\n transmit power that it will use for transmitting the advertising packets for the\n specified advertising set. The Controller shall only change this value if\n requested by the Host. If the radiated power level will vary between packets\n (e.g., because of frequency-dependent properties of the transmitter) then the\n value should be the best estimate of the maximum power used.\n\n If the Host issues this command when advertising is enabled for the specified\n advertising set, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n If the Host issues this command when periodic advertising is enabled for the\n specified advertising set and connectable, scannable, legacy, or anonymous\n advertising is specified, the Controller shall return the error code Invalid HCI\n Command Parameters (0x12).\n\n If periodic advertising is enabled for the advertising set and the\n Secondary_Advertising_PHY parameter does not specify the PHY currently\n being used for the periodic advertising, the Controller shall return the error\n code Command Disallowed (0x0C).\n If the Advertising_Handle does not identify an existing advertising set and the\n Controller is unable to support a new advertising set at present, the Controller\n shall return the error code Memory Capacity Exceeded (0x07).\n\n If the advertising set already contains advertising data or scan response data,\n extended advertising is being used, and the length of the data is greater than\n the maximum that the Controller can transmit within the longest possible\n auxiliary advertising segment consistent with the parameters, the Controller\n shall return the error code Packet Too Long (0x45). If advertising on the LE\n Coded PHY, the S=8 coding shall be assumed unless the current advertising\n parameters require the use of S=2 for an advertising physical channel, in which\n case the S=2 coding shall be assumed for that advertising physical channel.\n\n If the Controller does not support the LE Feature (Advertising Coding\n Selection) and the Host does not set both Primary_Advertising_PHY_Options\n and Secondary_Advertising_PHY_Options to zero, the Controller shall return\n the error code Unsupported Feature or Parameter Value (0x11).\n\n Missing parameters:\n\n When a version of this command is issued that does not include all the\n parameters, the following values shall be used:\n\n  Parameter                                        Value\n\n  Primary_Advertising_PHY_Options                 0x00\n\n  Secondary_Advertising_PHY_Options               0x00\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Extended_Advertising_Parameters command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Extended Advertising Parameters.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.53\n\n The HCI_LE_Set_Extended_Advertising_Parameters command is used by the\n Host to set the advertising parameters.\n\n The Advertising_Handle parameter identifies the advertising set whose\n parameters are being configured.\n\n The Advertising_Event_Properties parameter describes the type of advertising\n event that is being configured and its basic properties. The type shall be one\n supported by the Controller. In particular, the following restrictions apply to this\n parameter:\n • If legacy advertising PDU types are being used, then the parameter value\n   shall be one of those specified in Table 7.2. If the advertising set already\n   contains data, the type shall be one that supports advertising data and the\n   amount of data shall not exceed 31 octets.\n                                                            Advertising\n                                                            Event         Advertising\n  Event Type                      PDU Type                  Properties    Data\n\n  Connectable and scannable       ADV_IND                   0b00010011    Supported\n  undirected\n\n  Connectable directed            ADV_DIRECT_IND            0b00010101    Not allowed\n  (low duty cycle)\n\n  Connectable directed            ADV_DIRECT_IND            0b00011101    Not allowed\n  (high duty cycle)\n\n  Scannable undirected            ADV_SCAN_IND              0b00010010    Supported\n\n  Non-connectable and non-        ADV_NONCONN_IND           0b00010000    Supported\n  scannable undirected\n\n Table 7.2: Advertising_Event_Properties values for legacy PDUs\n\n • If extended advertising PDU types are being used (bit 4 = 0) then:\n           The advertisement shall not be both connectable and scannable.\n           High duty cycle directed connectable advertising (≤ 3.75 ms\n           advertising interval) shall not be used (bit 3 = 0).\n\n If the Advertising_Event_Properties parameter does not describe an event type\n supported by the Controller, contains an invalid bit combination, or specifies a\n type that does not support advertising data when the advertising set already\n contains some, the Controller shall return the error code Invalid HCI Command\n Parameters (0x12).\n\n The parameters beginning with “Secondary” are only valid when extended\n advertising PDU types are being used (bit 4 = 0).\n\n The Own_Address_Type parameter shall be ignored for undirected\n anonymous advertising (bit 2 = 0 and bit 5 = 1).\n\n If Directed advertising is selected, the Peer_Address_Type and Peer_Address\n shall be valid and the Advertising_Filter_Policy parameter shall be ignored.\n\n The Primary_Advertising_Interval_Min parameter shall be less than or equal to\n the Primary_Advertising_Interval_Max parameter. The\n Primary_Advertising_Interval_Min and Primary_Advertising_Interval_Max\n parameters should not be the same value so that the Controller can choose the\n best advertising interval given other activities.\n\n For high duty cycle connectable directed advertising event type\n (ADV_DIRECT_IND), the Primary_Advertising_Interval_Min and\n Primary_Advertising_Interval_Max parameters are not used and shall be\n ignored.\n If the primary advertising interval range provided by the Host\n (Primary_Advertising_Interval_Min, Primary_Advertising_Interval_Max) is\n outside the advertising interval range supported by the Controller, then the\n Controller shall return the error code Unsupported Feature or Parameter Value\n (0x11).\n\n The Primary_Advertising_Channel_Map is a bit field that indicates the advertis-\n ing channel indices that shall be used when transmitting advertising packets. At\n least one channel bit shall be set in the Primary_Advertising_Channel_Map\n parameter.\n\n The Own_Address_Type parameter specifies the type of address being used in\n the advertising packets. For random addresses, the address is specified by the\n HCI_LE_Set_Advertising_Set_Random_Address command.\n\n If Own_Address_Type equals 0x02 or 0x03, the Peer_Address parameter\n contains the peer’s Identity Address and the Peer_Address_Type parameter\n contains the peer’s Identity Type (i.e., 0x00 or 0x01). These parameters are\n used to locate the corresponding local IRK in the resolving list; this IRK is used\n to generate their own address used in the advertisement.\n\n The Advertising_TX_Power parameter indicates the maximum power level at\n which the advertising packets are to be transmitted on the advertising physical\n channels. The Controller shall choose a power level lower than or equal to the\n one specified by the Host.\n\n The Primary_Advertising_PHY parameter indicates the PHY on which the\n advertising packets are transmitted on the primary advertising physical\n channel. If legacy advertising PDUs are being used, the\n Primary_Advertising_PHY shall indicate the LE 1M PHY. The\n Secondary_Advertising_PHY parameter indicates the PHY on which the\n advertising packets are be transmitted on the secondary advertising physical\n channel. If the Host specifies a PHY that is not supported by the Controller,\n including a value that is reserved for future use, it should return the error code\n Unsupported Feature or Parameter Value (0x11). If Constant Tone Extensions\n are enabled for the advertising set and Secondary_Advertising_PHY specifies\n a PHY that does not allow Constant Tone Extensions, the Controller shall\n return the error code Command Disallowed (0x0C).\n\n The Secondary_Advertising_Max_Skip parameter is the maximum number of\n advertising events that can be skipped before the AUX_ADV_IND can be sent.\n\n The Advertising_SID parameter specifies the value to be transmitted in the\n Advertising SID subfield of the ADI field of the Extended Header of those\n advertising physical channel PDUs that have an ADI field. If the advertising set\n only uses PDUs that do not contain an ADI field, Advertising_SID shall be\n ignored.\n\n The Scan_Request_Notification_Enable parameter indicates whether the\n Controller shall send notifications upon the receipt of a scan request PDU that\n is in response to an advertisement from the specified advertising set that\n contains its device address and is from a scanner that is allowed by the\n advertising filter policy.\n\n The Controller shall set the Selected_TX_Power return parameter to the\n transmit power that it will use for transmitting the advertising packets for the\n specified advertising set. The Controller shall only change this value if\n requested by the Host. If the radiated power level will vary between packets\n (e.g., because of frequency-dependent properties of the transmitter) then the\n value should be the best estimate of the maximum power used.\n\n If the Host issues this command when advertising is enabled for the specified\n advertising set, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n If the Host issues this command when periodic advertising is enabled for the\n specified advertising set and connectable, scannable, legacy, or anonymous\n advertising is specified, the Controller shall return the error code Invalid HCI\n Command Parameters (0x12).\n\n If periodic advertising is enabled for the advertising set and the\n Secondary_Advertising_PHY parameter does not specify the PHY currently\n being used for the periodic advertising, the Controller shall return the error\n code Command Disallowed (0x0C).\n\n If the Advertising_Handle does not identify an existing advertising set and the\n Controller is unable to support a new advertising set at present, the Controller\n shall return the error code Memory Capacity Exceeded (0x07).\n\n If the advertising set already contains advertising data or scan response data,\n extended advertising is being used, and the length of the data is greater than\n the maximum that the Controller can transmit within the longest possible\n auxiliary advertising segment consistent with the parameters, the Controller\n shall return the error code Packet Too Long (0x45). If advertising on the LE\n Coded PHY, the S=8 coding shall be assumed.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Extended_Advertising_Parameters command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_ext_adv_params(
         p_params: *const sdc_hci_cmd_le_set_ext_adv_params_t,
         p_return: *mut sdc_hci_cmd_le_set_ext_adv_params_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Extended Advertising Data.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.54\n\n The HCI_LE_Set_Extended_Advertising_Data command is used to set the\n data used in advertising PDUs that have a data field. This command may be\n issued at any time after an advertising set identified by the Advertising_Handle\n parameter has been created using the HCI_LE_Set_Extended_Advertising_-\n Parameters command (see Section 7.8.53), regardless of whether advertising\n in that set is enabled or disabled.\n\n If advertising is currently enabled for the specified advertising set, the\n Controller shall use the new data in subsequent extended advertising events\n for this advertising set. If an extended advertising event is in progress when\n this command is issued, the Controller may use the old or new data for that\n event.\n\n If advertising is currently disabled for the specified advertising set, the data\n shall be kept by the Controller and used once advertising is enabled for that\n set. The data shall be discarded when the advertising set is removed.\n\n Only the significant part of the advertising data should be transmitted in the\n advertising packets as defined in [Vol 3] Part C, Section 11.\n\n The Host may set the advertising data in one or more operations using the\n Operation parameter in the command. If the combined length of the data\n exceeds the capacity of the advertising set identified by the Advertising_-\n Handle parameter (see Section 7.8.57 LE Read Maximum Advertising Data\n Length command) or the amount of memory currently available, all the data\n shall be discarded and the Controller shall return the error code Memory\n Capacity Exceeded (0x07).\n\n If the advertising set uses extended advertising and the combined length of the\n data is greater than the maximum that the Controller can transmit within the\n longest possible auxiliary advertising segment consistent with the current\n parameters of the advertising set (using the current advertising interval if\n advertising is enabled), all the data shall be discarded and the Controller shall\n return the error code Packet Too Long (0x45). If advertising on the LE Coded\n PHY, the S=8 coding shall be assumed unless the current advertising\n parameters require the use of S=2 for an advertising physical channel, in which\n case the S=2 coding shall be assumed for that advertising physical channel.\n\n If Operation indicates the start of new data (values 0x01 or 0x03), then any\n existing partial or complete advertising data shall be discarded.\n\n If the advertising data is discarded by the command or the combined length of\n the data after the command completes is zero, the advertising set will have no\n advertising data.\n\n If Operation is 0x04, the behavior is the same as if the current advertising data\n had been sent again; this can be used to cause the Advertising DID value to be\n updated (see [Vol 6] Part B, Section 4.4.2.11).\n\n The Fragment_Preference parameter provides a hint to the Controller as to\n whether advertising data should be fragmented.\n\n If the advertising set specifies a type that does not support advertising data, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the advertising set uses legacy advertising PDUs that support advertising\n data and either Operation is not 0x03 or the Advertising_Data_Length\n parameter exceeds 31 octets, the Controller shall return the error code Invalid\n HCI Command Parameters (0x12).\n\n If Operation is 0x04 and:\n • advertising is currently disabled for the advertising set;\n • the advertising set contains no data;\n • the advertising set uses legacy PDUs; or\n • Advertising_Data_Length is not zero;\n\n then the Controller shall return the error code Invalid HCI Command\n Parameters (0x12).\n\n If Operation is not 0x03 or 0x04 and Advertising_Data_Length is zero, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n If advertising is currently enabled for the specified advertising set and\n Operation does not have the value 0x03 or 0x04, the Controller shall return the\n error code Command Disallowed (0x0C).\n\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, then the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Extended_Advertising_Data command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Extended Advertising Data.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.54\n\n The HCI_LE_Set_Extended_Advertising_Data command is used to set the\n data used in advertising PDUs that have a data field. This command may be\n issued at any time after an advertising set identified by the Advertising_Handle\n parameter has been created using the HCI_LE_Set_Extended_Advertising_-\n Parameters command (see Section 7.8.53), regardless of whether advertising\n in that set is enabled or disabled.\n\n If advertising is currently enabled for the specified advertising set, the\n Controller shall use the new data in subsequent extended advertising events\n for this advertising set. If an extended advertising event is in progress when\n this command is issued, the Controller may use the old or new data for that\n event.\n\n If advertising is currently disabled for the specified advertising set, the data\n shall be kept by the Controller and used once advertising is enabled for that\n set. The data shall be discarded when the advertising set is removed.\n\n Only the significant part of the advertising data should be transmitted in the\n advertising packets as defined in [Vol 3] Part C, Section 11.\n\n The Host may set the advertising data in one or more operations using the\n Operation parameter in the command. If the combined length of the data\n exceeds the capacity of the advertising set identified by the Advertising_-\n Handle parameter (see Section 7.8.57 LE Read Maximum Advertising Data\n Length command) or the amount of memory currently available, all the data\n shall be discarded and the Controller shall return the error code Memory\n Capacity Exceeded (0x07).\n\n If the advertising set uses extended advertising and the combined length of the\n data is greater than the maximum that the Controller can transmit within the\n longest possible auxiliary advertising segment consistent with the current\n parameters of the advertising set (using the current advertising interval if\n advertising is enabled), all the data shall be discarded and the Controller shall\n return the error code Packet Too Long (0x45). If advertising on the LE Coded\n PHY, the S=8 coding shall be assumed.\n If Operation indicates the start of new data (values 0x01 or 0x03), then any\n existing partial or complete advertising data shall be discarded.\n\n If the advertising data is discarded by the command or the combined length of\n the data after the command completes is zero, the advertising set will have no\n advertising data.\n\n If Operation is 0x04, the behavior is the same as if the current advertising data\n had been sent again; this can be used to cause the Advertising DID value to be\n updated (see [Vol 6] Part B, Section 4.4.2.11).\n\n The Fragment_Preference parameter provides a hint to the Controller as to\n whether advertising data should be fragmented.\n\n If the advertising set specifies a type that does not support advertising data, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the advertising set uses legacy advertising PDUs that support advertising\n data and either Operation is not 0x03 or the Advertising_Data_Length\n parameter exceeds 31 octets, the Controller shall return the error code Invalid\n HCI Command Parameters (0x12).\n\n If Operation is 0x04 and:\n • advertising is currently disabled for the advertising set;\n • the advertising set contains no data;\n • the advertising set uses legacy PDUs; or\n • Advertising_Data_Length is not zero;\n\n then the Controller shall return the error code Invalid HCI Command\n Parameters (0x12).\n\n If Operation is not 0x03 or 0x04 and Advertising_Data_Length is zero, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n If advertising is currently enabled for the specified advertising set and\n Operation does not have the value 0x03 or 0x04, the Controller shall return the\n error code Command Disallowed (0x0C).\n\n If advertising is currently enabled for the specified advertising set, the\n advertising set uses extended advertising, and the length of the data is greater\n than the maximum that the Controller can transmit within the longest possible\n auxiliary advertising segment consistent with the current parameters of the\n advertising set, the Controller shall return the error code Packet Too Long\n (0x45). If advertising on the LE Coded PHY, the S=8 coding shall be assumed.\n\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, then the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Extended_Advertising_Data command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_ext_adv_data(p_params: *const sdc_hci_cmd_le_set_ext_adv_data_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Extended Scan Response Data.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.55\n\n The HCI_LE_Set_Extended_Scan_Response_Data command is used to\n provide scan response data used in scanning response PDUs. This command\n may be issued at any time after the advertising set identified by the\n Advertising_Handle parameter has been created using the HCI_LE_Set_-\n Extended_Advertising_Parameters command (see Section 7.8.53) regardless\n of whether advertising in that set is enabled or disabled.\n\n If advertising is currently enabled for the specified advertising set, the\n Controller shall use the new data in subsequent extended advertising events\n for this advertising set. If an extended advertising event is in progress when\n this command is issued, the Controller may use the old or new data for that\n event.\n\n If advertising is currently disabled for the specified advertising set, the data\n shall be kept by the Controller and used once advertising is enabled for that\n set. The data shall be discarded when the advertising set is removed.\n\n Only the significant part of the scan response data should be transmitted in the\n advertising packets as defined in [Vol 3] Part C, Section 11.\n\n The Host may set the scan response data in one or more operations using the\n Operation parameter in the command. If the combined length of the data\n exceeds the capacity of the advertising set identified by the\n Advertising_Handle parameter (see Section 7.8.57 LE Read Maximum\n Advertising Data Length command) or the amount of memory currently\n available, all the data shall be discarded and the Controller shall return the\n error code Memory Capacity Exceeded (0x07).\n\n If Operation indicates the start of new data (values 0x01 or 0x03), then any\n existing partial or complete scan response data shall be discarded.\n\n If the scan response data is discarded by the command or the combined length\n of the data after the command completes is zero, the advertising set will have\n no scan response data.\n The Fragment_Preference parameter provides a hint to the Controller as to\n whether advertising data should be fragmented.\n If the advertising set is non-scannable and the Host uses this command other\n than to discard existing data, the Controller shall return the error code Invalid\n HCI Command Parameters (0x12). If the advertising set uses scannable leg-\n acy advertising PDUs and either Operation is not 0x03 or the Scan_-\n Response_Data_Length parameter exceeds 31 octets, the Controller shall\n return the error code Invalid HCI Command Parameters (0x12).\n\n If Operation is not 0x03 and Scan_Response_Data_Length is zero, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n If advertising is currently enabled for the specified advertising set and\n Operation does not have the value 0x03, the Controller shall return the error\n code Command Disallowed (0x0C).\n\n If the advertising set uses extended advertising and the combined length of the\n data is greater than the maximum that the Controller can transmit within the\n longest possible auxiliary advertising segment consistent with the current\n parameters of the advertising set (using the current advertising interval if\n advertising is enabled), all the data shall be discarded and the Controller shall\n return the error code Packet Too Long (0x45). If advertising on the LE Coded\n PHY, the S=8 coding shall be assumed unless the current advertising\n parameters require the use of S=2 for an advertising physical channel, in which\n case the S=2 coding shall be assumed for that advertising physical channel.\n\n If the advertising set uses scannable extended advertising PDUs, advertising is\n currently enabled for the specified advertising set, and Scan_Response_-\n Data_Length is zero, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, then the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Extended_Scan_Response_Data command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Extended Scan Response Data.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.55\n\n The HCI_LE_Set_Extended_Scan_Response_Data command is used to\n provide scan response data used in scanning response PDUs. This command\n may be issued at any time after the advertising set identified by the Advertis-\n ing_Handle parameter has been created using the HCI_LE_Set_Extended_-\n Advertising_Parameters command (see Section 7.8.53) regardless of whether\n advertising in that set is enabled or disabled.\n\n If advertising is currently enabled for the specified advertising set, the\n Controller shall use the new data in subsequent extended advertising events\n for this advertising set. If an extended advertising event is in progress when\n this command is issued, the Controller may use the old or new data for that\n event.\n\n If advertising is currently disabled for the specified advertising set, the data\n shall be kept by the Controller and used once advertising is enabled for that\n set. The data shall be discarded when the advertising set is removed.\n\n Only the significant part of the scan response data should be transmitted in the\n advertising packets as defined in [Vol 3] Part C, Section 11.\n\n The Host may set the scan response data in one or more operations using the\n Operation parameter in the command. If the combined length of the data\n exceeds the capacity of the advertising set identified by the\n Advertising_Handle parameter (see Section 7.8.57 LE Read Maximum\n Advertising Data Length command) or the amount of memory currently\n available, all the data shall be discarded and the Controller shall return the\n error code Memory Capacity Exceeded (0x07).\n\n If Operation indicates the start of new data (values 0x01 or 0x03), then any\n existing partial or complete scan response data shall be discarded.\n\n If the scan response data is discarded by the command or the combined length\n of the data after the command completes is zero, the advertising set will have\n no scan response data.\n The Fragment_Preference parameter provides a hint to the Controller as to\n whether advertising data should be fragmented.\n\n If the advertising set is non-scannable and the Host uses this command other\n than to discard existing data, the Controller shall return the error code Invalid\n HCI Command Parameters (0x12). If the advertising set uses scannable leg-\n acy advertising PDUs and either Operation is not 0x03 or the Scan_-\n Response_Data_Length parameter exceeds 31 octets, the Controller shall\n return the error code Invalid HCI Command Parameters (0x12).\n\n If Operation is not 0x03 and Scan_Response_Data_Length is zero, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n If advertising is currently enabled for the specified advertising set and\n Operation does not have the value 0x03, the Controller shall return the error\n code Command Disallowed (0x0C).\n\n If the advertising set uses extended advertising and the combined length of the\n data is greater than the maximum that the Controller can transmit within the\n longest possible auxiliary advertising segment consistent with the current\n parameters of the advertising set (using the current advertising interval if\n advertising is enabled), all the data shall be discarded and the Controller shall\n return the error code Packet Too Long (0x45). If advertising on the LE Coded\n PHY, the S=8 coding shall be assumed.\n\n If the advertising set uses scannable extended advertising PDUs, advertising is\n currently enabled for the specified advertising set, and Scan_Response_-\n Data_Length is zero, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, then the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Extended_Scan_Response_Data command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_ext_scan_response_data(
         p_params: *const sdc_hci_cmd_le_set_ext_scan_response_data_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Extended Advertising Enable.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.56\n\n The HCI_LE_Set_Extended_Advertising_Enable command is used to request\n the Controller to enable or disable one or more advertising sets using the\n advertising sets identified by the Advertising_Handle[i] parameter. The Control-\n ler manages the timing of advertisements in accordance with the advertising\n parameters given in the HCI_LE_Set_Extended_Advertising_Parameters\n command. The Num_Sets parameter is the number of advertising sets\n contained in the parameter arrays. If Enable and Num_Sets are both set to\n 0x00, then all advertising sets are disabled.\n\n The Controller shall only start an advertising event when the corresponding\n advertising set is enabled. The Controller shall continue advertising until all\n advertising sets have been disabled. An advertising set shall be disabled when\n the Host issues an HCI_LE_Set_Extended_Advertising_Enable command with\n the Enable parameter set to 0x00 (Advertising is disabled), a connection is cre-\n ated using that advertising set, the duration specified in the Duration[i] parame-\n ter expires, or the number of extended advertising events transmitted for the\n set exceeds the Max_Extended_Advertising_Events[i] parameter.\n\n The Duration[i] parameter indicates the duration for which that advertising set\n is enabled. The duration begins at the start of the first advertising event of this\n advertising set. The Controller should not start an extended advertising event\n that it cannot complete within the duration.\n\n If the advertising is high duty cycle connectable directed advertising, then\n Duration[i] shall be less than or equal to 1.28 seconds and shall not be equal to 0.\n\n The Max_Extended_Advertising_Events[i] parameter, if non-zero, indicates the\n maximum number of extended advertising events that shall be sent prior to\n disabling the extended advertising set even if the Duration[i] parameter has not\n expired.\n\n Duration[i] and Max_Extended_Advertising_Events[i] shall be ignored when\n Enable is set to 0x00.\n\n If the HCI_LE_Set_Extended_Advertising_Enable command is sent again for\n an advertising set while that set is enabled, the timer used for the duration and\n the number of events counter are reset and any change to the random address\n shall take effect.\n\n Disabling the advertising set identified by the Advertising_Handle[i] parameter\n does not disable any periodic advertising associated with that set.\n\n Disabling an advertising set that is already disabled has no effect.\n\n If the same advertising set is identified by more than one entry in the\n Advertising_Handle[i] arrayed parameter, then the Controller shall return the\n error code Invalid HCI Command Parameters (0x12).\n\n If the advertising set corresponding to the Advertising_Handle[i] parameter\n does not exist, then the Controller shall return the error code Unknown\n Advertising Identifier (0x42).\n\n The remainder of this section only applies if Enable is set to 0x01.\n\n If Num_Sets is set to 0x00, the Controller shall return the error code Invalid HCI\n Command Parameters (0x12).\n\n If the advertising set contains partial advertising data or partial scan response\n data, the Controller shall return the error code Command Disallowed (0x0C).\n\n If the advertising set uses scannable extended advertising PDUs and no scan\n response data is currently provided, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n If the advertising set uses connectable extended advertising PDUs and the\n advertising data in the advertising set will not fit in the AUX_ADV_IND PDU,\n the Controller shall return the error code Invalid HCI Command Parameters\n (0x12).\n\n Note: The maximum amount of data that will fit in the PDU depends on which\n options are selected and on the maximum length of PDU that the Controller is\n able to transmit.\n\n If extended advertising is being used and the length of any advertising data or\n of any scan response data is greater than the maximum that the Controller can\n transmit within the longest possible auxiliary advertising segment consistent\n with the chosen advertising interval, the Controller shall return the error code\n Packet Too Long (0x45). If advertising on the LE Coded PHY, the S=8 coding\n shall be assumed unless the current advertising parameters require the use of\n S=2 for an advertising physical channel, in which case the S=2 coding shall be\n assumed for that advertising physical channel.\n\n If the advertising set's Own_Address_Type parameter is set to 0x00 and the\n device does not have a public address, the Controller should return an error\n code which should be Invalid HCI Command Parameters (0x12).\n If the advertising set's Own_Address_Type parameter is set to 0x01 and the\n random address for the advertising set has not been initialized using the\n HCI_LE_Set_Advertising_Set_Random_Address command, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the advertising set's Own_Address_Type parameter is set to 0x02, the\n Controller's resolving list did not contain a matching entry, and the device does\n not have a public address, the Controller should return an error code which\n should be Invalid HCI Command Parameters (0x12).\n\n If the advertising set's Own_Address_Type parameter is set to 0x03, the\n Controller's resolving list did not contain a matching entry, and the random\n address for the advertising set has not been initialized using the\n HCI_LE_Set_Advertising_Set_Random_Address command, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Extended_Advertising_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n If the Duration[i] parameter is set to a value other than 0x0000, an HCI_LE_-\n Advertising_Set_Terminated event shall be generated when the duration spec-\n ified in the Duration[i] parameter expires. However, if the advertising set is for\n high duty cycle connectable directed advertising and no connection is created\n before the duration expires, an HCI_LE_Connection_Complete or HCI_LE_-\n Enhanced_Connection_Complete event with the Status parameter set to the\n error code Advertising Timeout (0x3C) may be generated instead of or in addi-\n tion to the HCI_LE_Advertising_Set_Terminated event. If the Controller gener-\n ates both events, they may be in either order.\n\n If the Max_Extended_Advertising_Events[i] parameter is set to a value other\n than 0x00, an HCI_LE_Advertising_Set_Terminated event shall be generated\n when the maximum number of extended advertising events has been\n transmitted by the Controller.\n If the advertising set is connectable and a connection gets created, an\n HCI_LE_Connection_Complete or HCI_LE_Enhanced_Connection_Complete\n event shall be generated followed by an HCI_LE_Advertising_Set_Terminated\n event with the Status parameter set to 0x00. The Controller should not send\n any other events in between these two events. If the Controller supports the LE\n Channel Selection Algorithm #2 feature, then the HCI_LE_Advertising_Set_-\n Terminated event may be immediately preceded or followed by an HCI_LE_-\n Channel_Selection_Algorithm event.\n\n Note: If this command is used to disable advertising at about the same time\n that a connection is established or the advertising duration expires, there is a\n possible race condition in that it is possible to receive both an HCI_LE_-\n Connection_Complete, HCI_LE_Enhanced_Connection_Complete, or\n HCI_LE_Advertising_Set_Terminated event and the HCI_Command_-\n Complete event for this command.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Extended Advertising Enable.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.56\n\n The HCI_LE_Set_Extended_Advertising_Enable command is used to request\n the Controller to enable or disable one or more advertising sets using the\n advertising sets identified by the Advertising_Handle[i] parameter. The Control-\n ler manages the timing of advertisements in accordance with the advertising\n parameters given in the HCI_LE_Set_Extended_Advertising_Parameters\n command. The Num_Sets parameter is the number of advertising sets\n contained in the parameter arrays. If Enable and Num_Sets are both set to\n 0x00, then all advertising sets are disabled.\n\n The Controller shall only start an advertising event when the corresponding\n advertising set is enabled. The Controller shall continue advertising until all\n advertising sets have been disabled. An advertising set shall be disabled when\n the Host issues an HCI_LE_Set_Extended_Advertising_Enable command with\n the Enable parameter set to 0x00 (Advertising is disabled), a connection is cre-\n ated using that advertising set, the duration specified in the Duration[i] parame-\n ter expires, or the number of extended advertising events transmitted for the\n set exceeds the Max_Extended_Advertising_Events[i] parameter.\n\n The Duration[i] parameter indicates the duration for which that advertising set\n is enabled. The duration begins at the start of the first advertising event of this\n advertising set. The Controller should not start an extended advertising event\n that it cannot complete within the duration.\n\n If the advertising is high duty cycle connectable directed advertising, then\n Duration[i] shall be less than or equal to 1.28 seconds and shall not be equal to 0.\n\n The Max_Extended_Advertising_Events[i] parameter, if non-zero, indicates the\n maximum number of extended advertising events that shall be sent prior to\n disabling the extended advertising set even if the Duration[i] parameter has not\n expired.\n\n Duration[i] and Max_Extended_Advertising_Events[i] shall be ignored when\n Enable is set to 0x00.\n\n If the HCI_LE_Set_Extended_Advertising_Enable command is sent again for\n an advertising set while that set is enabled, the timer used for the duration and\n the number of events counter are reset and any change to the random address\n shall take effect.\n\n Disabling the advertising set identified by the Advertising_Handle[i] parameter\n does not disable any periodic advertising associated with that set.\n\n Disabling an advertising set that is already disabled has no effect.\n\n If the same advertising set is identified by more than one entry in the\n Advertising_Handle[i] arrayed parameter, then the Controller shall return the\n error code Invalid HCI Command Parameters (0x12).\n\n If the advertising set corresponding to the Advertising_Handle[i] parameter\n does not exist, then the Controller shall return the error code Unknown\n Advertising Identifier (0x42).\n\n The remainder of this section only applies if Enable is set to 0x01.\n\n If Num_Sets is set to 0x00, the Controller shall return the error code Invalid HCI\n Command Parameters (0x12).\n\n If the advertising set contains partial advertising data or partial scan response\n data, the Controller shall return the error code Command Disallowed (0x0C).\n\n If the advertising set uses scannable extended advertising PDUs and no scan\n response data is currently provided, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n If the advertising set uses connectable extended advertising PDUs and the\n advertising data in the advertising set will not fit in the AUX_ADV_IND PDU,\n the Controller shall return the error code Invalid HCI Command Parameters\n (0x12).\n\n Note: The maximum amount of data that will fit in the PDU depends on which\n options are selected and on the maximum length of PDU that the Controller is\n able to transmit.\n\n If extended advertising is being used and the length of any advertising data or\n of any scan response data is greater than the maximum that the Controller can\n transmit within the longest possible auxiliary advertising segment consistent\n with the chosen advertising interval, the Controller shall return the error code\n Packet Too Long (0x45). If advertising on the LE Coded PHY, the S=8 coding\n shall be assumed.\n\n If the advertising set's Own_Address_Type parameter is set to 0x00 and the\n device does not have a public address, the Controller should return an error\n code which should be Invalid HCI Command Parameters (0x12).\n\n If the advertising set's Own_Address_Type parameter is set to 0x01 and the\n random address for the advertising set has not been initialized using the\n HCI_LE_Set_Advertising_Set_Random_Address command, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the advertising set's Own_Address_Type parameter is set to 0x02, the\n Controller's resolving list did not contain a matching entry, and the device does\n not have a public address, the Controller should return an error code which\n should be Invalid HCI Command Parameters (0x12).\n\n If the advertising set's Own_Address_Type parameter is set to 0x03, the\n controller's resolving list did not contain a matching entry, and the random\n address for the advertising set has not been initialized using the\n HCI_LE_Set_Advertising_Set_Random_Address command, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Extended_Advertising_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n If the Duration[i] parameter is set to a value other than 0x0000, an HCI_LE_-\n Advertising_Set_Terminated event shall be generated when the duration spec-\n ified in the Duration[i] parameter expires. However, if the advertising set is for\n high duty cycle connectable directed advertising and no connection is created\n before the duration expires, an HCI_LE_Connection_Complete or HCI_LE_-\n Enhanced_Connection_Complete event with the Status parameter set to the\n error code Advertising Timeout (0x3C) may be generated instead of or in addi-\n tion to the HCI_LE_Advertising_Set_Terminated event. If the Controller gener-\n ates both events, they may be in either order.\n\n If the Max_Extended_Advertising_Events[i] parameter is set to a value other\n than 0x00, an HCI_LE_Advertising_Set_Terminated event shall be generated\n when the maximum number of extended advertising events has been\n transmitted by the Controller.\n\n If the advertising set is connectable and a connection gets created, an\n HCI_LE_Connection_Complete or HCI_LE_Enhanced_Connection_Complete\n event shall be generated followed by an HCI_LE_Advertising_Set_Terminated\n event with the Status parameter set to 0x00. The Controller should not send\n any other events in between these two events.\n\n Note: If this command is used to disable advertising at about the same time\n that a connection is established or the advertising duration expires, there is a\n possible race condition in that it is possible to receive both an HCI_LE_-\n Connection_Complete, HCI_LE_Enhanced_Connection_Complete, or\n HCI_LE_Advertising_Set_Terminated event and the HCI_Command_-\n Complete event for this command.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_ext_adv_enable(p_params: *const sdc_hci_cmd_le_set_ext_adv_enable_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Maximum Advertising Data Length.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.57\n\n The HCI_LE_Read_Maximum_Advertising_Data_Length command is used to\n read the maximum length of data supported by the Controller for use as\n advertisement data or scan response data in an advertising event or as\n periodic advertisement data.\n\n Note: The maximum amount may be fragmented across multiple PDUs (see\n [Vol 6] Part B, Section 2.3.4.9).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Maximum_Advertising_Data_Length command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Maximum Advertising Data Length.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.57\n\n The HCI_LE_Read_Maximum_Advertising_Data_Length command is used to\n read the maximum length of data supported by the Controller for use as\n advertisement data or scan response data in an advertising event or as\n periodic advertisement data.\n\n Note: The maximum amount may be fragmented across multiple PDUs (see\n [Vol 6] Part B, Section 2.3.4.9).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Maximum_Advertising_Data_Length command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_max_adv_data_length(
         p_return: *mut sdc_hci_cmd_le_read_max_adv_data_length_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Number of Supported Advertising Sets.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.58\n\n The HCI_LE_Read_Number_of_Supported_Advertising_Sets command is\n used to read the maximum number of advertising sets supported by the\n advertising Controller at the same time.\n\n Note: The number of advertising sets that can be supported is not fixed and the\n Controller can change it at any time because the memory used to store\n advertising sets can also be used for other purposes.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Number_of_Supported_Advertising_Sets command\n has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Number of Supported Advertising Sets.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.58\n\n The HCI_LE_Read_Number_of_Supported_Advertising_Sets command is\n used to read the maximum number of advertising sets supported by the\n advertising Controller at the same time.\n\n Note: The number of advertising sets that can be supported is not fixed and the\n Controller can change it at any time because the memory used to store\n advertising sets can also be used for other purposes.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Number_of_Supported_Advertising_Sets command\n has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_number_of_supported_adv_sets(
         p_return: *mut sdc_hci_cmd_le_read_number_of_supported_adv_sets_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Remove Advertising Set.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.59\n\n The HCI_LE_Remove_Advertising_Set command is used to remove an\n advertising set from the Controller.\n\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, then the Controller shall return the error code Unknown Advertising\n Identifier (0x42). If advertising or periodic advertising on the advertising set is\n enabled, then the Controller shall return the error code Command Disallowed\n (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Remove_Advertising_Set command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Remove Advertising Set.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.59\n\n The HCI_LE_Remove_Advertising_Set command is used to remove an\n advertising set from the Controller.\n\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, then the Controller shall return the error code Unknown Advertising\n Identifier (0x42). If advertising or periodic advertising on the advertising set is\n enabled, then the Controller shall return the error code Command Disallowed\n (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Remove_Advertising_Set command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_remove_adv_set(p_params: *const sdc_hci_cmd_le_remove_adv_set_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Clear Advertising Sets.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.60\n\n The HCI_LE_Clear_Advertising_Sets command is used to remove all existing\n advertising sets from the Controller.\n\n If advertising or periodic advertising is enabled on any advertising set, then the\n Controller shall return the error code Command Disallowed (0x0C).\n\n Note: All advertising sets are cleared on HCI reset.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Clear_Advertising_Sets command has completed, an\n HCI_Command_Complete event shall be generated.\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Clear Advertising Sets.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.60\n\n The HCI_LE_Clear_Advertising_Sets command is used to remove all existing\n advertising sets from the Controller.\n\n If advertising or periodic advertising is enabled on any advertising set, then the\n Controller shall return the error code Command Disallowed (0x0C).\n\n Note: All advertising sets are cleared on HCI reset.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Clear_Advertising_Sets command has completed, an\n HCI_Command_Complete event shall be generated.\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_clear_adv_sets() -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Periodic Advertising Parameters [v1].\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.61\n\n The HCI_LE_Set_Periodic_Advertising_Parameters command is used by the\n Host to set the parameters for periodic advertising.\n\n The Advertising_Handle parameter identifies the advertising set whose\n periodic advertising parameters are being configured. If the corresponding\n advertising set does not already exist, then the Controller shall return the error\n code Unknown Advertising Identifier (0x42).\n\n The Periodic_Advertising_Interval_Min parameter shall be less than or equal to\n the Periodic_Advertising_Interval_Max parameter. The Periodic_Advertising_-\n Interval_Min and Periodic_Advertising_Interval_Max parameters should not be\n the same value to enable the Controller to determine the best advertising\n interval given other activities.\n\n If the periodic advertising interval range provided by the Host\n (Periodic_Advertising_Interval_Min, Periodic_Advertising_Interval_Max) does\n not overlap with the periodic advertising interval range supported by the\n Controller, then the Controller shall return an error which should use the error\n code Unsupported Feature or Parameter Value (0x11).\n\n The Periodic_Advertising_Properties parameter indicates which fields should\n be included in the advertising packet.\n\n The Num_Subevents parameter identifies the number of subevents that shall\n be transmitted for each periodic advertising event. If the Num_Subevents\n parameter value is 0x00, then the Subevent_Interval, Response_Slot_Delay,\n Response_Slot_Spacing, and Num_Response_Slots parameters shall be\n ignored.\n\n The Subevent_Interval parameter identifies the time between the subevents of\n PAwR. The Subevent_Interval shall be less than or equal to the\n Periodic_Advertising_Interval_Min divided by the Num_Subevents of the\n advertising set.\n\n The Response_Slot_Delay parameter identifies the time between the start of\n the advertising packet at the start of a subevent and the start of the first\n response slot. The Response_Slot_Delay shall be less than the\n Subevent_Interval.\n\n The Response_Slot_Spacing parameter identifies the time between the start of\n two consecutive response slots. The Response_Slot_Spacing shall be less\n than or equal to 10 × (Subevent_Interval - Response_Slot_Delay) /\n Num_Response_Slots. If the Num_Response_Slots parameter is set to 1, then\n the Controller shall ignore the Response_Slot_Spacing parameter.\n\n The Num_Response_Slots parameter identifies the number of response slots\n in a subevent. If the Num_Response_Slots parameter value is 0x00, then the\n Response_Slot_Delay and Response_Slot_Spacing parameters shall be\n ignored.\n\n If the advertising set identified by the Advertising_Handle specified scannable,\n connectable, legacy, or anonymous advertising, the Controller shall return the\n error code Invalid HCI Command Parameters (0x12).\n\n If the Host issues this command when periodic advertising is enabled for the\n specified advertising set, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n If the Advertising_Handle does not identify an advertising set that is already\n configured for periodic advertising and the Controller is unable to support more\n periodic advertising at present, the Controller shall return the error code\n Memory Capacity Exceeded (0x07).\n\n If the advertising set already contains periodic advertising data and the length\n of the data is greater than the maximum that the Controller can transmit within\n a periodic advertising interval of Periodic_Advertising_Interval_Max, the\n Controller shall return the error code Packet Too Long (0x45). If advertising on\n the LE Coded PHY, the S=8 coding shall be assumed unless the current\n advertising parameters require the use of S=2 for an advertising physical\n channel, in which case the S=2 coding shall be assumed for that advertising\n physical channel.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Advertising_Parameters command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Periodic Advertising Parameters.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.61\n\n The HCI_LE_Set_Periodic_Advertising_Parameters command is used by the\n Host to set the parameters for periodic advertising.\n\n The Advertising_Handle parameter identifies the advertising set whose\n periodic advertising parameters are being configured. If the corresponding\n advertising set does not already exist, then the Controller shall return the error\n code Unknown Advertising Identifier (0x42).\n\n The Periodic_Advertising_Interval_Min parameter shall be less than or equal to\n the Periodic_Advertising_Interval_Max parameter. The Periodic_Advertising_-\n Interval_Min and Periodic_Advertising_Interval_Max parameters should not be\n the same value to enable the Controller to determine the best advertising\n interval given other activities.\n\n The Periodic_Advertising_Properties parameter indicates which fields should\n be included in the advertising packet.\n\n If the advertising set identified by the Advertising_Handle specified scannable,\n connectable, legacy, or anonymous advertising, the Controller shall return the\n error code Invalid HCI Command Parameters (0x12).\n\n If the Host issues this command when periodic advertising is enabled for the\n specified advertising set, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n If the Advertising_Handle does not identify an advertising set that is already\n configured for periodic advertising and the Controller is unable to support more\n periodic advertising at present, the Controller shall return the error code\n Memory Capacity Exceeded (0x07).\n\n If the advertising set already contains periodic advertising data and the length\n of the data is greater than the maximum that the Controller can transmit within\n a periodic advertising interval of Periodic_Advertising_Interval_Max, the\n Controller shall return the error code Packet Too Long (0x45). If advertising on\n the LE Coded PHY, the S=8 coding shall be assumed.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Advertising_Parameters command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_periodic_adv_params(p_params: *const sdc_hci_cmd_le_set_periodic_adv_params_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Periodic Advertising Data.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.62\n\n The HCI_LE_Set_Periodic_Advertising_Data command is used to set the data\n used in periodic advertising PDUs. This command may be issued at any time\n after the advertising set identified by the Advertising_Handle parameter has\n been configured for periodic advertising using the HCI_LE_Set_Periodic_-\n Advertising_Parameters command (see Section 7.8.61), regardless of whether\n periodic advertising in that set is enabled or disabled. If the advertising set has\n not been configured for periodic advertising, then the Controller shall return the\n error code Command Disallowed (0x0C).\n\n If periodic advertising is currently enabled for the specified advertising set, the\n Controller shall use the new data in subsequent periodic advertising events for\n this advertising set. If a periodic advertising event is in progress when this\n command is issued, the Controller may use the old or new data for that event.\n\n If periodic advertising is currently disabled for the specified advertising set, the\n data shall be kept by the Controller and used once periodic advertising is\n enabled for that set. The data shall be discarded when the advertising set is\n removed.\n\n Only the significant part of the periodic advertising data should be transmitted\n in the advertising packets as defined in [Vol 3] Part C, Section 11.\n\n The Host may set the periodic advertising data in one or more operations using\n the Operation parameter in the command. If the combined length of the data\n exceeds the capacity of the advertising set identified by the Advertising_-\n Handle parameter (see Section 7.8.57 LE Read Maximum Advertising Data\n Length command) or the amount of memory currently available, all the data\n shall be discarded and the Controller shall return the error code Memory\n Capacity Exceeded (0x07).\n\n If the combined length of the data is greater than the maximum that the Con-\n troller can transmit within the current periodic advertising interval (if periodic\n advertising is currently enabled) or the Periodic_Advertising_Interval_Max for\n the advertising set (if currently disabled), all the data shall be discarded and the\n Controller shall return the error code Packet Too Long (0x45). If advertising on\n the LE Coded PHY, the S=8 coding shall be assumed unless the current adver-\n tising parameters require the use of S=2 for an advertising physical channel, in\n which case the S=2 coding shall be assumed for that advertising physical\n channel.\n\n If Operation indicates the start of new data (values 0x01 or 0x03), then any\n existing partial or complete data shall be discarded.\n\n If Operation is 0x04, then the behavior is the same as if the current periodic\n advertising data had been sent again; this can be used to cause the\n Advertising DID value to be updated (see [Vol 6] Part B, Section 4.4.2.11).\n\n If Operation is 0x04 and:\n • periodic advertising is currently disabled for the advertising set;\n • the periodic advertising set contains no data; or\n • Advertising_Data_Length is not zero;\n\n then the Controller shall return the error code Invalid HCI Command\n Parameters (0x12).\n\n If Operation is not 0x03 or 0x04 and Advertising_Data_Length is zero, then the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the periodic advertising data is discarded by the command or the combined\n length of the data after the command completes is zero, the advertising set will\n have no periodic advertising data.\n\n If periodic advertising is currently enabled for the specified advertising set and\n Operation does not have the value 0x03 or 0x04, then the Controller shall\n return the error code Command Disallowed (0x0C).\n\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, then the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Advertising_Data command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Periodic Advertising Data.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.62\n\n The HCI_LE_Set_Periodic_Advertising_Data command is used to set the data\n used in periodic advertising PDUs. This command may be issued at any time\n after the advertising set identified by the Advertising_Handle parameter has\n been configured for periodic advertising using the HCI_LE_Set_Periodic_-\n Advertising_Parameters command (see Section 7.8.61), regardless of whether\n periodic advertising in that set is enabled or disabled. If the advertising set has\n not been configured for periodic advertising, then the Controller shall return the\n error code Command Disallowed (0x0C).\n\n If periodic advertising is currently enabled for the specified advertising set, the\n Controller shall use the new data in subsequent periodic advertising events for\n this advertising set. If a periodic advertising event is in progress when this\n command is issued, the Controller may use the old or new data for that event.\n\n If periodic advertising is currently disabled for the specified advertising set, the\n data shall be kept by the Controller and used once periodic advertising is\n enabled for that set. The data shall be discarded when the advertising set is\n removed.\n\n Only the significant part of the periodic advertising data should be transmitted\n in the advertising packets as defined in [Vol 3] Part C, Section 11.\n\n The Host may set the periodic advertising data in one or more operations using\n the Operation parameter in the command. If the combined length of the data\n exceeds the capacity of the advertising set identified by the Advertising_-\n Handle parameter (see Section 7.8.57 LE Read Maximum Advertising Data\n Length command) or the amount of memory currently available, all the data\n shall be discarded and the Controller shall return the error code Memory\n Capacity Exceeded (0x07).\n\n If the combined length of the data is greater than the maximum that the Con-\n troller can transmit within the current periodic advertising interval (if periodic\n advertising is currently enabled) or the Periodic_Advertising_Interval_Max for\n the advertising set (if currently disabled), all the data shall be discarded and the\n Controller shall return the error code Packet Too Long (0x45). If advertising on\n the LE Coded PHY, the S=8 coding shall be assumed.\n If Operation indicates the start of new data (values 0x01 or 0x03), then any\n existing partial or complete data shall be discarded.\n\n If Operation is 0x04, then the behavior is the same as if the current periodic\n advertising data had been sent again; this can be used to cause the\n Advertising DID value to be updated (see [Vol 6] Part B, Section 4.4.2.11).\n\n If Operation is 0x04 and:\n • periodic advertising is currently disabled for the advertising set;\n • the periodic advertising set contains no data; or\n • Advertising_Data_Length is not zero;\n\n then the Controller shall return the error code Invalid HCI Command\n Parameters (0x12).\n\n If Operation is not 0x03 or 0x04 and Advertising_Data_Length is zero, then the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the periodic advertising data is discarded by the command or the combined\n length of the data after the command completes is zero, the advertising set will\n have no periodic advertising data.\n\n If periodic advertising is currently enabled for the specified advertising set and\n Operation does not have the value 0x03 or 0x04, then the Controller shall\n return the error code Command Disallowed (0x0C).\n\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, then the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Advertising_Data command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_periodic_adv_data(p_params: *const sdc_hci_cmd_le_set_periodic_adv_data_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Periodic Advertising Enable.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.63\n\n The HCI_LE_Set_Periodic_Advertising_Enable command is used to request\n the Controller to enable or disable the periodic advertising for the advertising\n set specified by the Advertising_Handle parameter (ordinary advertising is not\n affected).\n\n If the advertising set is not currently enabled (see the HCI_LE_Set_Extended_-\n Advertising_Enable command), the periodic advertising is not started until the\n advertising set is enabled. Once the advertising set has been enabled, the\n Controller shall continue periodic advertising until the Host issues an HCI_LE_-\n Set_Periodic_Advertising_Enable command with bit 0 of Enable set to 0 (peri-\n odic advertising is disabled). Disabling the advertising set has no effect on the\n periodic advertising once the advertising set has been enabled.\n\n The Controller manages the timing of advertisements in accordance with the\n advertising parameters given in the HCI_LE_Set_Periodic_Advertising_-\n Parameters command.\n\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n If bit 0 of Enable is set to 1 (periodic advertising is enabled) and the advertising\n set contains partial periodic advertising data, the Controller shall return the\n error code Command Disallowed (0x0C).\n\n If bit 0 of Enable is set to 1 and the Host has not issued the HCI_LE_Set_-\n Periodic_Advertising_Parameters command for the advertising set, the Con-\n troller shall either use vendor-specified parameters or return the error code\n Command Disallowed (0x0C).\n\n If bit 0 of Enable is set to 1 and the length of the periodic advertising data is\n greater than the maximum that the Controller can transmit within the chosen\n periodic advertising interval, the Controller shall return the error code Packet\n Too Long (0x45). If advertising on the LE Coded PHY, the S=8 coding shall be\n assumed unless the current advertising parameters require the use of S=2 for\n an advertising physical channel, in which case the S=2 coding shall be\n assumed for that advertising physical channel.\n If bit 0 of Enable is set to 1 and the advertising set identified by the\n Advertising_Handle specified scannable, connectable, legacy, or anonymous\n advertising, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n If bit 0 of Enable is set to 0 and the Controller supports the Periodic Advertising\n ADI Support feature, then the Controller shall ignore bit 1.\n\n If bit 1 of Enable is set to 1 and the Controller does not support the Periodic\n Advertising ADI Support feature, the Controller shall return an error which\n should use the error code Unsupported Feature or Parameter Value (0x11).\n\n Enabling periodic advertising when it is already enabled can cause the random\n address to change. Disabling periodic advertising when it is already disabled\n has no effect.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Advertising_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Periodic Advertising Enable.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.63\n\n The HCI_LE_Set_Periodic_Advertising_Enable command is used to request\n the Controller to enable or disable the periodic advertising for the advertising\n set specified by the Advertising_Handle parameter (ordinary advertising is not\n affected).\n\n If the advertising set is not currently enabled (see the HCI_LE_Set_Extended_-\n Advertising_Enable command), the periodic advertising is not started until the\n advertising set is enabled. Once the advertising set has been enabled, the\n Controller shall continue periodic advertising until the Host issues an HCI_LE_-\n Set_Periodic_Advertising_Enable command with bit 0 of Enable set to 0 (peri-\n odic advertising is disabled). Disabling the advertising set has no effect on the\n periodic advertising once the advertising set has been enabled.\n\n The Controller manages the timing of advertisements in accordance with the\n advertising parameters given in the HCI_LE_Set_Periodic_Advertising_-\n Parameters command.\n\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n If bit 0 of Enable is set to 1 (periodic advertising is enabled) and the advertising\n set contains partial periodic advertising data, the Controller shall return the\n error code Command Disallowed (0x0C).\n\n If bit 0 of Enable is set to 1 and the Host has not issued the HCI_LE_Set_-\n Periodic_Advertising_Parameters command for the advertising set, the Con-\n troller shall either use vendor-specified parameters or return the error code\n Command Disallowed (0x0C).\n\n If bit 0 of Enable is set to 1 and the length of the periodic advertising data is\n greater than the maximum that the Controller can transmit within the chosen\n periodic advertising interval, the Controller shall return the error code Packet\n Too Long (0x45). If advertising on the LE Coded PHY, the S=8 coding shall be\n assumed.\n\n If bit 0 of Enable is set to 1 and the advertising set identified by the\n Advertising_Handle specified scannable, connectable, legacy, or anonymous\n advertising, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n If bit 0 of Enable is set to 0 and the Controller supports the Periodic Advertising\n ADI Support feature, then the Controller shall ignore bit 1.\n\n If bit 1 of Enable is set to 1 and the Controller does not support the Periodic\n Advertising ADI Support feature, the Controller shall return an error which\n should use the error code Unsupported Feature or Parameter Value (0x11).\n\n Enabling periodic advertising when it is already enabled can cause the random\n address to change. Disabling periodic advertising when it is already disabled\n has no effect.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Advertising_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_periodic_adv_enable(p_params: *const sdc_hci_cmd_le_set_periodic_adv_enable_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Extended Scan Parameters.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.64\n\n The HCI_LE_Set_Extended_Scan_Parameters command is used to set the\n extended scan parameters to be used on the advertising physical channels.\n\n The Scanning_PHYs parameter indicates the PHY(s) on which the advertising\n packets should be received on the primary advertising physical channel. The\n Host may enable one or more scanning PHYs. If the Host specifies a PHY that\n is not supported by the Controller, including a bit that is reserved for future use,\n it should return the error code Unsupported Feature or Parameter Value\n (0x11). The Scan_Type[i], Scan_Interval[i], and Scan_Window[i] parameters\n array elements are ordered in the same order as the set bits in the\n Scanning_PHY parameter, starting from bit 0. The number of array elements is\n determined by the number of bits set in the Scanning_PHY parameter.\n\n The Scan_Type[i] parameter specifies the type of scan to perform.\n\n The Scan_Interval[i] and Scan_Window[i] parameters are recommendations\n from the Host on how long (Scan_Window[i]) and how frequently\n (Scan_Interval[i]) the Controller should scan (see [Vol 6] Part B, Section 4.4.3);\n however the frequency and length of the scan is implementation specific. If the\n requested scan cannot be supported by the implementation, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n The Own_Address_Type parameter indicates the type of address being used\n in the scan request packets.\n\n If the Host issues this command when scanning is enabled in the Controller,\n the Controller shall return the error code Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Extended_Scan_Parameters command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Extended Scan Parameters.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.64\n\n The HCI_LE_Set_Extended_Scan_Parameters command is used to set the\n extended scan parameters to be used on the advertising physical channels.\n\n The Scanning_PHYs parameter indicates the PHY(s) on which the advertising\n packets should be received on the primary advertising physical channel. The\n Host may enable one or more scanning PHYs. If the Host specifies a PHY that\n is not supported by the Controller, including a bit that is reserved for future use,\n it should return the error code Unsupported Feature or Parameter Value\n (0x11). The Scan_Type[i], Scan_Interval[i], and Scan_Window[i] parameters\n array elements are ordered in the same order as the set bits in the\n Scanning_PHY parameter, starting from bit 0. The number of array elements is\n determined by the number of bits set in the Scanning_PHY parameter.\n\n The Scan_Type[i] parameter specifies the type of scan to perform.\n\n The Scan_Interval[i] and Scan_Window[i] parameters are recommendations\n from the Host on how long (Scan_Window[i]) and how frequently\n (Scan_Interval[i]) the Controller should scan (see [Vol 6] Part B, Section 4.4.3);\n however the frequency and length of the scan is implementation specific. If the\n requested scan cannot be supported by the implementation, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n The Own_Address_Type parameter indicates the type of address being used\n in the scan request packets.\n\n If the Host issues this command when scanning is enabled in the Controller,\n the Controller shall return the error code Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Extended_Scan_Parameters command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_ext_scan_params(p_params: *const sdc_hci_cmd_le_set_ext_scan_params_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Extended Scan Enable.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.65\n\n The HCI_LE_Set_Extended_Scan_Enable command is used to enable or\n disable scanning for both legacy and extended advertising PDUs.\n\n The Enable parameter determines whether scanning is enabled or disabled. If\n it is set to 0x00, the remaining parameters shall be ignored.\n\n If Enable is set to 0x01 and the Host has not issued the HCI_LE_Set_-\n Extended_Scan_Parameters command, the Controller shall either use vendor-\n specified parameters or return the error code Command Disallowed (0x0C).\n\n The Filter_Duplicates parameter controls whether the Link Layer should filter\n out duplicate advertising reports (filtering duplicates enabled) to the Host or if\n the Link Layer should generate advertising reports for each packet received\n (filtering duplicates disabled). See [Vol 6] Part B, Section 4.4.3.5.\n\n If the Filter_Duplicates parameter is set to 0x00, all advertisements received\n from advertisers shall be sent to the Host in advertising report events.\n\n If the Filter_Duplicates parameter is set to 0x01, duplicate advertisements\n should not be sent to the Host in advertising report events until scanning is\n disabled.\n\n If the Filter_Duplicates parameter is set to 0x02, duplicate advertisements in a\n single scan period should not be sent to the Host in advertising report events;\n this setting shall only be used if both Period and Duration are non-zero. If\n Filter_Duplicates is set to 0x02 and either Period or Duration to zero, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the Duration parameter is zero or both the Duration parameter and Period\n parameter are non-zero, the Controller shall continue scanning until scanning\n is disabled by the Host issuing an HCI_LE_Set_Extended_Scan_Enable\n command with the Enable parameter set to 0x00 (Scanning is disabled). The\n Period parameter shall be ignored when the Duration parameter is zero.\n\n If the Duration parameter is non-zero and the Period parameter is zero, the\n Controller shall continue scanning until the duration specified in the Duration\n parameter has expired.\n If both the Duration and Period parameters are non-zero and the Duration is\n greater than or equal to the Period, the Controller shall return the error code\n Invalid HCI Command Parameters (0x12).\n\n When the Duration and Period parameters are non-zero, the Controller shall\n scan for the duration of the Duration parameter within a scan period specified\n by the Period parameter. After the scan period has expired, a new scan period\n shall begin and scanning shall begin again for the duration specified. The scan\n periods continue until the Host disables scanning.\n\n If the HCI_LE_Set_Extended_Scan_Enable command with Enable set to 0x01\n is sent while scanning is already enabled, the timers used for duration and\n period are reset to the new parameter values and a new scan period is started.\n Any change to the Filter_Duplicates setting or the random address shall take\n effect.\n\n Disabling scanning when it is disabled has no effect.\n\n Note: The duration of a scan period refers to the time spent scanning on both\n the primary and secondary advertising physical channels. However, expiry of\n the duration does not prevent the Link Layer from scanning for and receiving\n auxiliary packets of received advertisements.\n\n If Enable is set to 0x01, the scanning parameters' Own_Address_Type\n parameter is set to 0x00 or 0x02, and the device does not have a public\n address, the Controller should return an error code which should be Invalid HCI\n Command Parameters (0x12).\n\n If Enable is set to 0x01, the scanning parameters' Own_Address_Type\n parameter is set to 0x01 or 0x03, and the random address for the device has\n not been initialized using the HCI_LE_Set_Random_Address command, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Extended_Scan_Enable command has completed, an\n HCI_Command_Complete event shall be generated.\n\n Zero or more LE Extended Advertising Reports are generated by the Controller\n based on any advertising packets received and the duplicate filtering in effect.\n More than one advertising packet may be reported in each HCI_LE_-\n Extended_Advertising_Report event.\n\n At the end of a single scan (Duration non-zero but Period zero), an HCI_LE_-\n Scan_Timeout event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Extended Scan Enable.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.65\n\n The HCI_LE_Set_Extended_Scan_Enable command is used to enable or\n disable scanning for both legacy and extended advertising PDUs.\n\n The Enable parameter determines whether scanning is enabled or disabled. If\n it is set to 0x00, the remaining parameters shall be ignored.\n\n If Enable is set to 0x01 and the Host has not issued the HCI_LE_Set_-\n Extended_Scan_Parameters command, the Controller shall either use vendor-\n specified parameters or return the error code Command Disallowed (0x0C).\n\n The Filter_Duplicates parameter controls whether the Link Layer should filter\n out duplicate advertising reports (filtering duplicates enabled) to the Host or if\n the Link Layer should generate advertising reports for each packet received\n (filtering duplicates disabled). See [Vol 6] Part B, Section 4.4.3.5.\n\n If the Filter_Duplicates parameter is set to 0x00, all advertisements received\n from advertisers shall be sent to the Host in advertising report events.\n\n If the Filter_Duplicates parameter is set to 0x01, duplicate advertisements\n should not be sent to the Host in advertising report events until scanning is\n disabled.\n\n If the Filter_Duplicates parameter is set to 0x02, duplicate advertisements in a\n single scan period should not be sent to the Host in advertising report events;\n this setting shall only be used if both Period and Duration are non-zero. If\n Filter_Duplicates is set to 0x02 and either Period or Duration to zero, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the Duration parameter is zero or both the Duration parameter and Period\n parameter are non-zero, the Controller shall continue scanning until scanning\n is disabled by the Host issuing an HCI_LE_Set_Extended_Scan_Enable\n command with the Enable parameter set to 0x00 (Scanning is disabled). The\n Period parameter shall be ignored when the Duration parameter is zero.\n\n If the Duration parameter is non-zero and the Period parameter is zero, the\n Controller shall continue scanning until the duration specified in the Duration\n parameter has expired.\n If both the Duration and Period parameters are non-zero and the Duration is\n greater than or equal to the Period, the Controller shall return the error code\n Invalid HCI Command Parameters (0x12).\n\n When the Duration and Period parameters are non-zero, the Controller shall\n scan for the duration of the Duration parameter within a scan period specified\n by the Period parameter. After the scan period has expired, a new scan period\n shall begin and scanning shall begin again for the duration specified. The scan\n periods continue until the Host disables scanning.\n\n If the HCI_LE_Set_Extended_Scan_Enable command with Enable set to 0x01\n is sent while scanning is already enabled, the timers used for duration and\n period are reset to the new parameter values and a new scan period is started.\n Any change to the Filter_Duplicates setting or the random address shall take\n effect.\n\n Disabling scanning when it is disabled has no effect.\n\n Note: The duration of a scan period refers to the time spent scanning on both\n the primary and secondary advertising physical channels. However, expiry of\n the duration does not prevent the Link Layer from scanning for and receiving\n auxiliary packets of received advertisements.\n\n If Enable is set to 0x01, the scanning parameters' Own_Address_Type\n parameter is set to 0x00 or 0x02, and the device does not have a public\n address, the Controller should return an error code which should be Invalid HCI\n Command Parameters (0x12).\n\n If Enable is set to 0x01, the scanning parameters' Own_Address_Type\n parameter is set to 0x01 or 0x03, and the random address for the device has\n not been initialized using the HCI_LE_Set_Random_Address command, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Extended_Scan_Enable command has completed, an\n HCI_Command_Complete event shall be generated.\n\n Zero or more LE Extended Advertising Reports are generated by the Controller\n based on any advertising packets received and the duplicate filtering in effect.\n More than one advertising packet may be reported in each HCI_LE_-\n Extended_Advertising_Report event.\n\n At the end of a single scan (Duration non-zero but Period zero), an HCI_LE_-\n Scan_Timeout event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_ext_scan_enable(p_params: *const sdc_hci_cmd_le_set_ext_scan_enable_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Extended Create Connection [v1].\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.66\n\n The HCI_LE_Extended_Create_Connection command is used to create an\n ACL connection, with the local device in the Central role, to a connectable\n advertiser. The command is also used to create an ACL connection between a\n periodic advertiser and a synchronized device.\n\n If a connection is created with the local device in the Peripheral role while this\n command is pending, then this command remains pending.\n The Advertising_Handle parameter is used to identify the periodic advertising\n train.\n\n The Subevent parameter is used to identify the subevent where a connection\n request shall be initiated from a periodic advertising train.\n\n The Advertising_Handle and Subevent parameters shall be set to 0xFF if these\n parameters are not used.\n\n If the Advertising_Handle and Subevent parameters are set to valid values,\n then the Initiator_Filter_Policy, Initiating_PHYs, Scan_Interval[i], and\n Scan_Window[i] parameters shall be ignored.\n\n The Initiator_Filter_Policy parameter is used to determine whether the Filter\n Accept List is used. If the Filter Accept List is not used, the\n Peer_Address_Type and the Peer_Address parameters specify the address\n type and address of the advertising device to connect to.\n\n The Own_Address_Type parameter indicates the type of address being used\n in the connection request packets.\n\n The Peer_Address_Type parameter indicates the type of address used in the\n connectable advertisement sent by the peer.\n\n The Peer_Address parameter indicates the Peer’s Public Device Address,\n Random (static) Device Address, Non-Resolvable Private Address, or\n Resolvable Private Address depending on the Peer_Address_Type parameter.\n\n The Initiating_PHYs parameter indicates the PHY(s) on which the advertising\n packets should be received on the primary advertising physical channel and\n the PHYs for which connection parameters have been specified. The Host may\n enable one or more initiating PHYs. If the Host specifies a PHY that is not\n supported by the Controller, including a bit that is reserved for future use, the\n latter should return the error code Unsupported Feature or Parameter Value\n (0x11). The array elements of the arrayed parameters are ordered in the same\n order as the set bits in the Initiating_PHYs parameter, starting from bit 0. The\n number of array elements is determined by the number of bits set in the\n Initiating_PHYs parameter. When a connectable advertisement is received and\n a connection request is sent on one PHY, scanning on any other PHYs is\n terminated.\n\n The Scan_Interval[i] and Scan_Window[i] parameters are recommendations\n from the Host on how long (Scan_Window[i]) and how frequently\n (Scan_Interval[i]) the Controller should scan (see [Vol 6] Part B, Section 4.5.3);\n however the frequency and length of the scan is implementation specific. If the\n requested scan cannot be supported by the implementation, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12). If bit 1 is\n set in Initiating_PHYs, the values for the LE 2M PHY shall be ignored.\n The Connection_Interval_Min[i] and Connection_Interval_Max[i] parameters\n define the minimum and maximum allowed connection interval. The\n Connection_Interval_Min[i] parameter shall not be greater than the\n Connection_Interval_Max[i] parameter.\n\n The Max_Latency[i] parameter defines the maximum allowed Peripheral\n latency (see [Vol 6] Part B, Section 4.5.1).\n\n The Supervision_Timeout[i] parameter defines the link supervision timeout for\n the connection. The Supervision_Timeout[i] in milliseconds shall be larger than\n (1 + Max_Latency[i]) × Connection_Interval_Max[i] × 2, where Connection_-\n Interval_Max[i] is given in milliseconds (see [Vol 6] Part B, Section 4.5.2).\n\n The Min_CE_Length[i] and Max_CE_Length[i] parameters provide the\n Controller with the expected minimum and maximum length of the connection\n events. The Min_CE_Length[i] parameter shall be less than or equal to the\n Max_CE_Length[i] parameter. The Controller is not required to use these\n values.\n\n Where the connection is made on a PHY whose bit is not set in the Initiating_-\n PHYs parameter, the Controller shall use the Connection_Interval_Min[i],\n Connection_Interval_Max[i], Max_Latency[i], Supervision_Timeout[i],\n Min_CE_Length[i], and Max_CE_Length[i] parameters for an implementation-\n chosen PHY whose bit is set in the Initiating_PHYs parameter.\n\n If the Host issues this command when another HCI_LE_Extended_Create_-\n Connection command is pending in the Controller, the Controller shall return\n the error code Command Disallowed (0x0C).\n\n If the Own_Address_Type parameter is set to 0x00 and the device does not\n have a public address, the Controller should return an error code which should\n be Invalid HCI Command Parameters (0x12).\n\n If the Own_Address_Type parameter is set to 0x01 and the random address for\n the device has not been initialized using the HCI_LE_Set_Random_Address\n command, the Controller shall return the error code Invalid HCI Command\n Parameters (0x12).\n\n If the Own_Address_Type parameter is set to 0x02, the Initiator_Filter_Policy\n parameter is set to 0x00, the Controller's resolving list did not contain a\n matching entry, and the device does not have a public address, the Controller\n should return an error code which should be Invalid HCI Command Parameters\n (0x12).\n\n If the Own_Address_Type parameter is set to 0x02, the Initiator_Filter_Policy\n parameter is set to 0x01, and the device does not have a public address, the\n Controller should return an error code which should be Invalid HCI Command\n Parameters (0x12).\n If the Own_Address_Type parameter is set to 0x03, the Initiator_Filter_Policy\n parameter is set to 0x00, the Controller's resolving list did not contain a\n matching entry, and the random address for the device has not been initialized\n using the HCI_LE_Set_Random_Address command, the Controller shall return\n the error code Invalid HCI Command Parameters (0x12).\n\n If the Own_Address_Type parameter is set to 0x03, the Initiator_Filter_Policy\n parameter is set to 0x01, and the random address for the device has not been\n initialized using the HCI_LE_Set_Random_Address command, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the Initiating_PHYs parameter does not have at least one bit set for a PHY\n allowed for scanning on the primary advertising physical channel, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the Host issues this command and the Controller has insufficient resources to\n handle any more connections, the Controller shall return the error code\n Connection Rejected due to Limited Resources (0x0D).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Extended_Create_Connection\n command, the Controller sends the HCI_Command_Status event to the Host.\n An HCI_LE_Enhanced_Connection_Complete event shall be generated when\n a connection is created because of this command or the connection creation\n procedure is cancelled; until the event is generated, the command is consid-\n ered pending. If a connection creation is discarded, then the error code Con-\n nection Failed to be Established / Synchronization Timeout (0x3E) shall be\n used. If a connection is created, this event shall be immediately followed by an\n HCI_LE_Channel_Selection_Algorithm event.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Extended Create Connection.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.66\n\n The HCI_LE_Extended_Create_Connection command is used to create an\n ACL connection, with the local device in the Central role, to a connectable\n advertiser.\n\n If a connection is created with the local device in the Peripheral role while this\n command is pending, then this command remains pending.\n\n The Initiator_Filter_Policy parameter is used to determine whether the Filter\n Accept List is used. If the Filter Accept List is not used, the\n Peer_Address_Type and the Peer_Address parameters specify the address\n type and address of the advertising device to connect to.\n\n The Own_Address_Type parameter indicates the type of address being used\n in the connection request packets.\n\n The Peer_Address_Type parameter indicates the type of address used in the\n connectable advertisement sent by the peer.\n\n The Peer_Address parameter indicates the Peer’s Public Device Address,\n Random (static) Device Address, Non-Resolvable Private Address, or\n Resolvable Private Address depending on the Peer_Address_Type parameter.\n\n The Initiating_PHYs parameter indicates the PHY(s) on which the advertising\n packets should be received on the primary advertising physical channel and\n the PHYs for which connection parameters have been specified. The Host may\n enable one or more initiating PHYs. If the Host specifies a PHY that is not\n supported by the Controller, including a bit that is reserved for future use, the\n latter should return the error code Unsupported Feature or Parameter Value\n (0x11). The array elements of the arrayed parameters are ordered in the same\n order as the set bits in the Initiating_PHYs parameter, starting from bit 0. The\n number of array elements is determined by the number of bits set in the\n Initiating_PHYs parameter. When a connectable advertisement is received and\n a connection request is sent on one PHY, scanning on any other PHYs is\n terminated.\n\n The Scan_Interval[i] and Scan_Window[i] parameters are recommendations\n from the Host on how long (Scan_Window[i]) and how frequently\n (Scan_Interval[i]) the Controller should scan (see [Vol 6] Part B, Section 4.5.3);\n however the frequency and length of the scan is implementation specific. If the\n requested scan cannot be supported by the implementation, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12). If bit 1 is\n set in Initiating_PHYs, the values for the LE 2M PHY shall be ignored.\n\n The Connection_Interval_Min[i] and Connection_Interval_Max[i] parameters\n define the minimum and maximum allowed connection interval. The\n Connection_Interval_Min[i] parameter shall not be greater than the\n Connection_Interval_Max[i] parameter.\n\n The Max_Latency[i] parameter defines the maximum allowed Peripheral\n latency (see [Vol 6] Part B, Section 4.5.1).\n\n The Supervision_Timeout[i] parameter defines the link supervision timeout for\n the connection. The Supervision_Timeout[i] in milliseconds shall be larger than\n (1 + Max_Latency[i]) * Connection_Interval_Max[i] * 2, where Connection_-\n Interval_Max[i] is given in milliseconds (see [Vol 6] Part B, Section 4.5.2).\n\n The Min_CE_Length[i] and Max_CE_Length[i] parameters provide the\n Controller with the expected minimum and maximum length of the connection\n events. The Min_CE_Length[i] parameter shall be less than or equal to the\n Max_CE_Length[i] parameter. The Controller is not required to use these\n values.\n\n Where the connection is made on a PHY whose bit is not set in the Initiating_-\n PHYs parameter, the Controller shall use the Connection_Interval_Min[i],\n Connection_Interval_Max[i], Max_Latency[i], Supervision_Timeout[i],\n Min_CE_Length[i], and Max_CE_Length[i] parameters for an implementation-\n chosen PHY whose bit is set in the Initiating_PHYs parameter.\n\n If the Host issues this command when another HCI_LE_Extended_Create_-\n Connection command is pending in the Controller, the Controller shall return\n the error code Command Disallowed (0x0C).\n\n If the Own_Address_Type parameter is set to 0x00 and the device does not\n have a public address, the Controller should return an error code which should\n be Invalid HCI Command Parameters (0x12).\n If the Own_Address_Type parameter is set to 0x01 and the random address for\n the device has not been initialized using the HCI_LE_Set_Random_Address\n command, the Controller shall return the error code Invalid HCI Command\n Parameters (0x12).\n\n If the Own_Address_Type parameter is set to 0x02, the Initiator_Filter_Policy\n parameter is set to 0x00, the Controller's resolving list did not contain a\n matching entry, and the device does not have a public address, the Controller\n should return an error code which should be Invalid HCI Command Parameters\n (0x12).\n\n If the Own_Address_Type parameter is set to 0x02, the Initiator_Filter_Policy\n parameter is set to 0x01, and the device does not have a public address, the\n Controller should return an error code which should be Invalid HCI Command\n Parameters (0x12).\n\n If the Own_Address_Type parameter is set to 0x03, the Initiator_Filter_Policy\n parameter is set to 0x00, the controller's resolving list did not contain a\n matching entry, and the random address for the device has not been initialized\n using the HCI_LE_Set_Random_Address command, the Controller shall return\n the error code Invalid HCI Command Parameters (0x12).\n\n If the Own_Address_Type parameter is set to 0x03, the Initiator_Filter_Policy\n parameter is set to 0x01, and the random address for the device has not been\n initialized using the HCI_LE_Set_Random_Address command, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the Initiating_PHYs parameter does not have at least one bit set for a PHY\n allowed for scanning on the primary advertising physical channel, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Extended_Create_Connection com-\n mand, the Controller sends the HCI_Command_Status event to the Host. An\n HCI_LE_Enhanced_Connection_Complete event shall be generated when a\n connection is created because of this command or the connection creation pro-\n cedure is cancelled; until the event is generated, the command is considered\n pending. If a connection is created, this event shall be immediately followed by\n an HCI_LE_Channel_Selection_Algorithm event.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_ext_create_conn(p_params: *const sdc_hci_cmd_le_ext_create_conn_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Periodic Advertising Create Sync.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.67\n\n The HCI_LE_Periodic_Advertising_Create_Sync command is used to\n synchronize with a periodic advertising train from an advertiser and begin\n receiving periodic advertising packets.\n\n This command may be issued whether or not scanning is enabled and\n scanning may be enabled and disabled (see the LE Set Extended Scan Enable\n command) while this command is pending. However, synchronization can only\n occur when scanning is enabled. While scanning is disabled, no attempt to\n synchronize will take place.\n\n The Options parameter is used to determine whether the Periodic Advertiser\n List is used, whether HCI_LE_Periodic_Advertising_Report events for this\n periodic advertising train are initially enabled or disabled, and whether\n duplicate reports are filtered or not. If the Periodic Advertiser List is not used,\n the Advertising_SID, Advertiser Address_Type, and Advertiser Address\n parameters specify the periodic advertising device to listen to; otherwise they\n shall be ignored.\n\n The Advertising_SID parameter, if used, specifies the value that shall match\n the Advertising SID subfield in the ADI field of the received advertisement for it\n to be used to synchronize.\n\n The Skip parameter specifies the maximum number of consecutive periodic\n advertising events that the receiver may skip after successfully receiving a\n periodic advertising packet.\n\n The Sync_Timeout parameter specifies the maximum permitted time between\n successful receives. If this time is exceeded, synchronization is lost.\n\n The Sync_CTE_Type parameter specifies whether to only synchronize to\n periodic advertising with certain types of Constant Tone Extension (a value of 0\n indicates that the presence or absence of a Constant Tone Extension is\n irrelevant). If the periodic advertising has the wrong type of Constant Tone\n Extension then:\n • If bit 0 of Options is set, the Controller shall ignore this address and SID and\n   continue to search for other periodic advertisements.\n • Otherwise, the Controller shall cancel the synchronization with the error\n   code Unsupported Remote Feature (0x1A).\n\n If the periodic advertiser changes the type of Constant Tone Extension after the\n scanner has synchronized with the periodic advertising, the scanner's Link\n Layer shall remain synchronized.\n\n If the Host sets all the non-reserved bits of the Sync_CTE_Type parameter to\n 1, the Controller shall return the error code Command Disallowed (0x0C).\n\n Irrespective of the value of the Skip parameter, the Controller should stop\n skipping packets before the Sync_Timeout would be exceeded.\n\n If the Host issues this command when another HCI_LE_Periodic_Advertising_-\n Create_Sync command is pending, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n If the Host issues this command with bit 0 of Options not set and with\n Advertising_SID, Advertiser_Address_Type, and Advertiser_Address the same\n as those of a periodic advertising train that the Controller is already\n synchronized to, the Controller shall return the error code Connection Already\n Exists (0x0B).\n\n If the Host issues this command and the Controller has insufficient resources to\n handle any more periodic advertising trains, the Controller shall return the error\n code Memory Capacity Exceeded (0x07).\n\n If bit 1 of Options is set to 1 and the Controller supports the Periodic\n Advertising ADI Support feature, then the Controller shall ignore bit 2.\n\n If bit 1 of Options is set to 0, bit 2 is set to 1, and the Controller does not\n support the Periodic Advertising ADI Support feature, then the Controller shall\n return an error which should use the error code Unsupported Feature or\n Parameter Value (0x11).\n\n If bit 1 of the Options parameter is set to 1 and the Controller does not support\n the HCI_LE_Set_Periodic_Advertising_Receive_Enable command, the\n Controller shall return the error code Connection Failed to be Established /\n Synchronization Timeout (0x3E).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Periodic_Advertising_Create_Sync command has been\n received, the Controller sends the HCI_Command_Status event to the Host.\n An HCI_LE_Periodic_Advertising_Sync_Established event shall be generated\n when the Controller starts receiving periodic advertising packets.\n\n When the Controller receives periodic advertising packets then, if reporting is\n enabled, it sends HCI_LE_Periodic_Advertising_Report events to the Host.\n\n Note: The HCI_LE_Periodic_Advertising_Sync_Established event can be sent\n as a result of synchronization being canceled by an HCI_LE_Periodic_-\n Advertising_Create_Sync_Cancel command.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Periodic Advertising Create Sync.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.67\n\n The HCI_LE_Periodic_Advertising_Create_Sync command is used to\n synchronize with a periodic advertising train from an advertiser and begin\n receiving periodic advertising packets.\n\n This command may be issued whether or not scanning is enabled and\n scanning may be enabled and disabled (see the LE Set Extended Scan Enable\n command) while this command is pending. However, synchronization can only\n occur when scanning is enabled. While scanning is disabled, no attempt to\n synchronize will take place.\n\n The Options parameter is used to determine whether the Periodic Advertiser\n List is used, whether HCI_LE_Periodic_Advertising_Report events for this\n periodic advertising train are initially enabled or disabled, and whether\n duplicate reports are filtered or not. If the Periodic Advertiser List is not used,\n the Advertising_SID, Advertiser Address_Type, and Advertiser Address\n parameters specify the periodic advertising device to listen to; otherwise they\n shall be ignored.\n\n The Advertising_SID parameter, if used, specifies the value that must match\n the Advertising SID subfield in the ADI field of the received advertisement for it\n to be used to synchronize.\n\n The Skip parameter specifies the maximum number of consecutive periodic\n advertising events that the receiver may skip after successfully receiving a\n periodic advertising packet.\n\n The Sync_Timeout parameter specifies the maximum permitted time between\n successful receives. If this time is exceeded, synchronization is lost.\n\n The Sync_CTE_Type parameter specifies whether to only synchronize to\n periodic advertising with certain types of Constant Tone Extension (a value of 0\n indicates that the presence or absence of a Constant Tone Extension is\n irrelevant). If the periodic advertising has the wrong type of Constant Tone\n Extension then:\n • If bit 0 of Options is set, the Controller shall ignore this address and SID and\n   continue to search for other periodic advertisements.\n • Otherwise, the Controller shall cancel the synchronization with the error\n   code Unsupported Remote Feature (0x1A).\n\n If the periodic advertiser changes the type of Constant Tone Extension after the\n scanner has synchronized with the periodic advertising, the scanner's Link\n Layer shall remain synchronized.\n\n If the Host sets all the non-reserved bits of the Sync_CTE_Type parameter to\n 1, the Controller shall return the error code Command Disallowed (0x0C).\n\n Irrespective of the value of the Skip parameter, the Controller should stop\n skipping packets before the Sync_Timeout would be exceeded.\n\n If the Host issues this command when another HCI_LE_Periodic_Advertising_-\n Create_Sync command is pending, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n If the Host issues this command with bit 0 of Options not set and with\n Advertising_SID, Advertiser_Address_Type, and Advertiser_Address the same\n as those of a periodic advertising train that the Controller is already\n synchronized to, the Controller shall return the error code Connection Already\n Exists (0x0B).\n\n If the Host issues this command and the Controller has insufficient resources to\n handle any more periodic advertising trains, the Controller shall return the error\n code Memory Capacity Exceeded (0x07).\n\n If bit 1 of Options is set to 1 and the Controller supports the Periodic\n Advertising ADI Support feature, then the Controller shall ignore bit 2.\n\n If bit 1 of Options is set to 0, bit 2 is set to 1, and the Controller does not\n support the Periodic Advertising ADI Support feature, then the Controller shall\n return an error which should use the error code Unsupported Feature or\n Parameter Value (0x11).\n\n If bit 1 of the Options parameter is set to 1 and the Controller does not support\n the HCI_LE_Set_Periodic_Advertising_Receive_Enable command, the\n Controller shall return the error code Connection Failed to be Established /\n Synchronization Timeout (0x3E).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Periodic_Advertising_Create_Sync command has been\n received, the Controller sends the HCI_Command_Status event to the Host.\n An HCI_LE_Periodic_Advertising_Sync_Established event shall be generated\n when the Controller starts receiving periodic advertising packets.\n\n When the Controller receives periodic advertising packets then, if reporting is\n enabled, it sends HCI_LE_Periodic_Advertising_Report events to the Host.\n\n Note: The HCI_LE_Periodic_Advertising_Sync_Established event can be sent\n as a result of synchronization being canceled by an HCI_LE_Periodic_-\n Advertising_Create_Sync_Cancel command.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_periodic_adv_create_sync(p_params: *const sdc_hci_cmd_le_periodic_adv_create_sync_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Periodic Advertising Create Sync Cancel.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.68\n\n The HCI_LE_Periodic_Advertising_Create_Sync_Cancel command is used to\n cancel the HCI_LE_Periodic_Advertising_Create_Sync command while it is\n pending.\n\n If the Host issues this command while no HCI_LE_Periodic_Advertising_-\n Create_Sync command is pending, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Periodic_Advertising_Create_Sync_Cancel command has\n completed, the Controller sends an HCI_Command_Complete event to the\n Host.\n\n After the HCI_Command_Complete is sent and if the cancellation was\n successful, the Controller sends an HCI_LE_Periodic_Advertising_Sync_-\n Established event to the Host with the error code Operation Cancelled by Host\n (0x44).\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Periodic Advertising Create Sync Cancel.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.68\n\n The HCI_LE_Periodic_Advertising_Create_Sync_Cancel command is used to\n cancel the HCI_LE_Periodic_Advertising_Create_Sync command while it is\n pending.\n\n If the Host issues this command while no HCI_LE_Periodic_Advertising_-\n Create_Sync command is pending, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Periodic_Advertising_Create_Sync_Cancel command has\n completed, the Controller sends an HCI_Command_Complete event to the\n Host.\n\n After the HCI_Command_Complete is sent and if the cancellation was\n successful, the Controller sends an HCI_LE_Periodic_Advertising_Sync_-\n Established event to the Host with the error code Operation Cancelled by Host\n (0x44).\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_periodic_adv_create_sync_cancel() -> u8;
 }
 extern "C" {
-    #[doc = "  LE Periodic Advertising Terminate Sync.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.69\n\n The HCI_LE_Periodic_Advertising_Terminate_Sync command is used to stop\n reception of the periodic advertising train identified by the Sync_Handle\n parameter.\n\n If the periodic advertising train corresponding to the Sync_Handle parameter\n does not exist, then the Controller shall return the error code Unknown\n Advertising Identifier (0x42).\n\n Following successful completion of this command the Sync_Handle is\n destroyed.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Periodic_Advertising_Terminate_Sync command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Periodic Advertising Terminate Sync.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.69\n\n The HCI_LE_Periodic_Advertising_Terminate_Sync command is used to stop\n reception of the periodic advertising train identified by the Sync_Handle\n parameter.\n\n If the periodic advertising train corresponding to the Sync_Handle parameter\n does not exist, then the Controller shall return the error code Unknown\n Advertising Identifier (0x42).\n\n Following successful completion of this command the Sync_Handle is\n destroyed.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Periodic_Advertising_Terminate_Sync command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_periodic_adv_terminate_sync(
         p_params: *const sdc_hci_cmd_le_periodic_adv_terminate_sync_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Add Device To Periodic Advertiser List.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.70\n\n The HCI_LE_Add_Device_To_Periodic_Advertiser_List command is used to\n add an entry, consisting of a single device address and SID, to the Periodic\n Advertiser list stored in the Controller. Any additions to the Periodic Advertiser\n list take effect immediately. If the entry is already on the list, the Controller shall\n return the error code Invalid HCI Command Parameters (0x12).\n\n If the Host issues this command when an HCI_LE_Periodic_Advertising_-\n Create_Sync command is pending, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n When a Controller cannot add an entry to the Periodic Advertiser list because\n the list is full, the Controller shall return the error code Memory Capacity\n Exceeded (0x07).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Add_Device_To_Periodic_Advertiser_List command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Add Device To Periodic Advertiser List.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.70\n\n The HCI_LE_Add_Device_To_Periodic_Advertiser_List command is used to\n add an entry, consisting of a single device address and SID, to the Periodic\n Advertiser list stored in the Controller. Any additions to the Periodic Advertiser\n list take effect immediately. If the entry is already on the list, the Controller shall\n return the error code Invalid HCI Command Parameters (0x12).\n\n If the Host issues this command when an HCI_LE_Periodic_Advertising_-\n Create_Sync command is pending, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n When a Controller cannot add an entry to the Periodic Advertiser list because\n the list is full, the Controller shall return the error code Memory Capacity\n Exceeded (0x07).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Add_Device_To_Periodic_Advertiser_List command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_add_device_to_periodic_adv_list(
         p_params: *const sdc_hci_cmd_le_add_device_to_periodic_adv_list_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Remove Device From Periodic Advertiser List.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.71\n\n The HCI_LE_Remove_Device_From_Periodic_Advertiser_List command is\n used to remove one entry from the list of Periodic Advertisers stored in the\n Controller. Removals from the Periodic Advertisers List take effect immediately.\n\n If the Host issues this command when an HCI_LE_Periodic_Advertising_-\n Create_Sync command is pending, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n When a Controller cannot remove an entry from the Periodic Advertiser list\n because it is not found, the Controller shall return the error code Unknown\n Advertising Identifier (0x42).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Remove_Device_From_Periodic_Advertiser_List\n command has completed, an HCI_Command_Complete event shall be\n generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Remove Device From Periodic Advertiser List.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.71\n\n The HCI_LE_Remove_Device_From_Periodic_Advertiser_List command is\n used to remove one entry from the list of Periodic Advertisers stored in the\n Controller. Removals from the Periodic Advertisers List take effect immediately.\n\n If the Host issues this command when an HCI_LE_Periodic_Advertising_-\n Create_Sync command is pending, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n When a Controller cannot remove an entry from the Periodic Advertiser list\n because it is not found, the Controller shall return the error code Unknown\n Advertising Identifier (0x42).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Remove_Device_From_Periodic_Advertiser_List\n command has completed, an HCI_Command_Complete event shall be\n generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_remove_device_from_periodic_adv_list(
         p_params: *const sdc_hci_cmd_le_remove_device_from_periodic_adv_list_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Clear Periodic Advertiser List.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.72\n\n The HCI_LE_Clear_Periodic_Advertiser_List command is used to remove all\n entries from the list of Periodic Advertisers in the Controller.\n\n If this command is used when an HCI_LE_Periodic_Advertising_Create_Sync\n command is pending, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Clear_Periodic_Advertiser_List command has completed,\n an HCI_Command_Complete event shall be generated.\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Clear Periodic Advertiser List.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.72\n\n The HCI_LE_Clear_Periodic_Advertiser_List command is used to remove all\n entries from the list of Periodic Advertisers in the Controller.\n\n If this command is used when an HCI_LE_Periodic_Advertising_Create_Sync\n command is pending, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Clear_Periodic_Advertiser_List command has completed,\n an HCI_Command_Complete event shall be generated.\n\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_clear_periodic_adv_list() -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Periodic Advertiser List Size.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.73\n\n The HCI_LE_Read_Periodic_Advertiser_List_Size command is used to read\n the total number of Periodic Advertiser list entries that can be stored in the\n Controller.\n\n Note: The number of entries that can be stored is not fixed and the Controller\n can change it at any time (e.g., because the memory used to store the list can\n also be used for other purposes).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Periodic_Advertiser_List_Size command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Periodic Advertiser List Size.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.73\n\n The HCI_LE_Read_Periodic_Advertiser_List_Size command is used to read\n the total number of Periodic Advertiser list entries that can be stored in the\n Controller.\n\n Note: The number of entries that can be stored is not fixed and the Controller\n can change it at any time (e.g., because the memory used to store the list can\n also be used for other purposes).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Periodic_Advertiser_List_Size command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_periodic_adv_list_size(
         p_return: *mut sdc_hci_cmd_le_read_periodic_adv_list_size_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Transmit Power.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.74\n\n The HCI_LE_Read_Transmit_Power command is used to read the minimum\n and maximum transmit powers supported by the Controller across all\n supported PHYs.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read _Transmit_Power command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Transmit Power.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.74\n\n The HCI_LE_Read_Transmit_Power command is used to read the minimum\n and maximum transmit powers supported by the Controller across all\n supported PHYs.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read _Transmit_Power command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_transmit_power(p_return: *mut sdc_hci_cmd_le_read_transmit_power_return_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read RF Path Compensation.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.75\n\n The HCI_LE_Read_RF_Path_Compensation command is used to read the RF\n path compensation value parameters used in the Tx power level and RSSI\n calculation.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_RF_Path_Compensation command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read RF Path Compensation.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.75\n\n The HCI_LE_Read_RF_Path_Compensation command is used to read the RF\n path compensation value parameters used in the Tx power level and RSSI\n calculation.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_RF_Path_Compensation command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_rf_path_compensation(
         p_return: *mut sdc_hci_cmd_le_read_rf_path_compensation_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Write RF Path Compensation.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.76\n\n The HCI_LE_Write_RF_Path_Compensation command is used to indicate the\n RF path gain or loss between the RF transceiver and the antenna contributed\n by intermediate components. A positive value means a net RF path gain and a\n negative value means a net RF path loss. The RF_TX_Path_Compensation_-\n Value parameter shall be used by the Controller to calculate the radiative Tx\n power level used in HCI commands, HCI events, Advertising physical channel\n PDUs, and Link Layer Control PDUs using the following equation:\n\n Radiative Tx power level = Tx power level at RF transceiver output + RF_TX_-\n Path_Compensation_Value\n\n For example, if the Tx power level is +4 (dBm) at RF transceiver output and the\n RF_TX_Path_Compensation_Value is -1.5 (dB), the radiative Tx power level is\n +4+(-1.5) = 2.5 (dBm).\n\n The RF_RX_Path_Compensation_Value parameter shall be used by the\n Controller to calculate the RSSI value reported to the Host using the following\n equation:\n\n Rx power level at RF transceiver input = Rx power level at antenna + RF_RX_-\n Path_Compensation_Value\n\n For example, if the Rx power level is -45 (dBm) at RF transceiver input and the\n RF_RX_Path_Compensation_Value is -3.2 (dB), the Rx power level at antenna\n is -41.8 (dBm).\n\n The default values for the RF path compensation are vendor-specific.\n\n This command can be issued at any time. If this command is issued during an\n ongoing over-the-air RF activity, the Controller may apply the Tx path\n compensation immediately or after a vendor-specific delay.\n\n The Controller shall apply a change to the Tx path compensation value either\n by leaving the power at the transceiver output unchanged and altering the\n radiative Tx power level or by altering the power at the transceiver output to\n maintain any previously chosen radiative Tx power level.\n\n If the Host needs to maintain a specific radiative transmit power level for an\n advertising set, it should disable that set before issuing this command then,\n after the command completes, reissue the HCI_LE_Set_Extended_-\n Advertising_Parameters command for that set and then re-enable it.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Write_RF_Path_Compensation command has completed,\n an HCI_Command_Complete event shall be generated.\n\n If the command leads to a change in the local radiative transmit power level for\n an LE ACL connection, then the Controller shall generate an HCI_LE_-\n Transmit_Power_Reporting event if local reporting is enabled and initiate a\n Link Layer Power Change Indication procedure if remote reporting is enabled.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Write RF Path Compensation.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.76\n\n The HCI_LE_Write_RF_Path_Compensation command is used to indicate the\n RF path gain or loss between the RF transceiver and the antenna contributed\n by intermediate components. A positive value means a net RF path gain and a\n negative value means a net RF path loss. The RF_TX_Path_Compensation_-\n Value parameter shall be used by the Controller to calculate the radiative Tx\n power level used in HCI commands, HCI events, Advertising physical channel\n PDUs, and Link Layer Control PDUs using the following equation:\n\n Radiative Tx power level = Tx power level at RF transceiver output + RF_TX_-\n Path_Compensation_Value\n\n For example, if the Tx power level is +4 (dBm) at RF transceiver output and the\n RF_TX_Path_Compensation_Value is -1.5 (dB), the radiative Tx power level is\n +4+(-1.5) = 2.5 (dBm).\n\n The RF_RX_Path_Compensation_Value parameter shall be used by the\n Controller to calculate the RSSI value reported to the Host.\n\n The default values for the RF path compensation are vendor-specific.\n\n This command can be issued at any time. If this command is issued during an\n ongoing over-the-air RF activity, the Controller may apply the Tx path\n compensation immediately or after a vendor-specific delay.\n\n The Controller shall apply a change to the Tx path compensation value either\n by leaving the power at the transceiver output unchanged and altering the\n radiative Tx power level or by altering the power at the transceiver output to\n maintain any previously chosen radiative Tx power level.\n\n If the Host needs to maintain a specific radiative transmit power level for an\n advertising set, it should disable that set before issuing this command then,\n after the command completes, reissue the HCI_LE_Set_Extended_-\n Advertising_Parameters command for that set and then re-enable it.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Write_RF_Path_Compensation command has completed,\n an HCI_Command_Complete event shall be generated.\n\n If the command leads to a change in the local radiative transmit power level for\n an LE ACL connection, then the Controller shall generate an HCI_LE_-\n Transmit_Power_Reporting event if local reporting is enabled and initiate a\n Link Layer Power Change Indication procedure if remote reporting is enabled.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_write_rf_path_compensation(
         p_params: *const sdc_hci_cmd_le_write_rf_path_compensation_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Privacy Mode.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.77\n\n The HCI_LE_Set_Privacy_Mode command is used to allow the Host to specify\n the privacy mode to be used for a given entry on the resolving list. The effect of\n this setting is specified in [Vol 6] Part B, Section 4.7.\n\n When an entry on the resolving list is removed, the mode associated with that\n entry shall also be removed.\n\n This command shall not be used when address resolution is enabled in the\n Controller and:\n • Advertising (other than periodic advertising) is enabled,\n • Scanning is enabled, or\n • an HCI_LE_Create_Connection, HCI_LE_Extended_Create_Connection, or\n   HCI_LE_Periodic_Advertising_Create_Sync command is pending.\n\n This command may be used at any time when address resolution is disabled in\n the Controller.\n\n If the device is not on the resolving list, the Controller shall return the error\n code Unknown Connection Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Privacy_Mode command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Privacy Mode.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.77\n\n The HCI_LE_Set_Privacy_Mode command is used to allow the Host to specify\n the privacy mode to be used for a given entry on the resolving list. The effect of\n this setting is specified in [Vol 6] Part B, Section 4.7.\n\n When an entry on the resolving list is removed, the mode associated with that\n entry shall also be removed.\n\n This command shall not be used when address resolution is enabled in the\n Controller and:\n • Advertising (other than periodic advertising) is enabled,\n • Scanning is enabled, or\n • an HCI_LE_Create_Connection, HCI_LE_Extended_Create_Connection, or\n   HCI_LE_Periodic_Advertising_Create_Sync command is pending.\n\n This command may be used at any time when address resolution is disabled in\n the Controller.\n\n If the device is not on the resolving list, the Controller shall return the error\n code Unknown Connection Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Privacy_Mode command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_privacy_mode(p_params: *const sdc_hci_cmd_le_set_privacy_mode_t) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Connectionless CTE Transmit Parameters.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.80\n\n The HCI_LE_Set_Connectionless_CTE_Transmit_Parameters command is\n used to set the type, length, and antenna switching pattern for the transmission\n of Constant Tone Extensions in any periodic advertising on the advertising set\n identified by the Advertising_Handle parameter.\n\n The CTE_Count parameter specifies how many packets with a Constant Tone\n Extension are to be transmitted in each periodic advertising event. If the\n number of packets that would otherwise be transmitted is less than this, the\n Controller shall transmit sufficient AUX_CHAIN_IND PDUs with no AdvData to\n make up the number. However, if a change in circumstances since this\n command was issued means that the Controller can no longer schedule all of\n these packets, it should transmit as many as possible.\n\n If the Host issues this command when Constant Tone Extensions have been\n enabled in the advertising set, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n The Switching_Pattern_Length and Antenna_IDs[i] parameters are only used\n when transmitting an AoD Constant Tone Extension and shall be ignored if\n CTE_Type specifies an AoA Constant Tone Extension.\n\n If the CTE_Length parameter is greater than the maximum length of Constant\n Tone Extension supported, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n If the Host requests a type of Constant Tone Extension that the Controller does\n not support, the Controller shall return the error code Unsupported Feature or\n Parameter Value (0x11).\n\n If the Controller is unable to schedule CTE_Count packets in each event, the\n Controller shall return the error code Unsupported Feature or Parameter Value\n (0x11).\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n If Switching_Pattern_Length is greater than the maximum length of switching\n pattern supported by the Controller (see Section 7.8.87), the Controller shall\n return the error code Unsupported Feature or Parameter Value (0x11).\n\n If the Controller determines that any of the Antenna_IDs[i] values do not\n identify an antenna in the device's antenna array, it shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n Note: Some Controllers may be unable to determine which values do or do not\n identify an antenna.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Connectionless_CTE_Transmit_Parameters\n command has completed, an HCI_Command_Complete event shall be\n generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Connectionless CTE Transmit Parameters.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.80\n\n The HCI_LE_Set_Connectionless_CTE_Transmit_Parameters command is\n used to set the type, length, and antenna switching pattern for the transmission\n of Constant Tone Extensions in any periodic advertising on the advertising set\n identified by the Advertising_Handle parameter.\n\n The CTE_Count parameter specifies how many packets with a Constant Tone\n Extension are to be transmitted in each periodic advertising event. If the\n number of packets that would otherwise be transmitted is less than this, the\n Controller shall transmit sufficient AUX_CHAIN_IND PDUs with no AdvData to\n make up the number. However, if a change in circumstances since this\n command was issued means that the Controller can no longer schedule all of\n these packets, it should transmit as many as possible.\n\n If the Host issues this command when Constant Tone Extensions have been\n enabled in the advertising set, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n The Switching_Pattern_Length and Antenna_IDs[i] parameters are only used\n when transmitting an AoD Constant Tone Extension and shall be ignored if\n CTE_Type specifies an AoA Constant Tone Extension.\n\n If the CTE_Length parameter is greater than the maximum length of Constant\n Tone Extension supported, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n If the Host requests a type of Constant Tone Extension that the Controller does\n not support, the Controller shall return the error code Unsupported Feature or\n Parameter Value (0x11).\n\n If the Controller is unable to schedule CTE_Count packets in each event, the\n Controller shall return the error code Unsupported Feature or Parameter Value\n (0x11).\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n If Switching_Pattern_Length is greater than the maximum length of switching\n pattern supported by the Controller (see Section 7.8.87), the Controller shall\n return the error code Unsupported Feature or Parameter Value (0x11).\n\n If the Controller determines that any of the Antenna_IDs[i] values do not\n identify an antenna in the device's antenna array, it shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n Note: Some Controllers may be unable to determine which values do or do not\n identify an antenna.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Connectionless_CTE_Transmit_Parameters\n command has completed, an HCI_Command_Complete event shall be\n generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_connless_cte_transmit_params(
         p_params: *const sdc_hci_cmd_le_set_connless_cte_transmit_params_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Connectionless CTE Transmit Enable.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.81\n\n The HCI_LE_Set_Connectionless_CTE_Transmit_Enable command is used to\n request that the Controller enables or disables the use of Constant Tone\n Extensions in any periodic advertising on the advertising set identified by\n Advertising_Handle.\n\n In order to start sending periodic advertisements containing a Constant Tone\n Extension, the Host must also enable periodic advertising using the\n HCI_LE_Set_Periodic_Advertising_Enable command (see Section 7.8.63).\n\n Note: Periodic advertising can only be enabled when advertising is enabled on\n the same advertising set, but can continue after advertising has been disabled.\n\n If the Host issues this command before it has issued the\n HCI_LE_Set_Periodic_Advertising_Parameters command (see Section 7.8.61)\n for the advertising set, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n Once enabled, the Controller shall continue advertising with Constant Tone\n Extensions until either one of the following occurs:\n • The Host issues an HCI_LE_Set_Connectionless_CTE_Transmit_Enable\n   command with CTE_Enable set to 0x00 (disabling Constant Tone\n   Extensions but allowing periodic advertising to continue).\n • The Host issues an HCI_LE_Set_Periodic_Advertising_Enable command\n   (see Section 7.8.63) with Enable set to 0x00 (disabling periodic advertising).\n   If periodic advertising is re-enabled then it shall continue to contain Constant\n   Tone Extensions.\n\n If the Host issues this command before it has issued the\n HCI_LE_Set_Connectionless_CTE_Transmit_Parameters command for the\n advertising set, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n If the periodic advertising is on a PHY that does not allow Constant Tone\n Extensions, the Controller shall return the error code Command Disallowed\n (0x0C).\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n The Host may issue this command when advertising or periodic advertising is\n enabled in the advertising set.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Connectionless_CTE_Transmit_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Connectionless CTE Transmit Enable.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.81\n\n The HCI_LE_Set_Connectionless_CTE_Transmit_Enable command is used to\n request that the Controller enables or disables the use of Constant Tone\n Extensions in any periodic advertising on the advertising set identified by\n Advertising_Handle.\n\n In order to start sending periodic advertisements containing a Constant Tone\n Extension, the Host must also enable periodic advertising using the\n HCI_LE_Set_Periodic_Advertising_Enable command (see Section 7.8.63).\n\n Note: Periodic advertising can only be enabled when advertising is enabled on\n the same advertising set, but can continue after advertising has been disabled.\n\n If the Host issues this command before it has issued the\n HCI_LE_Set_Periodic_Advertising_Parameters command (see Section 7.8.61)\n for the advertising set, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n Once enabled, the Controller shall continue advertising with Constant Tone\n Extensions until either one of the following occurs:\n • The Host issues an HCI_LE_Set_Connectionless_CTE_Transmit_Enable\n   command with CTE_Enable set to 0x00 (disabling Constant Tone\n   Extensions but allowing periodic advertising to continue).\n • The Host issues an HCI_LE_Set_Periodic_Advertising_Enable command\n   (see Section 7.8.63) with Enable set to 0x00 (disabling periodic advertising).\n   If periodic advertising is re-enabled then it shall continue to contain Constant\n   Tone Extensions.\n\n If the Host issues this command before it has issued the\n HCI_LE_Set_Connectionless_CTE_Transmit_Parameters command for the\n advertising set, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n If the periodic advertising is on a PHY that does not allow Constant Tone\n Extensions, the Controller shall return the error code Command Disallowed\n (0x0C).\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n The Host may issue this command when advertising or periodic advertising is\n enabled in the advertising set.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Connectionless_CTE_Transmit_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_connless_cte_transmit_enable(
         p_params: *const sdc_hci_cmd_le_set_connless_cte_transmit_enable_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Connection CTE Transmit Parameters.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.84\n\n The HCI_LE_Set_Connection_CTE_Transmit_Parameters command is used\n to set the antenna switching pattern and permitted Constant Tone Extension\n types used for transmitting Constant Tone Extensions requested by the peer\n device on the connection identified by the Connection_Handle parameter.\n\n If the Host issues this command when Constant Tone Extension responses\n have been enabled on the connection, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n If the CTE_Types parameter has a bit set for a type of Constant Tone\n Extension that the Controller does not support, the Controller shall return the\n error code Unsupported Feature or Parameter Value (0x11).\n\n The Switching_Pattern_Length and Antenna_IDs[i] parameters are only used\n when transmitting an AoD Constant Tone Extension and shall be ignored when\n CTE_Types does not have a bit set for an AoD Constant Tone Extension; they\n do not affect the transmission of an AoA Constant Tone Extension.\n\n If Switching_Pattern_Length is greater than the maximum length of switching\n pattern supported by the Controller, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n If the Controller determines that any of the Antenna_IDs[i] values do not\n identify an antenna in the device's antenna array, it shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n Note: Some Controllers may be unable to determine which values do or do not\n identify an antenna.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Connection_CTE_Transmit_Parameters command\n has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Connection CTE Transmit Parameters.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.84\n\n The HCI_LE_Set_Connection_CTE_Transmit_Parameters command is used\n to set the antenna switching pattern and permitted Constant Tone Extension\n types used for transmitting Constant Tone Extensions requested by the peer\n device on the connection identified by the Connection_Handle parameter.\n\n If the Host issues this command when Constant Tone Extension responses\n have been enabled on the connection, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n If the CTE_Types parameter has a bit set for a type of Constant Tone\n Extension that the Controller does not support, the Controller shall return the\n error code Unsupported Feature or Parameter Value (0x11).\n\n The Switching_Pattern_Length and Antenna_IDs[i] parameters are only used\n when transmitting an AoD Constant Tone Extension and shall be ignored when\n CTE_Types does not have a bit set for an AoD Constant Tone Extension; they\n do not affect the transmission of an AoA Constant Tone Extension.\n\n If Switching_Pattern_Length is greater than the maximum length of switching\n pattern supported by the Controller, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n If the Controller determines that any of the Antenna_IDs[i] values do not\n identify an antenna in the device's antenna array, it shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n Note: Some Controllers may be unable to determine which values do or do not\n identify an antenna.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Connection_CTE_Transmit_Parameters command\n has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_conn_cte_transmit_params(
         p_params: *const sdc_hci_cmd_le_set_conn_cte_transmit_params_t,
         p_return: *mut sdc_hci_cmd_le_set_conn_cte_transmit_params_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Connection CTE Response Enable.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.86\n\n The HCI_LE_Connection_CTE_Response_Enable command is used to\n request the Controller to respond to LL_CTE_REQ PDUs with LL_CTE_RSP\n PDUs on the specified connection.\n\n If the Host issues this command before issuing the HCI_LE_Set_Connection_-\n CTE_Transmit_Parameters command at least once on the connection, the\n Controller shall return the error code Command Disallowed (0x0C).\n\n If the Host issues this command when the transmitter PHY for the connection is\n not a PHY that allows Constant Tone Extensions, the Controller shall return the\n error code Command Disallowed (0x0C).\n\n If the transmitter PHY for the connection changes to a PHY that does not allow\n Constant Tone Extensions, then the Controller shall automatically disable\n Constant Tone Extension responses.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Connection_CTE_Response_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Connection CTE Response Enable.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.86\n\n The HCI_LE_Connection_CTE_Response_Enable command is used to\n request the Controller to respond to LL_CTE_REQ PDUs with LL_CTE_RSP\n PDUs on the specified connection.\n\n If the Host issues this command before issuing the\n HCI_LE_Set_Connection_CTE_Transmit_Parameters command at least once\n on the connection, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n If the Host issues this command when the transmitter PHY for the connection is\n not a PHY that allows Constant Tone Extensions, the Controller shall return the\n error code Command Disallowed (0x0C).\n\n If the transmitter PHY for the connection changes to a PHY that does not allow\n Constant Tone Extensions, then the Controller shall automatically disable\n Constant Tone Extension responses.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Connection_CTE_Response_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_conn_cte_response_enable(
         p_params: *const sdc_hci_cmd_le_conn_cte_response_enable_t,
         p_return: *mut sdc_hci_cmd_le_conn_cte_response_enable_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Antenna Information.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.87\n\n The HCI_LE_Read_Antenna_Information command allows the Host to read\n the switching rates, the sampling rates, the number of antennae, and the\n maximum length of a transmitted Constant Tone Extension supported by the\n Controller.\n\n If the Controller does not support antenna switching, the value of\n Max_Switching_Pattern_Length shall still be valid but will not be used by the\n Host.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Antenna_Information command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Antenna Information.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.87\n\n The HCI_LE_Read_Antenna_Information command allows the Host to read\n the switching rates, the sampling rates, the number of antennae, and the\n maximum length of a transmitted Constant Tone Extension supported by the\n Controller.\n\n If the Controller does not support antenna switching, the value of\n Max_Switching_Pattern_Length shall still be valid but will not be used by the\n Host.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Antenna_Information command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_antenna_information(
         p_return: *mut sdc_hci_cmd_le_read_antenna_information_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Periodic Advertising Receive Enable.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.88\n\n The HCI_LE_Set_Periodic_Advertising_Receive_Enable command will enable\n or disable reports for the periodic advertising train identified by the\n Sync_Handle parameter.\n\n The Enable parameter determines whether reporting and duplicate filtering are\n enabled or disabled. If the value is the same as the current state, the command\n has no effect.\n\n If the periodic advertising train corresponding to the Sync_Handle parameter\n does not exist, the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n If the Host sets both bits 0 and 1 of Enable and the Controller does not support\n the Periodic Advertising ADI Support feature, then the Controller shall return an\n error which should use the error code Unsupported Feature or Parameter\n Value (0x11).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Advertising_Receive_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Periodic Advertising Receive Enable.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.88\n\n The HCI_LE_Set_Periodic_Advertising_Receive_Enable command will enable\n or disable reports for the periodic advertising train identified by the\n Sync_Handle parameter.\n\n The Enable parameter determines whether reporting and duplicate filtering are\n enabled or disabled. If the value is the same as the current state, the command\n has no effect.\n\n If the periodic advertising train corresponding to the Sync_Handle parameter\n does not exist, the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Advertising_Receive_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_periodic_adv_receive_enable(
         p_params: *const sdc_hci_cmd_le_set_periodic_adv_receive_enable_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Periodic Advertising Sync Transfer.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.89\n\n The HCI_LE_Periodic_Advertising_Sync_Transfer command is used to\n instruct the Controller to send synchronization information about the periodic\n advertising train identified by the Sync_Handle parameter to a connected\n device.\n\n The Service_Data parameter is a value provided by the Host for use by the\n Host of the peer device. It is not used by the Controller.\n\n The connected device is identified by the Connection_Handle parameter.\n\n If the periodic advertising train corresponding to the Sync_Handle parameter\n does not exist, the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n If the Connection_Handle parameter does not identify a current connection, the\n Controller shall return the error code Unknown Connection Identifier (0x02).\n\n If the remote device has not indicated support for the Periodic Advertising Sync\n Transfer - Recipient feature, the Controller shall return the error code\n Unsupported Remote Feature (0x1A).\n\n Note: This command may complete before the periodic advertising\n synchronization information is sent. No indication is given as to how the\n recipient handled the information.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Periodic_Advertising_Sync_Transfer command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Periodic Advertising Sync Transfer.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.89\n\n The HCI_LE_Periodic_Advertising_Sync_Transfer command is used to\n instruct the Controller to send synchronization information about the periodic\n advertising train identified by the Sync_Handle parameter to a connected\n device.\n\n The Service_Data parameter is a value provided by the Host for use by the\n Host of the peer device. It is not used by the Controller.\n\n The connected device is identified by the Connection_Handle parameter.\n\n If the periodic advertising train corresponding to the Sync_Handle parameter\n does not exist, the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n If the Connection_Handle parameter does not identify a current connection, the\n Controller shall return the error code Unknown Connection Identifier (0x02).\n\n If the remote device has not indicated support for the Periodic Advertising Sync\n Transfer - Recipient feature, the Controller shall return the error code\n Unsupported Remote Feature (0x1A).\n\n Note: This command may complete before the periodic advertising\n synchronization information is sent. No indication is given as to how the\n recipient handled the information.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Periodic_Advertising_Sync_Transfer command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_periodic_adv_sync_transfer(
         p_params: *const sdc_hci_cmd_le_periodic_adv_sync_transfer_t,
         p_return: *mut sdc_hci_cmd_le_periodic_adv_sync_transfer_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Periodic Advertising Set Info Transfer.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.90\n\n The HCI_LE_Periodic_Advertising_Set_Info_Transfer command is used to\n instruct the Controller to send synchronization information about the periodic\n advertising in an advertising set to a connected device.\n\n The Advertising_Handle parameter identifies the advertising set. If the\n parameters in the advertising set have changed since the periodic advertising\n was first enabled, the current parameters – not the original ones – are sent.\n\n The Service_Data parameter is a value provided by the Host to identify the\n periodic advertising train to the peer device. It is not used by the Controller.\n\n The connected device is identified by the Connection_Handle parameter.\n\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n If periodic advertising is not currently in progress for the advertising set, the\n Controller shall return the error code Command Disallowed (0x0C).\n\n If the Connection_Handle parameter does not identify a current connection, the\n Controller shall return the error code Unknown Connection Identifier (0x02).\n\n If the remote device has not indicated support for the Periodic Advertising Sync\n Transfer - Recipient feature, the Controller shall return the error code\n Unsupported Remote Feature (0x1A).\n\n Note: This command may complete before the periodic advertising\n synchronization information is sent. No indication is given as to how the\n recipient handled the information.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Periodic_Advertising_Set_Info_Transfer command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Periodic Advertising Set Info Transfer.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.90\n\n The HCI_LE_Periodic_Advertising_Set_Info_Transfer command is used to\n instruct the Controller to send synchronization information about the periodic\n advertising in an advertising set to a connected device.\n\n The Advertising_Handle parameter identifies the advertising set. If the\n parameters in the advertising set have changed since the periodic advertising\n was first enabled, the current parameters – not the original ones – are sent.\n\n The Service_Data parameter is a value provided by the Host to identify the\n periodic advertising train to the peer device. It is not used by the Controller.\n\n The connected device is identified by the Connection_Handle parameter.\n\n If the advertising set corresponding to the Advertising_Handle parameter does\n not exist, the Controller shall return the error code Unknown Advertising\n Identifier (0x42).\n\n If periodic advertising is not currently in progress for the advertising set, the\n Controller shall return the error code Command Disallowed (0x0C).\n\n If the Connection_Handle parameter does not identify a current connection, the\n Controller shall return the error code Unknown Connection Identifier (0x02).\n\n If the remote device has not indicated support for the Periodic Advertising Sync\n Transfer - Recipient feature, the Controller shall return the error code\n Unsupported Remote Feature (0x1A).\n\n Note: This command may complete before the periodic advertising\n synchronization information is sent. No indication is given as to how the\n recipient handled the information.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Periodic_Advertising_Set_Info_Transfer command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_periodic_adv_set_info_transfer(
         p_params: *const sdc_hci_cmd_le_periodic_adv_set_info_transfer_t,
         p_return: *mut sdc_hci_cmd_le_periodic_adv_set_info_transfer_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Periodic Advertising Sync Transfer Parameters.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.91\n\n The HCI_LE_Set_Periodic_Advertising_Sync_Transfer_Parameters command\n is used to specify how the Controller will process periodic advertising\n synchronization information received from the device identified by the\n Connection_Handle parameter (the \"transfer mode\").\n\n The Mode parameter specifies the action to be taken when periodic advertising\n synchronization information is received. If Mode is 0x00, the Controller will\n ignore the information. Otherwise it will notify the Host and synchronize to the\n periodic advertising. Mode also specifies whether periodic advertising reports\n are initially enabled or disabled and whether duplicates are filtered.\n\n The Skip parameter specifies the number of consecutive periodic advertising\n packets that the receiver may skip after successfully receiving a periodic\n advertising packet.\n\n The Sync_Timeout parameter specifies the maximum permitted time between\n successful receives. If this time is exceeded, synchronization is lost.\n\n Irrespective of the value of the Skip parameter, the Controller should stop\n skipping packets before the Sync_Timeout would be exceeded.\n\n The CTE_Type parameter specifies whether to only synchronize to periodic\n advertising with certain types of Constant Tone Extension. If the periodic\n advertiser changes the type of the Constant Tone Extension after the Controller\n has synchronized with the periodic advertising, it shall remain synchronized.\n\n Note: A value of 0 (i.e. all bits clear) indicates that the presence or absence of\n a Constant Tone Extension is irrelevant.\n\n This command does not affect any processing of any periodic advertising\n synchronization information already received from the peer device, whether or\n not the Controller has yet synchronized to the periodic advertising train it\n describes.\n\n The parameter values provided by this command override those provided via\n the HCI_LE_Set_Default_Periodic_Advertising_Sync_Transfer_Parameters\n command (Section 7.8.92) or any preferences previously set using the\n HCI_LE_Set_Periodic_Advertising_Sync_Transfer_Parameters command on\n the same connection.\n\n If the Connection_Handle parameter does not identify a current connection, the\n Controller shall return the error code Unknown Connection Identifier (0x02).\n\n If the Host sets Mode to 0x03 and the Controller does not support the Periodic\n Advertising ADI Support feature, then the Controller shall return an error which\n should use the error code Unsupported Feature or Parameter Value (0x11).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Advertising_Sync_Transfer_Parameters\n command has completed, an HCI_Command_Complete event shall be\n generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Periodic Advertising Sync Transfer Parameters.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.91\n\n The HCI_LE_Set_Periodic_Advertising_Sync_Transfer_Parameters command\n is used to specify how the Controller will process periodic advertising\n synchronization information received from the device identified by the\n Connection_Handle parameter (the \"transfer mode\").\n\n The Mode parameter specifies the action to be taken when periodic advertising\n synchronization information is received. If Mode is 0x00, the Controller will\n ignore the information. Otherwise it will notify the Host and synchronize to the\n periodic advertising. Mode also specifies whether periodic advertising reports\n are initially enabled or disabled and whether duplicates are filtered.\n\n The Skip parameter specifies the number of consecutive periodic advertising\n packets that the receiver may skip after successfully receiving a periodic\n advertising packet.\n\n The Sync_Timeout parameter specifies the maximum permitted time between\n successful receives. If this time is exceeded, synchronization is lost.\n\n Irrespective of the value of the Skip parameter, the Controller should stop\n skipping packets before the Sync_Timeout would be exceeded.\n\n The CTE_Type parameter specifies whether to only synchronize to periodic\n advertising with certain types of Constant Tone Extension. If the periodic\n advertiser changes the type of the Constant Tone Extension after the Controller\n has synchronized with the periodic advertising, it shall remain synchronized.\n\n Note: A value of 0 (i.e. all bits clear) indicates that the presence or absence of\n a Constant Tone Extension is irrelevant.\n\n This command does not affect any processing of any periodic advertising\n synchronization information already received from the peer device, whether or\n not the Controller has yet synchronized to the periodic advertising train it\n describes.\n\n The parameter values provided by this command override those provided via\n the HCI_LE_Set_Default_Periodic_Advertising_Sync_Transfer_Parameters\n command (Section 7.8.92) or any preferences previously set using the\n HCI_LE_Set_Periodic_Advertising_Sync_Transfer_Parameters command on\n the same connection.\n\n If the Connection_Handle parameter does not identify a current connection, the\n Controller shall return the error code Unknown Connection Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Advertising_Sync_Transfer_Parameters\n command has completed, an HCI_Command_Complete event shall be\n generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_periodic_adv_sync_transfer_params(
         p_params: *const sdc_hci_cmd_le_set_periodic_adv_sync_transfer_params_t,
         p_return: *mut sdc_hci_cmd_le_set_periodic_adv_sync_transfer_params_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Default Periodic Advertising Sync Transfer Parameters.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.92\n\n The HCI_LE_Set_Default_Periodic_Advertising_Sync_Transfer_Parameters\n command is used to specify the initial value for the mode, skip, timeout, and\n Constant Tone Extension type (set by the HCI_LE_Set_Periodic_Advertising_-\n Sync_Transfer_Parameters command; see Section 7.8.91) to be used for all\n subsequent connections over the LE transport.\n\n The Mode parameter specifies the initial action to be taken. If Mode is 0x00,\n the Controller will ignore the information. Otherwise it will notify the Host and\n synchronize to the periodic advertising. Mode also specifies whether periodic\n advertising reports are initially enabled or disabled and whether duplicates are\n filtered.\n\n The Skip parameter specifies the number of consecutive periodic advertising\n packets that the receiver may skip after successfully receiving a periodic\n advertising packet.\n\n The Sync_Timeout parameter specifies the maximum permitted time between\n successful receives. If this time is exceeded, synchronization is lost.\n\n The CTE_Type parameter specifies whether to only synchronize to periodic\n advertising with certain types of Constant Tone Extension. If the periodic\n advertiser changes the type of the Constant Tone Extension after the Controller\n has synchronized with the periodic advertising, it shall remain synchronized.\n\n Note: A value of 0 (i.e. all bits clear) indicates that the presence or absence of\n a Constant Tone Extension is irrelevant.\n\n This command does not affect any existing connection.\n\n If the Host sets Mode to 0x03 and the Controller does not support the Periodic\n Advertising ADI Support feature, then the Controller shall return an error which\n should use the error code Unsupported Feature or Parameter Value (0x11).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Default_Periodic_Advertising_Sync_Transfer_-\n Parameters command has completed, an HCI_Command_Complete event\n shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Default Periodic Advertising Sync Transfer Parameters.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.92\n\n The HCI_LE_Set_Default_Periodic_Advertising_Sync_Transfer_Parameters\n command is used to specify the initial value for the mode, skip, timeout, and\n Constant Tone Extension type (set by the HCI_LE_Set_Periodic_Advertising_-\n Sync_Transfer_Parameters command; see Section 7.8.91) to be used for all\n subsequent connections over the LE transport.\n\n The Mode parameter specifies the initial action to be taken. If Mode is 0x00,\n the Controller will ignore the information. Otherwise it will notify the Host and\n synchronize to the periodic advertising. Mode also specifies whether periodic\n advertising reports are initially enabled or disabled and whether duplicates are\n filtered.\n\n The Skip parameter specifies the number of consecutive periodic advertising\n packets that the receiver may skip after successfully receiving a periodic\n advertising packet.\n\n The Sync_Timeout parameter specifies the maximum permitted time between\n successful receives. If this time is exceeded, synchronization is lost.\n\n The CTE_Type parameter specifies whether to only synchronize to periodic\n advertising with certain types of Constant Tone Extension. If the periodic\n advertiser changes the type of the Constant Tone Extension after the Controller\n has synchronized with the periodic advertising, it shall remain synchronized.\n\n Note: A value of 0 (i.e. all bits clear) indicates that the presence or absence of\n a Constant Tone Extension is irrelevant.\n\n This command does not affect any existing connection.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Default_Periodic_Advertising_Sync_Transfer_-\n Parameters command has completed, an HCI_Command_Complete event\n shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_default_periodic_adv_sync_transfer_params(
         p_params: *const sdc_hci_cmd_le_set_default_periodic_adv_sync_transfer_params_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Buffer Size [v2].\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.2\n\n This command is used to read the maximum size of the data portion of ACL\n data packets and isochronous data packets sent from the Host to the Control-\n ler. The Host shall segment the data transmitted to the Controller according to\n these values so that the HCI ACL Data packets and HCI ISO Data packets will\n contain data up to this size (“data” includes optional fields in the HCI ISO Data\n packet, such as ISO_SDU_Length). The HCI_LE_Read_Buffer_Size\n command also returns the total number of HCI LE ACL Data packets and iso-\n chronous data packets that can be stored in the data buffers of the Controller.\n The HCI_LE_Read_Buffer_Size command shall be issued by the Host before it\n sends any data to an LE Controller (see Section 4.1.1). If the Controller sup-\n ports HCI ISO Data packets, it shall return non-zero values for the ISO_Data_-\n Packet_Length and Total_Num_ISO_Data_Packets parameters.\n\n If the Controller returns a length value of zero for ACL data packets, the Host\n shall use the HCI_Read_Buffer_Size command to determine the size of the\n data buffers (shared between BR/EDR and LE transports).\n\n Note: Both the HCI_Read_Buffer_Size command and the HCI_LE_Read_-\n Buffer_Size command may return buffer length and number of packets param-\n eter values that are nonzero. This allows a Controller to offer different buffers\n and number of buffers for BR/EDR data packets and LE data packets.\n\n The LE_ACL_Data_Packet_Length return parameter shall be used to deter-\n mine the maximum size of the L2CAP PDU segments that are contained in\n ACL data packets, and which are transferred from the Host to the Controller to\n be broken up into packets by the Link Layer. The Total_Num_LE_ACL_Data_-\n Packets return parameter contains the total number of HCI ACL Data packets\n that can be stored in the data buffers of the Controller. The Host determines\n how to divide the buffers between different connection handles.\n\n The ISO_Data_Packet_Length return parameter shall be used to determine the\n maximum size of the SDU segments that are contained in isochronous data\n packets, and which are transferred from the Host to the Controller. The\n Total_Num_ISO_Data_Packets return parameter contains the total number of\n isochronous data packets that can be stored in the data buffers of the\n Controller. The Host determines how to divide the buffers between different\n connection handle(s).\n\n Note: The LE_ACL_Data_Packet_Length and ISO_Data_Packet_Length\n return parameters do not include the length of the HCI ACL Data packet header\n or the HCI ISO Data packet header respectively.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_Buffer_Size command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_read_buffer_size_v2(p_return: *mut sdc_hci_cmd_le_read_buffer_size_v2_return_t) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Read ISO TX Sync.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.96\n\n This command is used to read the TX_Time_Stamp and Time_Offset of a\n transmitted SDU identified by the Packet_Sequence_Number on a CIS or BIS\n identified by the Connection_Handle parameter on the Central or Peripheral.\n\n The Packet_Sequence_Number parameter contains the sequence number of a\n transmitted SDU.\n\n The TX_Time_Stamp and Time_Offset parameters are described in [Vol 6] Part\n G, Section 3.3 and [Vol 6] Part G, Section 3.1 respectively. When the\n Connection_Handle identifies a CIS or BIS that is transmitting unframed PDUs,\n the value of Time_Offset returned shall be zero.\n\n If the Host issues this command with a connection handle that does not exist,\n or the connection handle is not associated with a CIS or BIS, the Controller\n shall return the error code Unknown Connection Identifier (0x02).\n\n If the Host issues this command on an existing connection handle for a CIS or\n BIS that is not configured for transmitting SDUs, the Controller shall return the\n error code Command Disallowed (0x0C).\n\n If the Host issues this command before an SDU has been transmitted by the\n Controller, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_ISO_TX_Sync command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_read_iso_tx_sync(
-        p_params: *const sdc_hci_cmd_le_read_iso_tx_sync_t,
-        p_return: *mut sdc_hci_cmd_le_read_iso_tx_sync_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Set CIG Parameters.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.97\n\n The HCI_LE_Set_CIG_Parameters command is used by a Central'’s Host to\n create a CIG and to set the parameters of one or more CISes that are\n associated with a CIG in the Controller.\n\n The CIG_ID parameter identifies a CIG. This parameter is allocated by the\n Central's Host and passed to the Peripheral's Host through the Link Layers\n during the process of creating a CIS. If the CIG_ID does not exist, then the\n Controller shall first create a new CIG. Once the CIG is created (whether\n through this command or previously), the Controller shall modify or add CIS\n configurations in the CIG that is identified by the CIG_ID and update all the\n parameters that apply to the CIG.\n\n The SDU_Interval_C_To_P parameter specifies the time interval between the\n start of consecutive SDUs from the Central's Host for all the CISes in the CIG.\n This parameter shall be ignored for all CISes that are unidirectional from\n Peripheral to Central.\n\n The SDU_Interval_P_To_C parameter specifies the time interval between the\n start of consecutive SDUs from the Peripheral's Host for all the CISes in the\n CIG. This parameter shall be ignored for all CISes that are unidirectional from\n Central to Peripheral.\n The Worst_Case_SCA parameter shall be the worst-case sleep clock accuracy\n of all the Peripherals that will participate in the CIG. The Host should get the\n sleep clock accuracy from all the Peripherals before issuing this command. If\n the Host cannot get the sleep clock accuracy from all the Peripherals, it shall\n set the Worst_Case_SCA parameter to zero.\n\n Note: The Worst_Case_SCA parameter can be used by the Link Layer to\n better allow for clock drift when scheduling the CISes in the CIG. For example,\n if a CIS has more than two subevents, the Link Layer of the Central can set the\n timing of the subevents such that the worst case drift in the Peripheral's clock\n will not exceed 2 × Sub_Interval. This prevents the Peripheral from\n synchronizing its timing to the wrong subevent (adjacent subevents cannot be\n on the same channel).\n\n The Packing parameter indicates the preferred method of arranging subevents\n of multiple CISes. The subevents can be arranged in Sequential or Interleaved\n arrangement (see [Vol 6] Part B, Section 4.5.14.2). This is a recommendation\n to the Controller which the Controller may ignore. This parameter shall be\n ignored when there is only one CIS in the CIG.\n\n The Framing parameter indicates the format of the CIS Data PDUs of the\n specified CISes. If the Framing parameter is set to 1 then the CIS Data PDUs\n of the specified CISes shall be framed. If the Framing parameter is set to 0 the\n CIS Data PDUs of a given CIS may be either unframed or framed (determined\n separately for each specified CIS) (see [Vol 6] Part G, Section 1).\n\n The Max_Transport_Latency_C_To_P parameter contains the maximum\n transport latency from the Central to the Peripheral, in milliseconds, as\n described in [Vol 6] Part G, Section 3.2.1 and [Vol 6] Part G, Section 3.2.2. This\n parameter shall be ignored for all CISes that are unidirectional from Peripheral\n to Central.\n\n The Max_Transport_Latency_P_To_C parameter contains the maximum\n transport latency from the Peripheral to the Central, in milliseconds, as\n described in [Vol 6] Part G, Section 3.2.1 and [Vol 6] Part G, Section 3.2.2. This\n parameter shall be ignored for all CISes that are unidirectional from Central to\n Peripheral.\n\n The CIS_Count parameter indicates the number of CIS configurations being\n modified or added by this command. The Controller shall set the CIS_Count\n return parameter equal to this.\n\n The CIS_ID[i] parameter identifies a CIS and is set by the Central’s Host and\n passed to the Peripheral’s Host through the Link Layers during the process of\n establishing a CIS.\n\n The Max_SDU_C_To_P[i] parameter identifies the maximum size of an SDU\n from the Central’s Host. If the CIS is unidirectional from Peripheral to Central,\n this parameter shall be set to 0. If a CIS configuration that is being modified\n has a data path set in the Central to Peripheral direction and the Host has\n specified that Max_SDU_C_To_P[i] shall be set to zero, the Controller shall\n return the error code Command Disallowed (0x0C).\n\n The Max_SDU_P_To_C[i] parameter identifies the maximum size of an SDU\n from the Peripheral's Host. If the CIS is unidirectional from Central to\n Peripheral, this parameter shall be set to 0. If a CIS configuration that is being\n modified has a data path set in the Peripheral to Central direction and the Host\n has specified that Max_SDU_P_To_C[i] shall be set to zero, the Controller\n shall return the error code Command Disallowed (0x0C).\n\n The PHY_C_To_P[i] parameter identifies which PHY to use for transmission\n from the Central to the Peripheral. The Host shall set at least one bit in this\n parameter and the Controller shall pick a PHY from the bits that are set.\n\n The PHY_P_To_C[i] parameter identifies which PHY to use for transmission\n from the Peripheral to the Central. The Host shall set at least one bit in this\n parameter and the Controller shall pick a PHY from the bits that are set.\n\n The RTN_C_To_P[i] (Retransmission Number) parameter contains the number\n of times that a CIS Data PDU should be retransmitted from the Central to\n Peripheral before being acknowledged or flushed (irrespective of which CIS\n events the retransmission opportunities occur in). If the CIS is unidirectional\n from Peripheral to Central, this parameter shall be ignored. Otherwise, this\n parameter is a recommendation to the Controller which the Controller may\n ignore.\n\n The RTN_P_To_C[i] parameter contains the number of times that a CIS Data\n PDU should be retransmitted from the Peripheral to Central before being\n acknowledged or flushed (irrespective of which CIS events the retransmission\n opportunities occur in). If the CIS is unidirectional from Central to Peripheral,\n this parameter shall be ignored. Otherwise, this parameter is a\n recommendation to the Controller which the Controller may ignore.\n\n In each direction, if the Controller satisfies the recommendation, then every\n PDU will have at least RTN+1 opportunities for transmission (assuming that the\n initial transmission of that PDU happens at the earliest allowed subevent). The\n RTN value indicates that the Host is recommending that the Controller selects\n a combination of CIS parameters that satisfy the inequality:\n\n NSE * FT - NSE ÷ BN * ( BN - 1 ) ≥ RTN + 1\n\n If the Status return parameter is non-zero, then the state of the CIG and its CIS\n configurations shall not be changed by the command. If the CIG did not already\n exist, it shall not be created.\n\n If the Status return parameter is zero, then the Controller shall set the\n Connection_Handle arrayed return parameter to the connection handle(s)\n corresponding to the CIS configurations specified in the CIS_IDs command\n parameter, in the same order. If the same CIS_ID is being reconfigured, the\n same connection handle shall be returned.\n The connection handle of a CIS shall refer to the CIS when it exists and to the\n configuration of the CIS stored in a CIG when the CIG exists but the CIS with\n that CIS_ID does not.\n\n If the Host issues this command when the CIG is not in the configurable state,\n the Controller shall return the error code Command Disallowed (0x0C).\n\n If the Host attempts to create a CIG or set parameters that exceed the\n maximum supported resources in the Controller, the Controller shall return the\n error code Memory Capacity Exceeded (0x07).\n\n If the Host attempts to set CIS parameters that exceed the maximum\n supported connections in the Controller, the Controller shall return the error\n code Connection Limit Exceeded (0x09).\n\n If the Host sets, in the PHY_C_To_P[i] or PHY_P_To_C[i] parameters, a bit for\n a PHY that the Controller does not support, including a bit that is reserved for\n future use, the Controller shall return the error code Unsupported Feature or\n Parameter Value (0x11).\n\n If the Controller does not support asymmetric PHYs and the Host sets\n PHY_C_To_P[i] to a different value than PHY_P_To_C[i], the Controller shall\n return the error code Unsupported Feature or Parameter Value (0x11).\n\n If the Host specifies an invalid combination of CIS parameters, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12) or the\n error code Unsupported Feature or Parameter Value (0x11); it should return\n the error code Invalid HCI Command Parameters (0x12).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_CIG_Parameters command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_set_cig_params(
-        p_params: *const sdc_hci_cmd_le_set_cig_params_t,
-        p_return: *mut sdc_hci_cmd_le_set_cig_params_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Set CIG Parameters Test.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.98\n\n The HCI_LE_Set_CIG_Parameters_Test command should only be used for\n testing purposes.\n\n The command is used by a Central's Host to create a CIG and to set the\n parameters of one or more CISes that are associated with a CIG in the\n Controller.\n\n The CIG_ID parameter identifies a CIG. This parameter is allocated by the\n Central's Host and passed to the Peripheral's Host through the Link Layers\n during the process of creating a CIS. If the CIG_ID does not exist, then the\n Controller shall first create a new CIG. Once the CIG is created (whether\n through this command or previously), the Controller shall modify or add CIS\n configurations in the CIG that is identified by the CIG_ID and update all the\n parameters that apply to the CIG.\n\n The SDU_Interval_C_To_P parameter specifies the time interval of periodic\n SDUs from the Central's Host.\n The SDU_Interval_P_To_C parameter specifies the time interval of periodic\n SDUs from the Peripheral's Host.\n\n The FT_C_To_P parameter identifies the maximum time for a payload from the\n Central to Peripheral to be transmitted and re-transmitted, after which it is\n flushed (see [Vol 6] Part B, Section 4.5.13.5). This parameter is expressed in\n multiples of ISO_Interval.\n\n The FT_P_To_C parameter identifies the maximum time for a payload from the\n Peripheral to Central to be transmitted and re-transmitted, after which it is\n flushed (see[Vol 6] Part B, Section 4.5.13.5). This parameter is expressed in\n multiples of ISO_Interval.\n\n The ISO_Interval parameter specifies the time between two consecutive CIS\n anchor points.\n\n The CIS_Count parameter contains the number of CIS configurations being\n added or modified by this command. The Controller shall set the CIS_Count\n return parameter equal to this.\n\n The CIS_ID[i] parameter identifies the CIS and is set by the Central's Host and\n passed to the Peripheral's Host through the Link Layers during the process of\n establishing a CIS.\n\n The Worst_Case_SCA parameter is the worst-case sleep clock accuracy of all\n the Peripherals that will participate in the CIG. The Host should get the sleep\n clock accuracy from all the Peripherals before issuing this command. In case\n the Host cannot get the sleep clock accuracy from all the Peripherals, it shall\n set the Worst_Case_SCA parameter to zero.\n\n Note: The Worst_Case_SCA parameter can be used by the Link Layer to\n better allow for clock drift when scheduling the CISes in the CIG. For example,\n if a CIS has more than two subevents, the Link Layer of the Central can set the\n timing of the subevents such that the worst case drift in the Peripheral's clock\n will not exceed 2 × Sub_Interval. This prevents the Peripheral from\n synchronizing its timing to the wrong subevent (adjacent subevents cannot be\n on the same channel).\n\n The Packing parameter is used to indicate the preferred method of arranging\n subevents of multiple CISes. The subevents can be arranged in Sequential or\n Interleaved arrangement. This is a recommendation to the Controller which it\n may ignore. This parameter shall be ignored when there is only one CIS in the\n CIG.\n\n The Framing parameter indicates the format of the CIS Data PDUs of all the\n CISes. If the Framing parameter is set to 1 then the CIS Data PDUs of the\n specified CISes shall be framed, and when set to 0 they shall be unframed (see\n [Vol 6] Part G, Section 1).\n\n The CIS_ID[i] parameter is used to identify a CIS.\n The NSE[i] parameter identifies the maximum number of subevents for each\n CIS in a CIG event.\n\n The Max_SDU_C_To_P[i] parameter identifies the maximum size of SDU from\n the Central’s Host. If the CIS is unidirectional from Peripheral to Central, this\n parameter shall be set to 0. If a CIS configuration that is being modified has a\n data path set in the Central to Peripheral direction and the Host has specified\n that Max_SDU_C_To_P[i] shall be set to zero, the Controller shall return the\n error code Command Disallowed (0x0C). The minimum value of the\n Max_SDU_Size parameter in the ISO Transmit Test mode when the\n Payload_Type = 1 or 2 shall be 4 octets.\n\n The Max_SDU_P_To_C[i] parameter identifies the maximum size of SDU from\n the Peripheral’s Host. If the CIS is unidirectional from Central to Peripheral, this\n parameter shall be set to 0. If a CIS configuration that is being modified has a\n data path set in the Peripheral to Central direction and the Host has specified\n that Max_SDU_P_To_C[i] shall be set to zero, the Controller shall return the\n error code Command Disallowed (0x0C).The minimum value of the Max_SDU\n parameter in the ISO Transmit Test mode when the Payload_Type = 1 or 2\n shall be 4 octets.\n\n The Max_PDU_C_To_P[i] parameter identifies the maximum size PDU from\n the Central to Peripheral.\n\n The Max_PDU_P_To_C[i] parameter identifies the maximum size PDU from\n the Peripheral to Central.\n\n The PHY_C_To_P[i] parameter identifies the PHY to be used for transmission\n of packets from the Central to the Peripheral. The Host shall set only one bit in\n this parameter and the Controller shall use the PHY set by the Host.\n\n The PHY_P_To_C[i] parameter identifies the PHY to be used for transmission\n of packets from the Peripheral to the Central. The Host shall set only one bit in\n this parameter and the Controller shall use the PHY set by the Host.\n\n The BN_C_To_P[i] parameter identifies the burst number for Central to\n Peripheral (see [Vol 6] Part B, Section 4.5.13). If the CIS is unidirectional from\n Peripheral to Central, this parameter shall be set to zero.\n\n The BN_P_To_C[i] parameter identifies the burst number for Peripheral to\n Central (see [Vol 6] Part B, Section 4.5.13). If the CIS is unidirectional from\n Central to Peripheral, this parameter shall be set to zero.\n\n If the Status return parameter is non-zero, then the state of the CIG and its CIS\n configurations shall not be changed by the command. If the CIG did not already\n exist, it shall not be created.\n\n If the Status return parameter is zero, then the Controller shall set the\n Connection_Handle arrayed return parameter to the connection handle(s)\n corresponding to the CIS configurations specified in the CIS_IDs command\n parameter, in the same order. If the same CIS_ID is being reconfigured, the\n same connection handle shall be returned.\n\n If the Host issues this command when the CIG is not in the configurable state,\n the Controller shall return the error code Command Disallowed (0x0C).\n\n If the Host attempts to create a CIG or set parameters that exceed the\n maximum supported resources in the Controller, the Controller shall return the\n error code Memory Capacity Exceeded (0x07).\n\n If the Host attempts to set CIS parameters that exceed the maximum\n supported connections in the Controller, the Controller shall return the error\n code Connection Limit Exceeded (0x09).\n\n If the Host attempts to set an invalid combination of CIS parameters, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12)\n or the error code Unsupported Feature or Parameter Value (0x11); it should\n return the error code Invalid HCI Command Parameters (0x12).\n\n If the Host sets, in the PHY_C_To_P[i] or PHY_P_To_C[i] parameters, a bit for\n a PHY that the Controller does not support, including a bit that is reserved for\n future use, the Controller shall return the error code Unsupported Feature or\n Parameter Value (0x11).\n\n If the Controller does not support asymmetric PHYs and the Host sets\n PHY_C_To_P[i] to a different value than PHY_P_To_C[i], the Controller shall\n return the error code Unsupported Feature or Parameter Value (0x11).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_CIG_Parameters_Test command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_set_cig_params_test(
-        p_params: *const sdc_hci_cmd_le_set_cig_params_test_t,
-        p_return: *mut sdc_hci_cmd_le_set_cig_params_test_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Create CIS.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.99\n\n The HCI_LE_Create_CIS command is used by the Central's Host to create\n one or more CISes using the connections identified by the ACL_Connection_-\n Handle arrayed parameter.\n\n The CIS_Count parameter is the total number of CISes created by this\n command.\n\n The CIS_Connection_Handle[i] parameter specifies the connection handle\n corresponding to the configuration of the CIS to be created and whose\n configuration is already stored in a CIG.\n\n The ACL_Connection_Handle[i] parameter specifies the connection handle of\n the ACL connection associated with each CIS to be created. The list of the\n ACL_Connection_Handles shall be in the same order as the list of the\n CIS_Connection_Handles e.g., CIS_Connection_Handle[1] will connect to the\n Peripheral associated with the ACL_Connection_Handle[1].\n\n If this command is issued on the Central before the devices have performed\n the Feature Exchange procedure, then the Controller shall complete that pro-\n cedure before initiating the Connected Isochronous Stream Creation procedure\n (see [Vol 6] Part B, Section 5.1.15).\n\n If any ACL_Connection_Handle[i] is not the handle of an existing ACL\n connection or any CIS_Connection_Handle[i] is not the handle of a CIS or CIS\n configuration, the Controller shall return the error code Unknown Connection\n Identifier (0x02).\n\n If the Host attempts to create a CIS that has already been created, the\n Controller shall return the error code Connection Already Exists (0x0B).\n\n If two different elements of the CIS_Connection_Handle arrayed parameter\n identify the same CIS, the Controller shall return the error code Invalid HCI\n Command Parameters (0x12).\n\n If the Host issues this command before all the HCI_LE_CIS_Established\n events from the previous use of the command have been generated, the\n Controller shall return the error code Command Disallowed (0x0C).\n If the Host issues this command on an ACL_Connection_Handle where the\n Controller is the Peripheral, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n Note: The order of the CIS connection handles in this command does not relate\n to the order of connection handles in the return parameters of the HCI_LE_-\n Set_CIG_Parameters command or the HCI_LE_Set_CIG_Parameters_Test\n command.\n\n If the Host issues this command when the Connected Isochronous Stream\n (Host Support) feature bit (see [Vol 6] Part B, Section 4.6.27) is not set, the\n Controller shall return the error code Command Disallowed (0x0C).\n\n If the Host specified an invalid combination of parameters in the HCI_LE_Set_-\n CIG_Parameters or HCI_LE_Set_CIG_Parameters_Test command that cre-\n ated the CIS configuration, but the Controller could not detect the problem\n without knowing the properties of the ACL connection associated with the CIS,\n then the Controller shall return an error which should use the error code\n Unsupported Feature or Parameter Value (0x11).\n\n Note: If an error is reported in the HCI_Command_Status event, it means that\n no CIS is created and the Host cannot determine which CIS had the error.\n Therefore, in the case of an error that only affects one CIS of several, reporting\n the error in the HCI_LE_CIS_Established event for that CIS means that the\n remaining CISes are still created and the Host can determine which CIS had\n the error.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Create_CIS command, the\n Controller sends the HCI_Command_Status event to the Host. An\n HCI_LE_CIS_Established event will be generated for each CIS when it is\n established or if it is disconnected or considered lost before being established;\n until all the events are generated, the command remains pending.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_create_cis(p_params: *const sdc_hci_cmd_le_create_cis_t) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Remove CIG.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.100\n\n The HCI_LE_Remove_CIG command is used by the Central’s Host to remove\n the CIG identified by CIG_ID.\n\n The CIG_ID parameter contains the identifier of the CIG.\n\n This command shall delete the CIG_ID and also delete the\n Connection_Handles of the CIS configurations stored in the CIG.\n\n This command shall also remove the isochronous data paths that are\n associated with the Connection_Handles of the CIS configurations, which is\n equivalent to issuing the HCI_LE_Remove_ISO_Data_Path command (see\n Section 7.8.110).\n\n If the Host tries to remove a CIG which is in the active state, then the Controller\n shall return the error code Command Disallowed (0x0C).\n\n If the Host issues this command with a CIG_ID that does not exist, the\n Controller shall return the error code Unknown Connection Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Remove_CIG command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_remove_cig(
-        p_params: *const sdc_hci_cmd_le_remove_cig_t,
-        p_return: *mut sdc_hci_cmd_le_remove_cig_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Accept CIS Request.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.101\n\n The HCI_LE_Accept_CIS_Request command is used by the Peripheral's Host\n to inform the Controller to accept the request for the CIS that is identified by the\n Connection_Handle.\n\n The command shall only be issued after an HCI_LE_CIS_Request event has\n occurred. The event contains the Connection_Handle of the CIS.\n\n If the Peripheral's Host issues this command with a Connection_Handle that\n does not exist, or the Connection_Handle is not for a CIS, the Controller shall\n return the error code Unknown Connection Identifier (0x02).\n\n If the Peripheral's Host issues this command with a Connection_Handle for a\n CIS that has already been established or that already has an HCI_LE_-\n Accept_CIS_Request or HCI_LE_Reject_CIS_Request command in progress,\n the Controller shall return the error code Command Disallowed (0x0C).\n\n If the Central’s Host issues this command, the Controller shall return the error\n code Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Accept_CIS_Request command,\n the Controller sends the HCI_Command_Status event to the Host. An\n HCI_LE_CIS_Established event will be generated when the CIS is established\n or is considered lost before being established.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_accept_cis_request(p_params: *const sdc_hci_cmd_le_accept_cis_request_t) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Reject CIS Request.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.102\n\n The HCI_LE_Reject_CIS_Request command is used by the Peripheral's Host\n to inform the Controller to reject the request for the CIS that is identified by the\n Connection_Handle.\n\n The command shall only be issued after an HCI_LE_CIS_Request event has\n occurred. The event contains the Connection_Handle of the CIS.\n\n When this command succeeds, the Controller shall delete the\n Connection_Handle of the requested CIS.\n\n The Reason command parameter indicates the reason for rejecting the CIS\n request.\n\n If the Peripheral's Host issues this command with a Connection_Handle that is\n not for a CIS, the Controller shall return the error code Unknown Connection\n Identifier (0x02).\n\n If the Peripheral's Host issues this command with a Connection_Handle for a\n CIS that has already been established or that already has an HCI_LE_-\n Accept_CIS_Request or HCI_LE_Reject_CIS_Request command in progress,\n the Controller shall return the error code Command Disallowed (0x0C).\n\n If the Central’s Host issues this command, the Controller shall return the error\n code Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Reject_CIS_Request command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_reject_cis_request(
-        p_params: *const sdc_hci_cmd_le_reject_cis_request_t,
-        p_return: *mut sdc_hci_cmd_le_reject_cis_request_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Create BIG.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.103\n\n The HCI_LE_Create_BIG command is used to create a BIG with one or more\n BISes (see [Vol 6] Part B, Section 4.4.6). All BISes in a BIG have the same\n value for all parameters.\n\n The BIG_Handle contains the identifier of the BIG. This parameter is allocated\n by the Host and used by the Controller and the Host to identify a BIG.\n\n The Advertising_Handle identifies the associated periodic advertising train of\n the BIG (see [Vol 6] Part B, Section 4.4.5.1).\n\n The Num_BIS parameter contains the total number of BISes in the BIG.\n\n The SDU_Interval parameter contains the time interval of the periodic SDUs.\n\n The Max_SDU parameter contains the maximum size of an SDU.\n\n The Max_Transport_Latency parameter is the maximum transport latency (in\n milliseconds) as described in [Vol 6] Part G, Section 3.2.1 and [Vol 6] Part G,\n Section 3.2.2. This includes pre-transmissions.\n\n The RTN (Retransmission Number) parameter contains the number of times\n every PDU should be retransmitted, irrespective of which BIG events the\n retransmissions occur in. This is a recommendation to the Controller which the\n Controller may ignore.\n\n The PHY parameter is a bit field that indicates the PHY used for transmission\n of PDUs of BISes in the BIG. The Host shall set at least one bit in this\n parameter and the Controller shall pick a PHY from the bits set. If the Host\n sets, in the PHY parameter, a bit for a PHY that the Controller does not\n support, including a bit that is reserved for future use, the Controller shall return\n the error code Unsupported Feature or Parameter Value (0x11).\n\n The Packing parameter is used to indicate the preferred method of arranging\n subevents of multiple BISes. The subevents can be arranged in Sequential or\n Interleaved arrangement. This is a recommendation to the Controller which it\n may ignore. This parameter shall be ignored when there is only one BIS in the\n BIG.\n\n The Framing parameter indicates the format for sending BIS Data PDUs. If the\n Framing parameter is set to 1 then BIS Data PDUs shall be Framed and when\n set to 0 they may be unframed (see [Vol 6] Part G, Section 1).\n\n The Encryption parameter identifies the encryption mode of the BISes. If the\n Encryption parameter is set to 1 (encrypted), the Broadcast_Code is used in\n the encryption of payloads (see [Vol 6] Part B, Section 4.4.6.10).\n\n The Broadcast_Code parameter is used to generate the encryption key for\n encrypting payloads of all BISes. When the Encryption parameter is set to 0\n (unencrypted), the Broadcast_Code parameter shall be set to zero by the Host\n and ignored by the Controller.\n\n If the Controller cannot create all BISes of the BIG or if Num_BIS exceeds the\n maximum value supported by the Controller, it shall return the error code\n Connection Rejected due to Limited Resources (0x0D).\n\n If the Advertising_Handle does not identify a periodic advertising train or the\n periodic advertising train is associated with another BIG, the Controller shall\n return the error code Unknown Advertising Identifier (0x42).\n\n If the Host issues this command with a BIG_Handle for a BIG that is already\n created, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n If the Host specifies an invalid combination of BIG parameters, the Controller\n shall return an error which should use the error code Invalid HCI Command\n Parameters (0x12).\n\n If the length of the associated periodic advertising, with the BIGInfo added to\n the ACAD, is greater than the maximum that the Controller can transmit within\n the periodic advertising interval, then the Controller shall return an error and\n should use the error code Packet Too Long (0x45). If advertising on the LE\n Coded PHY, then the S=8 coding shall be assumed unless the current\n advertising parameters require the use of S=2 for an advertising physical\n channel, in which case the S=2 coding shall be assumed for that advertising\n physical channel.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Create_BIG command, the Control-\n ler sends the HCI_Command_Status event to the Host. When the HCI_LE_-\n Create_BIG command has completed, the HCI_LE_Create_BIG_Complete\n event is generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_create_big(p_params: *const sdc_hci_cmd_le_create_big_t) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Create BIG Test.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.104\n\n The HCI_LE_Create_BIG_Test command should only be used for testing\n purposes.\n\n The command is used to create one or more BISes of a BIG (see [Vol 6] Part B,\n Section 4.4.6). All BISes in the BIG have the same values for all parameters.\n\n The BIG_Handle contains the identifier of the BIG. This parameter is allocated\n by the Host and used by the Controller and the Host to identify a BIG.\n\n The Advertising_Handle identifies the associated periodic advertising train of\n the BIG.\n\n The Num_BIS parameter contains the total number of BISes in the BIG.\n\n The SDU_Interval parameter specifies the time interval of the periodic SDUs.\n\n The ISO_Interval parameter contains the time duration between two\n consecutive BIG anchor points.\n\n The NSE (Number of SubEvents) parameter contains the total number of\n subevents that are used to transmit BIS Data PDUs for each BIS in a BIG\n event. The NSE parameter shall be greater than or equal to IRC * BN.\n The Max_SDU parameter contains the maximum size, in octets, of an SDU.\n The minimum value of the Max_SDU parameter in the ISO Transmit Test mode\n when the Payload_Type = 1 or 2 shall be 4.\n\n The Max_PDU parameter contains the maximum size of every BIS Data PDU\n for every BIS in the BIG.\n\n The PHY parameter is a bit field that indicates the PHY used for transmission\n of PDUs of BISes in the BIG. The Host shall set only one bit in this parameter\n and the Controller shall use the PHY set by the Host. If the Host sets, in the\n PHY parameter, a bit for a PHY that the Controller does not support, including\n a bit that is reserved for future use, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n The Packing parameter indicates the preferred method of arranging subevents\n of multiple BISes. The subevents can be arranged in Sequential or Interleaved\n arrangement. This is a recommendation to the Controller which it may ignore.\n This parameter shall be ignored when there is only one BIS in the BIG.\n\n The Framing parameter indicates the format of BIS Data PDUs. If the Framing\n parameter is set to 1 then BIS Data PDUs shall be Framed and when set to 0\n the BIS Data PDUs shall be unframed (see [Vol 6] Part G, Section 1).\n\n The BN (Burst Number) parameter contains the number of new payloads for\n each BIS in a BIS event.\n\n The IRC (Immediate Repetition Count) parameter contains the number of times\n the scheduled data packet is transmitted (see [Vol 6] Part B, Section 4.4.6).\n The IRC parameter shall be an integer in the range 1 to (NSE ÷ BN).\n\n The PTO (Pre_Transmission_Offset) parameter contains the offset in number\n of ISO_Intervals for pre transmissions of data packets (see [Vol 6] Part B,\n Section 4.4.6).\n\n The Encryption parameter identifies the encryption mode of the BISes in the\n BIG. If the Encryption parameter is set to 1 (encrypted), the Broadcast_Code is\n used in the encryption of payloads (see [Vol 6] Part B, Section 4.4.6).\n\n The Broadcast_Code parameter is a 16-octet field that is used to generate the\n session key to encrypt payloads of all BISes in the BIG. When the Encryption\n parameter is set to 0 (unencrypted), all 16 octets of the Broadcast_Code\n parameter shall be set to zero by the Host and ignored by the Controller.\n\n If the Controller cannot create all BISes of the BIG or if Num_BIS exceeds the\n maximum value supported by the Controller, it shall return the error code\n Connection Rejected due to Limited Resources (0x0D).\n\n If the Advertising_Handle does not identify a periodic advertising train or the\n periodic advertising train is associated with another BIG, the Controller shall\n return the error code Unknown Advertising Identifier (0x42).\n If the Host issues this command with a BIG_Handle for a BIG that is already\n created, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n If the value of the Max_PDU, NSE, BN, IRC or PTO parameters exceeds the\n values supported by the Controller, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n If the Host specifies an invalid combination of BIG parameters, the Controller\n shall return an error. If the value of the NSE parameter is not an integer\n multiple of BN, or NSE is less than (IRC * BN), or the parameters are not in the\n specified range, these errors shall use the error code Unsupported Feature or\n Parameter Value (0x11). The errors in all other circumstances should use the\n error code Invalid HCI Command Parameters (0x12).\n\n If the length of the associated periodic advertising, with the BIGInfo added to\n the ACAD, is greater than the maximum that the Controller can transmit within\n the periodic advertising interval, then the Controller shall return an error and\n should use the error code Packet Too Long (0x45). If advertising on the LE\n Coded PHY, then the S=8 coding shall be assumed unless the current\n advertising parameters require the use of S=2 for an advertising physical\n channel, in which case the S=2 coding shall be assumed for that advertising\n physical channel.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Create_BIG_Test command, the\n Controller sends the HCI_Command_Status event to the Host. When the\n HCI_LE_Create_BIG_Test command has completed, the HCI_LE_Create_-\n BIG_Complete event is generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_create_big_test(p_params: *const sdc_hci_cmd_le_create_big_test_t) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Terminate BIG.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.105\n\n The HCI_LE_Terminate_BIG command is used to terminate a BIG identified by\n the BIG_Handle parameter. The command also terminates the transmission of\n all BISes of the BIG, destroys the associated connection handles of the BISes\n in the BIG and removes the data paths for all BISes in the BIG.\n\n The Reason parameter is used to indicate the reason why the BIG is to be\n terminated.\n\n If the BIG_Handle does not identify a BIG, the Controller shall return the error\n code Unknown Advertising Identifier (0x42).\n\n If the Controller is not the Isochronous Broadcaster for the BIG identified by\n BIG_Handle, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Terminate_BIG command, the\n Controller sends the HCI_Command_Status event to the Host.\n\n When the HCI_LE_Terminate_BIG command has completed, the HCI_LE_-\n Terminate_BIG_Complete event will be generated.\n If the Host attempts to terminate a BIG while the process of establishment of\n the BIG is in progress (i.e. HCI_LE_Create_BIG_Complete event has not been\n generated) the process of establishment shall stop and the Controller shall\n generate the HCI_LE_Create_BIG_Complete event to the Host with the error\n code Operation Cancelled by Host (0x44).\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_terminate_big(p_params: *const sdc_hci_cmd_le_terminate_big_t) -> u8;
-}
-extern "C" {
-    #[doc = "  LE BIG Create Sync.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.106\n\n The HCI_LE_BIG_Create_Sync command is used to synchronize to a BIG\n described in the periodic advertising train specified by the Sync_Handle\n parameter.\n\n The BIG_Handle parameter is assigned by the Host to identify the\n synchronized BIG.\n\n The Encryption parameter indicates whether the Broadcast_Code parameter is\n valid.\n\n The Broadcast_Code parameter is a 16-octet field that is used to generate the\n session key to encrypt or decrypt payloads of an encrypted BIS.\n Broadcast_Code shall be ignored by the Controller if Encryption is set to 0x00.\n\n If Encryption is set to 0x00 for an encrypted BIG or is set to 0x01 for an\n unencrypted BIG, then the Controller shall return the error Encryption Mode\n Not Acceptable (0x25).\n\n The MSE (Maximum Subevents) parameter is the maximum number of\n subevents that a Controller should use to receive data payloads in each\n interval for a BIS.\n\n The BIG_Sync_Timeout parameter specifies the maximum permitted time\n between successful receptions of BIS PDUs. If this time is exceeded,\n synchronization is lost. When the Controller establishes synchronization and if\n the BIG_Sync_Timeout set by the Host is less than 6 * ISO_Interval, the\n Controller shall set the timeout to 6 * ISO_Interval.\n\n The Num_BIS parameter contains the number of BIS indices specified in the\n BIS arrayed parameter. The number of BISes requested may be a subset of\n the BISes available in the BIG.\n The BIS arrayed parameter is a list of indices corresponding to BIS(es) in the\n synchronized BIG. The list of BIS indices shall be in ascending order and shall\n not contain any duplicates. This list of specified BIS(es) may be all or a subset\n of BISes available in the BIG.\n\n If the Sync_Handle does not exist, the Controller shall return the error code\n Unknown Advertising Identifier (0x42).\n\n If the Host sends this command with a BIG_Handle that is already allocated,\n the Controller shall return the error code Command Disallowed (0x0C).\n\n If the information describing the BIG does not specify a PHY supported by the\n Controller or does not specify exactly one PHY, the Controller shall return the\n error code Unsupported Feature or Parameter Value (0x11).\n\n If the Num_BIS parameter is greater than the total number of BISes in the BIG,\n the Controller shall return the error code Unsupported Feature or Parameter\n Value (0x11).\n\n If the Host sends this command when the Controller is in the process of\n synchronizing to any BIG, i.e. the HCI_LE_BIG_Sync_Established event has\n not been generated, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n If the Controller is unable to receive PDUs from the specified number of BISes\n in the synchronized BIG, it shall return the error code Connection Rejected Due\n To Limited Resources (0x0D).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_BIG_Create_Sync command, the\n Controller sends the HCI_Command_Status event to the Host. When the\n HCI_LE_BIG_Create_Sync command has completed, the HCI_LE_BIG_-\n Sync_Established event will be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_big_create_sync(p_params: *const sdc_hci_cmd_le_big_create_sync_t) -> u8;
-}
-extern "C" {
-    #[doc = "  LE BIG Terminate Sync.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.107\n\n The HCI_LE_BIG_Terminate_Sync command is used to stop synchronizing or\n cancel the process of synchronizing to the BIG identified by the BIG_Handle\n parameter. The command also terminates the reception of BISes in the BIG\n specified in the HCI_LE_BIG_Create_Sync command, destroys the associated\n connection handles of the BISes in the BIG and removes the data paths for all\n BISes in the BIG.\n\n If the Host issues this command with a BIG_Handle that does not exist, the\n Controller shall return the error code Unknown Advertising Identifier (0x42).\n\n If the Host issues this command for a BIG which it is neither synchronized to\n nor in the process of synchronizing to, then the Controller shall return the error\n code Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_BIG_Terminate_Sync command has completed, an\n HCI_Command_Complete event shall be generated.\n\n If the Host attempts to terminate synchronization with a BIG while the process\n of synchronization with that BIG is in progress (i.e. HCI_LE_BIG_Sync_-\n Established event has not been generated) the process of synchronization\n shall stop, and the Controller shall generate the HCI_LE_BIG_Sync_-\n Established event to the Host with the error code Operation Cancelled by Host\n (0x44).\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_big_terminate_sync(
-        p_params: *const sdc_hci_cmd_le_big_terminate_sync_t,
-        p_return: *mut sdc_hci_cmd_le_big_terminate_sync_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Request Peer SCA.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.108\n\n This command is used to read the Sleep Clock Accuracy (SCA) of the peer\n device.\n\n The Connection_Handle parameter is the connection handle of the ACL\n connection.\n\n If the Host sends this command with a Connection_Handle that does not exist,\n or the Connection_Handle is not for an ACL the Controller shall return the error\n code Unknown Connection Identifier (0x02).\n\n If the Host sends this command and the peer device does not support the\n Sleep Clock Accuracy Updates feature, the Controller shall return the error\n code Unsupported Feature or Parameter Value (0x11) in the HCI_LE_-\n Request_Peer_SCA_Complete event.\n\n If the Host issues this command when the Controller is aware (e.g., through a\n previous feature exchange) that the peer device's Link Layer does not support\n the Sleep Clock Accuracy Updates feature, the Controller shall return the error\n code Unsupported Remote Feature (0x1A).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Request_Peer_SCA command, the\n Controller sends the HCI_Command_Status event to the Host. When the\n HCI_LE_Request_Peer_SCA command has completed, the HCI_LE_-\n Request_Peer_SCA_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_request_peer_sca(p_params: *const sdc_hci_cmd_le_request_peer_sca_t) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Setup ISO Data Path.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.109\n\n The HCI_LE_Setup_ISO_Data_Path command is used to identify and create\n the isochronous data path between the Host and the Controller for a CIS, CIS\n configuration, or BIS identified by the Connection_Handle parameter. This\n command can also be used to configure a codec for each data path. When a\n connection is created no data paths are set up for that connection.\n\n The input and output directions are defined from the perspective of the\n Controller, so \"input\" refers to data flowing from the Host to the Controller.\n\n If the Host issues this command more than once for the same Connection_-\n Handle and direction before issuing the HCI_LE_Remove_ISO_Data_Path\n command for that Connection_Handle and direction, the Controller shall return\n the error code Command Disallowed (0x0C).\n\n If the Host issues this command for a CIS on a Peripheral before it has issued\n the HCI_LE_Accept_CIS_Request command for that CIS, then the Controller\n shall return the error code Command Disallowed (0x0C).\n\n The Data_Path_Direction parameter specifies the direction for which the data\n path is being configured.\n\n The Data_Path_ID parameter specifies the data transport path used. When set\n to 0x00, the data path shall be over the HCI transport. When set to a value in\n the range 0x01 to 0xFE, the data path shall use a vendor-specific transport\n interface (e.g., a PCM interface) with logical transport numbers. The meanings\n of these logical transport numbers are vendor-specific.\n\n If the Host issues this command for a vendor-specific data transport path that\n has not been configured, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n If the Host attempts to set a data path with a Connection Handle that does not\n exist or that is not for a CIS, CIS configuration, or BIS, the Controller shall\n return the error code Unknown Connection Identifier (0x02).\n If the Host attempts to set an output data path using a connection handle that is\n for an Isochronous Broadcaster, for an input data path on a Synchronized\n Receiver, or for a data path for the direction on a unidirectional CIS where BN\n is set to 0, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n The Codec_ID parameter specifies the coding format used over the air.\n\n When Data_Path_Direction is set to 0x00 (input), the Controller_Delay param-\n eter specifies the delay at the data source from the reference time of an SDU to\n the CIG reference point (see [Vol 6] Part B, Section 4.5.14.1) or BIG anchor\n point (see [Vol 6] Part B, Section 4.4.6.4). When Data_Path_Direction is set to\n 0x01 (output), Controller_Delay specifies the delay from the\n SDU_Synchronization_Reference to the point in time at which the Controller\n begins to transfer the corresponding data to the data path interface. The Host\n should use the HCI_Read_Local_Supported_Controller_Delay command to\n obtain a suitable value for Controller_Delay.\n\n Note: Controller vendors may provide additional guidance to the Host on how\n to select a suitable Controller_Delay value from the range of values provided\n by the HCI_Read_Local_Supported_Controller_Delay command for various\n configurations of the data path interface.\n\n The Codec_Configuration parameter specifies codec-specific configuration\n information for the specified direction.\n\n If the Host issues this command with Codec_Configuration_Length non-zero\n and Codec_ID set to transparent air mode, the Controller shall return the error\n code Invalid HCI Command Parameters (0x12).\n\n If the Host issues this command with codec-related parameters that exceed the\n bandwidth and latency allowed on the established CIS or BIS identified by the\n Connection_Handle parameter, the Controller shall return the error code\n Invalid HCI Command Parameters (0x12).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Setup_ISO_Data_Path command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_setup_iso_data_path(
-        p_params: *const sdc_hci_cmd_le_setup_iso_data_path_t,
-        p_return: *mut sdc_hci_cmd_le_setup_iso_data_path_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Remove ISO Data Path.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.110\n\n The HCI_LE_Remove_ISO_Data_Path command is used to remove the input\n and/or output data path(s) associated with a CIS, CIS configuration, or BIS\n identified by the Connection_Handle parameter.\n\n The Data_Path_Direction parameter specifies which directions are to have the\n data path removed.\n\n If the Host issues this command with a Connection_Handle that does not exist\n or is not for a CIS, CIS configuration, or BIS, the Controller shall return the\n error code Unknown Connection Identifier (0x02).\n\n If the Host issues this command for a data path that has not been set up (using\n the HCI_LE_Setup_ISO_Data_Path command), the Controller shall return the\n error code Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Remove_ISO_Data_Path command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_remove_iso_data_path(
-        p_params: *const sdc_hci_cmd_le_remove_iso_data_path_t,
-        p_return: *mut sdc_hci_cmd_le_remove_iso_data_path_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE ISO Transmit Test.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.111\n\n The HCI_LE_ISO_Transmit_Test command should only be used in the ISO\n Test mode and only for testing purposes.\n\n The command is used to configure an established CIS or BIS specified by the\n Connection_Handle parameter, and transmit test payloads which are\n generated by the Controller.\n\n The Payload_Type parameter defines the configuration of SDUs in the\n payload.\n\n If the Host issues this command with a connection handle that does not exist,\n or the Connection_Handle command parameter is not associated with a CIS or\n a BIS, the Controller shall return the error code Unknown Connection Identifier\n (0x02).\n\n If the Host issues this command when the value of the transmit BN parameter\n of the CIS is set to zero, the Controller shall return the error code Unsupported\n Feature or Parameter Value (0x11).\n\n If the Host has set the input data path for the CIS or BIS identified by the\n connection handle, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_ISO_Transmit_Test command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_iso_transmit_test(
-        p_params: *const sdc_hci_cmd_le_iso_transmit_test_t,
-        p_return: *mut sdc_hci_cmd_le_iso_transmit_test_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE ISO Receive Test.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.112\n\n The HCI_LE_ISO_Receive_Test command should only be used in the ISO Test\n mode and only for testing purposes.\n\n The command is used to configure an established CIS or a synchronized BIG\n specified by the Connection_Handle parameter to receive payloads.\n\n When using this command for a BIS, the Host shall synchronize with a BIG\n using the HCI_LE_BIG_Create_Sync command before invoking this\n command.\n\n The Payload_Type parameter defines the configuration of SDUs in the\n payload.\n\n If the Host issues this command with a connection handle that is not for an\n established CIS or a BIS, the Controller shall return the error code Unknown\n Connection Identifier (0x02).\n\n If the Host issues this command when the value of the receive BN parameter of\n the CIS or BIS is set to zero, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n If the Host has set the output data path for the CIS or BIS identified by the\n Connection_Handle parameter, the Controller shall return the error code\n Command Disallowed (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_ISO_Receive_Test command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_iso_receive_test(
-        p_params: *const sdc_hci_cmd_le_iso_receive_test_t,
-        p_return: *mut sdc_hci_cmd_le_iso_receive_test_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE ISO Read Test Counters.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.113\n\n The HCI_LE_ISO_Read_Test_Counters command should only be used in the\n ISO Test mode and only for testing purposes.\n\n The command is used to read the test counters (see [Vol 6] Part B, Section 7)\n in the Controller which is configured in ISO Receive Test mode for a CIS or BIS\n specified by the Connection_Handle. Reading the test counters does not reset\n the test counters.\n\n The Received_SDU_Count, Missed_SDU_Count and Failed_SDU_Count\n parameters are set in the ISO Receive Test mode (see [Vol 6] Part B, Section\n 7.2).\n\n If the Host issues this command with a Connection_Handle parameter that is\n not for an established CIS or a BIS, the Controller shall return the error code\n Unknown Connection Identifier (0x02).\n\n If the Host issues this command for a CIS or BIS that is not configured in the\n ISO Receive Test mode, the Controller shall return the error code Unsupported\n Feature or Parameter Value (0x11).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_ISO_Read_Test_Counters command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_iso_read_test_counters(
-        p_params: *const sdc_hci_cmd_le_iso_read_test_counters_t,
-        p_return: *mut sdc_hci_cmd_le_iso_read_test_counters_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE ISO Test End.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.114\n\n The HCI_LE_ISO_Test_End command should only be used in the ISO Test\n mode and only for testing purposes.\n\n The command is used to terminate the ISO Transmit and/or Receive Test\n mode for a CIS or BIS specified by the Connection_Handle parameter but does\n not terminate the CIS or BIS.\n\n When the Host terminates the ISO Test mode for a CIS or BIS that is set to ISO\n Transmit Test mode only, the test counters in the return parameters shall be set\n to zero.\n\n When the Host terminates the ISO Test mode for a CIS or BIS that is set to the\n ISO Receive Test mode, the return parameters contain the values of the test\n counters as defined in [Vol 6] Part B, Section 7.\n\n If the Host issues this command with a Connection_Handle that is not for an\n established CIS or a BIS, the Controller shall return the error code Unknown\n Connection Identifier (0x02).\n\n If the Host issues this command for a CIS or BIS that is not configured in the\n ISO Transmit or Receive Test mode, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_ISO_Test_End command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_iso_test_end(
-        p_params: *const sdc_hci_cmd_le_iso_test_end_t,
-        p_return: *mut sdc_hci_cmd_le_iso_test_end_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Set Host Feature.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.115\n\n The HCI_LE_Set_Host_Feature command is used by the Host to set or clear a\n bit controlled by the Host in the Link Layer FeatureSet stored in the Controller\n (see [Vol 6] Part B, Section 4.6).\n\n The Bit_Number parameter specifies the bit position in the FeatureSet.\n\n The Bit_Value parameter specifies whether the feature is enabled or disabled.\n\n If Bit_Number specifies a feature bit that is not controlled by the Host, the\n Controller shall return the error code Unsupported Feature or Parameter Value\n (0x11).\n\n If Bit_Value is set to 0x01 and Bit_Number specifies a feature bit that requires\n support of a feature that the Controller does not support, the Controller shall\n return the error code Unsupported Feature or Parameter Value (0x11).\n\n If the Host issues this command while the Controller has a connection to\n another device, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Host_Feature command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_set_host_feature(p_params: *const sdc_hci_cmd_le_set_host_feature_t) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Read ISO Link Quality.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.116\n\n This command returns the values of various counters related to link quality that\n are associated with the isochronous stream specified by the\n Connection_Handle parameter.\n\n This command may be issued on both the Central and Peripheral if the\n connection handle identifies a CIS and on the Synchronized Receiver if the\n connection handle identifies a BIS.\n\n Each of the remaining return parameters shall contain the current value of the\n corresponding counter; all the values shall be recorded at the same moment.\n Each counter shall be a 32-bit unsigned value, shall be initialized to zero when\n the isochronous stream is created, and shall be incremented as described\n below. If a counter is not associated with the type of isochronous stream\n specified, the value of the parameter shall be ignored.\n\n                                   Associated\n  Counter                          Streams              When Incremented\n\n  TX_UnACKed_Packets               CIS                  The Link Layer does not receive an\n                                                        acknowledgment for a CIS Data PDU\n                                                        that it transmitted at least once by its\n                                                        flush point (see [Vol 6] Part B, Section\n                                                        4.5.13.5).\n\n  TX_Flushed_Packets               CIS                  The Link Layer does not transmit a spe-\n                                                        cific payload by its flush point.\n\n  TX_Last_Subevent_-               CIS in Peripheral    The Link Layer transmits a CIS Data\n  Packets                          role                 PDU in the last subevent of a CIS\n                                                        event.\n\n  Retransmitted_Packets            CIS                  The Link Layer retransmits a CIS Data\n                                                        PDU.\n\n Table 7.3: Isochronous streams link quality counters\n                                 Associated\n  Counter                        Streams                When Incremented\n\n  CRC_Error_Packets              CIS and BIS            The Link Layer receives a packet with a\n                                                        CRC error.\n\n  RX_Unreceived_Packets          CIS and BIS            The Link Layer does not receive a spe-\n                                                        cific payload by its flush point (on a\n                                                        CIS) or the end of the event it is associ-\n                                                        ated with (on a BIS; see [Vol 6] Part B,\n                                                        Section 4.4.6.6).\n\n  Duplicate_Packets              CIS                    The Link Layer receives a retransmis-\n                                                        sion of a CIS Data PDU.\n\n Table 7.3: Isochronous streams link quality counters\n\n If the Connection_Handle parameter does not identify a current CIS connection\n or a BIS that the Controller is synchronized to, the Controller shall return the\n error code Unknown Connection Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_ISO_Link_Quality command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_read_iso_link_quality(
-        p_params: *const sdc_hci_cmd_le_read_iso_link_quality_t,
-        p_return: *mut sdc_hci_cmd_le_read_iso_link_quality_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Enhanced Read Transmit Power Level.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.117\n\n The HCI_LE_Enhanced_Read_Transmit_Power_Level command is used to\n read the current and maximum transmit power levels of the local Controller on\n the ACL connection identified by the Connection_Handle parameter and the\n PHY indicated by the PHY parameter.\n\n If the Host sets PHY to a value that the Controller does not support, including a\n value that is reserved for future use, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n If the Connection_Handle parameter does not identify a current ACL\n connection, the Controller shall return the error code Unknown Connection\n Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Enhanced_Read_Transmit_Power_Level command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Enhanced Read Transmit Power Level.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.117\n\n The HCI_LE_Enhanced_Read_Transmit_Power_Level command is used to\n read the current and maximum transmit power levels of the local Controller on\n the ACL connection identified by the Connection_Handle parameter and the\n PHY indicated by the PHY parameter.\n\n If the Host sets PHY to a value that the Controller does not support, including a\n value that is reserved for future use, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n If the Connection_Handle parameter does not identify a current ACL\n connection, the Controller shall return the error code Unknown Connection\n Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Enhanced_Read_Transmit_Power_Level command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_enhanced_read_transmit_power_level(
         p_params: *const sdc_hci_cmd_le_enhanced_read_transmit_power_level_t,
         p_return: *mut sdc_hci_cmd_le_enhanced_read_transmit_power_level_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Read Remote Transmit Power Level.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.118\n\n The HCI_LE_Read_Remote_Transmit_Power_Level command is used to read\n the transmit power level used by the remote Controller on the ACL connection\n that is identified by the Connection_Handle parameter and the PHY indicated\n by the PHY parameter.\n\n The local Controller may use the remote transmit power level value obtained\n from a prior Power Change Indication or Power Control Request procedure\n (see [Vol 6] Part B, Section 5.1.17 and [Vol 6] Part B, Section 5.1.18). If the\n Controller chooses not to use these prior values, or if no prior value is available\n for one or more of the remote transmit power level, maximum transmit power\n level, or minimum transmit power level, the local Controller shall initiate a new\n Power Control Request procedure to obtain the remote transmit power level.\n\n If the Host sets PHY to a value that the Controller does not support, including a\n value that is reserved for future use, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n If the Connection_Handle parameter does not identify a current ACL\n connection, the Controller shall return the error code Unknown Connection\n Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Read_Remote_Transmit_Power_-\n Level command, the Controller shall send the HCI_Command_Status event to\n the Host. When the Controller has determined the remote transmit power, it\n shall generate an HCI_LE_Transmit_Power_Reporting event with Reason\n 0x02.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Read Remote Transmit Power Level.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.118\n\n The HCI_LE_Read_Remote_Transmit_Power_Level command is used to read\n the transmit power level used by the remote Controller on the ACL connection\n that is identified by the Connection_Handle parameter and the PHY indicated\n by the PHY parameter.\n\n The local Controller may use the remote transmit power level value obtained\n from a prior Power Change Indication or Power Control Request procedure\n (see [Vol 6] Part B, Section 5.1.17 and [Vol 6] Part B, Section 5.1.18). If the\n Controller chooses not to use these prior values, or if no prior value is available\n for one or more of the remote transmit power level, maximum transmit power\n level, or minimum transmit power level, the local Controller shall initiate a new\n Power Control Request procedure to obtain the remote transmit power level.\n\n If the Host sets PHY to a value that the Controller does not support, including a\n value that is reserved for future use, the Controller shall return the error code\n Unsupported Feature or Parameter Value (0x11).\n\n If the Connection_Handle parameter does not identify a current ACL\n connection, the Controller shall return the error code Unknown Connection\n Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Read_Remote_Transmit_Power_-\n Level command, the Controller shall send the HCI_Command_Status event to\n the Host. When the Controller has determined the remote transmit power, it\n shall generate an HCI_LE_Transmit_Power_Reporting event with Reason\n 0x02.\n\n Note: An HCI_Command_Complete event is not sent by the Controller to\n indicate that this command has been completed. Instead, the HCI_LE_-\n Transmit_Power_Reporting event indicates that this command has been\n completed.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_read_remote_transmit_power_level(
         p_params: *const sdc_hci_cmd_le_read_remote_transmit_power_level_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Path Loss Reporting Parameters.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.119\n\n The HCI_LE_Set_Path_Loss_Reporting_Parameters command is used to set\n the path loss threshold reporting parameters for the ACL connection identified\n by the Connection_Handle parameter.\n\n The path loss threshold-based mechanism is described in [Vol 6] Part B,\n Section 4.5.16. For each zone boundary, the upwards boundary shall equal the\n threshold plus the hysteresis and the downwards boundary shall equal the\n threshold minus the hysteresis.\n\n If the Host issues this command with High_Threshold+High_Hysteresis greater\n than 0xFF or with Low_Threshold less than Low_Hysteresis, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the Host issues this command with Low_Threshold greater than\n High_Threshold or with Low_Threshold+Low_Hysteresis greater than\n High_Threshold–High_Hysteresis, the Controller shall return the error code\n Invalid HCI Command Parameters (0x12).\n\n The Min_Time_Spent parameter indicates the minimum time that the Controller\n shall observe the path loss has crossed the threshold before the Controller\n generates an event for the threshold crossing. The Host should specify a\n suitable value based on the connection interval, subrate factor, and Peripheral\n latency.\n\n If the Host issues this command when path loss monitoring is enabled, the\n Controller shall override the existing path loss threshold reporting parameters\n with the parameters provided in this command.\n\n The High_Threshold and the Low_Threshold parameters are common to all\n PHYs supported by the Controller. However, the Host can reissue this\n command with suitable parameters whenever a PHY switch is detected.\n\n If the Connection_Handle parameter does not identify a current ACL\n connection, the Controller shall return the error code Unknown Connection\n Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Path_Loss_Reporting_Parameters command has\n completed, an HCI_Command_Complete event shall be generated.\n\n If the Host issues this command when path loss monitoring is enabled, and if\n the new parameters mean that the path loss is now in a different zone, an\n HCI_LE_Path_Loss_Threshold event shall be generated as soon as possible\n irrespective of the Min_Time_Spent parameter and the timer shall be reset.\n\n If the Host issues this command with High_Threshold parameter set to 0xFF,\n then the Controller shall not generate an HCI_LE_Path_Loss_Threshold event\n with Zone_Entered set to 0x02.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Path Loss Reporting Parameters.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.119\n\n The HCI_LE_Set_Path_Loss_Reporting_Parameters command is used to set\n the path loss threshold reporting parameters for the ACL connection identified\n by the Connection_Handle parameter.\n\n The path loss threshold-based mechanism is described in [Vol 6] Part B,\n Section 4.5.16. For each zone boundary, the upwards boundary shall equal the\n threshold plus the hysteresis and the downwards boundary shall equal the\n threshold minus the hysteresis.\n\n If the Host issues this command with High_Threshold+High_Hysteresis greater\n than 0xFF or with Low_Threshold less than Low_Hysteresis, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the Host issues this command with Low_Threshold greater than\n High_Threshold or with Low_Threshold+Low_Hysteresis greater than\n High_Threshold–High_Hysteresis, the Controller shall return the error code\n Invalid HCI Command Parameters (0x12).\n\n The Min_Time_Spent parameter indicates the minimum time that the Controller\n shall observe the path loss has crossed the threshold before the Controller\n generates an event for the threshold crossing. The Host should specify a\n suitable value based on the connection interval, subrate factor, and Peripheral\n latency.\n\n If the Host issues this command when path loss monitoring is enabled, the\n Controller shall override the existing path loss threshold reporting parameters\n with the parameters provided in this command.\n\n The High_Threshold and the Low_Threshold parameters are common to all\n PHYs supported by the Controller. However, the Host can reissue this\n command with suitable parameters whenever a PHY switch is detected.\n\n If the Connection_Handle parameter does not identify a current ACL\n connection, the Controller shall return the error code Unknown Connection\n Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Path_Loss_Reporting_Parameters command has\n completed, an HCI_Command_Complete event shall be generated.\n\n If the Host issues this command when path loss monitoring is enabled, and if\n the new parameters mean that the path loss is now in a different zone, an\n HCI_LE_Path_Loss_Threshold event shall be generated as soon as possible\n irrespective of the Min_Time_Spent parameter and the timer shall be reset.\n\n If the Host issues this command with High_Threshold parameter set to 0xFF,\n then the Controller shall not generate an HCI_LE_Path_Loss_Threshold event\n with Zone_Entered set to 0x02.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_path_loss_reporting_params(
         p_params: *const sdc_hci_cmd_le_set_path_loss_reporting_params_t,
         p_return: *mut sdc_hci_cmd_le_set_path_loss_reporting_params_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Path Loss Reporting Enable.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.120\n\n The HCI_LE_Set_Path_Loss_Reporting_Enable command is used to enable\n or disable path loss reporting for the ACL connection identified by the\n Connection_Handle parameter.\n\n If the Enable parameter is set to 0x01 and no prior LE Power Control Request\n procedure has been initiated on the ACL connection, then the Controller may\n need to initiate a new LE Power Control Request procedure on that ACL.\n\n Path loss reporting is disabled when the connection is first created.\n\n If the Host issues this command before it has issued the HCI_LE_Set_Path_-\n Loss_Reporting_Parameters command on this connection, the Controller shall\n return the error code Command Disallowed (0x0C).\n\n If the Connection_Handle parameter does not identify a current ACL\n connection, the Controller shall return the error code Unknown Connection\n Identifier (0x02).\n\n Enabling path loss monitoring when it is already enabled or disabling path loss\n monitoring when it is already disabled has no effect.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Path_Loss_Reporting_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n When reporting is enabled and was previously disabled, the Controller shall\n generate an HCI_LE_Path_Loss_Threshold event as soon as it has a reliable\n measurement of the path loss. If the Controller has to query the remote\n Controller for its transmit power level, then it shall generate this event within\n Tpath_loss_enable from the time it receives a response to its query. Otherwise, the\n Controller shall generate this event within Tpath_loss_enable from the time the\n command is issued. Tpath_loss_enable shall be Min_Time_Spent + 6 connection\n events or, if longer, 2 connection events where the Controller actually receives\n a packet from the peer, where Min_Time_Spent is specified by the\n HCI_LE_Set_Path_Loss_Reporting_Parameters command.\n\n After the initial event on reporting being enabled, the Controller shall generate\n this event each time it determines that the path loss has moved to a different\n zone and stayed in that zone for Min_Time_Spent.As stated in [Vol 6] Part B,\n Section 4.5.16, two consecutive events must not indicate the same zone.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Path Loss Reporting Enable.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.120\n\n The HCI_LE_Set_Path_Loss_Reporting_Enable command is used to enable\n or disable path loss reporting for the ACL connection identified by the\n Connection_Handle parameter.\n\n If the Enable parameter is set to 0x01 and no prior LE Power Control Request\n procedure has been initiated on the ACL connection, then the Controller may\n need to initiate a new LE Power Control Request procedure on that ACL.\n\n Path loss reporting is disabled when the connection is first created.\n\n If the Host issues this command before it has issued the HCI_LE_Set_Path_-\n Loss_Reporting_Parameters command on this connection, the Controller shall\n return the error code Command Disallowed (0x0C).\n\n If the Connection_Handle parameter does not identify a current ACL\n connection, the Controller shall return the error code Unknown Connection\n Identifier (0x02).\n\n Enabling path loss monitoring when it is already enabled or disabling path loss\n monitoring when it is already disabled has no effect.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Path_Loss_Reporting_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n When reporting is enabled and was previously disabled, the Controller shall\n generate an HCI_LE_Path_Loss_Threshold event as soon as it has a reliable\n measurement of the path loss. If the Controller has to query the remote\n Controller for its transmit power level, then it shall generate this event within\n Tpath_loss_enable from the time it receives a response to its query. Otherwise, the\n Controller shall generate this event within Tpath_loss_enable from the time the\n command is issued. Tpath_loss_enable shall be Min_Time_Spent + 6 connection\n events or, if longer, 2 connection events where the Controller actually receives\n a packet from the peer, where Min_Time_Spent is specified by the\n HCI_LE_Set_Path_Loss_Reporting_Parameters command.\n\n After the initial event on reporting being enabled, the Controller shall generate\n this event each time it determines that the path loss has moved to a different\n zone and stayed in that zone for Min_Time_Spent.As stated in [Vol 6] Part B,\n Section 4.5.16, two consecutive events must not indicate the same zone.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_path_loss_reporting_enable(
         p_params: *const sdc_hci_cmd_le_set_path_loss_reporting_enable_t,
         p_return: *mut sdc_hci_cmd_le_set_path_loss_reporting_enable_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Transmit Power Reporting Enable.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.121\n\n The HCI_LE_Set_Transmit_Power_Reporting_Enable command is used to\n enable or disable the reporting to the local Host of transmit power level\n changes in the local and remote Controllers for the ACL connection identified\n by the Connection_Handle parameter.\n\n If the Remote_Enable parameter is set to 0x01 and no prior LE Power Control\n Request procedure has been initiated on the ACL connection, then the Control-\n ler shall initiate a new LE Power Control Request procedure on that ACL.\n\n Reporting is disabled when the connection is first created.\n\n If the Connection_Handle parameter does not identify a current ACL\n connection, the Controller shall return the error code Unknown Connection\n Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Transmit_Power_Reporting_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n When local reporting is enabled, the Controller shall generate an HCI_LE_-\n Transmit_Power_Reporting event with Reason 0x00 each time the local\n transmit power level is changed.\n\n When remote reporting is enabled, the Controller shall generate an HCI_LE_-\n Transmit_Power_Reporting event with Reason 0x01 each time it becomes\n aware that the remote transmit power level has changed.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Transmit Power Reporting Enable.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.121\n\n The HCI_LE_Set_Transmit_Power_Reporting_Enable command is used to\n enable or disable the reporting to the local Host of transmit power level\n changes in the local and remote Controllers for the ACL connection identified\n by the Connection_Handle parameter.\n\n If the Remote_Enable parameter is set to 0x01 and no prior LE Power Control\n Request procedure has been initiated on the ACL connection, then the\n Controller shall initiate a new LE Power Control Request procedure on that\n ACL.\n\n Reporting is disabled when the connection is first created.\n\n If the Connection_Handle parameter does not identify a current ACL\n connection, the Controller shall return the error code Unknown Connection\n Identifier (0x02).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Transmit_Power_Reporting_Enable command has\n completed, an HCI_Command_Complete event shall be generated.\n\n When local reporting is enabled, the Controller shall generate an HCI_LE_-\n Transmit_Power_Reporting event with Reason 0x00 each time the local\n transmit power level is changed.\n\n When remote reporting is enabled, the Controller shall generate an HCI_LE_-\n Transmit_Power_Reporting event with Reason 0x01 each time it becomes\n aware that the remote transmit power level has changed.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_transmit_power_reporting_enable(
         p_params: *const sdc_hci_cmd_le_set_transmit_power_reporting_enable_t,
         p_return: *mut sdc_hci_cmd_le_set_transmit_power_reporting_enable_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  LE Set Data Related Address Changes.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.122\n\n The HCI_LE_Set_Data_Related_Address_Changes command specifies\n circumstances when the Controller shall refresh any Resolvable Private\n Address used by the advertising set identified by the Advertising_Handle\n parameter, whether or not the address timeout period has been reached. This\n command may be used while advertising is enabled.\n\n The Change_Reasons parameter specifies the reason(s) for refreshing\n addresses. The default when an advertising set is created, or if legacy\n advertising commands (see Section 3.1.1) are used, is for all bits to be clear.\n\n If extended advertising commands (see Section 3.1.1) are being used and the\n advertising set corresponding to the Advertising_Handle parameter does not\n exist, or if no command specified in Table 3.2 has been used, then the\n Controller shall return the error code Unknown Advertising Identifier (0x42).\n\n If legacy advertising commands are being used, the Controller shall ignore the\n Advertising_Handle parameter.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Data_Related_Address_Changes command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  LE Set Data Related Address Changes.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.8.122\n\n The HCI_LE_Set_Data_Related_Address_Changes command specifies\n circumstances when the Controller shall refresh any Resolvable Private\n Address used by the advertising set identified by the Advertising_Handle\n parameter, whether or not the address timeout period has been reached. This\n command may be used while advertising is enabled.\n\n The Change_Reasons parameter specifies the reason(s) for refreshing\n addresses. The default when an advertising set is created, or if legacy\n advertising commands (see Section 3.1.1) are used, is for all bits to be clear.\n\n If extended advertising commands (see Section 3.1.1) are being used and the\n advertising set corresponding to the Advertising_Handle parameter does not\n exist, or if no command specified in Table 3.2 has been used, then the\n Controller shall return the error code Unknown Advertising Identifier (0x42).\n\n If legacy advertising commands are being used, the Controller shall ignore the\n Advertising_Handle parameter.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Data_Related_Address_Changes command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_le_set_data_related_address_changes(
         p_params: *const sdc_hci_cmd_le_set_data_related_address_changes_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Set Periodic Advertising Subevent Data.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.125\n\n The HCI_LE_Set_Periodic_Advertising_Subevent_Data command is used by\n the Host to set the data for one or more subevents of PAwR in reply to an\n HCI_LE_Periodic_Advertising_Subevent_Data_Request event. The data for a\n subevent shall be transmitted only once.\n\n The Advertising_Handle parameter identifies the advertising set whose peri-\n odic advertising subevent data is being set. If the corresponding advertising set\n does not already exist, then the Controller shall return the error code Unknown\n Advertising Identifier (0x42).\n\n The Num_Subevents parameter is the number of subevent data contained in\n the parameter arrays.\n\n The Subevent arrayed parameter identifies the subevent of the PAwR that is\n being set. If the Host provides a subevent value that is outside of the range of\n subevents requested using the HCI_LE_Periodic_Advertising_Subevent_-\n Data_Request event, then the Controller shall return the error code Command\n Disallowed (0x0C).\n\n The Response_Slot_Start and Response_Slot_Count arrayed parameters\n identify the starting response slot and the number of response slots that are\n expected to be used in this subevent.\n\n The Subevent_Data_Length arrayed parameter determines the length of the\n Subevent_Data that is significant.\n\n The Subevent_Data arrayed parameter contains the advertising data to be\n transmitted in the subevent of the advertising set. If the combined data length\n is greater than the maximum that the Controller can transmit within the current\n subevent interval, then all data shall be discarded and the Controller shall\n return the error code Packet Too Long (0x45). If advertising on the LE Coded\n PHY, then the S=8 coding shall be assumed unless the current advertising\n parameters require the use of S=2 for an advertising physical channel, in which\n case the S=2 coding shall be assumed for that advertising physical channel.\n If the Subevent_Data cannot be transmitted because, for example, the subev-\n ent where this data would have been sent has already passed or is too early,\n then the Controller shall return the error code Too Late (0x46) or Too Early\n (0x47) and discard the data.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Advertising_Subevent_Data command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_set_periodic_adv_subevent_data(
-        p_params: *const sdc_hci_cmd_le_set_periodic_adv_subevent_data_t,
-        p_return: *mut sdc_hci_cmd_le_set_periodic_adv_subevent_data_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Set Periodic Advertising Response Data.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.126\n\n The HCI_LE_Set_Periodic_Advertising_Response_Data command is used by\n the Host to set the data for a response slot in a specific subevent of the PAwR\n identified by the Sync_Handle. The data for a response slot shall be transmit-\n ted only once.\n\n The Request_Event parameter identifies the periodic advertising event in\n which the periodic advertising packet that the Host is responding to was\n received.\n\n The Request_Subevent parameter identifies the subevent in which the periodic\n advertising packet that the Host is responding to was received.\n\n The Response_Subevent parameter identifies the subevent that the response\n shall be sent in.\n\n The Response_Slot parameter identifies the response slot in the subevent\n identified by the Response_Subevent parameter in which this response data is\n to be transmitted.\n\n The Response_Data_Length specifies the length of the Response_Data that is\n significant.\n\n The Response_Data contains the advertising data to be transmitted in the\n response slot. If the Response_Data_Length is greater than the maximum that\n the Controller can transmit within the response slot, then the Response_Data\n shall be discarded and the Controller shall return the error code Packet Too\n Long (0x45). If advertising on the LE Coded PHY, then the S=8 coding shall be\n assumed unless the current advertising parameters require the use of S=2 for\n an advertising physical channel, in which case the S=2 coding shall be\n assumed for that advertising physical channel.\n\n If the response slot identified by the Response_Slot parameter has passed by\n the time this command is received by the Controller, the Controller shall return\n the error code Too Late (0x46) and discard the Response_Data parameter.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Periodic_Advertising_Response_Data command has com-\n pleted, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_set_periodic_adv_response_data(
-        p_params: *const sdc_hci_cmd_le_set_periodic_adv_response_data_t,
-        p_return: *mut sdc_hci_cmd_le_set_periodic_adv_response_data_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Set Periodic Sync Subevent.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.127\n\n The HCI_LE_Set_Periodic_Sync_Subevent command is used to instruct the\n Controller to synchronize with a subset of the subevents within a PAwR train\n identified by the Sync_Handle parameter, listen for packets sent by the peer\n device and pass any received data up to the Host. If the Controller is synchro-\n nized with any subevents that are not in the subset of subevents in this\n command, then the Controller shall no longer synchronize with those subev-\n ents.\n\n The Periodic_Advertising_Properties parameter indicates which fields should\n be included in the AUX_SYNC_SUBEVENT_RSP PDUs.\n\n The Num_Subevents parameter identifies the number of values in the sub-\n events parameter.\n\n The Subevents arrayed parameter identifies the subevents that the Controller\n shall synchronize with.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Sync_Subevent command has completed,\n an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_set_periodic_sync_subevent(
-        p_params: *const sdc_hci_cmd_le_set_periodic_sync_subevent_t,
-        p_return: *mut sdc_hci_cmd_le_set_periodic_sync_subevent_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Extended Create Connection [v2].\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.66\n\n The HCI_LE_Extended_Create_Connection command is used to create an\n ACL connection, with the local device in the Central role, to a connectable\n advertiser. The command is also used to create an ACL connection between a\n periodic advertiser and a synchronized device.\n\n If a connection is created with the local device in the Peripheral role while this\n command is pending, then this command remains pending.\n The Advertising_Handle parameter is used to identify the periodic advertising\n train.\n\n The Subevent parameter is used to identify the subevent where a connection\n request shall be initiated from a periodic advertising train.\n\n The Advertising_Handle and Subevent parameters shall be set to 0xFF if these\n parameters are not used.\n\n If the Advertising_Handle and Subevent parameters are set to valid values,\n then the Initiator_Filter_Policy, Initiating_PHYs, Scan_Interval[i], and\n Scan_Window[i] parameters shall be ignored.\n\n The Initiator_Filter_Policy parameter is used to determine whether the Filter\n Accept List is used. If the Filter Accept List is not used, the\n Peer_Address_Type and the Peer_Address parameters specify the address\n type and address of the advertising device to connect to.\n\n The Own_Address_Type parameter indicates the type of address being used\n in the connection request packets.\n\n The Peer_Address_Type parameter indicates the type of address used in the\n connectable advertisement sent by the peer.\n\n The Peer_Address parameter indicates the Peer’s Public Device Address,\n Random (static) Device Address, Non-Resolvable Private Address, or\n Resolvable Private Address depending on the Peer_Address_Type parameter.\n\n The Initiating_PHYs parameter indicates the PHY(s) on which the advertising\n packets should be received on the primary advertising physical channel and\n the PHYs for which connection parameters have been specified. The Host may\n enable one or more initiating PHYs. If the Host specifies a PHY that is not\n supported by the Controller, including a bit that is reserved for future use, the\n latter should return the error code Unsupported Feature or Parameter Value\n (0x11). The array elements of the arrayed parameters are ordered in the same\n order as the set bits in the Initiating_PHYs parameter, starting from bit 0. The\n number of array elements is determined by the number of bits set in the\n Initiating_PHYs parameter. When a connectable advertisement is received and\n a connection request is sent on one PHY, scanning on any other PHYs is\n terminated.\n\n The Scan_Interval[i] and Scan_Window[i] parameters are recommendations\n from the Host on how long (Scan_Window[i]) and how frequently\n (Scan_Interval[i]) the Controller should scan (see [Vol 6] Part B, Section 4.5.3);\n however the frequency and length of the scan is implementation specific. If the\n requested scan cannot be supported by the implementation, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12). If bit 1 is\n set in Initiating_PHYs, the values for the LE 2M PHY shall be ignored.\n The Connection_Interval_Min[i] and Connection_Interval_Max[i] parameters\n define the minimum and maximum allowed connection interval. The\n Connection_Interval_Min[i] parameter shall not be greater than the\n Connection_Interval_Max[i] parameter.\n\n The Max_Latency[i] parameter defines the maximum allowed Peripheral\n latency (see [Vol 6] Part B, Section 4.5.1).\n\n The Supervision_Timeout[i] parameter defines the link supervision timeout for\n the connection. The Supervision_Timeout[i] in milliseconds shall be larger than\n (1 + Max_Latency[i]) × Connection_Interval_Max[i] × 2, where Connection_-\n Interval_Max[i] is given in milliseconds (see [Vol 6] Part B, Section 4.5.2).\n\n The Min_CE_Length[i] and Max_CE_Length[i] parameters provide the\n Controller with the expected minimum and maximum length of the connection\n events. The Min_CE_Length[i] parameter shall be less than or equal to the\n Max_CE_Length[i] parameter. The Controller is not required to use these\n values.\n\n Where the connection is made on a PHY whose bit is not set in the Initiating_-\n PHYs parameter, the Controller shall use the Connection_Interval_Min[i],\n Connection_Interval_Max[i], Max_Latency[i], Supervision_Timeout[i],\n Min_CE_Length[i], and Max_CE_Length[i] parameters for an implementation-\n chosen PHY whose bit is set in the Initiating_PHYs parameter.\n\n If the Host issues this command when another HCI_LE_Extended_Create_-\n Connection command is pending in the Controller, the Controller shall return\n the error code Command Disallowed (0x0C).\n\n If the Own_Address_Type parameter is set to 0x00 and the device does not\n have a public address, the Controller should return an error code which should\n be Invalid HCI Command Parameters (0x12).\n\n If the Own_Address_Type parameter is set to 0x01 and the random address for\n the device has not been initialized using the HCI_LE_Set_Random_Address\n command, the Controller shall return the error code Invalid HCI Command\n Parameters (0x12).\n\n If the Own_Address_Type parameter is set to 0x02, the Initiator_Filter_Policy\n parameter is set to 0x00, the Controller's resolving list did not contain a\n matching entry, and the device does not have a public address, the Controller\n should return an error code which should be Invalid HCI Command Parameters\n (0x12).\n\n If the Own_Address_Type parameter is set to 0x02, the Initiator_Filter_Policy\n parameter is set to 0x01, and the device does not have a public address, the\n Controller should return an error code which should be Invalid HCI Command\n Parameters (0x12).\n If the Own_Address_Type parameter is set to 0x03, the Initiator_Filter_Policy\n parameter is set to 0x00, the Controller's resolving list did not contain a\n matching entry, and the random address for the device has not been initialized\n using the HCI_LE_Set_Random_Address command, the Controller shall return\n the error code Invalid HCI Command Parameters (0x12).\n\n If the Own_Address_Type parameter is set to 0x03, the Initiator_Filter_Policy\n parameter is set to 0x01, and the random address for the device has not been\n initialized using the HCI_LE_Set_Random_Address command, the Controller\n shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the Initiating_PHYs parameter does not have at least one bit set for a PHY\n allowed for scanning on the primary advertising physical channel, the\n Controller shall return the error code Invalid HCI Command Parameters (0x12).\n\n If the Host issues this command and the Controller has insufficient resources to\n handle any more connections, the Controller shall return the error code\n Connection Rejected due to Limited Resources (0x0D).\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_LE_Extended_Create_Connection\n command, the Controller sends the HCI_Command_Status event to the Host.\n An HCI_LE_Enhanced_Connection_Complete event shall be generated when\n a connection is created because of this command or the connection creation\n procedure is cancelled; until the event is generated, the command is consid-\n ered pending. If a connection creation is discarded, then the error code Con-\n nection Failed to be Established / Synchronization Timeout (0x3E) shall be\n used. If a connection is created, this event shall be immediately followed by an\n HCI_LE_Channel_Selection_Algorithm event.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_ext_create_conn_v2(p_params: *const sdc_hci_cmd_le_ext_create_conn_v2_t) -> u8;
-}
-extern "C" {
-    #[doc = "  LE Set Periodic Advertising Parameters [v2].\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.8.61\n\n The HCI_LE_Set_Periodic_Advertising_Parameters command is used by the\n Host to set the parameters for periodic advertising.\n\n The Advertising_Handle parameter identifies the advertising set whose\n periodic advertising parameters are being configured. If the corresponding\n advertising set does not already exist, then the Controller shall return the error\n code Unknown Advertising Identifier (0x42).\n\n The Periodic_Advertising_Interval_Min parameter shall be less than or equal to\n the Periodic_Advertising_Interval_Max parameter. The Periodic_Advertising_-\n Interval_Min and Periodic_Advertising_Interval_Max parameters should not be\n the same value to enable the Controller to determine the best advertising\n interval given other activities.\n\n If the periodic advertising interval range provided by the Host\n (Periodic_Advertising_Interval_Min, Periodic_Advertising_Interval_Max) does\n not overlap with the periodic advertising interval range supported by the\n Controller, then the Controller shall return an error which should use the error\n code Unsupported Feature or Parameter Value (0x11).\n\n The Periodic_Advertising_Properties parameter indicates which fields should\n be included in the advertising packet.\n\n The Num_Subevents parameter identifies the number of subevents that shall\n be transmitted for each periodic advertising event. If the Num_Subevents\n parameter value is 0x00, then the Subevent_Interval, Response_Slot_Delay,\n Response_Slot_Spacing, and Num_Response_Slots parameters shall be\n ignored.\n\n The Subevent_Interval parameter identifies the time between the subevents of\n PAwR. The Subevent_Interval shall be less than or equal to the\n Periodic_Advertising_Interval_Min divided by the Num_Subevents of the\n advertising set.\n\n The Response_Slot_Delay parameter identifies the time between the start of\n the advertising packet at the start of a subevent and the start of the first\n response slot. The Response_Slot_Delay shall be less than the\n Subevent_Interval.\n\n The Response_Slot_Spacing parameter identifies the time between the start of\n two consecutive response slots. The Response_Slot_Spacing shall be less\n than or equal to 10 × (Subevent_Interval - Response_Slot_Delay) /\n Num_Response_Slots. If the Num_Response_Slots parameter is set to 1, then\n the Controller shall ignore the Response_Slot_Spacing parameter.\n\n The Num_Response_Slots parameter identifies the number of response slots\n in a subevent. If the Num_Response_Slots parameter value is 0x00, then the\n Response_Slot_Delay and Response_Slot_Spacing parameters shall be\n ignored.\n\n If the advertising set identified by the Advertising_Handle specified scannable,\n connectable, legacy, or anonymous advertising, the Controller shall return the\n error code Invalid HCI Command Parameters (0x12).\n\n If the Host issues this command when periodic advertising is enabled for the\n specified advertising set, the Controller shall return the error code Command\n Disallowed (0x0C).\n\n If the Advertising_Handle does not identify an advertising set that is already\n configured for periodic advertising and the Controller is unable to support more\n periodic advertising at present, the Controller shall return the error code\n Memory Capacity Exceeded (0x07).\n\n If the advertising set already contains periodic advertising data and the length\n of the data is greater than the maximum that the Controller can transmit within\n a periodic advertising interval of Periodic_Advertising_Interval_Max, the\n Controller shall return the error code Packet Too Long (0x45). If advertising on\n the LE Coded PHY, the S=8 coding shall be assumed unless the current\n advertising parameters require the use of S=2 for an advertising physical\n channel, in which case the S=2 coding shall be assumed for that advertising\n physical channel.\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Set_Periodic_Advertising_Parameters command has\n completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_le_set_periodic_adv_params_v2(
-        p_params: *const sdc_hci_cmd_le_set_periodic_adv_params_v2_t,
-        p_return: *mut sdc_hci_cmd_le_set_periodic_adv_params_v2_return_t,
     ) -> u8;
 }
 #[doc = "  See @ref sdc_hci_cmd_lc_disconnect()."]
@@ -20078,11 +15114,11 @@ fn bindgen_test_layout_sdc_hci_cmd_lc_read_remote_version_information_t() {
     );
 }
 extern "C" {
-    #[doc = " @defgroup HCI_VS_API API\n @{\n/\n/** @brief Disconnect.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.1.6\n\n The HCI_Disconnect command is used to terminate an existing connection.\n The Connection_Handle command parameter indicates which connection is to\n be disconnected. The Reason command parameter indicates the reason for\n ending the connection and is copied into the error code field of the\n LMP_DETACH PDU on a BR/EDR connection or the error code field of the\n LL_TERMINATE_IND or LL_CIS_TERMINATE_IND PDU on an LE\n connection. All SCO, eSCO, and CIS connections on a physical link should be\n disconnected before the ACL connection on the same physical connection is\n disconnected. If it does not, they will be implicitly disconnected as part of the\n ACL disconnection.\n\n If, on the Central, the Host issues this command before issuing the\n HCI_LE_Create_CIS command for the same CIS (including if a previous CIS\n with the same CIS_ID in the same CIG has been terminated or considered\n lost), then the Controller shall return the error code Command Disallowed\n (0x0C).\n\n If, on the Peripheral, the Host issues this command before the Controller has\n generated the HCI_LE_CIS_Established event for that CIS, then the Controller\n shall return the error code Command Disallowed (0x0C).\n\n Note: As specified in Section 7.7.5, on the Central, the handle for a CIS\n remains valid even after disconnection and, therefore, the Host can recreate a\n disconnected CIS at a later point in time using the same connection handle.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_Disconnect command, it shall send the\n HCI_Command_Status event to the Host. The HCI_Disconnection_Complete\n event will occur at each Host when the termination of the connection has\n completed, and on the local Host also indicates that this command has been\n completed. The Reason event parameter in the event on the local Host shall be\n set to the value Connection Terminated by Local Host (0x16), while that on the\n remote Host shall be set to the value of the Reason command parameter.\n However, if the termination procedure completes because a timer expires and,\n therefore, the local Controller cannot determine whether or not the Reason\n command parameter was received by the remote Controller, the Reason event\n parameter on the local Host should instead be set to the value LMP Response\n Timeout / LL Response Timeout (0x22).\n\n If this command is issued for a CIS on the Central and the CIS is successfully\n terminated before being established, then an HCI_LE_CIS_Established event\n shall also be sent for this CIS with the Status Operation Cancelled by Host\n (0x44).\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = " @defgroup HCI_VS_API API\n @{\n/\n/** @brief Disconnect.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.1.6\n\n The HCI_Disconnect command is used to terminate an existing connection.\n The Connection_Handle command parameter indicates which connection is to\n be disconnected. The Reason command parameter indicates the reason for\n ending the connection and is copied into the error code field of the\n LMP_DETACH PDU on a BR/EDR connection or the error code field of the\n LL_TERMINATE_IND or LL_CIS_TERMINATE_IND PDU on an LE\n connection. All SCO, eSCO, and CIS connections on a physical link should be\n disconnected before the ACL connection on the same physical connection is\n disconnected. If it does not, they will be implicitly disconnected as part of the\n ACL disconnection.\n\n If, on the Central, the Host issues this command before issuing the\n HCI_LE_Create_CIS command for the same CIS, then the Controller shall\n return the error code Command Disallowed (0x0C).\n\n If, on the Peripheral, the Host issues this command before the Controller has\n generated the HCI_LE_CIS_Established event for that CIS, then the Controller\n shall return the error code Command Disallowed (0x0C).\n\n Note: As specified in Section 7.7.5, on the Central, the handle for a CIS\n remains valid even after disconnection and, therefore, the Host can recreate a\n disconnected CIS at a later point in time using the same connection handle.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_Disconnect command, it shall send the\n HCI_Command_Status event to the Host. The HCI_Disconnection_Complete\n event will occur at each Host when the termination of the connection has\n completed, and on the local Host also indicates that this command has been\n completed. The Reason event parameter in the event on the local Host shall be\n set to the value Connection Terminated by Local Host (0x16), while that on the\n remote Host shall be set to the value of the Reason command parameter.\n However, if the termination procedure completes because a timer expires and,\n therefore, the local Controller cannot determine whether or not the Reason\n command parameter was received by the remote Controller, the Reason event\n parameter on the local Host should instead be set to the value LMP Response\n Timeout / LL Response Timeout (0x22).\n\n If this command is issued for a CIS on the Central and the CIS is successfully\n terminated before being established, then an HCI_LE_CIS_Established event\n shall also be sent for this CIS with the Status Operation Cancelled by Host\n (0x44).\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_lc_disconnect(p_params: *const sdc_hci_cmd_lc_disconnect_t) -> u8;
 }
 extern "C" {
-    #[doc = "  Read Remote Version Information.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.1.23\n\n This command will obtain the values for the version information for the remote\n device identified by the Connection_Handle parameter. The\n Connection_Handle shall be a Connection_Handle for an ACL-U or LE-U\n logical link.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_Read_Remote_Version_Information\n command, the Controller shall send the HCI_Command_Status event to the\n Host. When the Link Manager or Link Layer has completed the sequence to\n determine the remote version information, the local Controller shall send an\n HCI_Read_Remote_Version_Information_Complete event to the Host. The\n HCI_Read_Remote_Version_Information_Complete event contains the status\n of this command, and parameters describing the version and subversion of the\n LMP or Link Layer used by the remote device.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Read Remote Version Information.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.1.23\n\n This command will obtain the values for the version information for the remote\n device identified by the Connection_Handle parameter. The\n Connection_Handle shall be a Connection_Handle for an ACL-U or LE-U\n logical link.\n\n Event(s) generated (unless masked away):\n When the Controller receives the HCI_Read_Remote_Version_Information\n command, the Controller shall send the HCI_Command_Status event to the\n Host. When the Link Manager or Link Layer has completed the sequence to\n determine the remote version information, the local Controller shall send an\n HCI_Read_Remote_Version_Information_Complete event to the Host. The\n HCI_Read_Remote_Version_Information_Complete event contains the status\n of this command, and parameters describing the version and subversion of the\n LMP or Link Layer used by the remote device.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_lc_read_remote_version_information(
         p_params: *const sdc_hci_cmd_lc_read_remote_version_information_t,
     ) -> u8;
@@ -20163,7 +15199,7 @@ fn bindgen_test_layout_sdc_hci_cmd_sp_read_rssi_return_t() {
     );
 }
 extern "C" {
-    #[doc = " @defgroup HCI_VS_API API\n @{\n/\n/** @brief Read RSSI.\n\n The description below is extracted from Core_v5.4,\n Vol 4, Part E, Section 7.5.4\n\n This command reads the Received Signal Strength Indication (RSSI) value\n from a Controller.\n\n For a BR/EDR Controller, the RSSI parameter returns the difference between\n the measured Received Signal Strength Indication (RSSI) and the limits of a\n range selected by the Controller. The lower limit shall correspond to a received\n power not less than -56 dBm and not greater than 6 dB above the actual\n sensitivity of the receiver. The upper limit shall be 20±6 dB above the lower\n limit. A positive RSSI value shall indicate how many dB the RSSI is above the\n upper limit, a negative value shall indicate how many dB the RSSI is below the\n lower limit, and zero shall indicate that the RSSI is inside the range.\n\n The returned RSSI value is not required to have any specific accuracy provided\n that it correctly indicates whether the received signal strength was above the\n upper limit, below the lower limit, or between the limits.\n\n For an LE transport, the RSSI parameter returns the absolute received signal\n strength value in dBm to ±6 dB accuracy. If the RSSI cannot be read, the RSSI\n parameter shall be set to 127.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_RSSI command has completed, an HCI_Command_-\n Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = " @defgroup HCI_VS_API API\n @{\n/\n/** @brief Read RSSI.\n\n The description below is extracted from Core_v5.3,\n Vol 4, Part E, Section 7.5.4\n\n This command reads the Received Signal Strength Indication (RSSI) value\n from a Controller.\n\n For a BR/EDR Controller, the RSSI parameter returns the difference between\n the measured Received Signal Strength Indication (RSSI) and the limits of the\n Golden Receive Power Range for a Connection_Handle to another BR/EDR\n Controller. Any positive RSSI value returned by the Controller indicates how\n many dB the RSSI is above the upper limit, any negative value indicates how\n many dB the RSSI is below the lower limit. The value zero indicates that the\n RSSI is inside the Golden Receive Power Range.\n\n Note: How accurate the dB values will be depends on the Bluetooth hardware.\n The only requirements for the hardware are that the BR/EDR Controller is able\n to tell whether the RSSI is inside, above or below the Golden Device Power\n Range.\n\n The RSSI measurement compares the received signal power with two\n threshold levels, which define the Golden Receive Power Range. The lower\n threshold level corresponds to a received power between -56 dBm and 6 dB\n above the actual sensitivity of the receiver. The upper threshold level is 20 dB\n above the lower threshold level to an accuracy of ±6 dB.\n\n For an LE transport, the RSSI parameter returns the absolute receiver signal\n strength value in dBm to ±6 dB accuracy. If the RSSI cannot be read, the RSSI\n metric shall be set to 127.\n\n Event(s) generated (unless masked away):\n When the HCI_Read_RSSI command has completed, an HCI_Command_-\n Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_sp_read_rssi(
         p_params: *const sdc_hci_cmd_sp_read_rssi_t,
         p_return: *mut sdc_hci_cmd_sp_read_rssi_return_t,
@@ -20171,15 +15207,14 @@ extern "C" {
 }
 pub const sdc_hci_msg_type_t_SDC_HCI_MSG_TYPE_DATA: sdc_hci_msg_type_t = 2;
 pub const sdc_hci_msg_type_t_SDC_HCI_MSG_TYPE_EVT: sdc_hci_msg_type_t = 4;
-pub const sdc_hci_msg_type_t_SDC_HCI_MSG_TYPE_ISO: sdc_hci_msg_type_t = 8;
 pub type sdc_hci_msg_type_t = crate::ctypes::c_uint;
+extern "C" {
+    #[doc = "  Send an HCI command packet to the SoftDevice Controller.\n\n * `p_cmd_in` - HCI Command packet. The first byte in the buffer should correspond to\n                      OpCode, as specified by the Bluetooth Core Specification.\n\n Returns 0              Success\n Returns -NRF_EINVAL    Invalid input"]
+    pub fn sdc_hci_cmd_put(p_cmd_in: *const u8) -> i32;
+}
 extern "C" {
     #[doc = "  Send an HCI data packet to the SoftDevice Controller.\n\n * `p_data_in` - HCI Data packet. The first byte in the buffer should correspond to\n                       Handle, as specified by the Bluetooth Core Specification.\n\n Returns 0              Success\n Returns -NRF_EINVAL    Invalid input"]
     pub fn sdc_hci_data_put(p_data_in: *const u8) -> i32;
-}
-extern "C" {
-    #[doc = "  Send an HCI ISO data packet to the SoftDevice Controller.\n\n If an error is returned, the HCI ISO data packet is dropped by the SoftDevice Controller and will not be\n further processed.\n\n * `p_data_in` - HCI Data packet. The first byte in the buffer should correspond to\n                       Handle, as specified by the Bluetooth Core Specification.\n\n Returns 0              Success\n Returns -NRF_EINVAL    Invalid input\n Returns -NRF_EPERM     There is no data-path for the selected Handle\n Returns -NRF_EAGAIN    The data is provided too late\n Returns -NRF_EFAULT    Failure during processing of the data"]
-    pub fn sdc_hci_iso_data_put(p_data_in: *const u8) -> i32;
 }
 extern "C" {
     #[doc = "  Retrieve an HCI packet from the SoftDevice Controller.\n\n This API is non-blocking.\n\n @note The application should ensure that the size of the provided buffer is at least\n       @ref HCI_MSG_BUFFER_MAX_SIZE bytes.\n\n * `p_packet_out` - Buffer where the HCI packet will be stored.\n                             If an event is retrieved, the first byte corresponds to the Event Code.\n                             If a data packet is retrieved, the first byte corresponds to the Handle.\n * `p_msg_type_out` - Enum indicating the type of HCI packet produced by the controller.\n\n Returns 0            Success\n Returns -NRF_EAGAIN  No event available\n Returns -NRF_EINVAL  Invalid input"]
@@ -20223,34 +15258,14 @@ pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_COEX_PRIORITY_CONFIG: sdc_hci_
 pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_PERIPHERAL_LATENCY_MODE_SET: sdc_hci_opcode_vs = 64777;
 #[doc = "  See @ref sdc_hci_cmd_vs_write_remote_tx_power()."]
 pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_WRITE_REMOTE_TX_POWER: sdc_hci_opcode_vs = 64778;
+#[doc = "  See @ref sdc_hci_cmd_vs_set_rssi_golden_range()."]
+pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_SET_RSSI_GOLDEN_RANGE: sdc_hci_opcode_vs = 64779;
 #[doc = "  See @ref sdc_hci_cmd_vs_set_adv_randomness()."]
 pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_SET_ADV_RANDOMNESS: sdc_hci_opcode_vs = 64780;
-#[doc = "  See @ref sdc_hci_cmd_vs_compat_mode_window_offset_set()."]
-pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_COMPAT_MODE_WINDOW_OFFSET_SET: sdc_hci_opcode_vs = 64781;
-#[doc = "  See @ref sdc_hci_cmd_vs_qos_channel_survey_enable()."]
-pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_QOS_CHANNEL_SURVEY_ENABLE: sdc_hci_opcode_vs = 64782;
-#[doc = "  See @ref sdc_hci_cmd_vs_set_power_control_request_params()."]
-pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_SET_POWER_CONTROL_REQUEST_PARAMS: sdc_hci_opcode_vs = 64784;
-#[doc = "  See @ref sdc_hci_cmd_vs_read_average_rssi()."]
-pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_READ_AVERAGE_RSSI: sdc_hci_opcode_vs = 64785;
-#[doc = "  See @ref sdc_hci_cmd_vs_central_acl_event_spacing_set()."]
-pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_CENTRAL_ACL_EVENT_SPACING_SET: sdc_hci_opcode_vs = 64786;
-#[doc = "  See @ref sdc_hci_cmd_vs_set_conn_event_trigger()."]
-pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_SET_CONN_EVENT_TRIGGER: sdc_hci_opcode_vs = 64787;
-#[doc = "  See @ref sdc_hci_cmd_vs_get_next_conn_event_counter()."]
-pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_GET_NEXT_CONN_EVENT_COUNTER: sdc_hci_opcode_vs = 64788;
-#[doc = "  See @ref sdc_hci_cmd_vs_allow_parallel_connection_establishments()."]
-pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_ALLOW_PARALLEL_CONNECTION_ESTABLISHMENTS: sdc_hci_opcode_vs = 64789;
-#[doc = "  See @ref sdc_hci_cmd_vs_min_val_of_max_acl_tx_payload_set()."]
-pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_MIN_VAL_OF_MAX_ACL_TX_PAYLOAD_SET: sdc_hci_opcode_vs = 64790;
-#[doc = "  See @ref sdc_hci_cmd_vs_iso_read_tx_timestamp()."]
-pub const sdc_hci_opcode_vs_SDC_HCI_OPCODE_CMD_VS_ISO_READ_TX_TIMESTAMP: sdc_hci_opcode_vs = 64791;
 #[doc = "  HCI VS OpCode Field values."]
 pub type sdc_hci_opcode_vs = crate::ctypes::c_uint;
 #[doc = "  See @ref sdc_hci_subevent_vs_qos_conn_event_report_t."]
 pub const sdc_hci_subevent_vs_SDC_HCI_SUBEVENT_VS_QOS_CONN_EVENT_REPORT: sdc_hci_subevent_vs = 128;
-#[doc = "  See @ref sdc_hci_subevent_vs_qos_channel_survey_report_t."]
-pub const sdc_hci_subevent_vs_SDC_HCI_SUBEVENT_VS_QOS_CHANNEL_SURVEY_REPORT: sdc_hci_subevent_vs = 129;
 #[doc = "  VS subevent Code values."]
 pub type sdc_hci_subevent_vs = crate::ctypes::c_uint;
 pub const sdc_hci_vs_coex_bt_role_SDC_HCI_VS_COEX_BT_ROLE_ADVERTISER: sdc_hci_vs_coex_bt_role = 0;
@@ -20265,20 +15280,6 @@ pub const sdc_hci_vs_coex_scan_mode_SDC_HCI_VS_COEX_SCAN_MODE_REQUEST_ON_AA: sdc
 pub const sdc_hci_vs_coex_scan_mode_SDC_HCI_VS_COEX_SCAN_MODE_REQUEST_ON_TX: sdc_hci_vs_coex_scan_mode = 1;
 #[doc = "  Scanner coexistence session request modes."]
 pub type sdc_hci_vs_coex_scan_mode = crate::ctypes::c_uint;
-#[doc = "  Unused."]
-pub const sdc_hci_vs_conn_event_trigger_role_SDC_HCI_VS_CONN_EVENT_TRIGGER_ROLE_UNUSED:
-    sdc_hci_vs_conn_event_trigger_role = 0;
-#[doc = "  Connection event trigger for the Scanner."]
-pub const sdc_hci_vs_conn_event_trigger_role_SDC_HCI_VS_CONN_EVENT_TRIGGER_ROLE_SCAN:
-    sdc_hci_vs_conn_event_trigger_role = 1;
-#[doc = "  Connection event trigger for the Initiator."]
-pub const sdc_hci_vs_conn_event_trigger_role_SDC_HCI_VS_CONN_EVENT_TRIGGER_ROLE_INIT:
-    sdc_hci_vs_conn_event_trigger_role = 2;
-#[doc = "  Connection event trigger for connections (Central or Peripheral)."]
-pub const sdc_hci_vs_conn_event_trigger_role_SDC_HCI_VS_CONN_EVENT_TRIGGER_ROLE_CONN:
-    sdc_hci_vs_conn_event_trigger_role = 3;
-#[doc = "  Connection Event Trigger Role Selection."]
-pub type sdc_hci_vs_conn_event_trigger_role = crate::ctypes::c_uint;
 #[doc = "  Peripheral latency enable."]
 pub const sdc_hci_vs_peripheral_latency_mode_SDC_HCI_VS_PERIPHERAL_LATENCY_MODE_ENABLE:
     sdc_hci_vs_peripheral_latency_mode = 0;
@@ -20297,21 +15298,19 @@ pub const sdc_hci_vs_tx_power_handle_type_SDC_HCI_VS_TX_POWER_HANDLE_TYPE_SCAN_I
     1;
 #[doc = "  Handle of type Connection."]
 pub const sdc_hci_vs_tx_power_handle_type_SDC_HCI_VS_TX_POWER_HANDLE_TYPE_CONN: sdc_hci_vs_tx_power_handle_type = 2;
-#[doc = "  Handle of type Periodic Sync."]
-pub const sdc_hci_vs_tx_power_handle_type_SDC_HCI_VS_TX_POWER_HANDLE_TYPE_SYNC: sdc_hci_vs_tx_power_handle_type = 3;
 #[doc = "  TX power handle type."]
 pub type sdc_hci_vs_tx_power_handle_type = crate::ctypes::c_uint;
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_vs_supported_vs_commands_t {
     pub _bitfield_align_1: [u8; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 3usize]>,
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize]>,
 }
 #[test]
 fn bindgen_test_layout_sdc_hci_vs_supported_vs_commands_t() {
     assert_eq!(
         ::core::mem::size_of::<sdc_hci_vs_supported_vs_commands_t>(),
-        3usize,
+        2usize,
         concat!("Size of: ", stringify!(sdc_hci_vs_supported_vs_commands_t))
     );
     assert_eq!(
@@ -20443,113 +15442,25 @@ impl sdc_hci_vs_supported_vs_commands_t {
         }
     }
     #[inline]
-    pub fn set_adv_randomness(&self) -> u8 {
+    pub fn set_rssi_golden_range(&self) -> u8 {
         unsafe { ::core::mem::transmute(self._bitfield_1.get(11usize, 1u8) as u8) }
     }
     #[inline]
-    pub fn set_set_adv_randomness(&mut self, val: u8) {
+    pub fn set_set_rssi_golden_range(&mut self, val: u8) {
         unsafe {
             let val: u8 = ::core::mem::transmute(val);
             self._bitfield_1.set(11usize, 1u8, val as u64)
         }
     }
     #[inline]
-    pub fn qos_channel_survey_enable(&self) -> u8 {
+    pub fn set_adv_randomness(&self) -> u8 {
         unsafe { ::core::mem::transmute(self._bitfield_1.get(12usize, 1u8) as u8) }
     }
     #[inline]
-    pub fn set_qos_channel_survey_enable(&mut self, val: u8) {
+    pub fn set_set_adv_randomness(&mut self, val: u8) {
         unsafe {
             let val: u8 = ::core::mem::transmute(val);
             self._bitfield_1.set(12usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn set_power_control_request_params(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(13usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_set_power_control_request_params(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(13usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn read_average_rssi(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(14usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_read_average_rssi(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(14usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn central_acl_event_spacing_set(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(15usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_central_acl_event_spacing_set(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(15usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn set_conn_event_trigger(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(16usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_set_conn_event_trigger(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(16usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn get_next_conn_event_counter(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(17usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_get_next_conn_event_counter(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(17usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn allow_parallel_connection_establishments(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(18usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_allow_parallel_connection_establishments(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(18usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn min_val_of_max_acl_tx_payload_set(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(19usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_min_val_of_max_acl_tx_payload_set(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(19usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn iso_read_tx_timestamp(&self) -> u8 {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(20usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_iso_read_tx_timestamp(&mut self, val: u8) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(20usize, 1u8, val as u64)
         }
     }
     #[inline]
@@ -20565,18 +15476,10 @@ impl sdc_hci_vs_supported_vs_commands_t {
         coex_scan_mode_config: u8,
         peripheral_latency_mode_set: u8,
         write_remote_tx_power: u8,
+        set_rssi_golden_range: u8,
         set_adv_randomness: u8,
-        qos_channel_survey_enable: u8,
-        set_power_control_request_params: u8,
-        read_average_rssi: u8,
-        central_acl_event_spacing_set: u8,
-        set_conn_event_trigger: u8,
-        get_next_conn_event_counter: u8,
-        allow_parallel_connection_establishments: u8,
-        min_val_of_max_acl_tx_payload_set: u8,
-        iso_read_tx_timestamp: u8,
-    ) -> __BindgenBitfieldUnit<[u8; 3usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 3usize]> = Default::default();
+    ) -> __BindgenBitfieldUnit<[u8; 2usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 2usize]> = Default::default();
         __bindgen_bitfield_unit.set(0usize, 1u8, {
             let read_supported_vs_commands: u8 = unsafe { ::core::mem::transmute(read_supported_vs_commands) };
             read_supported_vs_commands as u64
@@ -20622,47 +15525,12 @@ impl sdc_hci_vs_supported_vs_commands_t {
             write_remote_tx_power as u64
         });
         __bindgen_bitfield_unit.set(11usize, 1u8, {
-            let set_adv_randomness: u8 = unsafe { ::core::mem::transmute(set_adv_randomness) };
-            set_adv_randomness as u64
+            let set_rssi_golden_range: u8 = unsafe { ::core::mem::transmute(set_rssi_golden_range) };
+            set_rssi_golden_range as u64
         });
         __bindgen_bitfield_unit.set(12usize, 1u8, {
-            let qos_channel_survey_enable: u8 = unsafe { ::core::mem::transmute(qos_channel_survey_enable) };
-            qos_channel_survey_enable as u64
-        });
-        __bindgen_bitfield_unit.set(13usize, 1u8, {
-            let set_power_control_request_params: u8 =
-                unsafe { ::core::mem::transmute(set_power_control_request_params) };
-            set_power_control_request_params as u64
-        });
-        __bindgen_bitfield_unit.set(14usize, 1u8, {
-            let read_average_rssi: u8 = unsafe { ::core::mem::transmute(read_average_rssi) };
-            read_average_rssi as u64
-        });
-        __bindgen_bitfield_unit.set(15usize, 1u8, {
-            let central_acl_event_spacing_set: u8 = unsafe { ::core::mem::transmute(central_acl_event_spacing_set) };
-            central_acl_event_spacing_set as u64
-        });
-        __bindgen_bitfield_unit.set(16usize, 1u8, {
-            let set_conn_event_trigger: u8 = unsafe { ::core::mem::transmute(set_conn_event_trigger) };
-            set_conn_event_trigger as u64
-        });
-        __bindgen_bitfield_unit.set(17usize, 1u8, {
-            let get_next_conn_event_counter: u8 = unsafe { ::core::mem::transmute(get_next_conn_event_counter) };
-            get_next_conn_event_counter as u64
-        });
-        __bindgen_bitfield_unit.set(18usize, 1u8, {
-            let allow_parallel_connection_establishments: u8 =
-                unsafe { ::core::mem::transmute(allow_parallel_connection_establishments) };
-            allow_parallel_connection_establishments as u64
-        });
-        __bindgen_bitfield_unit.set(19usize, 1u8, {
-            let min_val_of_max_acl_tx_payload_set: u8 =
-                unsafe { ::core::mem::transmute(min_val_of_max_acl_tx_payload_set) };
-            min_val_of_max_acl_tx_payload_set as u64
-        });
-        __bindgen_bitfield_unit.set(20usize, 1u8, {
-            let iso_read_tx_timestamp: u8 = unsafe { ::core::mem::transmute(iso_read_tx_timestamp) };
-            iso_read_tx_timestamp as u64
+            let set_adv_randomness: u8 = unsafe { ::core::mem::transmute(set_adv_randomness) };
+            set_adv_randomness as u64
         });
         __bindgen_bitfield_unit
     }
@@ -21092,41 +15960,6 @@ impl sdc_hci_subevent_vs_qos_conn_event_report_t {
         });
         __bindgen_bitfield_unit
     }
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_subevent_vs_qos_channel_survey_report_t {
-    #[doc = "  The measured energy on the Bluetooth Low Energy channels, in dBm, indexed by Channel\n         Index. If no measurement is available for the given channel, channel_energy is set to\n         127."]
-    pub channel_energy: [i8; 40usize],
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_subevent_vs_qos_channel_survey_report_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_subevent_vs_qos_channel_survey_report_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_subevent_vs_qos_channel_survey_report_t>(),
-        40usize,
-        concat!("Size of: ", stringify!(sdc_hci_subevent_vs_qos_channel_survey_report_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_subevent_vs_qos_channel_survey_report_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_subevent_vs_qos_channel_survey_report_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).channel_energy) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_subevent_vs_qos_channel_survey_report_t),
-            "::",
-            stringify!(channel_energy)
-        )
-    );
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
@@ -21739,7 +16572,7 @@ fn bindgen_test_layout_sdc_hci_cmd_vs_llpm_mode_set_t() {
 #[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_cmd_vs_conn_update_t {
     #[doc = "  Connection Handle."]
-    pub conn_handle: u16,
+    pub connection_handle: u16,
     #[doc = "  Connection Interval in microseconds. Valid range is 7,500 us to 4,000,000 us in 1,250\n         us steps. If LLPM mode is enabled, parameters in the range 1,000 us to 7,000 us in\n         1,000 us steps are also accepted."]
     pub conn_interval_us: u32,
     #[doc = "  Slave latency for the connection in number of connection events."]
@@ -21762,13 +16595,13 @@ fn bindgen_test_layout_sdc_hci_cmd_vs_conn_update_t() {
         concat!("Alignment of ", stringify!(sdc_hci_cmd_vs_conn_update_t))
     );
     assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
+        unsafe { ::core::ptr::addr_of!((*ptr).connection_handle) as usize - ptr as usize },
         0usize,
         concat!(
             "Offset of field: ",
             stringify!(sdc_hci_cmd_vs_conn_update_t),
             "::",
-            stringify!(conn_handle)
+            stringify!(connection_handle)
         )
     );
     assert_eq!(
@@ -22071,9 +16904,9 @@ fn bindgen_test_layout_sdc_hci_cmd_vs_peripheral_latency_mode_set_t() {
 #[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_cmd_vs_write_remote_tx_power_t {
     pub conn_handle: u16,
-    #[doc = "  PHY bit number i.e. [1M, 2M, s8, s2] == [1, 2, 3, 4]."]
+    #[doc = "  Phy value to apply transmit power level adjustment."]
     pub phy: u8,
-    #[doc = "  Requested adjustment (in dBm) for the remote to apply to its transmit power. The\n         value can be 0 to utilize the response of the peer to update the information on the\n         transmit power setting of the remote. Note that this is only a request to the peer,\n         which is in control of how, if at all, to apply changes to its transmit power."]
+    #[doc = "  The transmit power level adjustment to request in dBm unit."]
     pub delta: i8,
 }
 #[test]
@@ -22123,6 +16956,61 @@ fn bindgen_test_layout_sdc_hci_cmd_vs_write_remote_tx_power_t() {
 }
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
+pub struct sdc_hci_cmd_vs_set_rssi_golden_range_t {
+    #[doc = "  Phy value to set RSSI golden range values."]
+    pub phy: u8,
+    #[doc = "  The RSSI golden range lower limit in dBm units."]
+    pub lower_limit: i8,
+    #[doc = "  The RSSI golden range upper limit in dBm units."]
+    pub upper_limit: i8,
+}
+#[test]
+fn bindgen_test_layout_sdc_hci_cmd_vs_set_rssi_golden_range_t() {
+    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_set_rssi_golden_range_t> = ::core::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::core::mem::size_of::<sdc_hci_cmd_vs_set_rssi_golden_range_t>(),
+        3usize,
+        concat!("Size of: ", stringify!(sdc_hci_cmd_vs_set_rssi_golden_range_t))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<sdc_hci_cmd_vs_set_rssi_golden_range_t>(),
+        1usize,
+        concat!("Alignment of ", stringify!(sdc_hci_cmd_vs_set_rssi_golden_range_t))
+    );
+    assert_eq!(
+        unsafe { ::core::ptr::addr_of!((*ptr).phy) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(sdc_hci_cmd_vs_set_rssi_golden_range_t),
+            "::",
+            stringify!(phy)
+        )
+    );
+    assert_eq!(
+        unsafe { ::core::ptr::addr_of!((*ptr).lower_limit) as usize - ptr as usize },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(sdc_hci_cmd_vs_set_rssi_golden_range_t),
+            "::",
+            stringify!(lower_limit)
+        )
+    );
+    assert_eq!(
+        unsafe { ::core::ptr::addr_of!((*ptr).upper_limit) as usize - ptr as usize },
+        2usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(sdc_hci_cmd_vs_set_rssi_golden_range_t),
+            "::",
+            stringify!(upper_limit)
+        )
+    );
+}
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone)]
 pub struct sdc_hci_cmd_vs_set_adv_randomness_t {
     #[doc = "  Advertising Handle or 0xFF to set the behavior for the very first advertising event."]
     pub adv_handle: u8,
@@ -22164,664 +17052,6 @@ fn bindgen_test_layout_sdc_hci_cmd_vs_set_adv_randomness_t() {
         )
     );
 }
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_compat_mode_window_offset_set_t {
-    #[doc = "  Set to 1 to enable this compatibility mode."]
-    pub enable: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_compat_mode_window_offset_set_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_compat_mode_window_offset_set_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_compat_mode_window_offset_set_t>(),
-        1usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_vs_compat_mode_window_offset_set_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_compat_mode_window_offset_set_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_vs_compat_mode_window_offset_set_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).enable) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_compat_mode_window_offset_set_t),
-            "::",
-            stringify!(enable)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_qos_channel_survey_enable_t {
-    #[doc = "  Set to 0 to disable, 1 to enable, all other values are RFU."]
-    pub enable: u8,
-    #[doc = "  Requested average interval for the measurements and reports. Valid range is from 7500\n         to 4000000. If set to 0, the channel survey role will be scheduled at every available\n         opportunity."]
-    pub interval_us: u32,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_qos_channel_survey_enable_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_qos_channel_survey_enable_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_qos_channel_survey_enable_t>(),
-        5usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_vs_qos_channel_survey_enable_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_qos_channel_survey_enable_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_vs_qos_channel_survey_enable_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).enable) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_qos_channel_survey_enable_t),
-            "::",
-            stringify!(enable)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).interval_us) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_qos_channel_survey_enable_t),
-            "::",
-            stringify!(interval_us)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_set_power_control_request_params_t {
-    #[doc = "  Enable or Disable controller initiated autonomous LE Power Control Request procedure.\n         Disabled by default."]
-    pub auto_enable: u8,
-    #[doc = "  Enable or Disable received APR handling in controller during LE Power Control Request\n         procedure. Disabled by default."]
-    pub apr_enable: u8,
-    #[doc = "  The valid range is [0, 4095]. Default value is 2048."]
-    pub beta: u16,
-    #[doc = "  The lower limit of the RSSI golden range. The RSSI golden range is explained in\n         Core_v5.4, Vol 6, Part B, Section 5.1.17.1. Default value is -70 dBm."]
-    pub lower_limit: i8,
-    #[doc = "  The upper limit of the RSSI golden range. Default value is -30 dBm."]
-    pub upper_limit: i8,
-    #[doc = "  Target RSSI level in dBm units when the average RSSI level is less than the lower\n         limit of RSSI Golden range. Default value is -65 dBm."]
-    pub lower_target_rssi: i8,
-    #[doc = "  Target RSSI level in dBm units when the average RSSI level is greater than the upper\n         limit of RSSI Golden range. Default value is -35 dBm."]
-    pub upper_target_rssi: i8,
-    #[doc = "  Duration in milliseconds to wait before initiating a new LE Power Control Request\n         procedure by the controller. Default value is 5000 milliseconds. 0 milliseconds value\n         is an invalid value."]
-    pub wait_period_ms: u16,
-    #[doc = "  Margin between APR value received from peer in LL_POWER_CONTROL_RSP PDU and actual\n         reduction in Transmit power that is applied locally. The applied decrease in local\n         Transmit power will be (received_apr - apr_margin) if received_apr > apr_margin,\n         otherwise no change. Default value is 5 dB."]
-    pub apr_margin: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_set_power_control_request_params_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_set_power_control_request_params_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_set_power_control_request_params_t>(),
-        11usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_vs_set_power_control_request_params_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_set_power_control_request_params_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_vs_set_power_control_request_params_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).auto_enable) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_power_control_request_params_t),
-            "::",
-            stringify!(auto_enable)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).apr_enable) as usize - ptr as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_power_control_request_params_t),
-            "::",
-            stringify!(apr_enable)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).beta) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_power_control_request_params_t),
-            "::",
-            stringify!(beta)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).lower_limit) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_power_control_request_params_t),
-            "::",
-            stringify!(lower_limit)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).upper_limit) as usize - ptr as usize },
-        5usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_power_control_request_params_t),
-            "::",
-            stringify!(upper_limit)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).lower_target_rssi) as usize - ptr as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_power_control_request_params_t),
-            "::",
-            stringify!(lower_target_rssi)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).upper_target_rssi) as usize - ptr as usize },
-        7usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_power_control_request_params_t),
-            "::",
-            stringify!(upper_target_rssi)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).wait_period_ms) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_power_control_request_params_t),
-            "::",
-            stringify!(wait_period_ms)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).apr_margin) as usize - ptr as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_power_control_request_params_t),
-            "::",
-            stringify!(apr_margin)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_read_average_rssi_t {
-    #[doc = "  Connection Handle to read the average RSSI for."]
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_read_average_rssi_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_read_average_rssi_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_read_average_rssi_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_vs_read_average_rssi_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_read_average_rssi_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_vs_read_average_rssi_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_read_average_rssi_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_read_average_rssi_return_t {
-    pub conn_handle: u16,
-    #[doc = "  Average RSSI in dBm."]
-    pub avg_rssi: i8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_read_average_rssi_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_read_average_rssi_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_read_average_rssi_return_t>(),
-        3usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_vs_read_average_rssi_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_read_average_rssi_return_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_vs_read_average_rssi_return_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_read_average_rssi_return_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).avg_rssi) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_read_average_rssi_return_t),
-            "::",
-            stringify!(avg_rssi)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_central_acl_event_spacing_set_t {
-    #[doc = "  Central ACL event spacing in microseconds."]
-    pub central_acl_event_spacing_us: u32,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_central_acl_event_spacing_set_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_central_acl_event_spacing_set_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_central_acl_event_spacing_set_t>(),
-        4usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_vs_central_acl_event_spacing_set_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_central_acl_event_spacing_set_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_vs_central_acl_event_spacing_set_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).central_acl_event_spacing_us) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_central_acl_event_spacing_set_t),
-            "::",
-            stringify!(central_acl_event_spacing_us)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_set_conn_event_trigger_t {
-    #[doc = "  Connection handle to set up trigger for. In case @ref\n         sdc_hci_vs_conn_event_trigger_role specifies the Scanner or Initiator, this parameter\n         is ignored."]
-    pub conn_handle: u16,
-    #[doc = "  Selected role to set triggers for. See @ref sdc_hci_vs_conn_event_trigger_role."]
-    pub role: u8,
-    #[doc = "  (D)PPI channel to use. This channel should be regarded as reserved until the\n         connection event (D)PPI task triggering is stopped."]
-    pub ppi_ch_id: u8,
-    #[doc = "  Task Endpoint to trigger. If this is 0, then the connection event triggering feature\n         is disabled."]
-    pub task_endpoint: u32,
-    #[doc = "  Connection event counter when the task end point triggering should start."]
-    pub conn_evt_counter_start: u16,
-    #[doc = "  The period in events between triggering of the task end point."]
-    pub period_in_events: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_set_conn_event_trigger_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_set_conn_event_trigger_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_set_conn_event_trigger_t>(),
-        12usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_vs_set_conn_event_trigger_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_set_conn_event_trigger_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_vs_set_conn_event_trigger_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_conn_event_trigger_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).role) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_conn_event_trigger_t),
-            "::",
-            stringify!(role)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).ppi_ch_id) as usize - ptr as usize },
-        3usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_conn_event_trigger_t),
-            "::",
-            stringify!(ppi_ch_id)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).task_endpoint) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_conn_event_trigger_t),
-            "::",
-            stringify!(task_endpoint)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_evt_counter_start) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_conn_event_trigger_t),
-            "::",
-            stringify!(conn_evt_counter_start)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).period_in_events) as usize - ptr as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_set_conn_event_trigger_t),
-            "::",
-            stringify!(period_in_events)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_get_next_conn_event_counter_t {
-    #[doc = "  Connection handle to get the connection event counter value for."]
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_get_next_conn_event_counter_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_get_next_conn_event_counter_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_get_next_conn_event_counter_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_vs_get_next_conn_event_counter_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_get_next_conn_event_counter_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_vs_get_next_conn_event_counter_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_get_next_conn_event_counter_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_get_next_conn_event_counter_return_t {
-    pub conn_handle: u16,
-    pub next_conn_event_counter: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_get_next_conn_event_counter_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_get_next_conn_event_counter_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_get_next_conn_event_counter_return_t>(),
-        4usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_vs_get_next_conn_event_counter_return_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_get_next_conn_event_counter_return_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_vs_get_next_conn_event_counter_return_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_get_next_conn_event_counter_return_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).next_conn_event_counter) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_get_next_conn_event_counter_return_t),
-            "::",
-            stringify!(next_conn_event_counter)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_allow_parallel_connection_establishments_t {
-    pub enable: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_allow_parallel_connection_establishments_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_allow_parallel_connection_establishments_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_allow_parallel_connection_establishments_t>(),
-        1usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_vs_allow_parallel_connection_establishments_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_allow_parallel_connection_establishments_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_vs_allow_parallel_connection_establishments_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).enable) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_allow_parallel_connection_establishments_t),
-            "::",
-            stringify!(enable)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_min_val_of_max_acl_tx_payload_set_t {
-    #[doc = "  Minimum value of maximum ACL TX payload."]
-    pub min_val_of_max_acl_tx_payload: u8,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_min_val_of_max_acl_tx_payload_set_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_min_val_of_max_acl_tx_payload_set_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_min_val_of_max_acl_tx_payload_set_t>(),
-        1usize,
-        concat!(
-            "Size of: ",
-            stringify!(sdc_hci_cmd_vs_min_val_of_max_acl_tx_payload_set_t)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_min_val_of_max_acl_tx_payload_set_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_vs_min_val_of_max_acl_tx_payload_set_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).min_val_of_max_acl_tx_payload) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_min_val_of_max_acl_tx_payload_set_t),
-            "::",
-            stringify!(min_val_of_max_acl_tx_payload)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_iso_read_tx_timestamp_t {
-    pub conn_handle: u16,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_iso_read_tx_timestamp_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_iso_read_tx_timestamp_t> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_iso_read_tx_timestamp_t>(),
-        2usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_vs_iso_read_tx_timestamp_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_iso_read_tx_timestamp_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(sdc_hci_cmd_vs_iso_read_tx_timestamp_t))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_iso_read_tx_timestamp_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct sdc_hci_cmd_vs_iso_read_tx_timestamp_return_t {
-    pub conn_handle: u16,
-    pub packet_sequence_number: u16,
-    pub tx_time_stamp: u32,
-}
-#[test]
-fn bindgen_test_layout_sdc_hci_cmd_vs_iso_read_tx_timestamp_return_t() {
-    const UNINIT: ::core::mem::MaybeUninit<sdc_hci_cmd_vs_iso_read_tx_timestamp_return_t> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<sdc_hci_cmd_vs_iso_read_tx_timestamp_return_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(sdc_hci_cmd_vs_iso_read_tx_timestamp_return_t))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sdc_hci_cmd_vs_iso_read_tx_timestamp_return_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(sdc_hci_cmd_vs_iso_read_tx_timestamp_return_t)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).conn_handle) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_iso_read_tx_timestamp_return_t),
-            "::",
-            stringify!(conn_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).packet_sequence_number) as usize - ptr as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_iso_read_tx_timestamp_return_t),
-            "::",
-            stringify!(packet_sequence_number)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).tx_time_stamp) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sdc_hci_cmd_vs_iso_read_tx_timestamp_return_t),
-            "::",
-            stringify!(tx_time_stamp)
-        )
-    );
-}
 extern "C" {
     #[doc = " @defgroup HCI_VS_API API\n @{\n/\n/** @brief Zephyr Read Version Information.\n\n Reads the values for the vendor version information for the local Controller.\n\n The Hardware_Platform information defines the hardware manufacturer\n information. The Hardware_Variant is manufacturer specific and defines the\n hardware platform from that manufacturer.\n\n The Firmware_Variant defines the type of firmware. It is possible to provide\n HCI firmware with limited functionality for example for bootloader operation.\n The Firmware_Version and Firmware_Revision define version information of the\n Firmware_Variant that is currently active. The Firmware_Build defines an\n additional counter for incremental builds.\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_vs_zephyr_read_version_info(
@@ -22855,14 +17085,14 @@ extern "C" {
     pub fn sdc_hci_cmd_vs_zephyr_read_chip_temp(p_return: *mut sdc_hci_cmd_vs_zephyr_read_chip_temp_return_t) -> u8;
 }
 extern "C" {
-    #[doc = "  Zephyr Write Tx Power Level (per Role/Connection).\n\n This command dynamically modifies Bluetooth LE Tx power level at the antenna given a handle and a\n handle type.\n\n The Tx power of the Bluetooth LE radio interface is modified for any low-level link by\n the controller with a high degree of flexibility. The Bluetooth LE link whose power is\n set is identified based on a handle type and handle pair.\n\n The role/state defining input parameter is the Handle_Type, whereas its\n corresponding handle is provided by the Handle input parameter. Note that\n for Advertisements, the Handle input parameter is ignored in the case that\n Advertising Extensions are not configured, whereas Advertising Sets are to be\n identified by their corresponding Handle in case Advertising Extensions are\n enabled.\n\n The desired transmitter power level for the selected link instance is inputted\n as Tx_Power_Level. This value represents the actual power level fed to the antenna.\n When a Front-End Module is used, gain values for the SoC and FEM are calculated\n automatically to guarantee closest possible match to the value requested by the user\n at the RF output. The power setup and control can be performed dynamically\n without the need of restarting the advertiser and scanner role/states. In case\n of connections, the Tx power changes take effect only if the connections are\n in a connected state.\n\n The inputs Handle_Type and Handle are passed through as outputs to aid the\n asynchronous service of the command as well. In addition, the command returns\n also with the Selected_Tx_Power by the controller which addresses and corrects\n the possible mismatches between the desired Tx_Power_Level and the achievable\n Tx powers given each individual controller capabilities.\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Zephyr Write Tx Power Level (per Role/Connection).\n\n This command dynamically modifies Bluetooth LE Tx power level at the antenna given a handle and a\n handle type (advertiser, scanner, connection).\n\n The Tx power of the Bluetooth LE radio interface is modified for any low-level link by\n the controller with a high degree of flexibility. The Bluetooth LE link whose power is\n set is identified based on a handle type (advertiser, scanner, connection) and\n handle pair.\n\n The role/state defining input parameter is the Handle_Type, whereas its\n corresponding handle is provided by the Handle input parameter. Note that\n for Advertisements, the Handle input parameter is ignored in the case that\n Advertising Extensions are not configured, whereas Advertising Sets are to be\n identified by their corresponding Handle in case Advertising Extensions are\n enabled.\n\n The desired transmitter power level for the selected link instance is inputted\n as Tx_Power_Level. This value represents the actual power level fed to the antenna.\n When a Front-End Module is used, gain values for the SoC and FEM are calculated\n automatically to guarantee closest possible match to the value requested by the user\n at the RF output. The power setup and control can be performed dynamically\n without the need of restarting the advertiser and scanner role/states. In case\n of connections, the Tx power changes take effect only if the connections are\n in a connected state.\n\n The inputs Handle_Type and Handle are passed through as outputs to aid the\n asynchronous service of the command as well. In addition, the command returns\n also with the Selected_Tx_Power by the controller which addresses and corrects\n the possible mismatches between the desired Tx_Power_Level and the achievable\n Tx powers given each individual controller capabilities.\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_vs_zephyr_write_tx_power(
         p_params: *const sdc_hci_cmd_vs_zephyr_write_tx_power_t,
         p_return: *mut sdc_hci_cmd_vs_zephyr_write_tx_power_return_t,
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  Zephyr Read Tx Power Level (per Role/Connection) Command.\n\n This command reads the BLE Tx power level.\n\n In contrast to the standardized HCI command, i.e. Read_Transmit_Power_Level,\n which returns the transmitted power level only for a specified connection handle,\n this command operates for both connected and unconnected states.\n It gets the BLE Tx power level for any given handle type and handle.\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Zephyr Read Tx Power Level (per Role/Connection) Command.\n\n This command reads the BLE Tx power level.\n\n In contrast to the standardized HCI command, i.e. Read_Transmit_Power_Level,\n which returns the transmitted power level only for a specified connection handle,\n this command operates for both connected and unconnected states.\n It gets the BLE Tx power level for any given handle type (advertiser, scanner, connection) and\n handle.\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_vs_zephyr_read_tx_power(
         p_params: *const sdc_hci_cmd_vs_zephyr_read_tx_power_t,
         p_return: *mut sdc_hci_cmd_vs_zephyr_read_tx_power_return_t,
@@ -22879,7 +17109,7 @@ extern "C" {
     pub fn sdc_hci_cmd_vs_llpm_mode_set(p_params: *const sdc_hci_cmd_vs_llpm_mode_set_t) -> u8;
 }
 extern "C" {
-    #[doc = "  Connection Update.\n\n This vendor specific command is used instead of HCI_LE_Connection_Update when\n it is desirable to provide Connection Interval in microseconds instead of units.\n See @ref sdc_hci_cmd_le_conn_update for description of behavior.\n\n Event(s) generated (unless masked away):\n When the Controller receives the command, the Controller sends the\n HCI_Command_Status event to the Host. The HCI_VS_Connection_Update_Complete\n event shall be generated after the connection parameters have been applied\n by the Controller or if the command subsequently fails.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Connection Update.\n\n This vendor specific command is used to change the Link Layer Connection parameters of a\n connection.\n This command may be issued by the master only.\n\n The Supervision_Timeout in milliseconds shall be larger than (1 + Conn_Latency) *\n Conn_Interval_Max * 2,\n where Conn_Interval_Max is given in milliseconds.\n\n Event(s) generated (unless masked away):\n When the Controller receives the command, the Controller sends the HCI_Command_Complete\n event to the Host. The HCI_LE_Connection_Update_Complete event shall be generated after\n the connection parameters have been applied by the Controller or if the command\n subsequently fails.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_vs_conn_update(p_params: *const sdc_hci_cmd_vs_conn_update_t) -> u8;
 }
 extern "C" {
@@ -22893,11 +17123,11 @@ extern "C" {
     ) -> u8;
 }
 extern "C" {
-    #[doc = "  Set event length for ACL connections.\n\n Set the event length for new ACL connections. The event length is the time available for\n transmission and reception in a single connection event.\n\n The maximum data length capabilities will be set based upon this value.\n\n This API must be called before issuing a command to create a connection,\n or before starting a connectable advertiser.\n\n The default event length is 7500 us.\n\n The event length may be set to a value that is shorter than the time needed\n for a single packet pair on a given PHY.\n In that case the controller will reserve time for receiving 27 bytes and transmitting\n the number of bytes configured with @ref sdc_hci_cmd_vs_min_val_of_max_acl_tx_payload_set().\n\n See also @ref sdc_hci_cmd_vs_conn_event_extend().\n See also @ref sdc_hci_cmd_vs_central_acl_event_spacing_set().\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Set event length for connections.\n\n Set the event length for new connections. This API must be called before starting a connectable\n advertiser or starting an initiator for the event length to applied to the connection once\n established.\n\n The SoftDevice Controller will ensure that the anchor points of master link connections are\n spaced\n event_length_us apart.\n\n The default event length is @ref SDC_DEFAULT_EVENT_LENGTH_US.\n\n See also @ref sdc_hci_cmd_vs_conn_event_extend().\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_vs_event_length_set(p_params: *const sdc_hci_cmd_vs_event_length_set_t) -> u8;
 }
 extern "C" {
-    #[doc = "  Set event length for periodic advertisers.\n\n Set the allocated event length for new periodic advertisers.\n The SoftDevice Controller will ensure that the anchor points of periodic advertising events are\n spaced\n event_length_us apart. If the advertiser requires less time to transmit all the data, the\n distance to\n the next scheduling activity will still be equal to the configured event length. If the\n advertiser\n requires more time to transmit all the data, scheduling conflicts may occur.\n\n This API must be called before configuring a periodic advertiser for the event length to be\n applied.\n\n The default event length is 7500 us.\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    #[doc = "  Set event length for periodic advertisers.\n\n Set the allocated event length for new periodic advertisers.\n The SoftDevice Controller will ensure that the anchor points of periodic advertising events are\n spaced\n event_length_us apart. If the advertiser requires less time to transmit all the data, the\n distance to\n the next scheduling activity will still be equal to the configured event length. If the\n advertiser\n requires more time to transmit all the data, scheduling conflicts may occur.\n\n This API must be called before configuring a periodic advertiser for the event length to be\n applied.\n\n The default event length is @ref SDC_DEFAULT_EVENT_LENGTH_US.\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_vs_periodic_adv_event_length_set(
         p_params: *const sdc_hci_cmd_vs_periodic_adv_event_length_set_t,
     ) -> u8;
@@ -22921,67 +17151,31 @@ extern "C" {
     pub fn sdc_hci_cmd_vs_write_remote_tx_power(p_params: *const sdc_hci_cmd_vs_write_remote_tx_power_t) -> u8;
 }
 extern "C" {
+    #[doc = "  Set RSSI golden range.\n\n This command sets RSSI golden range that is explained in Core_v5.3, Vol 6, Part B,\n Section 5.1.17.1.\n\n When this command is issued, the controller stores the golden range values per PHY.\n These values can be used to keep RSSI (Received Signal Strength Indication) value\n to be in the golden range.\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
+    pub fn sdc_hci_cmd_vs_set_rssi_golden_range(p_params: *const sdc_hci_cmd_vs_set_rssi_golden_range_t) -> u8;
+}
+extern "C" {
     #[doc = "  Set advertising randomness.\n\n This vendor specific command is used to change the randomness of advertisers.\n The setting applies to all subsequent advertising events of a given set.\n\n Event(s) generated (unless masked away):\n When the Controller receives the command, the Controller sends the HCI_Command_Complete\n event to the Host.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
     pub fn sdc_hci_cmd_vs_set_adv_randomness(p_params: *const sdc_hci_cmd_vs_set_adv_randomness_t) -> u8;
 }
+pub const sdc_soc_flash_cmd_status_SDC_SOC_FLASH_CMD_STATUS_SUCCESS: sdc_soc_flash_cmd_status = 0;
+pub const sdc_soc_flash_cmd_status_SDC_SOC_FLASH_CMD_STATUS_TIMEOUT: sdc_soc_flash_cmd_status = 1;
+#[doc = "  Flash command status."]
+pub type sdc_soc_flash_cmd_status = crate::ctypes::c_uint;
+#[doc = "  Flash command callback.\n\n The flash command callback will be called when a flash operation is completed.\n It will be executed in the same execution priority as @ref mpsl_low_priority_process.\n\n * `status` - The status of the flash operation. @sa SDC_SOC_FLASH_CMD_STATUS."]
+pub type sdc_soc_flash_callback_t = ::core::option::Option<unsafe extern "C" fn(status: u32)>;
 extern "C" {
-    #[doc = "  Set Compatibility mode for window offset.\n\n This compatibility mode enables interoperability with devices that do not support a value of 0\n for the WinOffset parameter in the Link Layer CONNECT_IND packet.\n This applies to a limited set of legacy peripheral devices from a limited set of vendors.\n Enabling this compatibility mode will only have an effect if the local device will act as a\n central device and initiate a connection to a peripheral device.\n In that case it may lead to the connection creation taking up to one\n connection interval longer to complete for all connections.\n\n By default this mode is disabled.\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_vs_compat_mode_window_offset_set(
-        p_params: *const sdc_hci_cmd_vs_compat_mode_window_offset_set_t,
-    ) -> u8;
+    #[doc = "  Write data to flash.\n\n This asynchronous API will ensure that the flash operation will not interfere with radio activity.\n The completion will be communicated to the application through the provided callback function.\n\n @note The data in the p_src buffer should not be modified before the completion callback has\n       been executed.\n\n * `addr` - Flash location to be written.\n * `p_src` - Pointer to buffer with data to be written.\n * `size` - Number of 32-bit words to write. Maximum size is the number of words in one\n                         flash page. See the device's Product Specification for details.\n * `on_complete` - Callback to be called when flash is written.\n                         The callback will be executed in the context as\n                         @ref mpsl_low_priority_process.\n\n Returns 0                   Success\n Returns -NRF_EINVAL         Either:\n                                - Tried to write to a non existing flash address\n                                - addr or p_src was not word aligned\n                                - Size was 0, or higher than the maximum allowed size\n Returns -NRF_EINPROGRESS    Previous flash operation is not yet completed"]
+    pub fn sdc_soc_flash_write_async(
+        addr: u32,
+        p_src: *const crate::ctypes::c_void,
+        size: u32,
+        on_complete: sdc_soc_flash_callback_t,
+    ) -> i32;
 }
 extern "C" {
-    #[doc = "  Enable the Quality of Service (QoS) channel survey module.\n\n This vendor specific command is used to enable or disable the channel survey module.\n\n The channel survey module provides measurements of the energy levels on\n the Bluetooth Low Energy channels. When the module is enabled, @ref\n sdc_hci_subevent_vs_qos_channel_survey_report_t\n events will periodically report the measured energy levels for each channel.\n\n The measurements are scheduled with lower priority than other Bluetooth Low Energy roles,\n Radio Timeslot API events and Flash API events.\n\n The channel survey module will attempt to do measurements so that the average interval\n between measurements will be interval_us. However due to the channel survey module\n having the lowest priority of all roles and modules, this may not be possible. In that\n case fewer than expected channel survey reports may be given.\n\n In order to use the channel survey module, funcref:sdc_support_qos_channel_survey\n must be called.\n\n Event(s) geneated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_vs_qos_channel_survey_enable(p_params: *const sdc_hci_cmd_vs_qos_channel_survey_enable_t) -> u8;
-}
-extern "C" {
-    #[doc = "  Set LE Power Control Request procedure parameters.\n\n This command sets the parameters used in LE Power Control Request\n procedure by the Link Layer.\n\n beta parameter is used to determine the weight of the previous average of RSSI values.\n A higher value lowers how much the current RSSI weighs into the average, flattening peaks,\n which also means the controller reacts slower on RSSI changes.\n The average RSSI is calculated using an exponential weighted averaging in a\n 12-bit fixed point fraction.\n avg[n] = gamma * avg[n - 1] + (1 - gamma) * rssi[n]\n Here, gamma equals beta/4096, and rssi[n] equals the current RSSI.\n For example, for gamma to be 0.25, set the beta parameter in the command to 1024.\n\n Average RSSI and lower_limit parameter are used to calculate APR value the controller sends\n in LL_POWER_CONTROL_RSP.\n\n When auto_enable parameter is set, the controller will keep average RSSI within\n [lower_limit, upper_limit] bounds. When the average RSSI goes out of these bounds, the\n controller will autonomously send LL_POWER_CONTROL_REQ requesting to adjust the\n peer's TX power so average RSSI becomes either lower_target_rssi or upper_target_rssi.\n The controller will not send such requests more often than specified by wait_period_ms parameter.\n The wait_period_ms parameter is needed to not repeat send requests for transmit power change\n without the remote having had the chance to react, as well as to avoid a busy controller.\n This value should be set depending on needs.\n\n When apr_enable parameter is set, the controller will adjust local TX power according to\n APR value received from the peer in LL_POWER_CONTROL_RSP and the apr_margin parameter.\n\n When this command is issued, the controller stores the parameters and\n uses them for the subsequent LE Power Control Request procedures across all the connections.\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_vs_set_power_control_request_params(
-        p_params: *const sdc_hci_cmd_vs_set_power_control_request_params_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  Read average RSSI.\n\n This command reads the average Received Signal Strength Indication (RSSI) value\n calculated by LE Power Control.\n\n The average RSSI is calculated as an exponential weighted average according to\n the formula given in @ref sdc_hci_cmd_vs_set_power_control_request_params().\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_vs_read_average_rssi(
-        p_params: *const sdc_hci_cmd_vs_read_average_rssi_t,
-        p_return: *mut sdc_hci_cmd_vs_read_average_rssi_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  Set Central ACL event spacing.\n\n On the central, sets the time ACL connections are spaced apart, assuming they are\n using the same connection interval.\n\n This API must be called before issuing a command to create a connection.\n\n The default event spacing is 7500 us.\n The configured value is retained after issuing a HCI Reset command.\n\n Note: The time available for transmission and reception is not configured using this API\n\n See also @ref sdc_hci_cmd_vs_event_length_set().\n See also @ref sdc_hci_cmd_vs_conn_event_extend().\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_vs_central_acl_event_spacing_set(
-        p_params: *const sdc_hci_cmd_vs_central_acl_event_spacing_set_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  Set Connection Event Trigger.\n\n Start triggering a given task on radio event start.\n\n When enabled, this feature will trigger a (D)PPI task at the start of radio events.\n\n When used for connections, the connection event trigger can be configured to trigger\n every N connection events starting from a given connection event counter.\n\n Disabling scanning or disconnecting the connection will reset the connection event\n trigger configuration.\n\n If the selected (D)PPI channel is reserved by the controller, the controller will\n return the error code Invalid HCI Command Parameters (0x12).\n\n If enabling/disabling the connection event trigger and the trigger is already\n enabled/disabled, the controller will return the error code Command Disallowed (0x0C).\n\n If the specified role is not currently active, the controller will return the error code\n Command Disallowed (0x0C).\n\n If the role is 0x3 and conn_handle does not refer to an active connection, the controller\n will return the error code Unknown Connection Identifier (0x02).\n\n If the role is 0x3 and conn_evt_counter_start has already passed, the controller will return\n the error code Command Disallowed (0x0C).\n\n If the role is 0x3 and period_in_events is zero, the controller will return the error code\n Invalid HCI Command Parameters (0x12).\n\n If the role is 0x1 or 0x2 and conn_evt_counter_start or period_in_events is non-zero,\n the controller will return the error code Invalid HCI Command Parameters (0x12).\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_vs_set_conn_event_trigger(p_params: *const sdc_hci_cmd_vs_set_conn_event_trigger_t) -> u8;
-}
-extern "C" {
-    #[doc = "  Get Next Connection Event Counter.\n\n This command can be used to fetch the upcoming connection event counter value for Centrals or\n Peripherals.\n\n If conn_handle doesn't match an existing connection, the Unknown Connection Identifier (0x02)\n error code will be returned.\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_vs_get_next_conn_event_counter(
-        p_params: *const sdc_hci_cmd_vs_get_next_conn_event_counter_t,
-        p_return: *mut sdc_hci_cmd_vs_get_next_conn_event_counter_return_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  Allow Parallel Connection Establishment.\n\n This command enables the controller to accept establishing connections through\n the initiator and a periodic advertiser with responses simultaneously.\n\n When enabled, HCI commands to create connections may then be used to\n connect to a synchronized peer while the initiator is running, or to start\n initiating before a connection establishment to a synchronized device\n has been completed.\n\n By default this functionality is disabled.\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_vs_allow_parallel_connection_establishments(
-        p_params: *const sdc_hci_cmd_vs_allow_parallel_connection_establishments_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  Set the minimum value that will be used as maximum Tx octets for ACL connections.\n\n This command sets the minimum value of maximum ACL payload length that can be sent\n in each packet. If the configured event length is shorter than what is required to\n send a packet pair of 27 bytes in each direction, the controller will use this value to\n determine how much it can reduce the payload size to satisfy the event length requirements.\n LL Control PDUs are not affected by this API.\n\n Together with @ref sdc_hci_cmd_vs_event_length_set(), this API allows the controller to schedule\n ACLs events closer together with other activities.\n\n This API must be called before issuing a command to create a connection,\n or before starting a connectable advertiser.\n\n The default and maximum value of this parameter is 27. The minimum supported value\n of this parameter is 10.\n\n Setting this parameter to a lower value will result in more link layer fragmentation,\n reducing the maximum throughput.\n\n Setting this parameter to a value lower than 27 bytes may result in interoperability\n issues with older Bluetooth products. It is therefore not recommended to use this API\n for applications interacting with devices qualified for Bluetooth Specification 5.1 or\n older.\n\n The value is preserved when issuing the HCI Reset command.\n\n See also @ref sdc_hci_cmd_vs_event_length_set().\n\n Event(s) generated (unless masked away):\n When the command has completed, an HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_vs_min_val_of_max_acl_tx_payload_set(
-        p_params: *const sdc_hci_cmd_vs_min_val_of_max_acl_tx_payload_set_t,
-    ) -> u8;
-}
-extern "C" {
-    #[doc = "  Iso Read Tx Timestamp.\n\n The controller operates on a timeline that determines when an SDU provided\n by the host is scheduled for transmission. This command is used to return the\n tx_time_stamp and packet_sequence_number that determines where on this timelime\n the previously provided SDU was scheduled. The packet_sequence_number is a\n quantization of the tx_time_stamp. The SDU is provided for transmission on a\n CIS or BIS as identified by the conn_handle parameter on the\n Central or Peripheral.\n\n This command is made to simplify sending SDUs on different ISO streams\n in the same ISO event.\n\n If the Host issues this command with a connection handle that does not exist,\n or the connection handle is not associated with a CIS or BIS, the Controller\n shall return the error code Unknown Connection Identifier (0x02).\n\n If the Host issues this command on an existing connection handle for a CIS or\n BIS where a ISO data path is not enabled, the Controller shall return the\n error code Command Disallowed (0x0C).\n\n If the Host issues this command before an SDU has been transmitted by the\n Controller, the Controller shall return the error code Command Disallowed\n (0x0C).\n\n Event(s) generated (unless masked away):\n When the HCI_LE_Read_ISO_TX_Sync command has completed, an\n HCI_Command_Complete event shall be generated.\n\n * `p_params` - Input parameters.\n * `p_return` - Extra return parameters.\n\n Returns 0 if success.\n Returns Returns value between 0x01-0xFF in case of error.\n         See Vol 2, Part D, Error for a list of error codes and descriptions."]
-    pub fn sdc_hci_cmd_vs_iso_read_tx_timestamp(
-        p_params: *const sdc_hci_cmd_vs_iso_read_tx_timestamp_t,
-        p_return: *mut sdc_hci_cmd_vs_iso_read_tx_timestamp_return_t,
-    ) -> u8;
+    #[doc = "  Erase a flash page.\n\n This asynchronous API will ensure that the flash operation will not interfere with radio activity.\n The completion will be communicated to the application through the provided callback function.\n\n * `addr` - Start address of the flash page to be erased.\n                         If the address is not aligned with the start of flash page,\n                         the page containing this address will be erased.\n * `on_complete` - Function to be called when page is erased.\n                         The callback will be executed in the context as\n                         @ref mpsl_low_priority_process.\n\n Returns 0                   Success\n Returns -NRF_EINVAL         Tried to erase a non existing flash page.\n Returns -NRF_EINPROGRESS    Previous flash operation is not yet completed"]
+    pub fn sdc_soc_flash_page_erase_async(addr: u32, on_complete: sdc_soc_flash_callback_t) -> i32;
 }
 extern "C" {
     #[doc = "  Encrypt a block according to the specified parameters.\n\n The SoftDevice Controller will use NRF_ECB encrypt the block. The encryption type is 128-bit AES.\n\n @note The application may set the SEVONPEND bit in the SCR to 1 to make the SoftDevice Controller sleep\n       while the ECB is running. The SEVONPEND bit must not be cleared (set to 0) from a function\n       running in an interrupt priority level higher (lower numerical value) than the execution priority\n       level this function was called from.\n\n * `key` - Encryption key\n * `cleartext` - Cleartext data\n * `ciphertext` - Encrypted data\n\n Returns 0 Success"]
@@ -23142,11 +17336,11 @@ pub type mpsl_clock_hfclk_latency_config_t = crate::ctypes::c_uint;
 #[doc = "  High frequency clock callback.\n\n This callback will be called when the high frequency clock is started.\n It will be executed in the same execution priority as @ref mpsl_low_priority_process."]
 pub type mpsl_clock_hfclk_callback_t = ::core::option::Option<unsafe extern "C" fn()>;
 extern "C" {
-    #[doc = "  Request the high frequency crystal oscillator.\n\n Will start the high frequency crystal oscillator, the startup time of the crystal varies\n and the ::mpsl_clock_hfclk_is_running function can be polled to check if it has started.\n\n @see mpsl_clock_hfclk_is_running\n @see mpsl_clock_hfclk_release\n\n @note Don't use this API if the integration layer of MPSL provides a driver that uses this function.\n       This is the case for applications in the nRF Connect SDK where there is a clock control driver\n       with a corresponding on/off manager.\n\n * `hfclk_started_callback` - Function to be called when the high frequency clock is started.\n                                   The callback will be executed in the context as\n                                   @ref mpsl_low_priority_process.\n Returns 0  Success"]
+    #[doc = "  Request the high frequency crystal oscillator.\n\n Will start the high frequency crystal oscillator, the startup time of the crystal varies\n and the ::mpsl_clock_hfclk_is_running function can be polled to check if it has started.\n\n @see mpsl_clock_hfclk_is_running\n @see mpsl_clock_hfclk_release\n\n * `hfclk_started_callback` - Function to be called when the high frequency clock is started.\n                                   The callback will be executed in the context as\n                                   @ref mpsl_low_priority_process.\n Returns 0  Success"]
     pub fn mpsl_clock_hfclk_request(hfclk_started_callback: mpsl_clock_hfclk_callback_t) -> i32;
 }
 extern "C" {
-    #[doc = "  Releases the high frequency crystal oscillator.\n\n Indicates that the high frequency crystal oscillator is not needed by the application.\n MPSL may continue to use the high frequency clock if it is requested by protocol stacks.\n MPSL will automatically turn it off when it is no longer needed.\n\n @see mpsl_clock_hfclk_is_running\n @see mpsl_clock_hfclk_request\n\n @note Don't use this API if the integration layer of MPSL provides a driver that uses this function.\n       This is the case for applications in the nRF Connect SDK where there is a clock control driver\n       with a corresponding on/off manager.\n\n Returns 0  Success"]
+    #[doc = "  Releases the high frequency crystal oscillator.\n\n Indicates that the high frequency crystal oscillator is not needed by the application.\n MPSL may continue to use the high frequency clock if it is requested by protocol stacks.\n MPSL will automatically turn it off when it is no longer needed.\n\n @see mpsl_clock_hfclk_is_running\n @see mpsl_clock_hfclk_request\n\n Returns 0  Success"]
     pub fn mpsl_clock_hfclk_release() -> i32;
 }
 extern "C" {
@@ -23154,12 +17348,8 @@ extern "C" {
     pub fn mpsl_clock_hfclk_is_running(p_is_running: *mut u32) -> i32;
 }
 extern "C" {
-    #[doc = "  Informs MPSL about the actual ramp-up time of the high-frequency crystal oscillator.\n\n * `mpsl_clock_hfclk_latency_config` - Setting for the time it takes for the HFCLK to ramp up.\n\n Returns 0  Success\n Returns 1  Error, passed value not in @ref mpsl_clock_hfclk_latency_config_t"]
+    #[doc = "  Informs MPSL about the actual ramp-up time of the high-frequency crystal oscillator.\n\n * `mpsl_clock_hfclk_latency_config` - Setting for the time it takes for the HFCLK to ramp up.\n\n Returns 0  Success"]
     pub fn mpsl_clock_hfclk_latency_set(mpsl_clock_hfclk_latency_config: mpsl_clock_hfclk_latency_config_t) -> i32;
-}
-extern "C" {
-    #[doc = "  Trigger a task upon start of the RTC.\n\n MPSL will trigger the task at the same time as the RTC is started.\n\n * `task_address` - The task address to be triggered"]
-    pub fn mpsl_clock_task_trigger_on_rtc_start_set(task_address: u32);
 }
 #[doc = "< Low priority for the related coexistence interface event."]
 pub const MPSL_COEX_PRIORITY_MPSL_COEX_PRIORITY_LOW: MPSL_COEX_PRIORITY = 0;
@@ -23700,7 +17890,7 @@ fn bindgen_test_layout_mpsl_cx_interface_t() {
     );
 }
 extern "C" {
-    #[doc = "  Connects to one of Coexistence PTA client implementation\n\n * `p_methods` - Pointer to structure of pointers.\n this must be valid for the lifetime of the application.\n\n @note This must be used by Coexistence implementation \"constructor\" and this is the only case\n in which it can be used.\n\n Returns   0               The \"link\" was successfuly created.\n Returns   -NRF_EPERM      Some error occured (e.g. null pointer was passed)."]
+    #[doc = "  Connects to one of Coexistence PTA client implementation\n\n * `p_methods` - Pointer to structure of pointers.\n\n @note This must be used by Coexistence implementation \"constructor\" and this is the only case\n       in which it can be used.\n\n Returns   0               The \"link\" was successfuly created.\n Returns   -NRF_EPERM      Some error occured (e.g. null pointer was passed)."]
     pub fn mpsl_cx_interface_set(p_methods: *const mpsl_cx_interface_t) -> i32;
 }
 #[doc = "     Function prototype for the assert handler.\n\n @note      If an internal assert occurs this function is called. It is supposed to log the assert and stop execution.\n\n * `file` - The filename where the assertion occurred.\n * `line` - The line number where the assertion occurred."]
@@ -23745,14 +17935,6 @@ extern "C" {
 extern "C" {
     #[doc = "  MPSL low priority processing handler.\n\n @note This handler should be called when MPSL signals low priority processing should be executed\n       (via low_prio_irq provided to @ref mpsl_init) within reasonable time (a at least a few\n       100 ms). The caller is responsible to ensure this function is not called concurrently with\n       any other low priority MPSL API functions, for more information see thread safety in the\n       MPSL documentation."]
     pub fn mpsl_low_priority_process();
-}
-extern "C" {
-    #[doc = "  Application needs to call this when calibration shall occur.\n\n In the nRF Connect SDK, it is designed to be called with a period of CONFIG_CLOCK_CONTROL_NRF_CALIBRATION_PERIOD"]
-    pub fn mpsl_calibration_timer_handle();
-}
-extern "C" {
-    #[doc = "  RFU\n\n RFU"]
-    pub fn mpsl_pan_rfu();
 }
 extern "C" {
     #[doc = "  Get the temperature measured on the chip\n\n This function will block until the temperature measurement is done.\n It takes around 50 us from call to return.\n\n Returns Result of temperature measurement. Die temperature in 0.25 degrees Celsius."]
@@ -24335,13 +18517,6 @@ extern "C" {
     pub fn mpsl_tx_power_channel_map_set(p_envelope: *const mpsl_tx_power_envelope_t) -> i32;
 }
 extern "C" {
-    #[doc = "  Adjusts TX power to a value supported by the RADIO peripheral.\n\n * `req_radio_power` - Requested TX power desired for RADIO peripheral.\n * `tx_power_ceiling` - Flag to get ceiling or floor of requested RADIO TX power level.\n\n  Returns RADIO TX power that is supported by the RADIO peripheral.\n          If  * `req_radio_power` -  is less than the minimum TX power supported, the minimum\n          supported TX power is returned. If  * `req_radio_power` -  is more than the maximum\n          TX power supported, the maximum supported TX power is returned.\n          Otherwise the closest supported value that is, depending on  * `tx_power_ceiling` - ,\n          less or more, or equal to  * `req_radio_power` -  is returned."]
-    pub fn mpsl_tx_power_radio_supported_power_adjust(
-        req_radio_power: mpsl_tx_power_t,
-        tx_power_ceiling: i8,
-    ) -> mpsl_tx_power_t;
-}
-extern "C" {
-    #[doc = "  Converts radio power in dBm to RADIO.TXPOWER register code.\n\n * `req_radio_power` - Requested TX power desired for RADIO peripheral.\n                              The power value in dBm must be supported by the RADIO peripheral.\n\n  Returns RADIO.TXPOWER register code corrensponding to a radio power in dBm."]
-    pub fn mpsl_tx_power_dbm_to_radio_register_convert(req_radio_power: mpsl_tx_power_t) -> u32;
+    #[doc = "  Adjusts TX power to a value supported by the RADIO peripheral.\n\n * `req_radio_power` - Requested TX power desired for RADIO peripheral.\n\n  Returns RADIO TX power that is supported by the RADIO peripheral.\n          If  * `req_radio_power` -  is less than the minimum TX power supported, the minimum\n          supported TX power is returned. Otherwise, closest supported value that is less\n          or equal to  * `req_radio_power` -  returned."]
+    pub fn mpsl_tx_power_radio_supported_power_adjust(req_radio_power: mpsl_tx_power_t) -> mpsl_tx_power_t;
 }

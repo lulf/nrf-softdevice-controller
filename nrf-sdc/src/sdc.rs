@@ -11,6 +11,9 @@ pub struct Config {
 static RNG: CriticalSectionMutex<RefCell<Option<rand_chacha::ChaCha12Rng>>> =
     CriticalSectionMutex::new(RefCell::new(None));
 
+const SDC_MEM_SIZE: usize = 65536;
+static mut SDC_MEM: [u8; SDC_MEM_SIZE] = [0; SDC_MEM_SIZE];
+
 /// Initialize the softdevice controller. Should only be called once!
 pub fn sdc_init(config: Config) -> Result<(), Error> {
     RNG.lock(|rng| {
@@ -33,13 +36,26 @@ pub fn sdc_init(config: Config) -> Result<(), Error> {
     if ret != 0 {
         return Err(ret.into());
     }
-    info!("[sdc] rand registered");
 
-    let mut memory_usage = 0;
+    let ret = unsafe { raw::sdc_support_adv() };
+    if ret != 0 {
+        return Err(ret.into());
+    }
+
+    let ret = unsafe { raw::sdc_support_peripheral() };
+    if ret != 0 {
+        return Err(ret.into());
+    }
+
+    let ret = unsafe { raw::sdc_support_central() };
+    if ret != 0 {
+        return Err(ret.into());
+    }
+
     let ret = unsafe {
         raw::sdc_cfg_set(
-            ConfigTag::Default as u8,
-            ConfigType::AdvCount as u8,
+            raw::SDC_DEFAULT_RESOURCE_CFG_TAG as u8,
+            raw::sdc_cfg_type_SDC_CFG_TYPE_ADV_COUNT as u8,
             &raw::sdc_cfg_t {
                 adv_count: raw::sdc_cfg_role_count_t { count: 1 },
             },
@@ -48,13 +64,11 @@ pub fn sdc_init(config: Config) -> Result<(), Error> {
     if ret < 0 {
         return Err(ret.into());
     }
-    memory_usage += ret;
-    info!("[sdc] set adv count");
 
     let ret = unsafe {
         raw::sdc_cfg_set(
-            ConfigTag::Default as u8,
-            ConfigType::PeripheralCount as u8,
+            raw::SDC_DEFAULT_RESOURCE_CFG_TAG as u8,
+            raw::sdc_cfg_type_SDC_CFG_TYPE_PERIPHERAL_COUNT as u8,
             &raw::sdc_cfg_t {
                 peripheral_count: raw::sdc_cfg_role_count_t { count: 1 },
             },
@@ -63,16 +77,39 @@ pub fn sdc_init(config: Config) -> Result<(), Error> {
     if ret < 0 {
         return Err(ret.into());
     }
-    memory_usage += ret;
 
-    static mut BUFFER: [u8; 8192] = [0; 8192];
+    let ret = unsafe {
+        raw::sdc_cfg_set(
+            raw::SDC_DEFAULT_RESOURCE_CFG_TAG as u8,
+            raw::sdc_cfg_type_SDC_CFG_TYPE_CENTRAL_COUNT as u8,
+            &raw::sdc_cfg_t {
+                central_count: raw::sdc_cfg_role_count_t { count: 1 },
+            },
+        )
+    };
+    if ret < 0 {
+        return Err(ret.into());
+    }
 
-    let ret = unsafe { raw::sdc_enable(Some(hci_callback), BUFFER.as_mut_ptr()) };
+    let wanted_memory = unsafe {
+        raw::sdc_cfg_set(
+            raw::SDC_DEFAULT_RESOURCE_CFG_TAG as u8,
+            raw::sdc_cfg_type_SDC_CFG_TYPE_NONE as u8,
+            core::ptr::null(),
+        )
+    };
+    if wanted_memory < 0 {
+        return Err(wanted_memory.into());
+    }
+    assert!(wanted_memory as usize <= SDC_MEM_SIZE);
+    info!("[sdc] enable (mem {})", wanted_memory);
+
+    let ret = unsafe { raw::sdc_enable(Some(hci_callback), SDC_MEM.as_mut_ptr()) };
     if ret != 0 {
         return Err(ret.into());
     }
 
-    info!("[sdc] init done. Required memory {}", memory_usage);
+    info!("[sdc] init done");
     Ok(())
 }
 
@@ -95,44 +132,34 @@ pub fn sdc_hci_read(data: &mut [u8]) -> Result<usize, Error> {
     Ok(data.len())
 }
 
-#[repr(u8)]
-enum ConfigTag {
-    Default = 0,
-}
-
-#[repr(u8)]
-enum ConfigType {
-    None = 0,
-    CentralCount = 1,
-    PeripheralCount = 2,
-    Buffer = 3,
-    AdvCount = 4,
-}
-
 unsafe extern "C" fn hci_callback() {
     info!("[sdc] hci event!");
 }
 
 unsafe extern "C" fn rng_prio_low(buf: *mut u8, len: u8) -> u8 {
-    rng_poll(buf, len);
+    let data = core::slice::from_raw_parts_mut(buf, len as _);
+    data.fill(0x42); // todo
     len
 }
 
 unsafe extern "C" fn rng_prio_high(buf: *mut u8, len: u8) -> u8 {
-    rng_poll(buf, len);
+    let data = core::slice::from_raw_parts_mut(buf, len as _);
+    data.fill(0x42); // todo
     len
 }
 
 unsafe extern "C" fn rng_poll(buf: *mut u8, len: u8) {
-    RNG.lock(|rng| {
-        let mut rng = rng.borrow_mut();
-        let rng = rng.as_mut().unwrap();
-        let buf = core::ptr::slice_from_raw_parts_mut(buf, len as usize);
-        rng.fill_bytes(&mut *buf);
-    })
+    //RNG.lock(|rng| {
+    //    let mut rng = rng.borrow_mut();
+    //    let rng = rng.as_mut().unwrap();
+    //    let buf = core::ptr::slice_from_raw_parts_mut(buf, len as usize);
+    //    rng.fill_bytes(&mut *buf);
+    //})
+    let data = core::slice::from_raw_parts_mut(buf, len as _);
+    data.fill(0x42); // todo
 }
 
-unsafe extern "C" fn sdc_assert_handler(file: *const i8, line: u32) {
+unsafe extern "C" fn sdc_assert_handler(file: *const u8, line: u32) {
     let file = core::ffi::CStr::from_ptr(file as _).to_str().unwrap();
     panic!("SDC assertion failed at file {} line {}", file, line);
 }

@@ -20,8 +20,6 @@ fn main() {
         .clang_arg(format!("-I{}/mpsl/include", nrfxlib_path))
         // Point to our special local headers
         // Add extra paths that the C files assume are searched
-        //.clang_arg("-I../../sdk-nrfxlib/crypto/nrf_cc310_platform/include")
-        //.clang_arg("-I../../sdk-nrfxlib/crypto/nrf_oberon")
         // Disable standard includes (they belong to the host)
         .clang_arg("-nostdinc")
         // Set the target
@@ -29,7 +27,7 @@ fn main() {
         .clang_arg("arm")
         .clang_arg("-mcpu=cortex-m4")
         // Use softfp
-        .clang_arg("-mfloat-abi=hard")
+        .clang_arg("-mfloat-abi=soft")
         // We're no_std
         .use_core()
         .ctypes_prefix("crate::ctypes")

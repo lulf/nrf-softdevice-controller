@@ -24,63 +24,15 @@ use {defmt_rtt as _, panic_probe as _};
 
 bind_interrupts!(struct Irqs {
     RNG => embassy_nrf::rng::InterruptHandler<peripherals::RNG>;
-    SWI0_EGU0 => nrf_sdc::mpsl::InterruptHandler;
+    SWI0_EGU0 => nrf_sdc::mpsl::LowPrioInterruptHandler;
+    POWER_CLOCK => nrf_sdc::mpsl::ClockInterruptHandler;
+    RADIO => nrf_sdc::mpsl::HighPrioInterruptHandler;
+    TIMER0 => nrf_sdc::mpsl::HighPrioInterruptHandler;
+    RTC0 => nrf_sdc::mpsl::HighPrioInterruptHandler;
 });
-
-extern "C" {
-    static MPSL_IRQ_RADIO_Handler: extern "C" fn() -> ();
-    static MPSL_IRQ_TIMER0_Handler: extern "C" fn() -> ();
-    static MPSL_IRQ_RTC0_Handler: extern "C" fn() -> ();
-    static MPSL_IRQ_CLOCK_Handler: extern "C" fn() -> ();
-}
-
-#[interrupt]
-fn RADIO() {
-    unsafe { MPSL_IRQ_RADIO_Handler() };
-}
-
-#[interrupt]
-fn TIMER0() {
-    unsafe { MPSL_IRQ_TIMER0_Handler() };
-}
-
-#[interrupt]
-fn RTC0() {
-    unsafe { MPSL_IRQ_RTC0_Handler() };
-}
-
-#[interrupt]
-fn POWER_CLOCK() {
-    let i = interrupt::POWER_CLOCK;
-    info!("POWER_CLOCK IRQ enabled: {}", NVIC::is_enabled(i));
-    info!("POWER_CLOCK IRQ active: {}", NVIC::is_active(i));
-    info!("POWER_CLOCK IRQ pending: {}", NVIC::is_pending(i));
-
-    let r = unsafe { &*pac::CLOCK::ptr() };
-    unsafe { r.intenclr.write(|w| w.bits(0xFFFFFFFF)) };
-
-    print_regs();
-
-    unsafe { MPSL_IRQ_CLOCK_Handler() };
-    info!("DONE POWER_CLOCK IRQ");
-}
 
 fn current_millis() -> u64 {
     Instant::now().as_millis()
-}
-
-fn print_regs() {
-    let r = unsafe { &*pac::CLOCK::ptr() };
-    let val = r.lfclkstat.read().bits();
-    info!("LFCLKSTAT: {:x}", val);
-    let val = r.hfclkstat.read().bits();
-    info!("HFCLKSTAT: {:x}", val);
-    let val = r.lfclkrun.read().bits();
-    info!("LFCLKRUN: {:x}", val);
-    let val = r.lfclksrc.read().bits();
-    info!("LFCLKSRC: {:x}", val);
-    let val = r.ctiv.read().bits();
-    info!("CTIV: {:x}", val);
 }
 
 #[embassy_executor::task]
@@ -93,53 +45,54 @@ async fn mpsl_task() {
 #[embassy_executor::main]
 async fn main(_s: Spawner) {
     let mut config = embassy_nrf::config::Config::default();
-    //config.gpiote_interrupt_priority = interrupt::Priority::P2;
-    //config.time_interrupt_priority = interrupt::Priority::P2;
-    // config.hfclk_source = embassy_nrf::config::HfclkSource::ExternalXtal;
-
-    //print_regs();
-
     let p = embassy_nrf::init(config);
 
-    interrupt::RTC0.set_priority(interrupt::Priority::P0);
-    interrupt::RADIO.set_priority(interrupt::Priority::P0);
-    interrupt::TIMER0.set_priority(interrupt::Priority::P0);
-    interrupt::POWER_CLOCK.set_priority(interrupt::Priority::P4);
-    interrupt::SWI0_EGU0.set_priority(interrupt::Priority::P4);
+    //interrupt::RTC0.set_priority(interrupt::Priority::P0);
+    //interrupt::RADIO.set_priority(interrupt::Priority::P0);
+    //interrupt::TIMER0.set_priority(interrupt::Priority::P0);
+    //interrupt::POWER_CLOCK.set_priority(interrupt::Priority::P4);
+    //interrupt::SWI0_EGU0.set_priority(interrupt::Priority::P4);
+    unsafe {
+        let mut nvic: NVIC = core::mem::transmute(());
+        nvic.set_priority(pac::Interrupt::RADIO, 0 << 5);
+        nvic.set_priority(pac::Interrupt::RTC0, 0 << 5);
+        nvic.set_priority(pac::Interrupt::TIMER0, 0 << 5);
+        nvic.set_priority(pac::Interrupt::POWER_CLOCK, 7 << 5);
+        nvic.set_priority(pac::Interrupt::SWI0_EGU0, 7 << 5);
+    }
 
     info!("Init mpsl");
 
-    //let config = MpslConfig {
-    //    source: LfClock::Rc,
-    //    rc_ctiv: 16,
-    //    rc_temp_ctiv: 2,
-    //    accuracy_ppm: 250,
-    //};
-
     let config = MpslConfig {
-        source: LfClock::Xtal,
-        rc_ctiv: 0,
-        rc_temp_ctiv: 0,
+        source: LfClock::Rc,
+        rc_ctiv: 16,
+        rc_temp_ctiv: 2,
         accuracy_ppm: 250,
     };
+
+    // let config = MpslConfig {
+    //     source: LfClock::Xtal,
+    //     rc_ctiv: 0,
+    //     rc_temp_ctiv: 0,
+    //     accuracy_ppm: 250,
+    // };
     mpsl_init(config, Irqs).unwrap();
-    //let i = interrupt::POWER_CLOCK;
-    //unsafe { NVIC::mask(i) };
-    // let res = sys::mpsl_clock_hfclk_request(Some(hfclk_callback));
-    // info!("res {}", res);
     Timer::after(Duration::from_millis(10)).await;
-    loop {
-        info!("Hello");
-        Timer::after(Duration::from_millis(300)).await;
-    }
-    print_regs();
+    _s.spawn(mpsl_task()).unwrap();
+
     let mut rng = rng::Rng::new(p.RNG, Irqs);
     rng.set_bias_correction(true);
     let mut seed = [0u8; 32];
     rng.blocking_fill_bytes(&mut seed);
+
+    Timer::after(Duration::from_millis(10)).await;
     let config = SdcConfig { seed };
     sdc_init(config).unwrap();
 
+    loop {
+        info!("Hello");
+        Timer::after(Duration::from_millis(300)).await;
+    }
     let connector = SdHci;
     info!("Creating connector!");
     Timer::after(Duration::from_millis(2000)).await;
