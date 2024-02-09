@@ -8,7 +8,7 @@ use bleps::{
     Addr, Ble, HciConnector,
 };
 use cortex_m::peripheral::NVIC;
-use defmt::info;
+use defmt::{info, unwrap};
 use embassy_executor::Spawner;
 use embassy_nrf::{bind_interrupts, interrupt, pac, peripherals, rng};
 use embassy_time::{Duration, Instant, Timer};
@@ -17,7 +17,7 @@ use interrupt::InterruptExt as _;
 use nrf_sdc::{
     mpsl::{mpsl_init, mpsl_run, Config as MpslConfig, LfClock},
     raw,
-    sdc::{sdc_hci_read, sdc_hci_write, sdc_init, Config as SdcConfig},
+    sdc::{sdc_hci_get, sdc_hci_write_command, sdc_hci_write_data, sdc_init, try_sdc_hci_get, Config as SdcConfig},
     Error as SdcError,
 };
 use {defmt_rtt as _, panic_probe as _};
@@ -42,27 +42,26 @@ async fn mpsl_task() {
     }
 }
 
+fn bd_addr() -> [u8; 6] {
+    unsafe {
+        let ficr = &*pac::FICR::ptr();
+        let high = u64::from((ficr.deviceid[1].read().bits() & 0x0000ffff) | 0x0000c000);
+        let addr = high << 32 | u64::from(ficr.deviceid[0].read().bits());
+        unwrap!(addr.to_le_bytes()[..6].try_into())
+    }
+}
+
 #[embassy_executor::main]
 async fn main(_s: Spawner) {
     let mut config = embassy_nrf::config::Config::default();
     let p = embassy_nrf::init(config);
 
-    //interrupt::RTC0.set_priority(interrupt::Priority::P0);
-    //interrupt::RADIO.set_priority(interrupt::Priority::P0);
-    //interrupt::TIMER0.set_priority(interrupt::Priority::P0);
-    //interrupt::POWER_CLOCK.set_priority(interrupt::Priority::P4);
-    //interrupt::SWI0_EGU0.set_priority(interrupt::Priority::P4);
-    unsafe {
-        let mut nvic: NVIC = core::mem::transmute(());
-        nvic.set_priority(pac::Interrupt::RADIO, 0 << 5);
-        nvic.set_priority(pac::Interrupt::RTC0, 0 << 5);
-        nvic.set_priority(pac::Interrupt::TIMER0, 0 << 5);
-        nvic.set_priority(pac::Interrupt::POWER_CLOCK, 7 << 5);
-        nvic.set_priority(pac::Interrupt::SWI0_EGU0, 7 << 5);
-    }
-
+    interrupt::RTC0.set_priority(interrupt::Priority::P0);
+    interrupt::RADIO.set_priority(interrupt::Priority::P0);
+    interrupt::TIMER0.set_priority(interrupt::Priority::P0);
+    interrupt::POWER_CLOCK.set_priority(interrupt::Priority::P4);
+    interrupt::SWI0_EGU0.set_priority(interrupt::Priority::P4);
     info!("Init mpsl");
-
     let config = MpslConfig {
         source: LfClock::Rc,
         rc_ctiv: 16,
@@ -89,11 +88,13 @@ async fn main(_s: Spawner) {
     let config = SdcConfig { seed };
     sdc_init(config).unwrap();
 
-    loop {
-        info!("Hello");
-        Timer::after(Duration::from_millis(300)).await;
-    }
-    let connector = SdHci;
+    let mut hci_buf = [0; raw::HCI_MSG_BUFFER_MAX_SIZE as usize];
+
+    let bd_addr = bd_addr();
+    let ret =
+        unsafe { raw::sdc_hci_cmd_vs_zephyr_write_bd_addr(&raw::sdc_hci_cmd_vs_zephyr_write_bd_addr_t { bd_addr }) };
+
+    let connector = SdHci::new();
     info!("Creating connector!");
     Timer::after(Duration::from_millis(2000)).await;
     info!("Waited");
@@ -123,9 +124,63 @@ async fn main(_s: Spawner) {
     info!("ENABLE ADV {:?}", defmt::Debug2Format(&ret));
 
     info!("started advertising");
+
+    loop {
+        Timer::after(Duration::from_millis(3000)).await;
+    }
 }
 
-pub struct SdHci;
+pub struct SdHci {
+    buffer: [u8; nrf_sdc::raw::HCI_MSG_BUFFER_MAX_SIZE as usize],
+    rpos: usize,
+    end: usize,
+
+    write_buffer: [u8; nrf_sdc::raw::HCI_MSG_BUFFER_MAX_SIZE as usize],
+    wpos: usize,
+}
+
+impl SdHci {
+    pub fn new() -> Self {
+        Self {
+            buffer: [0; nrf_sdc::raw::HCI_MSG_BUFFER_MAX_SIZE as usize],
+            rpos: 0,
+            end: 0,
+
+            write_buffer: [0; nrf_sdc::raw::HCI_MSG_BUFFER_MAX_SIZE as usize],
+            wpos: 0,
+        }
+    }
+
+    fn fetch_next(&mut self) -> Result<(), SdcError> {
+        if self.rpos == self.end {
+            try_sdc_hci_get(&mut self.buffer)?;
+            let _type = self.buffer[0];
+            let len = match _type {
+                0x04 => {
+                    let _code = self.buffer[1];
+                    let len = self.buffer[2];
+                    3 + len as usize
+                }
+                0x02 => {
+                    let _handle = &self.buffer[1..2];
+                    let len = u16::from_le_bytes([self.buffer[3], self.buffer[4]]);
+                    5 + len as usize
+                }
+                0x01 => 1,
+                _ => {
+                    return Err(SdcError::Other);
+                }
+            };
+            info!("Got packet of len {}", len);
+            assert!(len <= self.buffer.len());
+            self.rpos = 0;
+            self.end = len;
+            Ok(())
+        } else {
+            Ok(())
+        }
+    }
+}
 
 #[derive(defmt::Format, Debug)]
 pub struct HciError {
@@ -150,19 +205,41 @@ impl embedded_io::ErrorType for SdHci {
 
 impl embedded_io::Read for SdHci {
     fn read(&mut self, buf: &mut [u8]) -> Result<usize, Self::Error> {
-        let r = sdc_hci_read(buf)?;
-        Ok(r)
+        match self.fetch_next() {
+            Ok(_) => {
+                let to_copy = core::cmp::min(buf.len(), self.end - self.rpos);
+                defmt::info!("Copying {} bytes", to_copy);
+                buf[..to_copy].copy_from_slice(&self.buffer[self.rpos..self.rpos + to_copy]);
+                self.rpos += to_copy;
+                Ok(to_copy)
+            }
+            Err(SdcError::Again) => Ok(0),
+            Err(e) => Err(e.into()),
+        }
     }
 }
 
 impl embedded_io::Write for SdHci {
     fn write(&mut self, buf: &[u8]) -> Result<usize, Self::Error> {
-        info!("Writing {} bytes", buf.len());
-        sdc_hci_write(buf)?;
+        assert!(self.wpos + buf.len() <= self.write_buffer.len());
+        self.write_buffer[self.wpos..self.wpos + buf.len()].copy_from_slice(buf);
+        self.wpos += buf.len();
         Ok(buf.len())
     }
 
     fn flush(&mut self) -> Result<(), Self::Error> {
+        assert!(self.wpos >= 1);
+        let t = self.write_buffer[0];
+        match t {
+            0x01 => {
+                sdc_hci_write_command(&self.write_buffer[1..self.wpos])?;
+            }
+            0x02 => {
+                sdc_hci_write_data(&self.write_buffer[1..self.wpos])?;
+            }
+            _ => return Err(SdcError::Other.into()),
+        }
+        self.wpos = 0;
         Ok(())
     }
 }

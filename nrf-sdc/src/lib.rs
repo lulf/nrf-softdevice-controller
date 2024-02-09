@@ -14,6 +14,7 @@ pub enum Error {
     InvalidArg,
     NotPermitted,
     OpNotSupported,
+    Again,
     Other,
 }
 
@@ -22,6 +23,7 @@ impl From<i32> for Error {
         match val {
             -1 => Self::NotPermitted,
             -22 => Self::InvalidArg,
+            -35 => Self::Again,
             -45 => Self::OpNotSupported,
             _ => Self::Other,
         }
