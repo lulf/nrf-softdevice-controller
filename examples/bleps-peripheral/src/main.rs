@@ -7,6 +7,7 @@ use bleps::{
     attribute_server::{AttributeServer, NotificationData, WorkResult},
     Addr, Ble, HciConnector,
 };
+use cortex_m::peripheral::NVIC;
 use defmt::info;
 use embassy_executor::Spawner;
 use embassy_nrf::{bind_interrupts, interrupt, pac, pac::Interrupt::SWI5_EGU5, peripherals, rng};
@@ -57,13 +58,21 @@ fn RTC0() {
 
 #[interrupt]
 fn POWER_CLOCK() {
-    info!("POWER_CLOCK IRQ");
-    unsafe { MPSL_IRQ_CLOCK_Handler() };
+    let i = interrupt::POWER_CLOCK;
+    info!("POWER_CLOCK IRQ enabled: {}", NVIC::is_enabled(i));
+    info!("POWER_CLOCK IRQ active: {}", NVIC::is_active(i));
+    info!("POWER_CLOCK IRQ pending: {}", NVIC::is_pending(i));
+
+    let r = unsafe { &*pac::CLOCK::ptr() };
+    unsafe { r.intenclr.write(|w| w.bits(0xFFFFFFFF)) };
+
+    print_regs();
+
+    //unsafe { MPSL_IRQ_CLOCK_Handler() };
     info!("DONE POWER_CLOCK IRQ");
 }
 
 fn current_millis() -> u64 {
-    info!("GET MILIS");
     Instant::now().as_millis()
 }
 
@@ -86,13 +95,14 @@ async fn main(_s: Spawner) {
     let mut config = embassy_nrf::config::Config::default();
     config.gpiote_interrupt_priority = interrupt::Priority::P2;
     config.time_interrupt_priority = interrupt::Priority::P2;
+    config.hfclk_source = embassy_nrf::config::HfclkSource::ExternalXtal;
     interrupt::RTC0.set_priority(interrupt::Priority::P0);
     interrupt::RADIO.set_priority(interrupt::Priority::P0);
     interrupt::TIMER0.set_priority(interrupt::Priority::P0);
     interrupt::POWER_CLOCK.set_priority(interrupt::Priority::P4);
     interrupt::SWI5_EGU5.set_priority(interrupt::Priority::P4);
 
-    print_regs();
+    //print_regs();
 
     let p = embassy_nrf::init(config);
 
@@ -100,12 +110,9 @@ async fn main(_s: Spawner) {
 
     let config = MpslConfig {};
     mpsl_init(config, SWI5_EGU5).unwrap();
+    //let i = interrupt::POWER_CLOCK;
+    //unsafe { NVIC::mask(i) };
     print_regs();
-    loop {
-        info!("Piung");
-        Timer::after(Duration::from_millis(300)).await;
-    }
-    //
     let mut rng = rng::Rng::new(p.RNG, Irqs);
     rng.set_bias_correction(true);
     let mut seed = [0u8; 32];
@@ -115,7 +122,7 @@ async fn main(_s: Spawner) {
 
     let connector = SdHci;
     info!("Creating connector!");
-    //Timer::after(Duration::from_millis(2000)).await;
+    Timer::after(Duration::from_millis(2000)).await;
     info!("Waited");
     let hci = HciConnector::new(connector, current_millis);
     info!("New Connector");
@@ -177,6 +184,7 @@ impl embedded_io::Read for SdHci {
 
 impl embedded_io::Write for SdHci {
     fn write(&mut self, buf: &[u8]) -> Result<usize, Self::Error> {
+        info!("Writing {} bytes", buf.len());
         sdc_hci_write(buf)?;
         Ok(buf.len())
     }

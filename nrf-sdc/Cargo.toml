@@ -1,17 +1,17 @@
 [package]
-name = "nrf-softdevice-controller"
+name = "nrf-sdc"
 version = "0.1.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 description = "Rust interface to nRF SoftDevice Controller"
 categories = ["embedded", "hardware-support", "no-std"]
-keywords = ["arm", "cortex-m", "nrf52", "nrf-softdevice-controller"]
+keywords = ["arm", "cortex-m", "nrf52", "softdevice-controller"]
 
 [package.metadata.docs.rs]
 targets = ["thumbv7em-none-eabi"]
 
 [dependencies]
-nrf-softdevice-controller-sys = { path = "../nrf-softdevice-controller-sys" }
+nrf-sdc-sys = { path = "../nrf-sdc-sys" }
 defmt = { version = "0.3", optional = true }
 embassy-sync = "0.5"
 chacha20 = { version = "0.9", default-features = false }

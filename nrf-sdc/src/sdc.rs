@@ -78,6 +78,7 @@ pub fn sdc_init(config: Config) -> Result<(), Error> {
 
 /// Initialize the softdevice controller. Should only be called once!
 pub fn sdc_hci_write(data: &[u8]) -> Result<(), Error> {
+    info!("[sdc] write {}", data.len());
     let ret = unsafe { raw::sdc_hci_data_put(data.as_ptr()) };
     if ret != 0 {
         return Err(ret.into());
@@ -86,7 +87,12 @@ pub fn sdc_hci_write(data: &[u8]) -> Result<(), Error> {
 }
 
 pub fn sdc_hci_read(data: &mut [u8]) -> Result<usize, Error> {
-    Ok(0)
+    let mut t: u32 = 0;
+    let ret = unsafe { raw::sdc_hci_get(data.as_mut_ptr(), (&mut t) as *mut u32) };
+    if ret != 0 {
+        return Err(ret.into());
+    }
+    Ok(data.len())
 }
 
 #[repr(u8)]

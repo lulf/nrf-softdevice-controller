@@ -1,5 +1,5 @@
 [package]
-name = "nrf-softdevice-controller-sys"
+name = "nrf-sdc-sys"
 version = "0.1.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
@@ -12,6 +12,7 @@ regex = "1.10.3"
 llvm-tools = { version = "0.1.1", optional = true }
 
 [features]
-default = ["llvm-objcopy"]
+# default = ["llvm-objcopy"]
+default = ["arm-none-eabi-objcopy"]
 arm-none-eabi-objcopy = []
 llvm-objcopy = ["dep:llvm-tools"]

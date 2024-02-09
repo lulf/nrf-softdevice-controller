@@ -4,4 +4,5 @@
 typedef void* NRF_TIMER_Type;
 typedef int16_t IRQn_Type;
 #define PPI_PRESENT
+#define NRF52_SERIES
 #endif

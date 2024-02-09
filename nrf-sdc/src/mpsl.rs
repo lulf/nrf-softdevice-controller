@@ -15,7 +15,11 @@ pub fn mpsl_init(config: Config, irq: impl cortex_m::interrupt::InterruptNumber)
     };
 
     let ret = unsafe { raw::mpsl_init(&clock_config, irq.number() as i16, Some(fault_handler)) };
-    info!("[mpsl] init return value {}", ret);
+    if ret != 0 {
+        return Err(ret.into());
+    }
+
+    let ret = unsafe { raw::mpsl_clock_hfclk_release() };
     if ret != 0 {
         return Err(ret.into());
     }
