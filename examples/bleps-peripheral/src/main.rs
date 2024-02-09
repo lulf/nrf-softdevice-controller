@@ -96,24 +96,16 @@ async fn main(_s: Spawner) {
     //config.gpiote_interrupt_priority = interrupt::Priority::P2;
     //config.time_interrupt_priority = interrupt::Priority::P2;
     // config.hfclk_source = embassy_nrf::config::HfclkSource::ExternalXtal;
-    //interrupt::RTC0.set_priority(interrupt::Priority::P0);
-    //interrupt::RADIO.set_priority(interrupt::Priority::P0);
-    //interrupt::TIMER0.set_priority(interrupt::Priority::P0);
-    //interrupt::POWER_CLOCK.set_priority(interrupt::Priority::P4);
-    //interrupt::SWI0_EGU0.set_priority(interrupt::Priority::P4);
 
     //print_regs();
 
     let p = embassy_nrf::init(config);
 
-    unsafe {
-        let mut nvic: NVIC = core::mem::transmute(());
-        nvic.set_priority(pac::Interrupt::RADIO, 0 << 5);
-        nvic.set_priority(pac::Interrupt::RTC0, 0 << 5);
-        nvic.set_priority(pac::Interrupt::TIMER0, 0 << 5);
-        nvic.set_priority(pac::Interrupt::POWER_CLOCK, 7 << 5);
-        nvic.set_priority(pac::Interrupt::SWI0_EGU0, 7 << 5);
-    }
+    interrupt::RTC0.set_priority(interrupt::Priority::P0);
+    interrupt::RADIO.set_priority(interrupt::Priority::P0);
+    interrupt::TIMER0.set_priority(interrupt::Priority::P0);
+    interrupt::POWER_CLOCK.set_priority(interrupt::Priority::P4);
+    interrupt::SWI0_EGU0.set_priority(interrupt::Priority::P4);
 
     info!("Init mpsl");
 
@@ -135,8 +127,11 @@ async fn main(_s: Spawner) {
     //unsafe { NVIC::mask(i) };
     // let res = sys::mpsl_clock_hfclk_request(Some(hfclk_callback));
     // info!("res {}", res);
-
     Timer::after(Duration::from_millis(10)).await;
+    loop {
+        info!("Hello");
+        Timer::after(Duration::from_millis(300)).await;
+    }
     print_regs();
     let mut rng = rng::Rng::new(p.RNG, Irqs);
     rng.set_bias_correction(true);

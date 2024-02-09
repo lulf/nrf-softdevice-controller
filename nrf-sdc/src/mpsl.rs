@@ -2,6 +2,7 @@ use super::raw;
 use super::Error;
 use core::future::poll_fn;
 use core::task::Poll;
+use cortex_m::interrupt::InterruptNumber;
 use embassy_nrf::interrupt;
 use embassy_nrf::interrupt::InterruptExt as _;
 use embassy_sync::waitqueue::AtomicWaker;
@@ -43,7 +44,7 @@ pub fn mpsl_init<T: interrupt::typelevel::Interrupt>(
         skip_wait_lfclk_started: false,
     };
 
-    let ret = unsafe { raw::mpsl_init(&clock_config, T::IRQ as i16, Some(mpsl_assert_handler)) };
+    let ret = unsafe { raw::mpsl_init(&clock_config, T::IRQ.number() as u32, Some(mpsl_assert_handler)) };
     info!("Init done: {}", ret);
     if ret != 0 {
         return Err(ret.into());
